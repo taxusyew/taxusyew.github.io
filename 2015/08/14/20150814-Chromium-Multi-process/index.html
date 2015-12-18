@@ -18,7 +18,7 @@
 问题建造一个从不崩溃或宕机的渲染引擎几乎是不可能的。同样建造一个有着完美安全性的渲染引擎也几乎是不可能的。
 从某些方式上来看，当前浏览器的状况和从协作单用户（ single-user, co-operatively）、多任务操作系统很类似。这种操作系统上的应用一个失误（misbehaving ）">
 <meta property="og:image" content="http://i.imgur.com/UlvuMWw.png">
-<meta property="og:updated_time" content="2015-08-14T06:23:48.875Z">
+<meta property="og:updated_time" content="2015-12-18T09:27:40.617Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Chromium多进程框架">
 <meta name="twitter:description" content="Multi-process Architecture
@@ -232,7 +232,7 @@
 </ul>
 <p>访问<a href="https://www.chromium.org/developers/design-documents/displaying-a-web-page-in-chrome" target="_blank" rel="external">How Chromium displays web pages</a>设计文档，获取嵌入是如何工作的更多细节。</p>
 <h1 id="Sharing_the_render_process_共享渲染进程">Sharing the render process 共享渲染进程</h1><p>通常情况下，每个window或tab都是在新的进程中打开。browser将生成一个新进程并且指示它创建一个<code>RenderView</code>.</p>
-<p>有时我们需要在tab或window间共享渲染进程。一个web应用打开新窗口时希望同步通信，例如，在JavaScript中使用<code>window.open</code>. 这种情况下，当我们创建了新的window或tab时，我们需要重用已经打开的window进程。如果已经存在的进程数量过多，我们同样有策略为已经存在的 window 分配新的tab。详见 <a href="https://www.chromium.org/developers/design-documents/process-models" target="_blank" rel="external">进程模型</a>.</p>
+<p>有时我们需要在tab或window间共享渲染进程。一个web应用打开新窗口时希望同步通信，例如，在JavaScript中使用<code>window.open</code>. 这种情况下，当我们创建了新的 window 或tab时，我们需要重用已经打开的window进程。如果已经存在的进程数量过多，我们同样有策略为已经存在的 window 分配新的tab。详见 <a href="https://www.chromium.org/developers/design-documents/process-models" target="_blank" rel="external">进程模型</a>.</p>
 <h1 id="Detecting_crashed_or_misbehaving_renderers_检测渲染引擎的崩溃和错误">Detecting crashed or misbehaving renderers 检测渲染引擎的崩溃和错误</h1><p>每个连接 browser 进程的IPC都检测进程句柄。如果处理了这些句柄，当渲染引擎崩溃的时候，tab将会得到崩溃通知。就目前来说，我们显示的是“sad tab”屏幕，来通知用户渲染引擎崩溃了。可以通过点击重载按钮来重新加载，或者打开一个新的导航（navigation）. 当这种情况发生的时候，我们发现没有进程之后再新建一个。</p>
 <h1 id="Sandboxing_the_renderer_沙盒中的渲染引擎">Sandboxing the renderer 沙盒中的渲染引擎</h1><p>因为WebKit运行在独立的进程中，我们有机会限制它们访问系统资源。例如我们可以确保渲染引擎只能通过父级的 browser 进程访问网络。同样的，我们可以通过宿主操作系统的内置权限限制它访问文件系统。</p>
 <p>进一步限制渲染引擎访问文件系统和网络，我们可以在它访问用户显示器和相关对象的时候设置限制。我们可以在独立的 Windows “Desktop”中运行渲染进程，对用户来说是这透明的。这样就避免了在打开新window或者捕获按键（而做的妥协|泄露渲染引擎）。</p>
