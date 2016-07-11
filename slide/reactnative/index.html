@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">    
+<head>
+    <meta charset="utf-8">
+    <title>React Native 总结</title>
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/solarized.css" id="theme"> 
+    <!--Add support for earlier versions of Internet Explorer -->
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+</head>
+ 
+<body>
+    <!-- Wrap the entire slide show in a div using the "reveal" class. -->
+    <div class="reveal">
+        <!-- Wrap all slides in a single "slides" class -->
+        <div class="slides">
+ 
+            <!-- 这里存放所有的 slide -->
+            <!-- 每个 section 都是一个独立的 slide -->
+            <section>
+                <h1>React Native 分享</h1>
+                <p class="fragment" data-fragment-index="0">1. 准备开发</p>        
+                <p class="fragment" data-fragment-index="1">2. 启动阶段</p>        
+                <p class="fragment" data-fragment-index="2">3. 数据管理</p>        
+            </section>
+ 			
+ 			<section data-markdown >
+                <h1>准备开发</h1>
+
+			</section>
+
+            <section id="show-a-link"  data-transition="zoom">
+                <h1>启动阶段</h1>
+
+                <!-- <h1>Show a live link</h1>
+                <p>Slide 2 discussed here</p>
+                <p>See <a href="http://www.htmlcheats.com">HTMLCheats.com</a><p> -->
+            </section>
+ 
+            <section>
+                <h1>数据管理</h1>
+                
+                <!-- <h1>Slide 3</h1>
+                <p>How does one revisit an arbitrary slide in code?</p>
+                <p>Visit internal slide<a href="#/show-a-link"> 2</a> -->
+            </section>
+ 
+ 			<section>
+			    <p class="fragment" data-fragment-index="0">Appears last</p>
+			    <p class="fragment" data-fragment-index="1">Appears first</p>
+			    <p class="fragment" data-fragment-index="2">Appears second</p>
+			</section>
+
+
+
+			<section>
+			    <pre><code data-trim>
+			(def lazy-fib
+			  (concat
+			   [0 1]
+			   ((fn rfib [a b]
+			        (lazy-cons (+ a b) (rfib b (+ a b)))) 0 1)))
+			    </code></pre>
+			</section>
+            </div>
+    </div>
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+ 
+    <script>
+        // 即使没有自定义，也是必须要有的
+        Reveal.initialize({
+			controls: true,
+			progress: true,
+			history: true,
+			dependencies: [
+		        // Cross-browser shim that fully implements classList - https://github.com/eligrey/classList.js/
+		        { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+
+		        // Interpret Markdown in <section> elements
+		        { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+		        { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+
+		        // Syntax highlight for <code> elements
+		        { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+		        
+		    ]
+			
+		});
+    </script>
+</body>
+</html>
