@@ -1,20 +1,20 @@
 
-<!DOCTYPE html>
+ <!DOCTYPE HTML>
 <html lang="zh-CN">
-    
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="Taxus">
-    <title>Graphics architecture 图形架构 - Taxus</title>
+  <meta charset="UTF-8">
+  
+    <title>Graphics architecture 图形架构 | Taxus</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
     <meta name="author" content="Taxus">
     
-    
+
     
     <meta name="description" content="Graphics architecture 图形架构原文地址
 所有开发者都应该知道Surface、SurfaceHolder、EGLSurface, SurfaceView, GLSurfaceView, SurfaceTexture, TextureView, 和 SurfaceFlinger.
 这篇文章描述了Android系统级图形架构的重要元素，和它是如何被应用框架、多媒体系统使用。关注点在">
-<meta property="og:type" content="blog">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Graphics architecture 图形架构">
 <meta property="og:url" content="http://yoursite.com/2015/04/22/20150422Graphics-architecture/index.html">
 <meta property="og:site_name" content="Taxus">
@@ -28,176 +28,86 @@
 <meta name="twitter:description" content="Graphics architecture 图形架构原文地址
 所有开发者都应该知道Surface、SurfaceHolder、EGLSurface, SurfaceView, GLSurfaceView, SurfaceTexture, TextureView, 和 SurfaceFlinger.
 这篇文章描述了Android系统级图形架构的重要元素，和它是如何被应用框架、多媒体系统使用。关注点在">
+
+    
+    <link rel="alternative" href="/atom.xml" title="Taxus" type="application/atom+xml">
     
     
-        
+    <link rel="icon" href="/img/favicon.ico">
     
     
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
     
-    
-    
-    <!--STYLES-->
-    <link rel="stylesheet" href="/assets/css/style-nuvue6sithwirecbhvw3dkaobiojqvtadsnhguwi7k04xklybw5djl1smadp.min.css" type="text/css">
-    <!--STYLES END-->
-    
-    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
 </head>
 
-    <body>
-        <div id="blog">
-            <!-- Define author's picture -->
-
-
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="Taxus" title="Taxus"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Taxus">Taxus</a></h1>
+				<h2 class="blog-motto">进入前端的后端</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">主页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/about">关于</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
     
-
-<header id="header" data-behavior="3">
-    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
-    <h1 class="header-title">
-        <a class="header-title-link" href="/ ">Taxus</a>
-    </h1>
+      <a href="/2015/04/22/20150422Graphics-architecture/" title="Graphics architecture 图形架构" itemprop="url">Graphics architecture 图形架构</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Taxus" target="_blank" itemprop="author">Taxus</a>
+		
+  <p class="article-time">
+    <time datetime="2015-04-22T01:48:11.000Z" itemprop="datePublished"> 发表于 Apr 22 2015</time>
     
-        
-            <a  class="header-right-picture "
-                href="/#about">
-        
-        
-        </a>
-    
+  </p>
 </header>
-
-            <!-- Define author's picture -->
-
-
-<nav id="sidebar" data-behavior="3">
-    
-    
-        <ul class="sidebar-buttons">
-        
-            <li class="sidebar-button">
-                
-                    <a  class="sidebar-button-link "
-                         href="/ "
-                        
-                    >
-                
-                    <i class="sidebar-button-icon fa fa-lg fa-home"></i>
-                    <span class="sidebar-button-desc">首頁</span>
-                </a>
-        </li>
-        
-            <li class="sidebar-button">
-                
-                    <a  class="sidebar-button-link "
-                         href="/all-categories"
-                        
-                    >
-                
-                    <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
-                    <span class="sidebar-button-desc">分類</span>
-                </a>
-        </li>
-        
-            <li class="sidebar-button">
-                
-                    <a  class="sidebar-button-link "
-                         href="/all-tags"
-                        
-                    >
-                
-                    <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
-                    <span class="sidebar-button-desc">標籤</span>
-                </a>
-        </li>
-        
-            <li class="sidebar-button">
-                
-                    <a  class="sidebar-button-link "
-                         href="/all-archives"
-                        
-                    >
-                
-                    <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
-                    <span class="sidebar-button-desc">所有文章</span>
-                </a>
-        </li>
-        
-            <li class="sidebar-button">
-                
-                    <a  class="sidebar-button-link st-search-show-outputs"
-                         href="/#search"
-                        
-                    >
-                
-                    <i class="sidebar-button-icon fa fa-lg fa-search"></i>
-                    <span class="sidebar-button-desc">搜尋</span>
-                </a>
-        </li>
-        
-            <li class="sidebar-button">
-                
-                    <a  class="sidebar-button-link "
-                         href="/#about"
-                        
-                    >
-                
-                    <i class="sidebar-button-icon fa fa-lg fa-question"></i>
-                    <span class="sidebar-button-desc">關於</span>
-                </a>
-        </li>
-        
-    </ul>
-    
-        <ul class="sidebar-buttons">
-        
-    </ul>
-    
-        <ul class="sidebar-buttons">
-        
-            <li class="sidebar-button">
-                
-                    <a  class="sidebar-button-link "
-                         href="/atom.xml"
-                        
-                    >
-                
-                    <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
-                    <span class="sidebar-button-desc">Atom</span>
-                </a>
-        </li>
-        
-    </ul>
-    
-</nav>
-
-            
-            <div id="main" data-behavior="3"
-                 class="
-                        hasCoverMetaIn
-                        ">
-                
-<article class="post" itemscope itemType="http://schema.org/BlogPosting">
-    
-    
-        <div class="post-header main-content-wrap text-left">
-    
-        <h1 class="post-title" itemprop="headline">
-            Graphics architecture 图形架构
-        </h1>
-    
-    <div class="post-meta">
-    <time itemprop="datePublished" datetime="2015-04-22T10:48:11+09:00">
-	
-		    4月 22, 2015
-    	
-    </time>
-    
-</div>
-
-</div>
-    
-    <div class="post-content markdown" itemprop="articleBody">
-        <div class="main-content-wrap">
-            <h1 id="Graphics_architecture_图形架构">Graphics architecture 图形架构</h1><p><a href="http://source.android.com/devices/graphics/architecture.html#activity" target="_blank" rel="external">原文地址</a></p>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Graphics_architecture_图形架构"><span class="toc-number">1.</span> <span class="toc-text">Graphics architecture 图形架构</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#BufferQueue_and_gralloc_（BufferQueue和gralloc）"><span class="toc-number">1.1.</span> <span class="toc-text">BufferQueue and gralloc （BufferQueue和gralloc）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#gralloc_HAL"><span class="toc-number">1.1.1.</span> <span class="toc-text">gralloc HAL</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SurfaceFlinger_and_Hardware_Composer_（SurfaceFlinger和硬件设计者）"><span class="toc-number">1.2.</span> <span class="toc-text">SurfaceFlinger and Hardware Composer （SurfaceFlinger和硬件设计者）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Hardware_Composer_硬件设计"><span class="toc-number">1.2.1.</span> <span class="toc-text">Hardware Composer 硬件设计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#The_Need_for_Triple-Buffering_三重缓冲的需求"><span class="toc-number">1.2.2.</span> <span class="toc-text">The Need for Triple-Buffering 三重缓冲的需求</span></a></li></ol></li></ol></li></ol>
+		
+		</div>
+		
+		<h1 id="Graphics_architecture_图形架构">Graphics architecture 图形架构</h1><p><a href="http://source.android.com/devices/graphics/architecture.html#activity" target="_blank" rel="external">原文地址</a></p>
 <p><em>所有开发者都应该知道Surface、SurfaceHolder、EGLSurface, SurfaceView, GLSurfaceView, SurfaceTexture, TextureView, 和 SurfaceFlinger.</em></p>
 <p>这篇文章描述了Android系统级图形架构的重要元素，和它是如何被应用框架、多媒体系统使用。关注点在于缓存中的图形数据如何在系统中移动。如果你好奇过SurfaceView和TextreView是如何运作的，或者Surface和EGLSurface是如何交互的，那么你就来对了地方。<br><a id="more"></a><br>假定你已经有了一些Android开发经验。不需要你有app框架的详细知识，而且会涉及到很少的API调用，但这里所列的材料并不与其他公共文档重复很多。这篇文章的目的是理解参与渲染输出的帧的重要事件，所以你在设计程序的时候做出明智的选择。为了这个目标，我们从底层讲述了UI类如何工作学起，而非只是如何使用它们。</p>
 <p>之前的章节包含了后面章节所需的背景材料，所以最好通读全文而不是直接跳到感兴趣的章节。我们从解释Android图形缓存开始，描述组成、显示机制，然后过渡到为组件提供数据的高级机制(the higher-level mechanisms that supply the compositor with data)。</p>
@@ -246,202 +156,387 @@
 <p>假设帧N正在显示，SurfaceFlinger请求帧N+1用来在VSYNC到来的时候显示。(假设帧N和一个重叠层合成，所以知道显示完成，否则不能改变缓冲区内容。)当收到VSYNC的时候，HWC翻转缓冲区。当app开始向缓冲区提供帧N+2，该缓冲区之前用来保存帧N，SurfaceFlinger扫描层列表，查找更新。SurfaceFlinger找不到任何一个新的缓冲区，所以准备在下一个VSYNC到的时候重新显示帧N+1。稍后APP完成了渲染帧N+2，将其插入SurfaceFlinger队列，但是已经太晚了。这样我们的最大帧率被削减了一半。</p>
 <p>可以通过三重缓冲修复这个问题。在VSYNC之前，帧N显示出来，帧N+1被合成（或者安排一个重叠层）准备好了被显示，帧N+2入队，准备被SurfaceFlinger请求。当屏幕翻转的时候，缓冲区没有泡沫通过旋转阶段。该应用程序完成渲染和队列缓冲区刚刚少于一个完整的VSYNC周期（60fps下16.7毫秒）。而SurfaceFlinger/HWC有一个完整的VSYNC周期在下一次翻转前计算出合成。缺点是不论app为屏幕显示做了什么事都至少需要两个VSYNC周期。随着延迟增加，设备响应触摸输入会越来越慢。</p>
 <p><img src="http://i.imgur.com/HdxZAia.png" alt=""></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
 
-            
-        </div>
-    </div>
-    <div id="post-footer" class="post-footer main-content-wrap">
-        
-            <div class="post-footer-tags">
-                <span class="text-color-light text-small">標籤</span><br/>
-                
-    <a class="tag tag--primary tag--small t-link" href="/tags/Android/">Android</a>
 
-            </div>
-        
-        <div class="post-actions-wrap">
-    <nav>
-        <ul class="post-actions post-action-nav">
-            <li class="post-action">
-                
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/04/27/20150427screendensities/"  data-tooltip="Different Densities 不同屏幕分辨率">
-                
-                    <i class="fa fa-angle-left"></i>
-                    <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
-                </a>
-            </li>
-            <li class="post-action">
-                
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/04/07/20150407arcmenu/" data-tooltip="Android自定义组件：弧形菜单">
-                
-                    <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
-                    <i class="fa fa-angle-right"></i>
-                </a>
-            </li>
-        </ul>
-    </nav>
-    <ul class="post-actions post-action-share">
-        <li class="post-action hide-lg hide-md hide-sm">
-            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
-                <i class="fa fa-share-alt"></i>
-            </a>
-        </li>
-        <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2015/04/22/20150422Graphics-architecture/">
-                <i class="fa fa-google-plus"></i>
-            </a>
-        </li>
-        <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2015/04/22/20150422Graphics-architecture/">
-                <i class="fa fa-facebook-official"></i>
-            </a>
-        </li>
-        <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2015/04/22/20150422Graphics-architecture/">
-                <i class="fa fa-twitter"></i>
-            </a>
-        </li>
-        
-        <li class="post-action">
-            
-                <a class="post-action-btn btn btn--default" href="#">
-            
-                <i class="fa fa-list"></i>
-            </a>
-        </li>
-    </ul>
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Android/">Android</a>
+  </div>
+
 </div>
 
 
-        
-            
-        
-    </div>
-</article>
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://yoursite.com/2015/04/22/20150422Graphics-architecture/" data-title="Graphics architecture 图形架构 | Taxus" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
 
 
-
-                <footer id="footer" class="main-content-wrap">
-    <span class="copyrights">
-        Copyrights &copy; 2016 Taxus. All Rights Reserved.
-    </span>
 </footer>
 
-            </div>
-            
-                <div id="bottom-bar" class="post-bottom-bar" data-behavior="3">
-                    <div class="post-actions-wrap">
-    <nav>
-        <ul class="post-actions post-action-nav">
-            <li class="post-action">
-                
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/04/27/20150427screendensities/"  data-tooltip="Different Densities 不同屏幕分辨率">
-                
-                    <i class="fa fa-angle-left"></i>
-                    <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
-                </a>
-            </li>
-            <li class="post-action">
-                
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/04/07/20150407arcmenu/" data-tooltip="Android自定义组件：弧形菜单">
-                
-                    <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
-                    <i class="fa fa-angle-right"></i>
-                </a>
-            </li>
-        </ul>
-    </nav>
-    <ul class="post-actions post-action-share">
-        <li class="post-action hide-lg hide-md hide-sm">
-            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
-                <i class="fa fa-share-alt"></i>
-            </a>
-        </li>
-        <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2015/04/22/20150422Graphics-architecture/">
-                <i class="fa fa-google-plus"></i>
-            </a>
-        </li>
-        <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2015/04/22/20150422Graphics-architecture/">
-                <i class="fa fa-facebook-official"></i>
-            </a>
-        </li>
-        <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2015/04/22/20150422Graphics-architecture/">
-                <i class="fa fa-twitter"></i>
-            </a>
-        </li>
-        
-        <li class="post-action">
-            
-                <a class="post-action-btn btn btn--default" href="#">
-            
-                <i class="fa fa-list"></i>
-            </a>
-        </li>
-    </ul>
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2015/04/27/20150427screendensities/" title="Different Densities 不同屏幕分辨率">
+  <strong>上一篇：</strong><br/>
+  <span>
+  Different Densities 不同屏幕分辨率</span>
+</a>
 </div>
 
 
-                </div>
-                <div id="share-options-bar" class="share-options-bar" data-behavior="3">
-    <ul class="share-options">
-        <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2015/04/22/20150422Graphics-architecture/">
-                <i class="fa fa-google-plus"></i><span class="">分享到 Google+</span>
-            </a>
-        </li>
-        <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2015/04/22/20150422Graphics-architecture/">
-                <i class="fa fa-facebook-official"></i><span>分享到 Facebook</span>
-            </a>
-        </li>
-        <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2015/04/22/20150422Graphics-architecture/">
-                <i class="fa fa-twitter"></i><span>分享到 Twitter</span>
-            </a>
-        </li>
-    </ul>
+<div class="next">
+<a href="/2015/04/07/20150407arcmenu/"  title="Android自定义组件：弧形菜单">
+ <strong>下一篇：</strong><br/> 
+ <span>Android自定义组件：弧形菜单
+</span>
+</a>
 </div>
-<div id="share-options-mask" class="share-options-mask"></div>
-            
-        </div>
-        
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Graphics_architecture_图形架构"><span class="toc-number">1.</span> <span class="toc-text">Graphics architecture 图形架构</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#BufferQueue_and_gralloc_（BufferQueue和gralloc）"><span class="toc-number">1.1.</span> <span class="toc-text">BufferQueue and gralloc （BufferQueue和gralloc）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#gralloc_HAL"><span class="toc-number">1.1.1.</span> <span class="toc-text">gralloc HAL</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SurfaceFlinger_and_Hardware_Composer_（SurfaceFlinger和硬件设计者）"><span class="toc-number">1.2.</span> <span class="toc-text">SurfaceFlinger and Hardware Composer （SurfaceFlinger和硬件设计者）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Hardware_Composer_硬件设计"><span class="toc-number">1.2.1.</span> <span class="toc-text">Hardware Composer 硬件设计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#The_Need_for_Triple-Buffering_三重缓冲的需求"><span class="toc-number">1.2.2.</span> <span class="toc-text">The Need for Triple-Buffering 三重缓冲的需求</span></a></li></ol></li></ol></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/Android/" title="Android">Android<sup>9</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/JS/" title="JS">JS<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/view/" title="view">view<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/算法/" title="算法">算法<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/emacs/" title="emacs">emacs<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/chromium/" title="chromium">chromium<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/APICloud/" title="APICloud">APICloud<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/git/" title="git">git<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/grunt/" title="grunt">grunt<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/CSS/" title="CSS">CSS<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/touch/" title="touch">touch<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/hexo/" title="hexo">hexo<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/主题/" title="主题">主题<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/DP/" title="DP">DP<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/zsh/" title="zsh">zsh<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/bash/" title="bash">bash<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/centos/" title="centos">centos<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/配置/" title="配置">配置<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/加密/" title="加密">加密<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/RSA/" title="RSA">RSA<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
 
 
-<div id="about">
-    <div id="about-card">
-        <div id="about-btn-close">
-            <i class="fa fa-remove"></i>
-        </div>
-        
-            <h4 id="about-card-name">Taxus</h4>
-        
-            <h5 id="about-card-bio"><p>author.bio</p>
-</h5>
-        
-        
-            <h5 id="about-card-job">
-                <i class="fa fa-briefcase"></i>
-                <br/>
-                <p>author.job</p>
-
-            </h5>
-        
-        
+</aside>
+</div>
     </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> jundge jump~ <br/>
+			</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
+		
+		<a href="/about" target="_blank" title="Taxus">Taxus</a>
+		
+		
+		</p>
 </div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
 
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
         
-<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
-    </body>
-    <!--SCRIPTS-->
-<script src="/assets/js/script-i4qo6jx6jji9fg0dftpya6ivemizsbow4fhow76d8dwpm7m1wbvi378ssumx.min.js" type="text/javascript"></script>
-<!--SCRIPTS END-->
+    }
+  });
+});
+</script>
 
-    
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
 
 
 
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
 </html>
