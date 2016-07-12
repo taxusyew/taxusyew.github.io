@@ -22,7 +22,7 @@
 所有开发者都应该知道Surface、SurfaceHolder、EGLSurface, SurfaceView, GLSurfaceView, SurfaceTexture, TextureView, 和 SurfaceFlinger.
 这篇文章描述了Android系统级图形架构的重要元素，和它是如何被应用框架、多媒体系统使用。关注点在">
 <meta property="og:image" content="http://i.imgur.com/HdxZAia.png">
-<meta property="og:updated_time" content="2015-08-11T01:09:18.243Z">
+<meta property="og:updated_time" content="2016-07-12T04:01:12.214Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Graphics architecture 图形架构">
 <meta name="twitter:description" content="Graphics architecture 图形架构原文地址
@@ -50,7 +50,7 @@
 
     
 
-<header id="header" data-behavior="4">
+<header id="header" data-behavior="3">
     <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
     <h1 class="header-title">
         <a class="header-title-link" href="/ ">Taxus</a>
@@ -68,7 +68,7 @@
             <!-- Define author's picture -->
 
 
-<nav id="sidebar" data-behavior="4">
+<nav id="sidebar" data-behavior="3">
     
     
         <ul class="sidebar-buttons">
@@ -170,7 +170,7 @@
 </nav>
 
             
-            <div id="main" data-behavior="4"
+            <div id="main" data-behavior="3"
                  class="
                         hasCoverMetaIn
                         ">
@@ -199,8 +199,7 @@
         <div class="main-content-wrap">
             <h1 id="Graphics_architecture_图形架构">Graphics architecture 图形架构</h1><p><a href="http://source.android.com/devices/graphics/architecture.html#activity" target="_blank" rel="external">原文地址</a></p>
 <p><em>所有开发者都应该知道Surface、SurfaceHolder、EGLSurface, SurfaceView, GLSurfaceView, SurfaceTexture, TextureView, 和 SurfaceFlinger.</em></p>
-<p>这篇文章描述了Android系统级图形架构的重要元素，和它是如何被应用框架、多媒体系统使用。关注点在于缓存中的图形数据如何在系统中移动。如果你好奇过SurfaceView和TextreView是如何运作的，或者Surface和EGLSurface是如何交互的，那么你就来对了地方。</p>
-<p>假定你已经有了一些Android开发经验。不需要你有app框架的详细知识，而且会涉及到很少的API调用，但这里所列的材料并不与其他公共文档重复很多。这篇文章的目的是理解参与渲染输出的帧的重要事件，所以你在设计程序的时候做出明智的选择。为了这个目标，我们从底层讲述了UI类如何工作学起，而非只是如何使用它们。</p>
+<p>这篇文章描述了Android系统级图形架构的重要元素，和它是如何被应用框架、多媒体系统使用。关注点在于缓存中的图形数据如何在系统中移动。如果你好奇过SurfaceView和TextreView是如何运作的，或者Surface和EGLSurface是如何交互的，那么你就来对了地方。<br><a id="more"></a><br>假定你已经有了一些Android开发经验。不需要你有app框架的详细知识，而且会涉及到很少的API调用，但这里所列的材料并不与其他公共文档重复很多。这篇文章的目的是理解参与渲染输出的帧的重要事件，所以你在设计程序的时候做出明智的选择。为了这个目标，我们从底层讲述了UI类如何工作学起，而非只是如何使用它们。</p>
 <p>之前的章节包含了后面章节所需的背景材料，所以最好通读全文而不是直接跳到感兴趣的章节。我们从解释Android图形缓存开始，描述组成、显示机制，然后过渡到为组件提供数据的高级机制(the higher-level mechanisms that supply the compositor with data)。</p>
 <p>本文主要关注的是Android 4.4(“KitKat”). 之前的系统以不同的方式工作，未来的版本也会不同。特定版本的特性会很少并会指出。</p>
 <p>我会在很多地方引用AOSP资源或者Grafika. Grafika是一个谷歌为了测试而开源的项目；存放在<a href="https://github.com/google/grafika" target="_blank" rel="external">github grafika</a>.这比具体的实例代码更易修改(quick hack)，但这就足够了。</p>
@@ -330,7 +329,7 @@
 
             </div>
             
-                <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="3">
                     <div class="post-actions-wrap">
     <nav>
         <ul class="post-actions post-action-nav">
@@ -386,7 +385,7 @@
 
 
                 </div>
-                <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+                <div id="share-options-bar" class="share-options-bar" data-behavior="3">
     <ul class="share-options">
         <li class="share-option">
             <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2015/04/22/20150422Graphics-architecture/">

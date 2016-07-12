@@ -42,7 +42,7 @@
 
     
 
-<header id="header" data-behavior="2">
+<header id="header" data-behavior="1">
     <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
     <h1 class="header-title">
         <a class="header-title-link" href="/ ">Taxus</a>
@@ -60,7 +60,7 @@
             <!-- Define author's picture -->
 
 
-<nav id="sidebar" data-behavior="2">
+<nav id="sidebar" data-behavior="1">
     
     
         <ul class="sidebar-buttons">
@@ -162,7 +162,7 @@
 </nav>
 
             
-            <div id="main" data-behavior="2"
+            <div id="main" data-behavior="1"
                  class="
                         hasCoverMetaIn
                         ">
@@ -172,7 +172,7 @@
 <section class="postShorten-group main-content-wrap">
     
     
-    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+    <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
         <div class="postShorten-wrap">
             
             <div class="postShorten-header">
@@ -194,33 +194,18 @@
 
             </div>
             
-                <div class="postShorten-content" itemprop="articleBody">
+                <div class="postShorten-excerpt" itemprop="articleBody">
                     <p>测试平台  </p>
 <blockquote>
 <p>CentOS 6.5 64bit  </p>
 </blockquote>
-<p>oh-my-zsh的<a href="https://github.com/robbyrussell/oh-my-zsh" title="github  oh-my-zsh" target="_blank" rel="external">项目地址</a><br>在bash中直接执行下面语句，即可从git中下载到oh-my-zsh代码<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh</span><br><span class="line">cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc</span><br></pre></td></tr></table></figure></p>
-<p>因为我之前没有使用过zsh，所以也不需要备份自己的<code>.zshrc</code>文件，可以放心的cp</p>
-<p>正因为我之前完全没有使用过zsh，安装centos的时候也没有安装zsh，所以如果此时直接执行zsh将会报错<br>如果执行<code>source .zshrc</code>会报错<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bash /root/.oh-my-zsh/oh-my-zsh.sh: line <span class="number">19</span>: syntax error near unexpected token `(<span class="string">'</span><br><span class="line">bash: /root/.oh-my-zsh/oh-my-zsh.sh: line 19: `for config_file ($ZSH/lib/*.zsh); do'</span></span><br></pre></td></tr></table></figure></p>
-<p>找到一个官方的<a href="https://github.com/robbyrussell/oh-my-zsh/issues/2527" target="_blank" rel="external">issue</a>比较有用，其中提到“需要把默认终端改成zsh”，也就是先切换到zsh，再执行<code>source .zshrc</code>才能生效</p>
-<p>想了半天，给自己蠢哭了….oh-my-zsh是没有自带安装zsh的，只是封装了一些配置….<br>看看官方解释：</p>
-<blockquote>
-<p>oh-my-zsh is an open source, community-driven framework for managing your Zsh configuration.<br>oh-my-zsh 是一个开源的、社区驱动的框架，用来管理你的zsh配置</p>
-</blockquote>
-<p>所以，先安装一下zsh….</p>
-<p><pre><code>yum install zsh</code></pre><br>之后就可以顺利执行，在cp完.zshrc之后</p>
-<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">zsh  // 先在bash中进入zsh</span><br><span class="line"><span class="built_in">source</span> .zshrc</span><br></pre></td></tr></table></figure>
-<p>这就可以使用oh-my-zsh了~</p>
-
+<p>oh-my-zsh的<a href="https://github.com/robbyrussell/oh-my-zsh" title="github  oh-my-zsh">项目地址</a><br>在bash中直接执行下面语句，即可从git中下载到oh-my-zsh代码<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh</span><br><span class="line">cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc</span><br></pre></td></tr></table></figure></p>
+<p>因为我之前没有使用过zsh，所以也不需要备份自己的<code>.zshrc</code>文件，可以放心的cp<br>
                     
+                        <a href="/2015/01/29/2015012901/" class="postShorten-excerpt_link link">
+                            繼續閱讀
+                        </a>
                         
-                    
-                    
-                        <p>
-                            <a href="/2015/01/29/2015012901/#post-footer" class="postShorten-excerpt_link link">
-                                留言與分享
-                            </a>
-                        </p>
                     
                 </div>
             

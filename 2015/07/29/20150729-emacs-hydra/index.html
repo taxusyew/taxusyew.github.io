@@ -12,22 +12,19 @@
     
     
     <meta name="description" content="分割一直以来在emacs中操作窗口都比较麻烦垂直分割window：C-x 3水平分割window：C-x 2
-切换window-numbering切换window时，如果用的是window-numbering插件，直接使用M-{0-9}就行。这样切换在窗口数比较少的时候还是很方便，但是一旦窗口变多，这种只使用数字的方法容易比较乱。
-windmove所以为了能更直观的切换窗口，可以使用windmov">
+切换window-numbering切换window时，如果用的是window-numbering插件，直接使用M-{0-9}就行。这样切换在窗口数比较少的时候还是很方便，但是一旦窗口变多，这种只使用数字的方法容易比较乱。">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="使用hydra简化emacs窗口操作">
 <meta property="og:url" content="http://yoursite.com/2015/07/29/20150729-emacs-hydra/index.html">
 <meta property="og:site_name" content="Taxus">
 <meta property="og:description" content="分割一直以来在emacs中操作窗口都比较麻烦垂直分割window：C-x 3水平分割window：C-x 2
-切换window-numbering切换window时，如果用的是window-numbering插件，直接使用M-{0-9}就行。这样切换在窗口数比较少的时候还是很方便，但是一旦窗口变多，这种只使用数字的方法容易比较乱。
-windmove所以为了能更直观的切换窗口，可以使用windmov">
+切换window-numbering切换window时，如果用的是window-numbering插件，直接使用M-{0-9}就行。这样切换在窗口数比较少的时候还是很方便，但是一旦窗口变多，这种只使用数字的方法容易比较乱。">
 <meta property="og:image" content="http://i.imgur.com/VGXlSkQ.png">
-<meta property="og:updated_time" content="2015-07-29T08:37:11.137Z">
+<meta property="og:updated_time" content="2016-07-12T04:02:16.228Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用hydra简化emacs窗口操作">
 <meta name="twitter:description" content="分割一直以来在emacs中操作窗口都比较麻烦垂直分割window：C-x 3水平分割window：C-x 2
-切换window-numbering切换window时，如果用的是window-numbering插件，直接使用M-{0-9}就行。这样切换在窗口数比较少的时候还是很方便，但是一旦窗口变多，这种只使用数字的方法容易比较乱。
-windmove所以为了能更直观的切换窗口，可以使用windmov">
+切换window-numbering切换window时，如果用的是window-numbering插件，直接使用M-{0-9}就行。这样切换在窗口数比较少的时候还是很方便，但是一旦窗口变多，这种只使用数字的方法容易比较乱。">
     
     
         
@@ -50,7 +47,7 @@ windmove所以为了能更直观的切换窗口，可以使用windmov">
 
     
 
-<header id="header" data-behavior="4">
+<header id="header" data-behavior="3">
     <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
     <h1 class="header-title">
         <a class="header-title-link" href="/ ">Taxus</a>
@@ -68,7 +65,7 @@ windmove所以为了能更直观的切换窗口，可以使用windmov">
             <!-- Define author's picture -->
 
 
-<nav id="sidebar" data-behavior="4">
+<nav id="sidebar" data-behavior="3">
     
     
         <ul class="sidebar-buttons">
@@ -170,7 +167,7 @@ windmove所以为了能更直观的切换窗口，可以使用windmov">
 </nav>
 
             
-            <div id="main" data-behavior="4"
+            <div id="main" data-behavior="3"
                  class="
                         hasCoverMetaIn
                         ">
@@ -198,7 +195,7 @@ windmove所以为了能更直观的切换窗口，可以使用windmov">
     <div class="post-content markdown" itemprop="articleBody">
         <div class="main-content-wrap">
             <h1 id="分割">分割</h1><p>一直以来在emacs中操作窗口都比较麻烦<br>垂直分割window：<kbd>C-x 3</kbd><br>水平分割window：<kbd>C-x 2</kbd></p>
-<h1 id="切换">切换</h1><h2 id="window-numbering">window-numbering</h2><p>切换window时，如果用的是window-numbering插件，直接使用<kbd>M-{0-9}</kbd>就行。这样切换在窗口数比较少的时候还是很方便，但是一旦窗口变多，这种只使用数字的方法容易比较乱。</p>
+<h1 id="切换">切换</h1><h2 id="window-numbering">window-numbering</h2><p>切换window时，如果用的是window-numbering插件，直接使用<kbd>M-{0-9}</kbd>就行。这样切换在窗口数比较少的时候还是很方便，但是一旦窗口变多，这种只使用数字的方法容易比较乱。<br><a id="more"></a></p>
 <h2 id="windmove">windmove</h2><p>所以为了能更直观的切换窗口，可以使用windmove，这是一个库，从emacs 21开始就已经内置</p>
 <blockquote>
 <p>Windmove is a library built into GnuEmacs starting with version 21<br><a href="http://emacswiki.org/emacs/WindMove" target="_blank" rel="external">emacswiki WindMove</a></p>
@@ -305,7 +302,7 @@ windmove所以为了能更直观的切换窗口，可以使用windmov">
 
             </div>
             
-                <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="3">
                     <div class="post-actions-wrap">
     <nav>
         <ul class="post-actions post-action-nav">
@@ -361,7 +358,7 @@ windmove所以为了能更直观的切换窗口，可以使用windmov">
 
 
                 </div>
-                <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+                <div id="share-options-bar" class="share-options-bar" data-behavior="3">
     <ul class="share-options">
         <li class="share-option">
             <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2015/07/29/20150729-emacs-hydra/">

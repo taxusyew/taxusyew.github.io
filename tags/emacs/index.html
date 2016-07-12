@@ -42,7 +42,7 @@
 
     
 
-<header id="header" data-behavior="2">
+<header id="header" data-behavior="1">
     <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
     <h1 class="header-title">
         <a class="header-title-link" href="/ ">Taxus</a>
@@ -60,7 +60,7 @@
             <!-- Define author's picture -->
 
 
-<nav id="sidebar" data-behavior="2">
+<nav id="sidebar" data-behavior="1">
     
     
         <ul class="sidebar-buttons">
@@ -162,7 +162,7 @@
 </nav>
 
             
-            <div id="main" data-behavior="2"
+            <div id="main" data-behavior="1"
                  class="
                         hasCoverMetaIn
                         ">
@@ -172,7 +172,7 @@
 <section class="postShorten-group main-content-wrap">
     
     
-    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+    <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
         <div class="postShorten-wrap">
             
             <div class="postShorten-header">
@@ -194,42 +194,14 @@
 
             </div>
             
-                <div class="postShorten-content" itemprop="articleBody">
+                <div class="postShorten-excerpt" itemprop="articleBody">
                     <h1 id="分割">分割</h1><p>一直以来在emacs中操作窗口都比较麻烦<br>垂直分割window：<kbd>C-x 3</kbd><br>水平分割window：<kbd>C-x 2</kbd></p>
-<h1 id="切换">切换</h1><h2 id="window-numbering">window-numbering</h2><p>切换window时，如果用的是window-numbering插件，直接使用<kbd>M-{0-9}</kbd>就行。这样切换在窗口数比较少的时候还是很方便，但是一旦窗口变多，这种只使用数字的方法容易比较乱。</p>
-<h2 id="windmove">windmove</h2><p>所以为了能更直观的切换窗口，可以使用windmove，这是一个库，从emacs 21开始就已经内置</p>
-<blockquote>
-<p>Windmove is a library built into GnuEmacs starting with version 21<br><a href="http://emacswiki.org/emacs/WindMove" target="_blank" rel="external">emacswiki WindMove</a></p>
-</blockquote>
-<p>下面的是官方推荐的使用方法，绑定快捷键以后就可以使用，看起来很美，但是如果要快速的移动窗口，<kbd>C-c</kbd>的前缀绝对能手抽筋。<br><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="list">(<span class="keyword">global-set-key</span> <span class="list">(<span class="keyword">kbd</span> <span class="string">"C-c &lt;left&gt;"</span>)</span>  <span class="quoted">'windmove-left</span>)</span></span><br><span class="line"><span class="list">(<span class="keyword">global-set-key</span> <span class="list">(<span class="keyword">kbd</span> <span class="string">"C-c &lt;right&gt;"</span>)</span> <span class="quoted">'windmove-right</span>)</span></span><br><span class="line"><span class="list">(<span class="keyword">global-set-key</span> <span class="list">(<span class="keyword">kbd</span> <span class="string">"C-c &lt;up&gt;"</span>)</span>    <span class="quoted">'windmove-up</span>)</span></span><br><span class="line"><span class="list">(<span class="keyword">global-set-key</span> <span class="list">(<span class="keyword">kbd</span> <span class="string">"C-c &lt;down&gt;"</span>)</span>  <span class="quoted">'windmove-down</span>)</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="ace-window">ace-window</h2><p><a href="https://github.com/abo-abo/ace-window" target="_blank" rel="external">官方github</a><br>这个插件是最全面的，功能最强大，可以删除、交换window，但是各种快捷键也是很麻烦，同时也有使用windmove的问题，就是操作是一次性的，每次的前缀都要求很多。</p>
-<ul>
-<li><kbd>x</kbd> - delete window</li>
-<li><kbd>m</kbd> - swap (move) window</li>
-<li><kbd>v</kbd> - split window vertically</li>
-<li><kbd>b</kbd> - split window horizontally</li>
-<li><kbd>n</kbd> - select the previous window</li>
-<li><kbd>i</kbd> - maximize window (select which window)</li>
-<li><kbd>o</kbd> - maximize current window</li>
-</ul>
-<h1 id="hydra">hydra</h1><p><a href="https://github.com/abo-abo/hydra" target="_blank" rel="external">hydra github</a><br>在遇到hydra之前，我一直是<code>ace-window</code>和<code>window-numbering</code>混合使用，虽然能解决一些问题，但是仍然没有顺畅的感觉，直到发现了hydra，所有的操作顿时豁然开朗。</p>
-<p>先来看下使用hydra改写以后的键位绑定(以下示例来自youtube视频)：<br><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="list">(<span class="keyword">global-set-key</span></span><br><span class="line">     <span class="list">(<span class="keyword">kbd</span> <span class="string">"C-M-w"</span>)</span></span><br><span class="line">     <span class="list">(<span class="keyword">defhydra</span> hydra-window <span class="list">()</span></span><br><span class="line">          <span class="string">"window"</span></span><br><span class="line">          <span class="list">(<span class="string">"h"</span> windmove-left)</span></span><br><span class="line">          <span class="list">(<span class="string">"j"</span> windmove-down)</span></span><br><span class="line">          <span class="list">(<span class="string">"k"</span> windmove-up)</span></span><br><span class="line">          <span class="list">(<span class="string">"l"</span> windmove-right)</span></span><br><span class="line">          <span class="list">(<span class="string">"v"</span> <span class="list">(<span class="keyword">lambda</span> <span class="list">()</span></span><br><span class="line">               <span class="list">(<span class="keyword">interactive</span>)</span></span><br><span class="line">               <span class="list">(<span class="keyword">split-window-right</span>)</span></span><br><span class="line">               <span class="list">(<span class="keyword">windmove-right</span>)</span>)</span></span><br><span class="line">               <span class="string">"vert"</span>)</span></span><br><span class="line">          <span class="list">(<span class="string">"x"</span> <span class="list">(<span class="keyword">lambda</span> <span class="list">()</span></span><br><span class="line">               <span class="list">(<span class="keyword">interactive</span>)</span></span><br><span class="line">               <span class="list">(<span class="keyword">split-window-below</span>)</span></span><br><span class="line">               <span class="list">(<span class="keyword">windmove-down</span>)</span>)</span></span><br><span class="line">               <span class="string">"horz"</span>)</span></span><br><span class="line">          <span class="list">(<span class="string">"t"</span> transpose-frame <span class="string">"'"</span>)</span></span><br><span class="line">          <span class="list">(<span class="string">"o"</span> delete-other-windows <span class="string">"one"</span> <span class="keyword">:color</span> blue)</span></span><br><span class="line">          <span class="list">(<span class="string">"a"</span> ace-window <span class="string">"ace"</span>)</span></span><br><span class="line">          <span class="list">(<span class="string">"s"</span> ace-swap-window <span class="string">"swap"</span>)</span></span><br><span class="line">          <span class="list">(<span class="string">"d"</span> ace-delete-window <span class="string">"del"</span>)</span></span><br><span class="line">          <span class="list">(<span class="string">"i"</span> ace-maximize-window <span class="string">"ace-one"</span> <span class="keyword">:color</span> blue)</span></span><br><span class="line">          <span class="list">(<span class="string">"b"</span> ido-switch-buffer <span class="string">"buf"</span>)</span></span><br><span class="line">          <span class="list">(<span class="string">"q"</span> <span class="literal">nil</span> <span class="string">"cancel"</span>)</span>)</span>)</span></span><br></pre></td></tr></table></figure></p>
-<p>可以看到几乎所有的window操作：切换、分割、删除、交换、最大化，都已经包含了进来。</p>
-<p>调用后的界面为<br><img src="http://i.imgur.com/VGXlSkQ.png" alt=""></p>
-<p>使用hydra最重要的是从此不再需要不停的敲击前缀<kbd>C-M-w</kbd>，前缀敲击一次即可，之后只需要按下双引号里的字母就能执行它对应的命令。</p>
-<p>hydra的思路大概类似vim的切换模式，在按下快捷键以后，我们就进入hydra模式，调用的是通过<code>defhydra</code>定义的函数。函数里每一行的格式都为<code>(&quot;&lt;key&gt;&quot; command &quot;comment&quot;)</code>. 有的会加上 <code>：color blue</code>，加上这种标注的行为，提示行就会变成蓝色，同时表示点击后会退出hydra.</p>
-<p>通过这种方法，我们对window操作时，可以一次<kbd>C-M-w</kbd>后，不停的敲击单个字母，来执行以前需要三四个按键才能做的操作，high翻了~</p>
-<p>最后是这个函数的使用方式，因为本质上它是把一个函数绑定到了快捷键上，所以还是要放在emacs启动完成以后的hook里面，以避免发生快捷键覆盖。也就是放在我的配置的<code>.emacs.d\init\keybind.el</code>里面。同时记得在最开始<code>(require hydra)</code>.</p>
-
+<h1 id="切换">切换</h1><h2 id="window-numbering">window-numbering</h2><p>切换window时，如果用的是window-numbering插件，直接使用<kbd>M-{0-9}</kbd>就行。这样切换在窗口数比较少的时候还是很方便，但是一旦窗口变多，这种只使用数字的方法容易比较乱。<br>
                     
+                        <a href="/2015/07/29/20150729-emacs-hydra/" class="postShorten-excerpt_link link">
+                            繼續閱讀
+                        </a>
                         
-                    
-                    
-                        <p>
-                            <a href="/2015/07/29/20150729-emacs-hydra/#post-footer" class="postShorten-excerpt_link link">
-                                留言與分享
-                            </a>
-                        </p>
                     
                 </div>
             
@@ -238,7 +210,7 @@
     </article>
     
     
-    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+    <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
         <div class="postShorten-wrap">
             
             <div class="postShorten-header">
@@ -260,33 +232,15 @@
 
             </div>
             
-                <div class="postShorten-content" itemprop="articleBody">
+                <div class="postShorten-excerpt" itemprop="articleBody">
                     <p>每次启动emacs的时候，不管进入哪个mode输入”(“都不能自动出现”)”并把光标放到中间<br>很麻烦，所以找到插件autopair，但是安装好后还是不会自动启动<br>每次都要M-x autopair 才行，依旧不方便<br>所以为了让它自启动，折腾了很久，终于搞定，记录一下~</p>
 <blockquote>
-<p>平台:<br>Windows 8.1 X64<br>emacs 24</p>
-</blockquote>
-<ol>
-<li><p>打开文件<code>C:\Users\jedi\AppData\Roaming\.emacs.d\init.el</code>根据已经有的配置，找到合适位置输入<code>(require &#39;init-autopair)</code>，要避免添加到不生效的位置，因为配置文件中会判断平台</p>
-</li>
-<li><p>在下面的文件夹<code>C:\Users\jedi\AppData\Roaming\.emacs.d\lisp\</code>新建文件<code>init-autopair.el</code><br>输入内容</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(require &#39;autopair)&#10;(autopair-global-mode)&#10;(provide &#39;init-autopair)</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>前两行为autopair.el中的文档注释内容，后一行自己添加，等于告诉其他地方，这个包就是init-autopair，否则会报错</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">error: Required feature &#39;init-autopair&#39; was not provided&#10;To ensure normal operation, you should investigate and remove the&#10;cause of the error in your initialization file. Start Emacs with&#10;the &#39;--debug-init&#39; option to view a complete error backtrace.</span><br></pre></td></tr></table></figure>
-<ol>
-<li>最后<code>c:\Users\jedi\AppData\Roaming\.emacs.d\site-lisp\</code><br>新建文件夹autopair，把autopair.el拷进去，之后每次启动emacs就能直接使用autopair</li>
-</ol>
-
+<p>平台:<br>Windows 8.1 X64<br>emacs 24<br>
                     
+                        <a href="/2015/01/15/20150115/" class="postShorten-excerpt_link link">
+                            繼續閱讀
+                        </a>
                         
-                    
-                    
-                        <p>
-                            <a href="/2015/01/15/20150115/#post-footer" class="postShorten-excerpt_link link">
-                                留言與分享
-                            </a>
-                        </p>
                     
                 </div>
             
@@ -295,7 +249,7 @@
     </article>
     
     
-    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+    <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
         <div class="postShorten-wrap">
             
             <div class="postShorten-header">
@@ -317,207 +271,16 @@
 
             </div>
             
-                <div class="postShorten-content" itemprop="articleBody">
+                <div class="postShorten-excerpt" itemprop="articleBody">
                     <p>学习使用emacs很多年了，但是一直因为更喜欢vim编辑文本时候飞一样的感觉，所以总是没有动力去学习它。</p>
 <p>现在的工作是前端，工作用的编辑器更多的还是sublime 3，但总是没由来的想把emacs用好，so～重新开始折腾吧</p>
 <p>一年以前，看了一个博客：一年变成emacs高手，可惜一年之后还是菜鸟一只…</p>
-<p>废话不多说，因为已经用惯了vim和sublime，而且sublime天生就是可以支持vim键位的，所以下面的总结更多是如何改造emacs使其向我的日常工作靠拢。</p>
-<h1 id="1-键位">1.键位</h1><table>
-<thead>
-<tr>
-<th></th>
-<th style="text-align:center">Vim</th>
-<th style="text-align:center">Sublime</th>
-<th style="text-align:center">Emacs</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>行中进入下一行</td>
-<td style="text-align:center">o</td>
-<td style="text-align:center">ctrl+return</td>
-<td style="text-align:center">ctrl-e 回车</td>
-</tr>
-<tr>
-<td>行首</td>
-<td style="text-align:center">0</td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td>行末</td>
-<td style="text-align:center">$</td>
-<td style="text-align:center"></td>
-<td style="text-align:center">ctrl-e</td>
-</tr>
-<tr>
-<td>单词中删除单词</td>
-<td style="text-align:center">daw</td>
-<td style="text-align:center"></td>
-<td style="text-align:center">daw</td>
-</tr>
-<tr>
-<td>删除双引号，单引号之间内容</td>
-<td style="text-align:center">di”</td>
-<td style="text-align:center">ctrl-shitf-&gt;</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td>跳转到下一个单、双引号之中</td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td>批量注释</td>
-<td style="text-align:center"></td>
-<td style="text-align:center">ctrl-/</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td>代码对齐</td>
-<td style="text-align:center"></td>
-<td style="text-align:center">tab</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td>剪切</td>
-<td style="text-align:center">c</td>
-<td style="text-align:center">ctrl-x</td>
-<td style="text-align:center">S-delete(剪切就是删除、内容放到寄存器)</td>
-</tr>
-<tr>
-<td>复制</td>
-<td style="text-align:center">y</td>
-<td style="text-align:center">ctrl-c</td>
-<td style="text-align:center">M-w</td>
-</tr>
-<tr>
-<td>粘贴</td>
-<td style="text-align:center">p</td>
-<td style="text-align:center">ctrl-v</td>
-<td style="text-align:center">S-insert(粘贴就是从寄存器读取插入缓冲区)</td>
-</tr>
-<tr>
-<td>undo</td>
-<td style="text-align:center">u</td>
-<td style="text-align:center">ctrl-z</td>
-<td style="text-align:center">c-_</td>
-</tr>
-<tr>
-<td>多行编辑</td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td>文件夹中搜索</td>
-<td style="text-align:center">/</td>
-<td style="text-align:center"></td>
-<td style="text-align:center">c-s</td>
-</tr>
-<tr>
-<td>配色方案</td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td>鼠标右键</td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td>删除到行末</td>
-<td style="text-align:center"></td>
-<td style="text-align:center">c-k,k</td>
-<td style="text-align:center">c-k,k</td>
-</tr>
-<tr>
-<td>打开文件</td>
-<td style="text-align:center"></td>
-<td style="text-align:center">ctrl-shift-p</td>
-<td style="text-align:center">c-x,f</td>
-</tr>
-<tr>
-<td>保存</td>
-<td style="text-align:center">:w</td>
-<td style="text-align:center">c-s</td>
-<td style="text-align:center">c-x,s</td>
-</tr>
-<tr>
-<td>另存为</td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-<td style="text-align:center">c-x,w</td>
-</tr>
-<tr>
-<td>跳转文件</td>
-<td style="text-align:center"></td>
-<td style="text-align:center">c-p</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td>代码格式化</td>
-<td style="text-align:center"></td>
-<td style="text-align:center">ctrl-shift-f</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td>插入上一行空行</td>
-<td style="text-align:center"></td>
-<td style="text-align:center">ctrl-shift-return</td>
-<td style="text-align:center">kj, shift-o / kj,ko</td>
-</tr>
-<tr>
-<td>代码提示</td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td>向右跳出紧挨)]}’”</td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-<td style="text-align:center">ctrl-f</td>
-</tr>
-<tr>
-<td>缩进</td>
-<td style="text-align:center"></td>
-<td style="text-align:center">ctrl-{</td>
-<td style="text-align:center"></td>
-</tr>
-</tbody>
-</table>
-<h1 id="2-插件">2.插件</h1><h2 id="2-1_IRC聊天">2.1 IRC聊天</h2><p>再也不需要安装新的irc软件了，在emacs中就能直接开始啊！<br>我是在找haskell irc的时候发现这个功能的<br><a href="https://wiki.haskell.org/IRC_channel" title="Haskell IRC" target="_blank" rel="external">https://wiki.haskell.org/IRC_channel</a><br>添加步骤：<br>1&gt; M-x erc-select<br>2&gt; 修改server为 chat.freenode.net<br>3&gt; 添加自己的用户名，密码，如果用户名冲突的话irc会自动修改，名字<br>4&gt; /join #haskell</p>
-<h2 id="2-2_smart-mode-line">2.2 smart-mode-line</h2><p>使用前<br><img src="http://i.imgur.com/gs66wa9.png" alt="使用前"></p>
-<p>使用后<br><img src="http://i.imgur.com/kl95Z3g.png" alt="使用后"></p>
-<h1 id="3-配色">3.配色</h1><h2 id="3-1_zonokai-theme">3.1 zonokai-theme</h2><ol>
-<li>下载颜色的源码 <a href="http://melpa.org/#/zonokai-theme" title="melpa官方地址" target="_blank" rel="external">melpa官方地址</a></li>
-<li>之后把文件夹拷贝到C:\Users\jedi\AppData\Roaming.emacs.d\site-lisp</li>
-<li>之后在init.el中添加<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(require &#39;zonokai-theme)&#10;(zonokai-blue-theme)</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>即可成功启动</p>
-<p>但还是有问题，返回<code>Invalid face:dropdown-list</code></p>
-<h2 id="3-2_color-theme-mac-classic">3.2 color-theme-mac-classic</h2><ol>
-<li>在上<a href="https://raw.githubusercontent.com/jbw/color-theme-mac-classic/master/color-theme-mac-classic.el" target="_blank" rel="external">github</a>下载源码</li>
-<li>在目录中新建文件夹color-theme-mac-classic，将el文件放入其中</li>
-<li>在(require ‘color-theme)之后添加<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(color-theme-initialize)&#10;(load-file &#34;~/.emacs.d/site-lisp/color-theme-mac-classic/color-theme-mac-classic.el&#34;)&#10;;; &#10;;; And then to to activate:&#10;(color-theme-mac-classic)</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p><a href="https://github.com/sellout/emacs-color-theme-solarized" target="_blank" rel="external">https://github.com/sellout/emacs-color-theme-solarized</a></p>
-<h1 id="4-文件管理">4.文件管理</h1>
+<p>废话不多说，因为已经用惯了vim和sublime，而且sublime天生就是可以支持vim键位的，所以下面的总结更多是如何改造emacs使其向我的日常工作靠拢。<br>
                     
+                        <a href="/2014/12/15/2014121502/" class="postShorten-excerpt_link link">
+                            繼續閱讀
+                        </a>
                         
-                    
-                    
-                        <p>
-                            <a href="/2014/12/15/2014121502/#post-footer" class="postShorten-excerpt_link link">
-                                留言與分享
-                            </a>
-                        </p>
                     
                 </div>
             

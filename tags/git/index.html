@@ -42,7 +42,7 @@
 
     
 
-<header id="header" data-behavior="2">
+<header id="header" data-behavior="1">
     <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
     <h1 class="header-title">
         <a class="header-title-link" href="/ ">Taxus</a>
@@ -60,7 +60,7 @@
             <!-- Define author's picture -->
 
 
-<nav id="sidebar" data-behavior="2">
+<nav id="sidebar" data-behavior="1">
     
     
         <ul class="sidebar-buttons">
@@ -162,7 +162,7 @@
 </nav>
 
             
-            <div id="main" data-behavior="2"
+            <div id="main" data-behavior="1"
                  class="
                         hasCoverMetaIn
                         ">
@@ -172,7 +172,7 @@
 <section class="postShorten-group main-content-wrap">
     
     
-    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+    <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
         <div class="postShorten-wrap">
             
             <div class="postShorten-header">
@@ -194,38 +194,17 @@
 
             </div>
             
-                <div class="postShorten-content" itemprop="articleBody">
+                <div class="postShorten-excerpt" itemprop="articleBody">
                     <p>最近多人合作项目中使用git遇到一些问题，记录一下，可能描述不是很清晰</p>
 <h1 id="1-_无法合并">1. 无法合并</h1><blockquote>
 <p>Pull is not possible because you have unmerged files.</p>
 </blockquote>
-<p>解决：<br><code>git add file.name &amp;&amp; git commit -m &quot;removed merge conflicts&quot;</code></p>
-<p><img src="http://i.imgur.com/0gOz7UU.png" alt="git add"></p>
-<p><code>git add</code>完冲突文件以后，才能<code>commit</code>，此时提示符的红色已经消失</p>
-<h1 id="2-_rebase">2. rebase</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">E:\huirongyun\huinongyun [(91889cb...)|REBASE]&#62; git rebase --continue&#10;Applying: bak&#10;No changes - did you forget to use &#39;git add&#39;?&#10;If there is nothing left to stage, chances are that something else&#10;already introduced the same changes; you might want to skip this patch.&#10;&#10;When you have resolved this problem, run &#34;git rebase --continue&#34;.&#10;If you prefer to skip this patch, run &#34;git rebase --skip&#34; instead.&#10;To check out the original branch and stop rebasing, run &#34;git rebase --abort&#34;.</span><br></pre></td></tr></table></figure>
-<p>之前和一个同事的页面冲突了，以他的为准，所以就把我的文件给删除了。但是我的本地分支比他的提前，<code>git pull</code>以后，还是以我的为准，而我又把文件给删除了，所以此时仓库里是没有那些文件的。</p>
-<p>上面的rebase就是我尝试恢复文件的第一个想法，rebase恢复，但是没啥用</p>
-<h2 id="2-1_rebase_后的状态">2.1 rebase 后的状态</h2><p><img src="http://i.imgur.com/kq1KcWr.png" alt="git status"></p>
-<p>可以看出当前<code>rebase</code>并没有完成，提示如果已经完成的话，就<code>git rebase --continue</code></p>
-<p>有时候也可以<code>git rebase --abort</code></p>
-<h2 id="2-2_rebase_后_git_pull_必须指定分支">2.2 rebase 后 git pull 必须指定分支</h2><p><img src="http://i.imgur.com/fXbOGoP.png" alt="rebase后的git pull"></p>
-<p>此时仍然处于rebase，如果要<code>git pull</code>就要指定 <code>git pull origin master</code></p>
-<p><code>git merge master</code> 之后又提示冲突</p>
-<h1 id="3_reset">3 reset</h1><p>第二个尝试是 reset：<code>git reset --hard 3b8c58f**514c3fb0022ec5</code></p>
-<p>只用<code>git reset</code>没有效果，必须加上<code>--hard</code>才行，此时可以<strong>恢复误删除的文件</strong></p>
-<h1 id="4_直观感受">4 直观感受</h1><p><img src="http://i.imgur.com/3M2fRzU.png" alt="gitk"></p>
-<p>gitk上的每个分支，不是branch，只是大家在基于同一个版本进行独立开发时候进行了commit，但是没有相互pull\push，</p>
-<p>之后两条线合并，是因为有人pull了一下，合并到自己项目后再push出去</p>
-
+<p>解决：<br><code>git add file.name &amp;&amp; git commit -m &quot;removed merge conflicts&quot;</code><br>
                     
+                        <a href="/2015/06/11/20150611-git-conflict/" class="postShorten-excerpt_link link">
+                            繼續閱讀
+                        </a>
                         
-                    
-                    
-                        <p>
-                            <a href="/2015/06/11/20150611-git-conflict/#post-footer" class="postShorten-excerpt_link link">
-                                留言與分享
-                            </a>
-                        </p>
                     
                 </div>
             
@@ -234,7 +213,7 @@
     </article>
     
     
-    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+    <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
         <div class="postShorten-wrap">
             
             <div class="postShorten-header">
@@ -256,42 +235,15 @@
 
             </div>
             
-                <div class="postShorten-content" itemprop="articleBody">
+                <div class="postShorten-excerpt" itemprop="articleBody">
                     <p>一直很好奇git的分支来回切换的时候会有什么用处，是的真正的修改源文件，还是只记录在.git里面，等到需要的时候再做处理</p>
 <p>实验如下：</p>
 <h1 id="第一部分：创建不同branch">第一部分：创建不同branch</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mkdir branchgit    // 新建文件夹</span><br><span class="line"><span class="built_in">cd</span> branckgit  </span><br><span class="line">git init           // 初始化git</span><br><span class="line">vim index.html     // 新建文件index.html</span><br><span class="line">git add .</span><br><span class="line">git commit</span><br></pre></td></tr></table></figure>
-<p>修改index.html文件，回到shell中保存修改<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git add .          // 已改变的文件和从未添加过的文件是一个级别，都要add一下</span><br><span class="line">git commit</span><br></pre></td></tr></table></figure></p>
-<p>此时完成master分支的修改，创建一个新的branch<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git branch editor</span><br><span class="line">``` </span><br><span class="line">此时还不会自动切换过去，要自己执行下面的命令</span><br><span class="line">```bash</span><br><span class="line">git checkout editor</span><br></pre></td></tr></table></figure></p>
-<p>这时就能切过去，shell提示符[]中亮蓝色的就是当前分支</p>
-<p>此时修改文件，添加部分语句后，在editor分支中<code>git add . ; git commit</code></p>
-<p>此时准备工作完成，来回切换branch就是下面的gif所示</p>
-<p>master -&gt; editor 点击index.html，看到index.html添加了一些代码</p>
-<p>editor -&gt; master 点击index.html，看到index.html减少了一些代码</p>
-<p><img src="http://i.imgur.com/7h0QBjH.gif" alt="git branch"></p>
-<h1 id="第二部分：branch之间的合并">第二部分：branch之间的合并</h1><p>我们在editor分支上添加完了新功能，现在又想回到master添加功能，这时变成了在两个分支都向前推进了代码，此时进行合并</p>
-<pre><code>git merge editor
-</code></pre>
-果断报错，提示我们有冲突 CONFLICT，此时就需要我们人工进行合并了
-<pre><code>&lt;&lt;&lt;&lt;  HEAD
-======
-&gt;&gt;&gt;&gt;  editor
-</code></pre>
-
-<p>这三行中间分隔了两个代码块，就是git无法自己确定那个在前的问题，因为我们在两个分支对同一个文件同一行都向前推进了<br>所以调整一下这两个代码块，同时删除三行提示<br>保存回到git中<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit <span class="operator">-a</span></span><br></pre></td></tr></table></figure></p>
-<p>OK，一切搞定<br>此时我们就把再editor中创建的代码合并到了master中，再切回editor看下，里面的代码没有改变</p>
-<p><img src="http://i.imgur.com/eCci1zD.gif" alt="git branch merge"></p>
-<h1 id="第三部分：图形化查看git的已经走过的路线">第三部分：图形化查看git的已经走过的路线</h1><p>命令行输入<code>gitk</code>可以直接看到图形化的显示，注意在不同的branch上看到的结果是不同的</p>
-<p>PS：<br><code>git commit -a = git add . ; git commit</code><br>但是简化的命令无法加入新建的文件，所以如果要修改，还得老实的输入两条命令</p>
-
                     
+                        <a href="/2015/01/30/2015013001/" class="postShorten-excerpt_link link">
+                            繼續閱讀
+                        </a>
                         
-                    
-                    
-                        <p>
-                            <a href="/2015/01/30/2015013001/#post-footer" class="postShorten-excerpt_link link">
-                                留言與分享
-                            </a>
-                        </p>
                     
                 </div>
             

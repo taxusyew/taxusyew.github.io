@@ -42,7 +42,7 @@
 
     
 
-<header id="header" data-behavior="2">
+<header id="header" data-behavior="1">
     <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
     <h1 class="header-title">
         <a class="header-title-link" href="/ ">Taxus</a>
@@ -60,7 +60,7 @@
             <!-- Define author's picture -->
 
 
-<nav id="sidebar" data-behavior="2">
+<nav id="sidebar" data-behavior="1">
     
     
         <ul class="sidebar-buttons">
@@ -162,7 +162,7 @@
 </nav>
 
             
-            <div id="main" data-behavior="2"
+            <div id="main" data-behavior="1"
                  class="
                         hasCoverMetaIn
                         ">
@@ -172,7 +172,7 @@
 <section class="postShorten-group main-content-wrap">
     
     
-    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+    <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
         <div class="postShorten-wrap">
             
             <div class="postShorten-header">
@@ -194,28 +194,14 @@
 
             </div>
             
-                <div class="postShorten-content" itemprop="articleBody">
+                <div class="postShorten-excerpt" itemprop="articleBody">
                     <h1 id="传递对象">传递对象</h1><h2 id="正确方式：先转义再传递，并且用单引号包裹">正确方式：先转义再传递，并且用单引号包裹</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">api.execScript(&#123;</span><br><span class="line">    name:<span class="string">'win_withdraw'</span>,</span><br><span class="line">    script:<span class="string">'switchCard(\''</span>+<span class="built_in">JSON</span>.stringify(gBankList[_index])+<span class="string">'\');'</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <p>接收方<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">switchCard</span> (<span class="params">_str</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> _obj = <span class="built_in">JSON</span>.parse(_str);</span><br><span class="line">	<span class="comment">// Do something</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>错误↓<br><code>script:&#39;switchCard(&#39;+JSON.stringify(gBankList[_index])+&#39;);&#39;</code><br>如果不加单引号，在接收方<code>JSON.parse(_str)</code>的时候会报错</p>
-<h2 id="直接传递对象">直接传递对象</h2><p><code>script:&#39;switchCard(&#39;+gBankList[_index]+&#39;);&#39;</code><br>此时会报<strong>运行时</strong>错误  <code>Uncaught ReferenceError: XXX is not defined at JsRuntime: 1</code></p>
-<p>#传递字符串<br>正确↓<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var str = &#34;foo&#34;;&#10;api.execScript(&#123;&#10;    name:&#39;win_withdraw&#39;,&#10;    script:&#39;switchCard(&#34;&#39;+str+&#39;&#34;);&#39;&#10;&#125;);</span><br></pre></td></tr></table></figure></p>
-<p>正确↓<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var str = &#34;foo&#34;;&#10;api.execScript(&#123;&#10;    name:&#39;win_withdraw&#39;,&#10;    script:&#39;switchCard(\&#39;&#39;+str+&#39;\&#39;);&#39;&#10;&#125;);</span><br></pre></td></tr></table></figure></p>
-<p>错误↓<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var str = &#34;foo&#34;;&#10;api.execScript(&#123;&#10;    name:&#39;win_withdraw&#39;,&#10;    script:&#39;switchCard(&#39;+str+&#39;);&#39;&#10;&#125;);</span><br></pre></td></tr></table></figure></p>
-<blockquote>
-<p>以上情况 var str = “foo” 与 var str = ‘foo’ 等价</p>
-</blockquote>
-<p>#传递数字</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var num = 123;&#10;api.execScript(&#123;&#10;    name:&#39;win_withdraw&#39;,&#10;    script:&#39;switchCard(&#39;+num+&#39;);&#39;&#10;&#125;);</span><br></pre></td></tr></table></figure>
                     
+                        <a href="/2015/06/17/20150617-apicloud-execscript/" class="postShorten-excerpt_link link">
+                            繼續閱讀
+                        </a>
                         
-                    
-                    
-                        <p>
-                            <a href="/2015/06/17/20150617-apicloud-execscript/#post-footer" class="postShorten-excerpt_link link">
-                                留言與分享
-                            </a>
-                        </p>
                     
                 </div>
             
@@ -224,7 +210,7 @@
     </article>
     
     
-    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+    <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
         <div class="postShorten-wrap">
             
             <div class="postShorten-header">
@@ -246,48 +232,13 @@
 
             </div>
             
-                <div class="postShorten-content" itemprop="articleBody">
-                    <h1 id="grunt-init-apicloud">grunt-init-apicloud</h1><p>基于grunt-init文档开发的一套模板<br>用于快速开发、部署APICloud应用</p>
-<h1 id="基本使用方法">基本使用方法</h1><h2 id="下载模板">下载模板</h2><p><code>git clone https://github.com/taxusyew/grunt-init-apicloud.git ~/.grunt-init/apicloud</code></p>
-<blockquote>
-<p>windows上就放在<code>%USERPROFILE%\.grunt-init\</code></p>
-</blockquote>
-<h2 id="创建新项目">创建新项目</h2><ol>
-<li>新建项目文件夹，<code>/path/to/my-project</code></li>
-<li>在<strong>该文件夹</strong>下，初始化模板: <code>grunt-init apicloud</code></li>
-</ol>
-<blockquote>
-<p>如果模板文件不是放在<code>.grunt-init</code>文件夹下，那就使用<code>grunt-init /path/to/my-template</code></p>
-</blockquote>
-<h2 id="生成编译后项目">生成编译后项目</h2><ol>
-<li>安装npm模块: <code>npm install</code></li>
-<li>生成项目: <code>grunt</code></li>
-</ol>
-<blockquote>
-<p>最终项目源码会在 <code>/path/to/my-project/build</code> 文件夹下</p>
-</blockquote>
-<h1 id="开发流程">开发流程</h1><ol>
-<li>在src文件夹下开发源码</li>
-<li>对html文件书写usemin的block <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#60;!-- build:css ./css/css_index.css --&#62;&#10;    &#60;link rel=&#34;stylesheet&#34; type=&#34;text/css&#34; href=&#34;./css/api.css&#34; /&#62;&#10;    &#60;link rel=&#34;stylesheet&#34; type=&#34;text/css&#34; href=&#34;./css/common.css&#34; /&#62;&#10;&#60;!-- endbuild --&#62;&#10;&#10;&#60;!-- build:js ./script/api_index.js --&#62;&#10;&#9;&#60;script src=&#34;./script/api.js&#34;&#62;&#60;/script&#62;&#10;&#9;&#60;script src=&#34;./script/apiutil.js&#34;&#62;&#60;/script&#62;&#10;&#9;&#60;script src=&#34;./script/chatbox.js&#34;&#62;&#60;/script&#62;&#10;&#60;!-- endbuild --&#62;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<blockquote>
-<p>第一行第一部分build后面写的是链接类型：css或js<br>第一行第二部分是替换后希望出现的路径，一般情况下usemin会在concat的阶段解析这个路径，造成最终生成代码位置出错，所以在Gruntfile.js里面的配置中，做出相应处理，现已能正确生成文件 </p>
-</blockquote>
-<ol>
-<li>生成可以上线代码 <code>grunt</code></li>
-<li>同步代码到APICloud Workspace里的目录中，以便真机同步，调用方法：<code>grunt cpc</code>，之后就可以在IDE里进行一键真机同步</li>
-</ol>
-
+                <div class="postShorten-excerpt" itemprop="articleBody">
+                    <h1 id="grunt-init-apicloud">grunt-init-apicloud</h1><p>基于grunt-init文档开发的一套模板<br>用于快速开发、部署APICloud应用<br>
                     
+                        <a href="/2015/05/30/20150315grunt-apicloud/" class="postShorten-excerpt_link link">
+                            繼續閱讀
+                        </a>
                         
-                    
-                    
-                        <p>
-                            <a href="/2015/05/30/20150315grunt-apicloud/#post-footer" class="postShorten-excerpt_link link">
-                                留言與分享
-                            </a>
-                        </p>
                     
                 </div>
             

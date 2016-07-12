@@ -42,7 +42,7 @@
 
     
 
-<header id="header" data-behavior="2">
+<header id="header" data-behavior="1">
     <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
     <h1 class="header-title">
         <a class="header-title-link" href="/ ">Taxus</a>
@@ -60,7 +60,7 @@
             <!-- Define author's picture -->
 
 
-<nav id="sidebar" data-behavior="2">
+<nav id="sidebar" data-behavior="1">
     
     
         <ul class="sidebar-buttons">
@@ -162,7 +162,7 @@
 </nav>
 
             
-            <div id="main" data-behavior="2"
+            <div id="main" data-behavior="1"
                  class="
                         hasCoverMetaIn
                         ">
@@ -172,7 +172,7 @@
 <section class="postShorten-group main-content-wrap">
     
     
-    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+    <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
         <div class="postShorten-wrap">
             
             <div class="postShorten-header">
@@ -194,48 +194,13 @@
 
             </div>
             
-                <div class="postShorten-content" itemprop="articleBody">
-                    <h1 id="grunt-init-apicloud">grunt-init-apicloud</h1><p>基于grunt-init文档开发的一套模板<br>用于快速开发、部署APICloud应用</p>
-<h1 id="基本使用方法">基本使用方法</h1><h2 id="下载模板">下载模板</h2><p><code>git clone https://github.com/taxusyew/grunt-init-apicloud.git ~/.grunt-init/apicloud</code></p>
-<blockquote>
-<p>windows上就放在<code>%USERPROFILE%\.grunt-init\</code></p>
-</blockquote>
-<h2 id="创建新项目">创建新项目</h2><ol>
-<li>新建项目文件夹，<code>/path/to/my-project</code></li>
-<li>在<strong>该文件夹</strong>下，初始化模板: <code>grunt-init apicloud</code></li>
-</ol>
-<blockquote>
-<p>如果模板文件不是放在<code>.grunt-init</code>文件夹下，那就使用<code>grunt-init /path/to/my-template</code></p>
-</blockquote>
-<h2 id="生成编译后项目">生成编译后项目</h2><ol>
-<li>安装npm模块: <code>npm install</code></li>
-<li>生成项目: <code>grunt</code></li>
-</ol>
-<blockquote>
-<p>最终项目源码会在 <code>/path/to/my-project/build</code> 文件夹下</p>
-</blockquote>
-<h1 id="开发流程">开发流程</h1><ol>
-<li>在src文件夹下开发源码</li>
-<li>对html文件书写usemin的block <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#60;!-- build:css ./css/css_index.css --&#62;&#10;    &#60;link rel=&#34;stylesheet&#34; type=&#34;text/css&#34; href=&#34;./css/api.css&#34; /&#62;&#10;    &#60;link rel=&#34;stylesheet&#34; type=&#34;text/css&#34; href=&#34;./css/common.css&#34; /&#62;&#10;&#60;!-- endbuild --&#62;&#10;&#10;&#60;!-- build:js ./script/api_index.js --&#62;&#10;&#9;&#60;script src=&#34;./script/api.js&#34;&#62;&#60;/script&#62;&#10;&#9;&#60;script src=&#34;./script/apiutil.js&#34;&#62;&#60;/script&#62;&#10;&#9;&#60;script src=&#34;./script/chatbox.js&#34;&#62;&#60;/script&#62;&#10;&#60;!-- endbuild --&#62;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<blockquote>
-<p>第一行第一部分build后面写的是链接类型：css或js<br>第一行第二部分是替换后希望出现的路径，一般情况下usemin会在concat的阶段解析这个路径，造成最终生成代码位置出错，所以在Gruntfile.js里面的配置中，做出相应处理，现已能正确生成文件 </p>
-</blockquote>
-<ol>
-<li>生成可以上线代码 <code>grunt</code></li>
-<li>同步代码到APICloud Workspace里的目录中，以便真机同步，调用方法：<code>grunt cpc</code>，之后就可以在IDE里进行一键真机同步</li>
-</ol>
-
+                <div class="postShorten-excerpt" itemprop="articleBody">
+                    <h1 id="grunt-init-apicloud">grunt-init-apicloud</h1><p>基于grunt-init文档开发的一套模板<br>用于快速开发、部署APICloud应用<br>
                     
+                        <a href="/2015/05/30/20150315grunt-apicloud/" class="postShorten-excerpt_link link">
+                            繼續閱讀
+                        </a>
                         
-                    
-                    
-                        <p>
-                            <a href="/2015/05/30/20150315grunt-apicloud/#post-footer" class="postShorten-excerpt_link link">
-                                留言與分享
-                            </a>
-                        </p>
                     
                 </div>
             
@@ -244,7 +209,7 @@
     </article>
     
     
-    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+    <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
         <div class="postShorten-wrap">
             
             <div class="postShorten-header">
@@ -266,91 +231,13 @@
 
             </div>
             
-                <div class="postShorten-content" itemprop="articleBody">
+                <div class="postShorten-excerpt" itemprop="articleBody">
                     <h1 id="回调函数">回调函数</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 测试类</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Caller</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      </span><br><span class="line">	<span class="keyword">return</span> &#123;</span><br><span class="line">		caller : <span class="function"><span class="keyword">function</span> (<span class="params">_callback</span>) </span>&#123;</span><br><span class="line">			_callback();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">   &#125;    </span><br><span class="line"></span><br><span class="line"><span class="comment">// 回调函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">JobCallback</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">       <span class="built_in">console</span>.log(<span class="string">'call'</span>);</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建对象</span></span><br><span class="line"><span class="keyword">var</span> CALLER = <span class="keyword">new</span> Caller();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 调用对象方法并添加回调</span></span><br><span class="line">CALLER.caller(JobCallback());  <span class="comment">// 会立即执行回调</span></span><br><span class="line">CALLER.caller(JobCallback);    <span class="comment">// 正确，会等到回调运行</span></span><br></pre></td></tr></table></figure>
-<h1 id="this">this</h1><h2 id="直接调用函数，this绑定global">直接调用函数，this绑定global</h2><p>例子改自《JavaScript精髓》<br>可以看到即使在对象方法的中调用了内部函数，该内部函数this依旧会绑定到global</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">var</span> calc = &#123;&#125;;</span><br><span class="line"></span><br><span class="line">calc.double = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> that = <span class="keyword">this</span>;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'double this -&gt;'</span>+<span class="keyword">this</span>);  <span class="comment">// double this -&gt;[object Object]</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> helper = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'helper this -&gt;'</span>+<span class="keyword">this</span>);  helper <span class="keyword">this</span> -&gt;[object Window]</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    helper();</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">calc.double()</span><br></pre></td></tr></table></figure>
-<p>在IIFE里，也依旧不会改变</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">innertestThis</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> _test = <span class="string">'ha'</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> &#123;</span><br><span class="line">            apple : <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="keyword">this</span>);</span><br><span class="line">            &#125;,</span><br><span class="line">            orange : <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                <span class="function"><span class="keyword">function</span> <span class="title">helper</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">                    <span class="built_in">console</span>.log(<span class="keyword">this</span>);</span><br><span class="line">                &#125;</span><br><span class="line">                helper();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> _inner = innertestThis();</span><br><span class="line">    _inner.apple();    <span class="comment">// Object &#123;&#125;</span></span><br><span class="line">    _inner.orange();   <span class="comment">// Window &#123;top: Window, location: Location, document: document, window: Window, external: Object…&#125;</span></span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure>
-<h1 id="绑定事件">绑定事件</h1><p>测试对同一个元素绑定事件<br><img src="http://i.imgur.com/y9UiJ19.png" alt="capture_bubble"></p>
-<p>HTML</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"out"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"in"</span> <span class="attribute">class</span>=<span class="value">"b a"</span>&gt;</span></span><br><span class="line">        Click This!!</span><br><span class="line">    <span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>JS<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">document.getElementById(&#39;out&#39;).addEventListener(&#39;click&#39;, function(e)&#123;&#10;    alert(e.eventPhase + &#34; : &#34; + e.target.id + &#39;4 bubble out&#39;);&#10;&#125;, false);&#10;document.getElementById(&#39;in&#39;).addEventListener(&#39;click&#39;, function(e)&#123;&#10;    alert(e.eventPhase + &#34; : &#34; + e.target.id + &#39;3 bubble in&#39;);&#10;&#125;, false);&#10;document.getElementById(&#39;out&#39;).addEventListener(&#39;click&#39;, function(e)&#123;&#10;    alert(e.eventPhase + &#34; : &#34; + e.target.id + &#39;1 capture out&#39;);&#10;&#125;, true);&#10;document.getElementById(&#39;in&#39;).addEventListener(&#39;click&#39;, function(e)&#123;&#10;    alert(e.eventPhase + &#34; : &#34; + e.target.id + &#39;2 capture in&#39;);&#10;&#125;, true);</span><br></pre></td></tr></table></figure></p>
-<p>注册顺序为 4 3 1 2<br>弹出顺序为 1 3 2 4</p>
-<p>注册顺序为 1 2 3 4<br>弹出顺序为 1 2 3 4</p>
-<p>因为2，3为同一个元素的同一个eventPhase，所以会按照注册顺序触发，但是整体大的方向是先捕获再冒泡，所以1和4的顺序从来没有颠倒过</p>
-<h1 id="prototype">prototype</h1><h2 id="先对比Object和Function的proto属性[chrome]">先对比Object和Function的proto属性[chrome]</h2><p>参考 <a href="http://stackoverflow.com/questions/26333923/different-between-object-tostring-and-object-prototype-tostring" target="_blank" rel="external">stackoverflow object tostring</a></p>
-<p>原本的Object是一个函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Object&#10;&#8594; function Object()</span><br></pre></td></tr></table></figure></p>
-<p>Object.prototype才是一个Object对象字面量<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Object.prototype&#10;&#8594; Object &#123;&#125;</span><br></pre></td></tr></table></figure></p>
-<p>对比一下<strong>Object</strong>和<strong>Function</strong>与prototype相关的全部属性</p>
-<table>
-<thead>
-<tr>
-<th>类型</th>
-<th>Object</th>
-<th>Function</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>.__proto__</code></td>
-<td>function Empty()</td>
-<td>function Empty()</td>
-<td></td>
-</tr>
-<tr>
-<td><code>.prototype</code></td>
-<td>Object {}</td>
-<td>function Empty()</td>
-<td></td>
-</tr>
-<tr>
-<td><code>.prototype.__proto__</code></td>
-<td>null</td>
-<td>Object {}</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p>可以明确看到, <code>Object.__proto__</code>并没有指向<code>Object.prototype</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Object.__proto__ === Object.prototype&#10;&#8594; false</span><br></pre></td></tr></table></figure></p>
-<p>再来对比一下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Object.prototype === Function.prototype&#10;&#8594; false&#10;&#10;Function.prototype.__proto__ === Object.prototype&#10;&#8594; true</span><br></pre></td></tr></table></figure></p>
-<h1 id="奇特的相等_==">奇特的相等 ==</h1><p>参考该文章 <a href="http://blog.mgechev.com/2013/02/22/javascript-the-weird-parts/" target="_blank" rel="external">javascript-the-weird-parts</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[1,2,3] == [1,2,3];&#10;&#8594; false&#10;&#10;[1,2,3] === [1,2,3];&#10;&#8594; false&#10;&#10;[1,2,3] == &#34;1,2,3&#34;&#10;&#8594; true</span><br></pre></td></tr></table></figure></p>
-<p>上面的情况容易解释，两个<code>[1,2,3]</code>的引用不同，所以判断的时候返回false</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[1,2,3] == &#34;1,2,3&#34;&#10;&#8594; true&#10;&#10;[1,2,3] === &#34;1,2,3&#34;&#10;&#8594; true</span><br></pre></td></tr></table></figure>
-<p>这个情况就比较奇特了，一个数组和一个字符串相等了，还有更奇特的<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">new Array(3) == &#34;,,&#34;;&#10;&#8594; true</span><br></pre></td></tr></table></figure></p>
-<p>上面两种情况，都是因为类型转换的时候用了<code>toString()</code>，可以看下对数组使用<code>toString()</code>之后的效果</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[1,2,3].toString();&#10;&#8594; &#34;1,2,3&#34;&#10;&#10;new Array(3).toString(); &#10;&#8594; &#34;,,&#34;</span><br></pre></td></tr></table></figure>
-<p>这就能理解为什么会出现<strong>数组等于字符串</strong>的情况</p>
-<h1 id="({}+[])和(![]+[])">({}+[])和(![]+[])</h1><p>参考该文章 <a href="http://blog.mgechev.com/2013/02/22/javascript-the-weird-parts/" target="_blank" rel="external">javascript-the-weird-parts</a></p>
-<p>参考该文章 <a href="https://github.com/dherman/siggoscript" target="_blank" rel="external">github siggoscript</a></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(&#123;&#125;+[])[!+[]+!+[]+!+[]]+(![]+[])[!+[]+!+[]+!+[]]</span><br></pre></td></tr></table></figure>
-<p>可以先在浏览器看下会输出什么:smile:<br>首先拆分来看，这是两个字符<code>({}+[])[!+[]+!+[]+!+[]]</code>和<code>(![]+[])[!+[]+!+[]+!+[]]</code><br>前面一个代表”j”，后面代表”s”<br>再来拆分:<br><code>({}+[])[!+[]+!+[]+!+[]] = ({}+[])  + [!+[]+!+[]+!+[]]</code><br><code>({}+[])</code>输出的是<code>&quot;[object Object]&quot;</code><br><code>[!+[]+!+[]+!+[]]</code>就是把上面的字符串当做数组来取数字，下标为<code>!+[]+!+[]+!+[] = 3</code><br>整合起来就是取<code>&quot;[object Object]&quot;</code>下标为3的字符-&gt;”j”</p>
-<p>同理后面的<code>(![]+[])[!+[]+!+[]+!+[]]</code>就是从<code>&quot;false&quot;</code>中取出下标为3的字符 -&gt; “s”</p>
-<p>解释下面的问题<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">+!+[]</span><br></pre></td></tr></table></figure></p>
-<blockquote>
-<p>undefined, ``, ‘’ are all false in JavaScript. So now the explanation… As we saw [] + [] is “”, so we might think for [] as for “”. As I mentioned “” is false so !”” is true. The prefix plus converts the boolean value to numer, so +true === 1. </p>
-</blockquote>
-<p>翻译一下：</p>
-<ul>
-<li>javascript 中 undefined, ``, ‘’ 都是 false </li>
-<li>[] + [] = “” 即 [] = false</li>
-<li>!false = true 即 ![] = true</li>
-<li><code>+</code> 前缀把布尔值转换为数字，所以 +true === 1</li>
-</ul>
-<h1 id="构造函数">构造函数</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var F = function()&#123;&#125;;&#10;Object.prototype.a = function()&#123;&#125;;&#10;Function.prototype.b = function()&#123;&#125;;&#10;var f = new F();</span><br></pre></td></tr></table></figure>
-<p>问：f 能不能拿到 a 方法和 b 方法<br>答：可以通过<code>f.constructor</code>拿到a,b，如果通过 f ，就只能拿到 a</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">f instanceof F&#10;&#8594; true&#10;&#10;f instanceof Function&#10;&#8594; false&#10;&#10;f instanceof Object&#10;&#8594; true</span><br></pre></td></tr></table></figure>
-<p>所以，为什么通过f拿不到b，因为f就不是Function的实例啊，类似的还有<br>Function.prototype.toString()和Object.prototype.toString()</p>
-
                     
+                        <a href="/2015/05/14/20150514-experiment/" class="postShorten-excerpt_link link">
+                            繼續閱讀
+                        </a>
                         
-                    
-                    
-                        <p>
-                            <a href="/2015/05/14/20150514-experiment/#post-footer" class="postShorten-excerpt_link link">
-                                留言與分享
-                            </a>
-                        </p>
                     
                 </div>
             

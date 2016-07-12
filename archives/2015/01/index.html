@@ -42,7 +42,7 @@
 
     
 
-<header id="header" data-behavior="2">
+<header id="header" data-behavior="1">
     <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
     <h1 class="header-title">
         <a class="header-title-link" href="/ ">Taxus</a>
@@ -60,7 +60,7 @@
             <!-- Define author's picture -->
 
 
-<nav id="sidebar" data-behavior="2">
+<nav id="sidebar" data-behavior="1">
     
     
         <ul class="sidebar-buttons">
@@ -162,7 +162,7 @@
 </nav>
 
             
-            <div id="main" data-behavior="2"
+            <div id="main" data-behavior="1"
                  class="
                         hasCoverMetaIn
                         ">
@@ -172,7 +172,7 @@
 <section class="postShorten-group main-content-wrap">
     
     
-    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+    <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
         <div class="postShorten-wrap">
             
             <div class="postShorten-header">
@@ -194,42 +194,15 @@
 
             </div>
             
-                <div class="postShorten-content" itemprop="articleBody">
+                <div class="postShorten-excerpt" itemprop="articleBody">
                     <p>一直很好奇git的分支来回切换的时候会有什么用处，是的真正的修改源文件，还是只记录在.git里面，等到需要的时候再做处理</p>
 <p>实验如下：</p>
 <h1 id="第一部分：创建不同branch">第一部分：创建不同branch</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mkdir branchgit    // 新建文件夹</span><br><span class="line"><span class="built_in">cd</span> branckgit  </span><br><span class="line">git init           // 初始化git</span><br><span class="line">vim index.html     // 新建文件index.html</span><br><span class="line">git add .</span><br><span class="line">git commit</span><br></pre></td></tr></table></figure>
-<p>修改index.html文件，回到shell中保存修改<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git add .          // 已改变的文件和从未添加过的文件是一个级别，都要add一下</span><br><span class="line">git commit</span><br></pre></td></tr></table></figure></p>
-<p>此时完成master分支的修改，创建一个新的branch<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git branch editor</span><br><span class="line">``` </span><br><span class="line">此时还不会自动切换过去，要自己执行下面的命令</span><br><span class="line">```bash</span><br><span class="line">git checkout editor</span><br></pre></td></tr></table></figure></p>
-<p>这时就能切过去，shell提示符[]中亮蓝色的就是当前分支</p>
-<p>此时修改文件，添加部分语句后，在editor分支中<code>git add . ; git commit</code></p>
-<p>此时准备工作完成，来回切换branch就是下面的gif所示</p>
-<p>master -&gt; editor 点击index.html，看到index.html添加了一些代码</p>
-<p>editor -&gt; master 点击index.html，看到index.html减少了一些代码</p>
-<p><img src="http://i.imgur.com/7h0QBjH.gif" alt="git branch"></p>
-<h1 id="第二部分：branch之间的合并">第二部分：branch之间的合并</h1><p>我们在editor分支上添加完了新功能，现在又想回到master添加功能，这时变成了在两个分支都向前推进了代码，此时进行合并</p>
-<pre><code>git merge editor
-</code></pre>
-果断报错，提示我们有冲突 CONFLICT，此时就需要我们人工进行合并了
-<pre><code>&lt;&lt;&lt;&lt;  HEAD
-======
-&gt;&gt;&gt;&gt;  editor
-</code></pre>
-
-<p>这三行中间分隔了两个代码块，就是git无法自己确定那个在前的问题，因为我们在两个分支对同一个文件同一行都向前推进了<br>所以调整一下这两个代码块，同时删除三行提示<br>保存回到git中<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit <span class="operator">-a</span></span><br></pre></td></tr></table></figure></p>
-<p>OK，一切搞定<br>此时我们就把再editor中创建的代码合并到了master中，再切回editor看下，里面的代码没有改变</p>
-<p><img src="http://i.imgur.com/eCci1zD.gif" alt="git branch merge"></p>
-<h1 id="第三部分：图形化查看git的已经走过的路线">第三部分：图形化查看git的已经走过的路线</h1><p>命令行输入<code>gitk</code>可以直接看到图形化的显示，注意在不同的branch上看到的结果是不同的</p>
-<p>PS：<br><code>git commit -a = git add . ; git commit</code><br>但是简化的命令无法加入新建的文件，所以如果要修改，还得老实的输入两条命令</p>
-
                     
+                        <a href="/2015/01/30/2015013001/" class="postShorten-excerpt_link link">
+                            繼續閱讀
+                        </a>
                         
-                    
-                    
-                        <p>
-                            <a href="/2015/01/30/2015013001/#post-footer" class="postShorten-excerpt_link link">
-                                留言與分享
-                            </a>
-                        </p>
                     
                 </div>
             
@@ -238,7 +211,7 @@
     </article>
     
     
-    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+    <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
         <div class="postShorten-wrap">
             
             <div class="postShorten-header">
@@ -260,33 +233,18 @@
 
             </div>
             
-                <div class="postShorten-content" itemprop="articleBody">
+                <div class="postShorten-excerpt" itemprop="articleBody">
                     <p>测试平台  </p>
 <blockquote>
 <p>CentOS 6.5 64bit  </p>
 </blockquote>
-<p>oh-my-zsh的<a href="https://github.com/robbyrussell/oh-my-zsh" title="github  oh-my-zsh" target="_blank" rel="external">项目地址</a><br>在bash中直接执行下面语句，即可从git中下载到oh-my-zsh代码<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh</span><br><span class="line">cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc</span><br></pre></td></tr></table></figure></p>
-<p>因为我之前没有使用过zsh，所以也不需要备份自己的<code>.zshrc</code>文件，可以放心的cp</p>
-<p>正因为我之前完全没有使用过zsh，安装centos的时候也没有安装zsh，所以如果此时直接执行zsh将会报错<br>如果执行<code>source .zshrc</code>会报错<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bash /root/.oh-my-zsh/oh-my-zsh.sh: line <span class="number">19</span>: syntax error near unexpected token `(<span class="string">'</span><br><span class="line">bash: /root/.oh-my-zsh/oh-my-zsh.sh: line 19: `for config_file ($ZSH/lib/*.zsh); do'</span></span><br></pre></td></tr></table></figure></p>
-<p>找到一个官方的<a href="https://github.com/robbyrussell/oh-my-zsh/issues/2527" target="_blank" rel="external">issue</a>比较有用，其中提到“需要把默认终端改成zsh”，也就是先切换到zsh，再执行<code>source .zshrc</code>才能生效</p>
-<p>想了半天，给自己蠢哭了….oh-my-zsh是没有自带安装zsh的，只是封装了一些配置….<br>看看官方解释：</p>
-<blockquote>
-<p>oh-my-zsh is an open source, community-driven framework for managing your Zsh configuration.<br>oh-my-zsh 是一个开源的、社区驱动的框架，用来管理你的zsh配置</p>
-</blockquote>
-<p>所以，先安装一下zsh….</p>
-<p><pre><code>yum install zsh</code></pre><br>之后就可以顺利执行，在cp完.zshrc之后</p>
-<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">zsh  // 先在bash中进入zsh</span><br><span class="line"><span class="built_in">source</span> .zshrc</span><br></pre></td></tr></table></figure>
-<p>这就可以使用oh-my-zsh了~</p>
-
+<p>oh-my-zsh的<a href="https://github.com/robbyrussell/oh-my-zsh" title="github  oh-my-zsh">项目地址</a><br>在bash中直接执行下面语句，即可从git中下载到oh-my-zsh代码<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh</span><br><span class="line">cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc</span><br></pre></td></tr></table></figure></p>
+<p>因为我之前没有使用过zsh，所以也不需要备份自己的<code>.zshrc</code>文件，可以放心的cp<br>
                     
+                        <a href="/2015/01/29/2015012901/" class="postShorten-excerpt_link link">
+                            繼續閱讀
+                        </a>
                         
-                    
-                    
-                        <p>
-                            <a href="/2015/01/29/2015012901/#post-footer" class="postShorten-excerpt_link link">
-                                留言與分享
-                            </a>
-                        </p>
                     
                 </div>
             
@@ -295,7 +253,7 @@
     </article>
     
     
-    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+    <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
         <div class="postShorten-wrap">
             
             <div class="postShorten-header">
@@ -317,33 +275,15 @@
 
             </div>
             
-                <div class="postShorten-content" itemprop="articleBody">
+                <div class="postShorten-excerpt" itemprop="articleBody">
                     <p>每次启动emacs的时候，不管进入哪个mode输入”(“都不能自动出现”)”并把光标放到中间<br>很麻烦，所以找到插件autopair，但是安装好后还是不会自动启动<br>每次都要M-x autopair 才行，依旧不方便<br>所以为了让它自启动，折腾了很久，终于搞定，记录一下~</p>
 <blockquote>
-<p>平台:<br>Windows 8.1 X64<br>emacs 24</p>
-</blockquote>
-<ol>
-<li><p>打开文件<code>C:\Users\jedi\AppData\Roaming\.emacs.d\init.el</code>根据已经有的配置，找到合适位置输入<code>(require &#39;init-autopair)</code>，要避免添加到不生效的位置，因为配置文件中会判断平台</p>
-</li>
-<li><p>在下面的文件夹<code>C:\Users\jedi\AppData\Roaming\.emacs.d\lisp\</code>新建文件<code>init-autopair.el</code><br>输入内容</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(require &#39;autopair)&#10;(autopair-global-mode)&#10;(provide &#39;init-autopair)</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>前两行为autopair.el中的文档注释内容，后一行自己添加，等于告诉其他地方，这个包就是init-autopair，否则会报错</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">error: Required feature &#39;init-autopair&#39; was not provided&#10;To ensure normal operation, you should investigate and remove the&#10;cause of the error in your initialization file. Start Emacs with&#10;the &#39;--debug-init&#39; option to view a complete error backtrace.</span><br></pre></td></tr></table></figure>
-<ol>
-<li>最后<code>c:\Users\jedi\AppData\Roaming\.emacs.d\site-lisp\</code><br>新建文件夹autopair，把autopair.el拷进去，之后每次启动emacs就能直接使用autopair</li>
-</ol>
-
+<p>平台:<br>Windows 8.1 X64<br>emacs 24<br>
                     
+                        <a href="/2015/01/15/20150115/" class="postShorten-excerpt_link link">
+                            繼續閱讀
+                        </a>
                         
-                    
-                    
-                        <p>
-                            <a href="/2015/01/15/20150115/#post-footer" class="postShorten-excerpt_link link">
-                                留言與分享
-                            </a>
-                        </p>
                     
                 </div>
             

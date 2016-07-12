@@ -18,7 +18,7 @@
 <meta property="og:site_name" content="Taxus">
 <meta property="og:description" content="回调函数123456789101112131415161718192021// 测试类function Caller () &amp;#123;      	return &amp;#123;		caller : function (_callback) &amp;#123;			_callback();		&amp;#125;	&amp;#125;   &amp;#125;    // 回调函数function JobCallback ()">
 <meta property="og:image" content="http://i.imgur.com/y9UiJ19.png">
-<meta property="og:updated_time" content="2015-08-10T08:33:14.852Z">
+<meta property="og:updated_time" content="2016-07-12T04:01:33.144Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Javascript 小实验">
 <meta name="twitter:description" content="回调函数123456789101112131415161718192021// 测试类function Caller () &amp;#123;      	return &amp;#123;		caller : function (_callback) &amp;#123;			_callback();		&amp;#125;	&amp;#125;   &amp;#125;    // 回调函数function JobCallback ()">
@@ -44,7 +44,7 @@
 
     
 
-<header id="header" data-behavior="4">
+<header id="header" data-behavior="3">
     <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
     <h1 class="header-title">
         <a class="header-title-link" href="/ ">Taxus</a>
@@ -62,7 +62,7 @@
             <!-- Define author's picture -->
 
 
-<nav id="sidebar" data-behavior="4">
+<nav id="sidebar" data-behavior="3">
     
     
         <ul class="sidebar-buttons">
@@ -164,7 +164,7 @@
 </nav>
 
             
-            <div id="main" data-behavior="4"
+            <div id="main" data-behavior="3"
                  class="
                         hasCoverMetaIn
                         ">
@@ -192,6 +192,7 @@
     <div class="post-content markdown" itemprop="articleBody">
         <div class="main-content-wrap">
             <h1 id="回调函数">回调函数</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 测试类</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Caller</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      </span><br><span class="line">	<span class="keyword">return</span> &#123;</span><br><span class="line">		caller : <span class="function"><span class="keyword">function</span> (<span class="params">_callback</span>) </span>&#123;</span><br><span class="line">			_callback();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">   &#125;    </span><br><span class="line"></span><br><span class="line"><span class="comment">// 回调函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">JobCallback</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">       <span class="built_in">console</span>.log(<span class="string">'call'</span>);</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建对象</span></span><br><span class="line"><span class="keyword">var</span> CALLER = <span class="keyword">new</span> Caller();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 调用对象方法并添加回调</span></span><br><span class="line">CALLER.caller(JobCallback());  <span class="comment">// 会立即执行回调</span></span><br><span class="line">CALLER.caller(JobCallback);    <span class="comment">// 正确，会等到回调运行</span></span><br></pre></td></tr></table></figure>
+<a id="more"></a>
 <h1 id="this">this</h1><h2 id="直接调用函数，this绑定global">直接调用函数，this绑定global</h2><p>例子改自《JavaScript精髓》<br>可以看到即使在对象方法的中调用了内部函数，该内部函数this依旧会绑定到global</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">var</span> calc = &#123;&#125;;</span><br><span class="line"></span><br><span class="line">calc.double = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> that = <span class="keyword">this</span>;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'double this -&gt;'</span>+<span class="keyword">this</span>);  <span class="comment">// double this -&gt;[object Object]</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> helper = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'helper this -&gt;'</span>+<span class="keyword">this</span>);  helper <span class="keyword">this</span> -&gt;[object Window]</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    helper();</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">calc.double()</span><br></pre></td></tr></table></figure>
 <p>在IIFE里，也依旧不会改变</p>
@@ -348,7 +349,7 @@
 
             </div>
             
-                <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="3">
                     <div class="post-actions-wrap">
     <nav>
         <ul class="post-actions post-action-nav">
@@ -404,7 +405,7 @@
 
 
                 </div>
-                <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+                <div id="share-options-bar" class="share-options-bar" data-behavior="3">
     <ul class="share-options">
         <li class="share-option">
             <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2015/05/14/20150514-experiment/">

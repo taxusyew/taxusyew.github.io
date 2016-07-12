@@ -42,7 +42,7 @@
 
     
 
-<header id="header" data-behavior="2">
+<header id="header" data-behavior="1">
     <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
     <h1 class="header-title">
         <a class="header-title-link" href="/ ">Taxus</a>
@@ -60,7 +60,7 @@
             <!-- Define author's picture -->
 
 
-<nav id="sidebar" data-behavior="2">
+<nav id="sidebar" data-behavior="1">
     
     
         <ul class="sidebar-buttons">
@@ -162,7 +162,7 @@
 </nav>
 
             
-            <div id="main" data-behavior="2"
+            <div id="main" data-behavior="1"
                  class="
                         hasCoverMetaIn
                         ">
@@ -172,7 +172,7 @@
 <section class="postShorten-group main-content-wrap">
     
     
-    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+    <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
         <div class="postShorten-wrap">
             
             <div class="postShorten-header">
@@ -194,44 +194,16 @@
 
             </div>
             
-                <div class="postShorten-content" itemprop="articleBody">
+                <div class="postShorten-excerpt" itemprop="articleBody">
                     <p>这是一个悲伤的故事。</p>
 <p>这是一个由<code>return true</code>引发的惨案。</p>
 <p>这是一个基础不扎实的悲剧。</p>
-<p>事情的原因是最近又手痒搞起Android，发现一个新教程的思路去实现下拉刷新功能。所以就动手实现以下。但是实现好了以后发现有问题，以为是自己的问题，但是切换为教程里的源码后仍然出错，这就果断悲剧….所以只能一步步调试。</p>
-<p>中间过程极其痛苦，因为不论怎么检查，逻辑都是没有问题的，期间排除了很多我以为导致出错的原因：</p>
-<ol>
-<li>依照状态进行判断，和依照移动距离进行判断其实是一样的</li>
-<li>不是由看到第一个item的时候设置标志位引起的滞后</li>
-<li>不是由topPadding变大以后引起的计算距离问题</li>
-<li>不是ev.getY()和ev.getRawY()区别引起的问题</li>
-</ol>
-<p>最后无数次尝试，发现了问题在于<code>onTouchEvent</code>中处理之后应该返回<code>return true;</code></p>
-<pre><code>onTouchEvent() {
-    switch (ev<span class="built_in">.</span>getAction()) {
-    <span class="attribute">...</span><span class="attribute">...</span>
-    <span class="keyword">case</span> MotionEvent<span class="built_in">.</span>ACTION_MOVE :
-        <span class="attribute">...</span><span class="attribute">...</span>
-        <span class="keyword">if</span> () {
-            <span class="attribute">...</span><span class="attribute">...</span>
-            <span class="keyword">return</span> <span class="literal">true</span>;
-        }
-    break;
-    <span class="attribute">...</span><span class="attribute">...</span>
-}
-</code></pre><p>下面就是如果不添加<code>return true;</code>的后果，可以明显看到，触摸没有回到原位的时候，顶部header早已缩回屏幕上方：</p>
-<p><img src="http://i.imgur.com/S1vnv1c.gif" alt=""></p>
-<p>至于背后的原理，等我下次再详细总结Android的touch事件。</p>
-
+<p>事情的原因是最近又手痒搞起Android，发现一个新教程的思路去实现下拉刷新功能。所以就动手实现以下。但是实现好了以后发现有问题，以为是自己的问题，但是切换为教程里的源码后仍然出错，这就果断悲剧….所以只能一步步调试。<br>
                     
+                        <a href="/2015/03/20/20150320/" class="postShorten-excerpt_link link">
+                            繼續閱讀
+                        </a>
                         
-                    
-                    
-                        <p>
-                            <a href="/2015/03/20/20150320/#post-footer" class="postShorten-excerpt_link link">
-                                留言與分享
-                            </a>
-                        </p>
                     
                 </div>
             

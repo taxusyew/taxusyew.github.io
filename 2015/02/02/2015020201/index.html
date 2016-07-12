@@ -21,7 +21,7 @@ Creating a View Class  创建一个view类一个精心设计的自定义view像�
 <meta property="og:description" content="在网上总是搜不到很全面的自定义视图教程，大多数都是抄来抄去，即使买的书中相关内容也不是很多。所以还不如直接自己翻译下官方文档 custom views. 一共四篇文章，分步翻译，这是第一篇。
 
 Creating a View Class  创建一个view类一个精心设计的自定义view像其他精心设计的类一样。它包含一系列特别的功能，拥有简单的用户界面，高效使用CPU和内存等等。为达到这些目的，应该">
-<meta property="og:updated_time" content="2015-08-11T01:22:03.872Z">
+<meta property="og:updated_time" content="2016-07-12T04:03:05.369Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="自定义Android视图(01/04)">
 <meta name="twitter:description" content="在网上总是搜不到很全面的自定义视图教程，大多数都是抄来抄去，即使买的书中相关内容也不是很多。所以还不如直接自己翻译下官方文档 custom views. 一共四篇文章，分步翻译，这是第一篇。
@@ -49,7 +49,7 @@ Creating a View Class  创建一个view类一个精心设计的自定义view像�
 
     
 
-<header id="header" data-behavior="4">
+<header id="header" data-behavior="3">
     <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
     <h1 class="header-title">
         <a class="header-title-link" href="/ ">Taxus</a>
@@ -67,7 +67,7 @@ Creating a View Class  创建一个view类一个精心设计的自定义view像�
             <!-- Define author's picture -->
 
 
-<nav id="sidebar" data-behavior="4">
+<nav id="sidebar" data-behavior="3">
     
     
         <ul class="sidebar-buttons">
@@ -169,7 +169,7 @@ Creating a View Class  创建一个view类一个精心设计的自定义view像�
 </nav>
 
             
-            <div id="main" data-behavior="4"
+            <div id="main" data-behavior="3"
                  class="
                         hasCoverMetaIn
                         ">
@@ -205,7 +205,7 @@ Creating a View Class  创建一个view类一个精心设计的自定义view像�
 <li>提供可以和Android XML通用的自定义属性</li>
 <li>支持多个Android平台</li>
 </ul>
-<p>Android 框架提供了一系列的基础类和XML标签来帮助你达到这些目标。</p>
+<p>Android 框架提供了一系列的基础类和XML标签来帮助你达到这些目标。<br><a id="more"></a></p>
 <h2 id="Subclass_a_View_子类视图">Subclass a View 子类视图</h2><p>所有Android框架中的视图都拓展来自View类。 自定义的视图也可以直接拓展View，或者为了节省时间，拓展一个已经存在的子类，例如Button.</p>
 <p>为了让ADT可以和你的view交互，至少要提供一个参数为Context和AttributeSet对象的构造器。该构造器允许布局编辑器创建、编辑自定义view的实例。 </p>
 <h2 id="Define_Custom_Attributes_自定义属性">Define Custom Attributes 自定义属性</h2><p>为了在界面中添加一个原生的View，可以在XML元素中声明它，然后通过元素属性控制它的外观和行为。好的自定义view可以允许通过XML增加、改变样式。必须做到如下要求才能在自定义view中实现这些效果:  </p>
@@ -358,7 +358,7 @@ Creating a View Class  创建一个view类一个精心设计的自定义view像�
 
             </div>
             
-                <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="3">
                     <div class="post-actions-wrap">
     <nav>
         <ul class="post-actions post-action-nav">
@@ -414,7 +414,7 @@ Creating a View Class  创建一个view类一个精心设计的自定义view像�
 
 
                 </div>
-                <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+                <div id="share-options-bar" class="share-options-bar" data-behavior="3">
     <ul class="share-options">
         <li class="share-option">
             <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2015/02/02/2015020201/">

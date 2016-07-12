@@ -42,7 +42,7 @@
 
     
 
-<header id="header" data-behavior="2">
+<header id="header" data-behavior="1">
     <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
     <h1 class="header-title">
         <a class="header-title-link" href="/ ">Taxus</a>
@@ -60,7 +60,7 @@
             <!-- Define author's picture -->
 
 
-<nav id="sidebar" data-behavior="2">
+<nav id="sidebar" data-behavior="1">
     
     
         <ul class="sidebar-buttons">
@@ -162,7 +162,7 @@
 </nav>
 
             
-            <div id="main" data-behavior="2"
+            <div id="main" data-behavior="1"
                  class="
                         hasCoverMetaIn
                         ">
@@ -172,7 +172,7 @@
 <section class="postShorten-group main-content-wrap">
     
     
-    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+    <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
         <div class="postShorten-wrap">
             
             <div class="postShorten-header">
@@ -194,28 +194,14 @@
 
             </div>
             
-                <div class="postShorten-content" itemprop="articleBody">
+                <div class="postShorten-excerpt" itemprop="articleBody">
                     <h1 id="传递对象">传递对象</h1><h2 id="正确方式：先转义再传递，并且用单引号包裹">正确方式：先转义再传递，并且用单引号包裹</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">api.execScript(&#123;</span><br><span class="line">    name:<span class="string">'win_withdraw'</span>,</span><br><span class="line">    script:<span class="string">'switchCard(\''</span>+<span class="built_in">JSON</span>.stringify(gBankList[_index])+<span class="string">'\');'</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <p>接收方<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">switchCard</span> (<span class="params">_str</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> _obj = <span class="built_in">JSON</span>.parse(_str);</span><br><span class="line">	<span class="comment">// Do something</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>错误↓<br><code>script:&#39;switchCard(&#39;+JSON.stringify(gBankList[_index])+&#39;);&#39;</code><br>如果不加单引号，在接收方<code>JSON.parse(_str)</code>的时候会报错</p>
-<h2 id="直接传递对象">直接传递对象</h2><p><code>script:&#39;switchCard(&#39;+gBankList[_index]+&#39;);&#39;</code><br>此时会报<strong>运行时</strong>错误  <code>Uncaught ReferenceError: XXX is not defined at JsRuntime: 1</code></p>
-<p>#传递字符串<br>正确↓<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var str = &#34;foo&#34;;&#10;api.execScript(&#123;&#10;    name:&#39;win_withdraw&#39;,&#10;    script:&#39;switchCard(&#34;&#39;+str+&#39;&#34;);&#39;&#10;&#125;);</span><br></pre></td></tr></table></figure></p>
-<p>正确↓<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var str = &#34;foo&#34;;&#10;api.execScript(&#123;&#10;    name:&#39;win_withdraw&#39;,&#10;    script:&#39;switchCard(\&#39;&#39;+str+&#39;\&#39;);&#39;&#10;&#125;);</span><br></pre></td></tr></table></figure></p>
-<p>错误↓<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var str = &#34;foo&#34;;&#10;api.execScript(&#123;&#10;    name:&#39;win_withdraw&#39;,&#10;    script:&#39;switchCard(&#39;+str+&#39;);&#39;&#10;&#125;);</span><br></pre></td></tr></table></figure></p>
-<blockquote>
-<p>以上情况 var str = “foo” 与 var str = ‘foo’ 等价</p>
-</blockquote>
-<p>#传递数字</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var num = 123;&#10;api.execScript(&#123;&#10;    name:&#39;win_withdraw&#39;,&#10;    script:&#39;switchCard(&#39;+num+&#39;);&#39;&#10;&#125;);</span><br></pre></td></tr></table></figure>
                     
+                        <a href="/2015/06/17/20150617-apicloud-execscript/" class="postShorten-excerpt_link link">
+                            繼續閱讀
+                        </a>
                         
-                    
-                    
-                        <p>
-                            <a href="/2015/06/17/20150617-apicloud-execscript/#post-footer" class="postShorten-excerpt_link link">
-                                留言與分享
-                            </a>
-                        </p>
                     
                 </div>
             
@@ -224,7 +210,7 @@
     </article>
     
     
-    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+    <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
         <div class="postShorten-wrap">
             
             <div class="postShorten-header">
@@ -246,38 +232,17 @@
 
             </div>
             
-                <div class="postShorten-content" itemprop="articleBody">
+                <div class="postShorten-excerpt" itemprop="articleBody">
                     <p>最近多人合作项目中使用git遇到一些问题，记录一下，可能描述不是很清晰</p>
 <h1 id="1-_无法合并">1. 无法合并</h1><blockquote>
 <p>Pull is not possible because you have unmerged files.</p>
 </blockquote>
-<p>解决：<br><code>git add file.name &amp;&amp; git commit -m &quot;removed merge conflicts&quot;</code></p>
-<p><img src="http://i.imgur.com/0gOz7UU.png" alt="git add"></p>
-<p><code>git add</code>完冲突文件以后，才能<code>commit</code>，此时提示符的红色已经消失</p>
-<h1 id="2-_rebase">2. rebase</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">E:\huirongyun\huinongyun [(91889cb...)|REBASE]&#62; git rebase --continue&#10;Applying: bak&#10;No changes - did you forget to use &#39;git add&#39;?&#10;If there is nothing left to stage, chances are that something else&#10;already introduced the same changes; you might want to skip this patch.&#10;&#10;When you have resolved this problem, run &#34;git rebase --continue&#34;.&#10;If you prefer to skip this patch, run &#34;git rebase --skip&#34; instead.&#10;To check out the original branch and stop rebasing, run &#34;git rebase --abort&#34;.</span><br></pre></td></tr></table></figure>
-<p>之前和一个同事的页面冲突了，以他的为准，所以就把我的文件给删除了。但是我的本地分支比他的提前，<code>git pull</code>以后，还是以我的为准，而我又把文件给删除了，所以此时仓库里是没有那些文件的。</p>
-<p>上面的rebase就是我尝试恢复文件的第一个想法，rebase恢复，但是没啥用</p>
-<h2 id="2-1_rebase_后的状态">2.1 rebase 后的状态</h2><p><img src="http://i.imgur.com/kq1KcWr.png" alt="git status"></p>
-<p>可以看出当前<code>rebase</code>并没有完成，提示如果已经完成的话，就<code>git rebase --continue</code></p>
-<p>有时候也可以<code>git rebase --abort</code></p>
-<h2 id="2-2_rebase_后_git_pull_必须指定分支">2.2 rebase 后 git pull 必须指定分支</h2><p><img src="http://i.imgur.com/fXbOGoP.png" alt="rebase后的git pull"></p>
-<p>此时仍然处于rebase，如果要<code>git pull</code>就要指定 <code>git pull origin master</code></p>
-<p><code>git merge master</code> 之后又提示冲突</p>
-<h1 id="3_reset">3 reset</h1><p>第二个尝试是 reset：<code>git reset --hard 3b8c58f**514c3fb0022ec5</code></p>
-<p>只用<code>git reset</code>没有效果，必须加上<code>--hard</code>才行，此时可以<strong>恢复误删除的文件</strong></p>
-<h1 id="4_直观感受">4 直观感受</h1><p><img src="http://i.imgur.com/3M2fRzU.png" alt="gitk"></p>
-<p>gitk上的每个分支，不是branch，只是大家在基于同一个版本进行独立开发时候进行了commit，但是没有相互pull\push，</p>
-<p>之后两条线合并，是因为有人pull了一下，合并到自己项目后再push出去</p>
-
+<p>解决：<br><code>git add file.name &amp;&amp; git commit -m &quot;removed merge conflicts&quot;</code><br>
                     
+                        <a href="/2015/06/11/20150611-git-conflict/" class="postShorten-excerpt_link link">
+                            繼續閱讀
+                        </a>
                         
-                    
-                    
-                        <p>
-                            <a href="/2015/06/11/20150611-git-conflict/#post-footer" class="postShorten-excerpt_link link">
-                                留言與分享
-                            </a>
-                        </p>
                     
                 </div>
             

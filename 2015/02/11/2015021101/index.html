@@ -21,7 +21,7 @@
 <meta property="og:description" content="Making the View Interactive  让view可以交互原文链接
 绘制UI只是自定义视图的一部分。你同样需要使你的视图以接近（closely resembles）现实世界的行为方式响应用户输入。对象应当一直和真实对象的行为一致。例如图像不应该从所在地方立即弹出然后重新出现在其他地方，因为真实世界的对象不会这样。相反，图像应该从一个地方移动到另一个地方。
 使用者在交互的过程中会感">
-<meta property="og:updated_time" content="2015-08-11T01:19:44.610Z">
+<meta property="og:updated_time" content="2016-07-12T04:03:13.705Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="自定义Android视图(03/04)">
 <meta name="twitter:description" content="Making the View Interactive  让view可以交互原文链接
@@ -49,7 +49,7 @@
 
     
 
-<header id="header" data-behavior="4">
+<header id="header" data-behavior="3">
     <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
     <h1 class="header-title">
         <a class="header-title-link" href="/ ">Taxus</a>
@@ -67,7 +67,7 @@
             <!-- Define author's picture -->
 
 
-<nav id="sidebar" data-behavior="4">
+<nav id="sidebar" data-behavior="3">
     
     
         <ul class="sidebar-buttons">
@@ -169,7 +169,7 @@
 </nav>
 
             
-            <div id="main" data-behavior="4"
+            <div id="main" data-behavior="3"
                  class="
                         hasCoverMetaIn
                         ">
@@ -199,7 +199,7 @@
             <h1 id="Making_the_View_Interactive_让view可以交互">Making the View Interactive  让view可以交互</h1><p><a href="http://developer.android.com/training/custom-views/making-interactive.html" title="原文链接" target="_blank" rel="external">原文链接</a></p>
 <p>绘制UI只是自定义视图的一部分。你同样需要使你的视图以接近（closely resembles）现实世界的行为方式响应用户输入。对象应当一直和真实对象的行为一致。例如图像不应该从所在地方立即弹出然后重新出现在其他地方，因为真实世界的对象不会这样。相反，图像应该从一个地方移动到另一个地方。</p>
 <p>使用者在交互的过程中会感受到微妙的行为或感受，然后和模拟真实世界进行最佳互动。例如当使用者投掷（滑动？fling）一个UI对象，刚开始他们应该感受到因摩擦而引起的运动延迟，最后感觉到运动的动能超越滑动( sense momentum that carries the motion beyond the fling)。</p>
-<p>这节课演示如何使用Android框架的特性来为自定义属性增加真实世界的行为。</p>
+<p>这节课演示如何使用Android框架的特性来为自定义属性增加真实世界的行为。<br><a id="more"></a></p>
 <h2 id="Handle_Input_Gestures_处理输入手势">Handle Input Gestures 处理输入手势</h2><p>同许多其他UI框架一样，Android支持输入事件模型。用户的行为转化为时间最终触发回调，你可以重载回调来自定义应用如何应对用户的输入。</p>
 <p>Android系统中最常见的输入事件是touch，它会触发<code>onTouchEvent(android.view.MotionEvent)</code>.重载这个方法来处理事件</p>
 <pre><code><span class="annotation">@Override</span>
@@ -356,7 +356,7 @@ mAutoCenterAnimator.start()<span class="comment">;</span>
 
             </div>
             
-                <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="3">
                     <div class="post-actions-wrap">
     <nav>
         <ul class="post-actions post-action-nav">
@@ -412,7 +412,7 @@ mAutoCenterAnimator.start()<span class="comment">;</span>
 
 
                 </div>
-                <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+                <div id="share-options-bar" class="share-options-bar" data-behavior="3">
     <ul class="share-options">
         <li class="share-option">
             <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2015/02/11/2015021101/">

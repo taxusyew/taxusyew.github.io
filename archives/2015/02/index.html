@@ -42,7 +42,7 @@
 
     
 
-<header id="header" data-behavior="2">
+<header id="header" data-behavior="1">
     <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
     <h1 class="header-title">
         <a class="header-title-link" href="/ ">Taxus</a>
@@ -60,7 +60,7 @@
             <!-- Define author's picture -->
 
 
-<nav id="sidebar" data-behavior="2">
+<nav id="sidebar" data-behavior="1">
     
     
         <ul class="sidebar-buttons">
@@ -162,7 +162,7 @@
 </nav>
 
             
-            <div id="main" data-behavior="2"
+            <div id="main" data-behavior="1"
                  class="
                         hasCoverMetaIn
                         ">
@@ -172,7 +172,7 @@
 <section class="postShorten-group main-content-wrap">
     
     
-    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+    <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
         <div class="postShorten-wrap">
             
             <div class="postShorten-header">
@@ -194,59 +194,15 @@
 
             </div>
             
-                <div class="postShorten-content" itemprop="articleBody">
+                <div class="postShorten-excerpt" itemprop="articleBody">
                     <p>一段时间以来，总是想着编译成功chromium，试着研究一下浏览器底层的东西，看看内核是怎么处理html、css、js源码。折腾了一段时间，到目前为止依旧是失败的，最好的进度是到了<strong>[6000/12442]</strong>.</p>
 <p><strong>[2015-03-01 终于成功一次]</strong></p>
-<p><a href="http://dev.chromium.org/developers/how-tos/get-the-code" target="_blank" rel="external">官方指导地址</a></p>
-<p>第一阶段平台</p>
-<blockquote>
-<p>Windows 8.1 x64 中文版安装英文语言包<br>Visual Studio 2013 Ultimate update 4<br>Windows Driver Kit 7.1</p>
-</blockquote>
-<p>第二阶段平台</p>
-<blockquote>
-<p>Centos 6.5 x64<br>KVM虚拟机上安装 Windows 7 sp1 x64 英文版<br>Visual Studio 2013 Ultimate update 4<br>升级IE到10</p>
-</blockquote>
-<h1 id="失败的尝试">失败的尝试</h1><p><a href="http://commondatastorage.googleapis.com/chrome-infra-docs/flat/depot_tools/docs/html/depot_tools_tutorial.html#_setting_up" target="_blank" rel="external">配置depot_tools</a>  </p>
-<ol>
-<li>下载depot_tools工具包，然后将其解压</li>
-<li>添加解压地址到<code>PATH</code>的末尾</li>
-<li>第一次运行时，在cmd shell中运行<code>gclient</code>，不加任何参数</li>
-</ol>
-<p>使用命令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">set</span> DEPOT_TOOLS_WIN_TOOLCHAIN=<span class="number">0</span></span><br><span class="line"><span class="built_in">set</span> GYP_MSVS_VERSION=<span class="number">2013</span></span><br><span class="line"><span class="built_in">set</span> GYP_GENERATORS=msvs-ninja,ninja</span><br><span class="line"></span><br><span class="line">fetch --nohooks chromium</span><br><span class="line">gclient sync</span><br><span class="line">gclient runhooks</span><br><span class="line"></span><br><span class="line">ninja -C out/Debug chrome</span><br></pre></td></tr></table></figure>
-<p>一共就这些命令，结果是不停的出错，以下是部分出错的情况：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[-] SHELL.APPLICATION <span class="number">800700</span>c1: Failed to open zip file.</span><br></pre></td></tr></table></figure>
-<p>在第一平台中出现，因为本身我的系统无法用资源管理器打开zip文件，按照网上的一些教程在“运行”框中输入<code>regsvr32 /u %WINDIR%\system32\zipfldr.dll</code>，结果弹出<code>模块 c:\windows\system32\zipfldr.dll已加载，但找不到入口点 DllUnregisterServer</code>.搜索之后无果，只能恢复win8.1，恢复后即可。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[-] XMLHTTP <span class="number">80072</span>ee2: Cannot make HTTP request (操作超时 </span><br><span class="line"></span><br><span class="line">... Failed to checkout python automatically. </span><br><span class="line">You should get the <span class="string">"prebaked"</span> version at https://src.chromium.org/svn/trunk/tool</span><br><span class="line">s/third_party/</span><br></pre></td></tr></table></figure>
-<p>运行<code>gclient sync</code>出现，开启VPN即可。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">注意: 包含文件: e:\chromium\src\third_party\pdfium\core\include\fxcrt\fx_stre</span><br><span class="line">am.h</span><br><span class="line">注意: 包含文件: e:\chromium\src\third_party\pdfium\core\src\fxge\agg\agg23\agg</span><br><span class="line">_curves.h</span><br><span class="line">注意: 包含文件: e:\chromium\src\third_party\pdfium\core\src\fxge\agg\agg23\ag</span><br><span class="line">g_array.h</span><br><span class="line">注意: 包含文件: e:\chromium\src\third_party\pdfium\core\src\fxge\agg\agg23\a</span><br><span class="line">gg_basics.h</span><br><span class="line">注意: 包含文件: e:\chromium\src\third_party\pdfium\core\src\fxge\agg\agg23\agg</span><br><span class="line">_math.h</span><br><span class="line">ninja: build stopped: subcommand failed.</span><br></pre></td></tr></table></figure>
-<p>这种类似情况，不清楚究竟是哪的问题，如果再开始编译一次，也不一定会在这个地方中断。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">FAILED: C:\workspace\depot_tools\python276_bin\python.exe gyp-win-tool action-wr</span><br><span class="line">apper environment.x86 platform_lib_target_build_glibc_x86_64_nso_49e9e5d2ee9de3e</span><br><span class="line"><span class="number">7310</span>bbfb79d6fdfd3..rsp ..\..\native_client\src\shared\platform</span><br><span class="line">Failed to compile posix/nacl_error.c to ..\..\..\..\out\Debug\obj\native_client\</span><br><span class="line">src\shared\platform\platform_lib.gen/glibc-x86-<span class="number">64</span>-so/platform_lib\nacl_error_514</span><br><span class="line"><span class="number">74</span>e86.o with deps ..\..\..\..\out\Debug\obj\native_client\src\shared\platform\pl</span><br></pre></td></tr></table></figure>
-<p>↑第一平台出现，原因不明</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Warning: unrecognized tool NoImportLibrary <span class="keyword">while</span> converting to MSBuild.</span><br></pre></td></tr></table></figure>
-<p>↑第一平台出现，原因不明</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">RULE Generating Mojo bindings from /vibration_manager.mojom</span><br></pre></td></tr></table></figure>
-<p>↑第二平台出现，原因不明</p>
-<h1 id="成功">成功</h1><p><strong>[2015-03-01 终于成功一次]</strong></p>
-<p>在第二平台所有内容都不改变的情况下，使用下列命令成功编译出chromium</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">set</span> GYP_DEFINES=component=shared_library</span><br><span class="line"><span class="built_in">set</span> GYP_MSVS_VERSION=<span class="number">2013</span></span><br><span class="line"><span class="built_in">set</span> GYP_GENERATORS=msvs-ninja,ninja</span><br><span class="line">gclient runhooks</span><br><span class="line">gclient cleanup</span><br><span class="line">gclient runhooks</span><br><span class="line">ninja -C out/Debug chrome</span><br></pre></td></tr></table></figure>
-<p>是添加上了<code>set GYP_DEFINES=component=shared_library</code>这条设置，但是在第一平台下，这个设置会过早的引起错误，去掉以后才会编译到1000多个文件后失败，否则只有十几个文件可以编译成功，但是在第二平台下反而要加上。</p>
-<p><strong>平台总结：</strong></p>
-<ol>
-<li>最好还是windows 7 x64，如果是window 8.1会出现更多不明原因</li>
-<li>系统分配磁盘空间最少80G，最开始的40G是远远不够的</li>
-<li>在第二平台下，整个编译时长需要5小时左右，对于虚拟机来说还算可以接受</li>
-</ol>
-
+<p><a href="http://dev.chromium.org/developers/how-tos/get-the-code">官方指导地址</a><br>
                     
+                        <a href="/2015/02/26/2015022601/" class="postShorten-excerpt_link link">
+                            繼續閱讀
+                        </a>
                         
-                    
-                    
-                        <p>
-                            <a href="/2015/02/26/2015022601/#post-footer" class="postShorten-excerpt_link link">
-                                留言與分享
-                            </a>
-                        </p>
                     
                 </div>
             
@@ -255,7 +211,7 @@
     </article>
     
     
-    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+    <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
         <div class="postShorten-wrap">
             
             <div class="postShorten-header">
@@ -277,29 +233,13 @@
 
             </div>
             
-                <div class="postShorten-content" itemprop="articleBody">
-                    <h1 id="Optimizing_the_View_优化view">Optimizing the View 优化view</h1><p>现在你有了一个精心设计的视图，可以处理相应手势和在不同状态间转场，你需要确保视图运行很快。为了避免UI感觉迟钝或者回放时卡顿，你必须确保你的动画一直保持每秒60帧(ensure that your animations consistently run at 60 frames per second)。</p>
-<h2 id="Do_Less,_Less_Frequently_做的更少，经常更少？">Do Less, Less Frequently 做的更少，经常更少？</h2><p>移除那些经常调用的函数中不必要的代码来加速你的视图。从<code>onDraw()</code>下手将会获得最大收益。特别的，你应该移除<code>onDraw()</code>中的分配(allocations)资源，因为分配资源可能导致垃圾回收，进而带来卡顿。在初始化时或动画之间分配对象，永远不要在动画运行的时候分配资源。</p>
-<p>近一步使<code>onDraw()</code>更精简，你应该确保它尽可能少的被调用。大多数调用<code>onDraw()</code>的结果是调用<code>invalidate()</code>，所以减少不必要的调用<code>invalidate()</code>. 如果可能，调用有四个参数的<code>invalidate()</code>版本，而不是无参数的<code>invalidate()</code>. 无参数的版本使整个view失效，而四个参数的版本只会使指明的部分失效。这个方法可以使绘制更有效，避免清除失效矩阵外非的其他视图。</p>
-<p>其他非常耗时的操作是遍历布局。任何时候视图调用<code>requestLayout()</code>，Android UI系统需要遍历整个view结构来确认每个视图的尺寸。如果找到冲突的尺寸，它需要多次遍历。UI设计者有时创建嵌套的<code>ViewGroup</code>对象使得UI表现正确。这些深层视图结构会引起性能问题。确保你的视图结构尽可能的少。</p>
-<p>如果你有一个复制的UI，你应该考虑用一个自定义的<code>ViewGroup</code>来实现布局。和原生的视图不同，你的自定义视图可以根据特定应用程序(application-specific)来设定其子结构的大小和形状的，这样就可以避免遍历其子结构来计算尺寸。<code>PieChart</code>例子展示了如何拓展<code>ViewGroup</code>作为自定义视图的一部分。<code>PieChart</code>有子视图，但是从未测量过它们。相反的，它根据自己的布局算法直接设置子视图的大小。</p>
-<h2 id="Use_Hardware_Acceleration_使用硬件加速">Use Hardware Acceleration 使用硬件加速</h2><p>对Android 3.0来说，Android 2D图形系统可以通过GPU加速。GPU在最新的Android设备中都能找到。GPU硬件加速可以为很多应用带来极大的性能提升，但它不一定适用于任何一个程序。Android框架赋予你可以控制应用中哪些部分使用硬件加速的能力。</p>
-<p>查看<a href="http://developer.android.com/guide/topics/graphics/hardware-accel.html" target="_blank" rel="external">硬件加速章节</a>获取更多信息。注意，除了开发者指导中提到的方面以外，你必须在 <code>AndroidManifest.xml</code>中指明<code>&lt;uses-sdk android:targetSdkVersion=&quot;11&quot;/&gt;</code>来设置程序的目标API高于11级。</p>
-<p>启动了硬件加速后，你有可能看不到性能的提升。移动GPU在特定的任务中是非常高效的，例如绘制直线和曲线。为了获取GPU加速的极致性能，你应该在GPU擅长的地方尽量使用它，在其不擅长的地方尽量避免使用。</p>
-<p>在<code>PieChart</code>例子中，绘制饼图是相对来说耗时的。旋转饼图引起的每次重绘UI都会感觉迟钝。解决办法是放置图标到一个子视图，然后设置视图的布局类型是<code>LAYER_TYPE_HARDWARE</code>，这样GPU就会将其缓存为一个静态图像。该例子定义子视图作为<code>PieChart</code>的内部类，这样可以为实现该方法改动尽量少的代码。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">PieView</span> <span class="keyword">extends</span> <span class="title">View</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="title">PieView</span><span class="params">(Context context)</span> </span>&#123;</span><br><span class="line">       <span class="keyword">super</span>(context);</span><br><span class="line">       <span class="keyword">if</span> (!isInEditMode()) &#123;</span><br><span class="line">           setLayerType(View.LAYER_TYPE_HARDWARE, <span class="keyword">null</span>);</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br><span class="line">   </span><br><span class="line">   <span class="annotation">@Override</span></span><br><span class="line">   <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDraw</span><span class="params">(Canvas canvas)</span> </span>&#123;</span><br><span class="line">       <span class="keyword">super</span>.onDraw(canvas);</span><br><span class="line"></span><br><span class="line">       <span class="keyword">for</span> (Item it : mData) &#123;</span><br><span class="line">           mPiePaint.setShader(it.mShader);</span><br><span class="line">           canvas.drawArc(mBounds,</span><br><span class="line">                   <span class="number">360</span> - it.mEndAngle,</span><br><span class="line">                   it.mEndAngle - it.mStartAngle,</span><br><span class="line">                   <span class="keyword">true</span>, mPiePaint);</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="annotation">@Override</span></span><br><span class="line">   <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onSizeChanged</span><span class="params">(<span class="keyword">int</span> w, <span class="keyword">int</span> h, <span class="keyword">int</span> oldw, <span class="keyword">int</span> oldh)</span> </span>&#123;</span><br><span class="line">       mBounds = <span class="keyword">new</span> RectF(<span class="number">0</span>, <span class="number">0</span>, w, h);</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   RectF mBounds;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>在代码改变后，<code>PieChart.PieView.onDraw()</code>只会在图形第一次展示的时候调用，在APP余下的生命周期中，图标被缓存为一个图片，由GPU重新绘制它的不同旋转角度。GPU硬件特别擅长这类事，性能马上就会不同。</p>
-<p>这是一个折中方案。将图像在硬件层缓存会消耗图像存储器，而其资源有限。因为这个原因，最终版的<code>PieChart.PieView</code>只是在用户真正旋转的时候才设置它的布局类型为<code>LAYER_TYPE_HARDWARE</code>。在其余时间，它设置布局类型为<code>LAYER_TYPE_NONE</code>，这将使得GPU不再缓存图像。</p>
-<p>最后，不要忘记给代码写概要(profile your code)。一个视图提升性能的技巧可能对另一个视图来说会带来性能下降。</p>
-
+                <div class="postShorten-excerpt" itemprop="articleBody">
+                    <h1 id="Optimizing_the_View_优化view">Optimizing the View 优化view</h1><p>现在你有了一个精心设计的视图，可以处理相应手势和在不同状态间转场，你需要确保视图运行很快。为了避免UI感觉迟钝或者回放时卡顿，你必须确保你的动画一直保持每秒60帧(ensure that your animations consistently run at 60 frames per second)。<br>
                     
+                        <a href="/2015/02/14/2015021401/" class="postShorten-excerpt_link link">
+                            繼續閱讀
+                        </a>
                         
-                    
-                    
-                        <p>
-                            <a href="/2015/02/14/2015021401/#post-footer" class="postShorten-excerpt_link link">
-                                留言與分享
-                            </a>
-                        </p>
                     
                 </div>
             
@@ -308,7 +248,7 @@
     </article>
     
     
-    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+    <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
         <div class="postShorten-wrap">
             
             <div class="postShorten-header">
@@ -330,94 +270,16 @@
 
             </div>
             
-                <div class="postShorten-content" itemprop="articleBody">
-                    <h1 id="Making_the_View_Interactive_让view可以交互">Making the View Interactive  让view可以交互</h1><p><a href="http://developer.android.com/training/custom-views/making-interactive.html" title="原文链接" target="_blank" rel="external">原文链接</a></p>
+                <div class="postShorten-excerpt" itemprop="articleBody">
+                    <h1 id="Making_the_View_Interactive_让view可以交互">Making the View Interactive  让view可以交互</h1><p><a href="http://developer.android.com/training/custom-views/making-interactive.html" title="原文链接">原文链接</a></p>
 <p>绘制UI只是自定义视图的一部分。你同样需要使你的视图以接近（closely resembles）现实世界的行为方式响应用户输入。对象应当一直和真实对象的行为一致。例如图像不应该从所在地方立即弹出然后重新出现在其他地方，因为真实世界的对象不会这样。相反，图像应该从一个地方移动到另一个地方。</p>
 <p>使用者在交互的过程中会感受到微妙的行为或感受，然后和模拟真实世界进行最佳互动。例如当使用者投掷（滑动？fling）一个UI对象，刚开始他们应该感受到因摩擦而引起的运动延迟，最后感觉到运动的动能超越滑动( sense momentum that carries the motion beyond the fling)。</p>
-<p>这节课演示如何使用Android框架的特性来为自定义属性增加真实世界的行为。</p>
-<h2 id="Handle_Input_Gestures_处理输入手势">Handle Input Gestures 处理输入手势</h2><p>同许多其他UI框架一样，Android支持输入事件模型。用户的行为转化为时间最终触发回调，你可以重载回调来自定义应用如何应对用户的输入。</p>
-<p>Android系统中最常见的输入事件是touch，它会触发<code>onTouchEvent(android.view.MotionEvent)</code>.重载这个方法来处理事件</p>
-<pre><code><span class="annotation">@Override</span>
-<span class="keyword">public</span> <span class="function"><span class="keyword">boolean</span> <span class="title">onTouchEvent</span><span class="params">(MotionEvent event)</span> </span>{
-    <span class="function"><span class="keyword">return</span> <span class="keyword">super</span>.<span class="title">onTouchEvent</span><span class="params">(event)</span></span>;
-}
-</code></pre><p>触摸事件本身并不是特别有用。现代的UI触摸定义交互手势：点击tapping，拉pulling，推pushing，投掷flinging，缩放zooming. Android提供<code>GestureDetector</code>将原始的touch事件转换为手势(gesture)。</p>
-<p>通过传递一个<code>GestureDetector.OnGestureListener</code>类的实例作为参数构造<code>GestureDetector</code>.如果你只是希望处理少数手势，你可以拓展<code>GestureDetector.SimpleOnGestureListener</code>而非实现<code>GestureDetector.OnGestureListener</code>接口。下面的代码创建了一个拓展 <code>GestureDetector.SimpleOnGestureListener</code><br>并重载<code>onDown(MotionEvent)</code>方法的类</p>
-<pre><code><span class="class"><span class="keyword">class</span> <span class="title">mListener</span> <span class="keyword"><span class="keyword">extends</span></span> <span class="title">GestureDetector</span>.<span class="title">SimpleOnGestureListener</span> {</span>
-   <span class="annotation">@Override</span>
-   public boolean onDown(<span class="type">MotionEvent</span> e) {
-       <span class="keyword">return</span> <span class="literal">true</span>;
-   }
-}
-
-mDetector = <span class="keyword">new</span> <span class="type">GestureDetector</span>(<span class="type">PieChart</span>.<span class="keyword">this</span>.getContext(), <span class="keyword">new</span> mListener());
-</code></pre><p>无论是否使用<code>GestureDetector.SimpleOnGestureListener</code>，你都应该实现一个<code>return ture;</code>的<code>onDown()</code>方法。这一步是必要的，因为所有手势都从<code>onDown()</code>消息开始。如果你像<code>GestureDetector.SimpleOnGestrueLinstener</code>一样在<code>onDown()</code>中返回<code>false</code>，系统假设你希望忽略余下的手势（If you return false from onDown(), as GestureDetector.SimpleOnGestureListener does, the system assumes that you want to ignore the rest of the gesture），其余<code>GestureDetector.OnGestrueListener</code>的方法将永远不会被执行。只有你在真正希望忽略整个手势的时候才应该在<code>onDown(</code>)中返回<code>false</code>。一旦你实现了<code>GestureDetector.OnGestureListener</code>，并且创建了<code>GestrueDetector</code>的实例，你就能使用<code>GestureDetector</code>和在<code>onTouchEvent()</code>中收到的touch事件交互。</p>
-<pre><code>@<span class="type">Override</span>
-public boolean onTouchEvent(<span class="type">MotionEvent</span> event) {
-   boolean <span class="literal">result</span> = mDetector.onTouchEvent(event);
-   <span class="keyword">if</span> (!<span class="literal">result</span>) {
-       <span class="keyword">if</span> (event.getAction() == <span class="type">MotionEvent</span>.<span class="type">ACTION_UP</span>) {
-           stopScrolling();
-           <span class="literal">result</span> = <span class="literal">true</span>;
-       }
-   }
-   <span class="keyword">return</span> <span class="literal">result</span>;
-}
-</code></pre><p>当你传递给<code>onTouchEvent()</code>一个未被确认手势的touch事件是，它返回<code>false</code>.你就可以运行自定义的手势检测代码。</p>
-<h2 id="Create_Physically_Plausible_Motion_创建物理合理(plausible)的行为">Create Physically Plausible Motion 创建物理合理(plausible)的行为</h2><p>手势是控制触摸屏的有力工具，除非他们的结果在物理上是合理的，否则就有可能反直觉、难以记忆。一个好的例子是fling手势：用户快速跨越屏幕移动手指然后离开屏幕。如果UI响应是和滑动方向一致的快速移动，然后减速，这个手势才有道理，就像用户推动了飞轮（flywheel）使其旋转。</p>
-<p>然而，模拟飞轮的感觉并非微不足道(trivial)。让飞轮模型正确工作需要很多物理和数学知识。幸运的是，Android提供辅助类来模拟这些行为。<code>Scroller</code>类是处理飞轮风格fling手势的基础。</p>
-<p>开始一个fling，调用<code>fling()</code>传入fling的初始速度和最大、最小的x、y值。对于速度值，可以使用<code>GestureDetector</code>为你计算这个值。</p>
-<pre><code><span class="annotation">@Override</span>
-<span class="keyword">public</span> <span class="function"><span class="keyword">boolean</span> <span class="title">onFling</span><span class="params">(MotionEvent e1, MotionEvent e2, <span class="keyword">float</span> velocityX, <span class="keyword">float</span> velocityY)</span> </span>{
-   mScroller.fling(currentX, currentY, velocityX / SCALE, velocityY / SCALE, minX, minY, maxX, maxY);
-   postInvalidate();
-}
-</code></pre><p>注意：虽然通过<code>GestureDetector</code>计算速度物理上来说是精确的，但是很多开发者感觉使用这个值来fling动画会太快。通常把x、y速度除以4或8.</p>
-<p>调用<code>fling()</code>设置fling手势的物理模型。无论如何，你需要用<code>Scroller.computeScrollOffset()</code>来定期更新Scroller. <code>computeScrollOffset()</code>通过读取当前时间，使用物理模型计算那时的x、y位置来更新Scroller对象内部状态。调用<code>getCurrX()</code>和<code>getCurrY()</code>来获取这些值。</p>
-<p>大多数视图通过直接调用<code>scrollTo()</code>传递Scroller对象的x、y值。PieChart例子有一点不同：它使用当前滚动的y值来设置图标的旋转角度。</p>
-<pre><code><span class="keyword">if</span> (!mScroller.isFinished<span class="literal">()</span>) {
-    mScroller.computeScrollOffset<span class="literal">()</span>;
-    setPieRotation(mScroller.getCurrY<span class="literal">()</span>);
-}
-</code></pre><p>Scroller类为你计算滚动位置，但是它不会自动对自定义视图应用这些位置。确保尽可能多(often enough)的得到、应用新坐标，使滚动动画看起来很顺畅是你的责任。有两种方法做到这些：</p>
-<ul>
-<li>为了强制重新绘制，调用<code>fling()</code>之后再调用<code>postInvalidate()</code>. 这个技巧要求每次滚动偏移改变的时候在<code>onDraw()</code>中计算滚动偏移，然后调用<code>postInvalidate()</code>.</li>
-<li>设置<code>ValueAnimator</code>使fling的过程顺畅，然后调用<code>addUpdateListener()</code>来添加监听器处理动画。</li>
-</ul>
-<p>PieChart使用第二个方法。这个技巧设置更复杂，但是和动画系统配合的更密切，而且不需要使潜在的非必须视图失效(view invalidation)。缺点是<code>ValueAnimator</code>在API 11之前不可用，所以这个技巧在运行低于3.0系统的设备上无法使用。</p>
-<p>注意：<code>ValueAnimator</code>在低于API 11时无法使用，但是你仍然可以在那些平台使用。你只需要确保在运行时检查当前API等级，然后如果等级低于11时，忽略调用视图动画系统。</p>
-<pre><code>mScroller = <span class="keyword">new</span> Scroller(getContext(), <span class="keyword">null</span>, <span class="keyword">true</span>);
-mScrollAnimator = ValueAnimator.ofFloat(<span class="number">0</span>,<span class="number">1</span>);
-mScrollAnimator.addUpdateListener(<span class="keyword">new</span> ValueAnimator.AnimatorUpdateListener() {
-   <span class="annotation">@Override</span>
-   <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">onAnimationUpdate</span><span class="params">(ValueAnimator valueAnimator)</span> </span>{
-       <span class="keyword">if</span> (!mScroller.isFinished()) {
-           mScroller.computeScrollOffset();
-           setPieRotation(mScroller.getCurrY());
-       } <span class="keyword">else</span> {
-           mScrollAnimator.cancel();
-           onScrollFinished();
-       }
-   }
-});
-</code></pre><h2 id="Make_Your_Transitions_Smooth_让你的转场更流畅">Make Your Transitions Smooth 让你的转场更流畅</h2><p>用户希望现代UI在不同状态间流畅的转场。UI元素淡入淡出而非直接出现、消失。运动流畅的开始、结束，而非突然开始、停止。Android属性动画框架( property animation framework)，在Android 3.0时引入，使得流畅转场很容易。</p>
-<p>当一个可能影响视图外观的property改变时，不要直接改变该property。相反，应该使用<code>ValueAnimator</code>来做这些改变。接下来的列子，修改PieChart当前选择的切块，引起整个图标的旋转，选择指针指向被选中的切片中间。<code>ValueAnimator</code>在几百毫秒的跨度里改变旋转，而不是直接设置新旋转的值。</p>
-<pre><code>mAutoCenterAnimator = ObjectAnimator.ofInt(PieChart.this, "PieRotation", 0)<span class="comment">;</span>
-mAutoCenterAnimator.setIntValues(targetAngle)<span class="comment">;</span>
-mAutoCenterAnimator.setDuration(AUTOCENTER_ANIM_DURATION)<span class="comment">;</span>
-mAutoCenterAnimator.start()<span class="comment">;</span>
-</code></pre><p>如果你想改变的是view的基本property，使用动画会更简单，因为视图有一个内建的<code>ViewPropertyAnimator</code>，它会优化多个改变属性时的模拟动画。例如：</p>
-<pre><code><span class="tag">animate</span>()<span class="class">.rotation</span>(<span class="tag">targetAngle</span>)<span class="class">.setDuration</span>(<span class="tag">ANIM_DURATION</span>)<span class="class">.start</span>();
-</code></pre>
+<p>这节课演示如何使用Android框架的特性来为自定义属性增加真实世界的行为。<br>
                     
+                        <a href="/2015/02/11/2015021101/" class="postShorten-excerpt_link link">
+                            繼續閱讀
+                        </a>
                         
-                    
-                    
-                        <p>
-                            <a href="/2015/02/11/2015021101/#post-footer" class="postShorten-excerpt_link link">
-                                留言與分享
-                            </a>
-                        </p>
                     
                 </div>
             
@@ -426,7 +288,7 @@ mAutoCenterAnimator.start()<span class="comment">;</span>
     </article>
     
     
-    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+    <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
         <div class="postShorten-wrap">
             
             <div class="postShorten-header">
@@ -448,125 +310,16 @@ mAutoCenterAnimator.start()<span class="comment">;</span>
 
             </div>
             
-                <div class="postShorten-content" itemprop="articleBody">
+                <div class="postShorten-excerpt" itemprop="articleBody">
                     <h1 id="Custom_Drawing_自定义绘图">Custom Drawing 自定义绘图</h1><p>自定义视图中最重要的部分是其外观。自定义绘图的复杂性会根据你的APP而定。这节将会覆盖最常用的操作。</p>
 <h2 id="Override_onDraw()_重载onDraw()">Override onDraw()  重载onDraw()</h2><p>绘制自定义视图最重要的部分就是重载<code>onDraw()</code>方法。<code>onDraw()</code>的参数是一个view可用来绘制自己的Canvas对象。</p>
 <p>Canvas类定义了方法来绘制文字、线条、位图和其余很多图元（graphics primitives 基本图形）。<br>可以在onDraw()中使用这些方法来绘制自己的UI。</p>
-<p>在调用任何绘制方法前，应该创建Paint对象。下节将详细介绍Paint.</p>
-<h2 id="Create_Drawing_Objects_创建绘制对象">Create Drawing Objects 创建绘制对象</h2><p><code>android.graphics</code>框架将绘图分为两部分：</p>
-<ul>
-<li>画什么，用Canvas控制</li>
-<li>怎么画，用Paint控制</li>
-</ul>
-<p>例如，Canvas提供了方法绘制直线，同时Paint提供定义直线颜色的方法。Canvas有方法绘制矩形，<br>Paint定义是否对其填充颜色。简单来说，Canvas定义你可以绘制的形状，Paint定义绘制图形的颜色、样式、字体。</p>
-<p>在你绘制任何东西之前，你需要创建一个或多个Paint对象。PieChart例子通过init()来实现，通过构造函数来调用。</p>
-<pre><code><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">()</span> </span>{
-   mTextPaint = <span class="keyword">new</span> Paint(Paint.ANTI_ALIAS_FLAG);
-   mTextPaint.setColor(mTextColor);
-   <span class="keyword">if</span> (mTextHeight == <span class="number">0</span>) {
-       mTextHeight = mTextPaint.getTextSize();
-   } <span class="keyword">else</span> {
-       mTextPaint.setTextSize(mTextHeight);
-   }
-
-   mPiePaint = <span class="keyword">new</span> Paint(Paint.ANTI_ALIAS_FLAG);
-   mPiePaint.setStyle(Paint.Style.FILL);
-   mPiePaint.setTextSize(mTextHeight);
-
-   mShadowPaint = <span class="keyword">new</span> Paint(<span class="number">0</span>);
-   mShadowPaint.setColor(<span class="number">0xff101010</span>);
-   mShadowPaint.setMaskFilter(<span class="keyword">new</span> BlurMaskFilter(<span class="number">8</span>, BlurMaskFilter.Blur.NORMAL));
-
-   ...
-</code></pre><p>提前创建对象是一个很重要的优化手段。View会被频繁的重绘，很多绘制对象需要昂贵的初始化。<br>在<code>onDraw()</code>中创建绘制对象将会降低性能，使UI出现卡顿。</p>
-<h2 id="Handle_Layout_Events_处理布局事件">Handle Layout Events 处理布局事件</h2><p>为了妥善的绘制自定义视图，你需要知道它的尺寸。复杂的自定义视图通常会根据它在屏幕上区域的大小和尺寸进行多次布局计算。永远不要假设你的视图在屏幕上的大小。即使只有一个app使用你的view，该app需要处理不同屏幕尺寸，多个屏幕密度，水平、垂直模式下的不同高宽比。</p>
-<p>虽然view有很多方法处理尺寸问题，但是它们中的绝大多数不需要被重载。如果你的视图不需要特别控制其大小，就只需要重载一个方法：<code>onSizeChanged()</code></p>
-<p><code>onSizeChanged()</code>在你的视图第一次分配尺寸的时候被调用，之后任何原因引起视图尺寸改变都会调用它。在<code>onSizeChanged()</code>中计算位置、维度、和其他与视图相关的值，避免每次绘制的时候重复计算。<br>在PieChart例子中，PieChart视图在<code>onSizeChanged()</code>中计算边框矩形、相对位置、文本标签和其他视觉元素</p>
-<p>当你的视图分配了一个大小，布局管理假设该尺寸包含此视图的所有padding。<br>当你计算视图尺寸的时候须处理padding值。<code>PieChart.onSizeChanged()</code>的例子：</p>
-<pre><code><span class="comment">// 计算 padding</span>
-<span class="keyword">float</span> xpad = (<span class="keyword">float</span>)(getPaddingLeft() + getPaddingRight());
-<span class="keyword">float</span> ypad = (<span class="keyword">float</span>)(getPaddingTop() + getPaddingBottom());
-
-<span class="comment">// 计算 label</span>
-<span class="keyword">if</span> (mShowText) xpad += mTextWidth;
-
-<span class="keyword">float</span> ww = (<span class="keyword">float</span>)w - xpad;
-<span class="keyword">float</span> hh = (<span class="keyword">float</span>)h - ypad;
-
-<span class="comment">// 计算pie能有多大</span>
-<span class="keyword">float</span> diameter = Math.<span class="built_in">min</span>(ww, hh);
-</code></pre><p>如果你需要更好的控制视图的布局参数，那就实现(implement)<code>onMeasure()</code>方法。该方法的参数是<br><code>View.MeasureSpec</code>，该值会告诉你视图的父节点希望你的视图尺寸是多少，还有这个尺寸是硬性规定的最大值，还是只是一个建议值。为了优化，这些值被加密(pack)存储为整数，使用静态<code>View.MeasureSpec</code>方法解密(unpack)每个整数中的信息。</p>
-<p>PieChart 实现<code>onMeasure()</code>，试图创建它的区域足够大来让它的标签尽可能的大</p>
-<pre><code>@<span class="function">Override
-<span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onMeasure</span><span class="params">(<span class="keyword">int</span> widthMeasureSpec, <span class="keyword">int</span> heightMeasureSpec)</span> </span>{
-   <span class="comment">// Try for a width based on our minimum</span>
-   <span class="comment">// 基于最小值尝试得到宽度</span>
-   <span class="keyword">int</span> minw = getPaddingLeft() + getPaddingRight() + getSuggestedMinimumWidth();
-   <span class="keyword">int</span> w = resolveSizeAndState(minw, widthMeasureSpec, <span class="number">1</span>);
-
-   <span class="comment">// Whatever the width ends up being, ask for a height that would let the pie</span>
-   <span class="comment">// get as big as it can</span>
-   <span class="comment">// 无论最终宽度多少，设置高度让pie尽可能的大</span>
-   <span class="keyword">int</span> minh = MeasureSpec.getSize(w) - (<span class="keyword">int</span>)mTextWidth + getPaddingBottom() + getPaddingTop();
-   <span class="keyword">int</span> h = resolveSizeAndState(MeasureSpec.getSize(w) - (<span class="keyword">int</span>)mTextWidth, heightMeasureSpec, <span class="number">0</span>);
-
-   setMeasuredDimension(w, h);
-}
-</code></pre><p>代码中有三点需要注意：</p>
-<ul>
-<li>计算时考虑到了视图的padding。就像之前提到过的，这是视图的责任。</li>
-<li>辅助方法<code>resolveSizeAndState()</code>用来创建最终的宽度、高度值。该辅助方法返回一个合适的<br><code>View.MeasureSpec</code>值，通过比较视图希望的大小和传入<code>onMeasure()</code>的详细说明（spec）</li>
-<li><code>onMeasure()</code>没有返回值，相反，其通过调用<code>setMeasuredDimension()</code>提交计算结果。调用该方法是强制性的。如果你忽略这个调用，视图类将会抛出一个运行时错误</li>
-</ul>
-<h2 id="Draw!_绘制">Draw! 绘制</h2><p>一旦你创建对象、测量大小的代码完成了，你就可以实现<code>onDraw()</code>.  每个视图实现的<code>onDraw()</code>都不同，但是有一些绝大多数视图通用的操作：</p>
-<ul>
-<li>绘制文字用<code>drawText()</code>. 用<code>setTypeface()</code>指明字形，<code>setColor()</code>设置字体颜色。</li>
-<li>用<code>drawRect(),drawOval(),drawArc()</code>绘制基础图形。<code>setStyle()</code>设置形状是否被填充、是否有外部轮廓</li>
-<li>用Path类创建更复杂的图形。对Path对象定义添加直线、曲线，然后用<code>drawPath()</code>绘制图形。<br>和基础图形一样，可以对用<code>setStyle()</code>对path设置轮廓、填充。</li>
-<li>用LinearGradient对象定义渐变填充。调用<code>setShader()</code>将定义的LinearGradient渐变填充至图形。</li>
-<li>用<code>drawBitmap()</code>绘制位图</li>
-</ul>
-<p>例如PieChart中的代码；</p>
-<pre><code>protected void onDraw(Canvas <span class="keyword">canvas</span>) {
-   super.onDraw(<span class="keyword">canvas</span>);
-
-   <span class="comment">// Draw the shadow</span>
-   <span class="comment">// 绘制阴影</span>
-   <span class="keyword">canvas</span>.drawOval(
-           mShadowBounds,
-           mShadowPaint
-   );
-
-   <span class="comment">// Draw the label text</span>
-   <span class="comment">// 绘制标签文本</span>
-   <span class="keyword">canvas</span>.drawText(mData.get(mCurrentItem).mLabel, mTextX, mTextY, mTextPaint);
-
-   <span class="comment">// Draw the pie slices</span>
-   <span class="comment">// 绘制pie切块</span>
-   <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; mData.<span class="keyword">size</span>(); ++i) {
-       Item it = mData.get(i);
-       mPiePaint.setShader(it.mShader);
-       <span class="keyword">canvas</span>.drawArc(mBounds,
-               <span class="number">360</span> - it.mEndAngle,
-               it.mEndAngle - it.mStartAngle,
-               true, mPiePaint);
-   }
-
-   <span class="comment">// Draw the pointer</span>
-   <span class="comment">// 绘制点</span>
-   <span class="keyword">canvas</span>.drawLine(mTextX, mPointerY, mPointerX, mPointerY, mTextPaint);
-   <span class="keyword">canvas</span>.drawCircle(mPointerX, mPointerY, mPointerSize, mTextPaint);
-}
-</code></pre>
+<p>在调用任何绘制方法前，应该创建Paint对象。下节将详细介绍Paint.<br>
                     
+                        <a href="/2015/02/10/2015021001/" class="postShorten-excerpt_link link">
+                            繼續閱讀
+                        </a>
                         
-                    
-                    
-                        <p>
-                            <a href="/2015/02/10/2015021001/#post-footer" class="postShorten-excerpt_link link">
-                                留言與分享
-                            </a>
-                        </p>
                     
                 </div>
             
@@ -575,7 +328,7 @@ mAutoCenterAnimator.start()<span class="comment">;</span>
     </article>
     
     
-    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+    <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
         <div class="postShorten-wrap">
             
             <div class="postShorten-header">
@@ -597,9 +350,9 @@ mAutoCenterAnimator.start()<span class="comment">;</span>
 
             </div>
             
-                <div class="postShorten-content" itemprop="articleBody">
+                <div class="postShorten-excerpt" itemprop="articleBody">
                     <blockquote>
-<p>在网上总是搜不到很全面的自定义视图教程，大多数都是抄来抄去，即使买的书中相关内容也不是很多。所以还不如直接自己翻译下官方文档 <a href="http://developer.android.com/training/custom-views/" target="_blank" rel="external">custom views</a>. 一共四篇文章，分步翻译，这是第一篇。</p>
+<p>在网上总是搜不到很全面的自定义视图教程，大多数都是抄来抄去，即使买的书中相关内容也不是很多。所以还不如直接自己翻译下官方文档 <a href="http://developer.android.com/training/custom-views/">custom views</a>. 一共四篇文章，分步翻译，这是第一篇。</p>
 </blockquote>
 <h1 id="Creating_a_View_Class_创建一个view类">Creating a View Class  创建一个view类</h1><p>一个精心设计的自定义view像其他精心设计的类一样。它包含一系列特别的功能，拥有简单的用户界面，高效使用CPU和内存等等。为达到这些目的，应该做到：  </p>
 <ul>
@@ -607,86 +360,12 @@ mAutoCenterAnimator.start()<span class="comment">;</span>
 <li>提供可以和Android XML通用的自定义属性</li>
 <li>支持多个Android平台</li>
 </ul>
-<p>Android 框架提供了一系列的基础类和XML标签来帮助你达到这些目标。</p>
-<h2 id="Subclass_a_View_子类视图">Subclass a View 子类视图</h2><p>所有Android框架中的视图都拓展来自View类。 自定义的视图也可以直接拓展View，或者为了节省时间，拓展一个已经存在的子类，例如Button.</p>
-<p>为了让ADT可以和你的view交互，至少要提供一个参数为Context和AttributeSet对象的构造器。该构造器允许布局编辑器创建、编辑自定义view的实例。 </p>
-<h2 id="Define_Custom_Attributes_自定义属性">Define Custom Attributes 自定义属性</h2><p>为了在界面中添加一个原生的View，可以在XML元素中声明它，然后通过元素属性控制它的外观和行为。好的自定义view可以允许通过XML增加、改变样式。必须做到如下要求才能在自定义view中实现这些效果:  </p>
-<ul>
-<li>在&lt;declare-styleable&gt;资源元素中为你的view定义自定义属性 </li>
-<li>在XML布局中指明属性的值 </li>
-<li>在运行时取回属性数据 </li>
-<li>将取回的数据应用在view中  </li>
-</ul>
-<p>这节将定义、设置属性值，下节将取回、使用这些值。<br>在你的项目中添加<code>&lt;declare-styleable&gt;</code>来定义自定义属性。通常这些自定义的放在<code>res/values/attrs.xml</code>文件中。例如：</p>
-<pre><code><span class="tag">&lt;<span class="title">resources</span>&gt;</span> 
-    <span class="tag">&lt;<span class="title">declare-styleable</span> <span class="attribute">name</span>=<span class="value">"PieChart"</span>&gt;</span> 
-        <span class="tag">&lt;<span class="title">attr</span> <span class="attribute">name</span>=<span class="value">"showText"</span> <span class="attribute">format</span>=<span class="value">"boolean"</span> /&gt;</span> 
-        <span class="tag">&lt;<span class="title">attr</span> <span class="attribute">name</span>=<span class="value">"labelPosition"</span> <span class="attribute">format</span>=<span class="value">"enum"</span>&gt;</span> 
-            <span class="tag">&lt;<span class="title">enum</span> <span class="attribute">name</span>=<span class="value">"left"</span> <span class="attribute">value</span>=<span class="value">"0"</span>/&gt;</span> 
-            <span class="tag">&lt;<span class="title">enum</span> <span class="attribute">name</span>=<span class="value">"right"</span> <span class="attribute">value</span>=<span class="value">"1"</span>/&gt;</span> 
-        <span class="tag">&lt;/<span class="title">attr</span>&gt;</span> 
-    <span class="tag">&lt;/<span class="title">declare-styleable</span>&gt;</span> 
-<span class="tag">&lt;/<span class="title">resources</span>&gt;</span>
-</code></pre><p>这段代码声明了两个自定义属性，<code>showText、labelPosition</code>，属于一个可变样式的实体<code>PieChart</code>.<br>可变样式实体的名字通常情况下和自定义view的类名相同。虽然没有严格的要求应该遵循这样的习惯，<br>但是很多流行的代码编辑器依赖这种命名习惯来提供语句结束（statement completion 状态补全？）。 </p>
-<p>一旦定义了自定义属性，就能在布局XML文件中像原生属性一样使用它们。唯一的不用<br>在于，你的自定义属性属于不同的命名空间。它们属于<code>http://schemas.android.com/apk/res/[your package name]</code>而非<code>http://schemas.android.com/apk/res/android</code>.<br>举例如何在<code>PieChart</code>中使用为其定义的属性： </p>
-<pre><code><span class="pi">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span> 
-<span class="tag">&lt;<span class="title">LinearLayout</span> <span class="attribute">xmlns:android</span>=<span class="value">"http://schemas.android.com/apk/res/android"</span> 
-              <span class="attribute">xmlns:custom</span>=<span class="value">"http://schemas.android.com/apk/res/com.example.customviews"</span>&gt;</span> 
-    <span class="tag">&lt;<span class="title">com.example.customviews.charting.PieChart</span> 
-        <span class="attribute">custom:showText</span>=<span class="value">"true"</span> 
-        <span class="attribute">custom:labelPosition</span>=<span class="value">"left"</span> /&gt;</span> 
-<span class="tag">&lt;/<span class="title">LinearLayout</span>&gt;</span> 
-</code></pre><p>为了避免重复的输入很长的命名URI，上面的例子用了xmlns缩写。这个缩写指明custom是<code>http://schemas.android.com/apk/res/com.example.customviews</code>的别名。<br>你可以为命名空间选择任意的别名。<br>（me:别名是在声明属性时候用的，也就是&lt;&gt;的内部，而不是&lt;&gt;的第一行）<br>注意在布局文件中添加自定义视图的XML tag(&lt;&gt;元素的第一行)的名字。它是自定义view的全路径名。<br>如果你的view类是内部类，就必须用它外部类来补全名字。例如，<code>PieCart</code>类有个内部<br>类<code>PieView</code>. 为了对这个类使用自定义属性，tag就必须使用<code>com.example.customviews.charting.PieChart$PieView</code></p>
-<h2 id="Apply_Custom_Attributes_使用自定义属性">Apply Custom Attributes 使用自定义属性</h2><p>当在XML布局中创建view的时候，所有的XML tag都通过资源bundle被读取出来作为<code>AttributeSet</code>参数传递给view的构造函数。虽然有可能直接通过<code>AttributeSet</code>读取值，但是这么做会有以下缺点：</p>
-<ul>
-<li>属性值中的资源引用是未解析（解码？resolved）的 </li>
-<li>样式未被应用 </li>
-</ul>
-<p>相反的，传递AttributeSet给<code>obtainStyledAttributes()</code>. 这个方法回传一个<code>TypeArray</code>数组，其中的值都已经被dereferenced（间接引用）、styled（样式化）。<br>Android的资源编译器为能轻松调用<code>obtainStyledAttributes()</code>做了大量工作。每个在res目录中的<code>&lt;declare-styleable&gt;</code>资源，生成R.java定义包含属性ids和常量集合（定义在数组中每个属性的索引）的数组。<br>使用预定义常量来通过<code>TypedArray</code>读取属性。举例<code>PieChart</code>类如何读取属性：</p>
-<pre><code><span class="function"><span class="keyword">public</span> <span class="title">PieChart</span><span class="params">(Context context, AttributeSet attrs)</span> </span>{ 
-    super(context, attrs); 
-    TypedArray a = context.getTheme().obtainStyledAttributes( 
-                                        attrs, 
-                                        R.styleable.PieChart, 
-                                        <span class="number">0</span>, <span class="number">0</span>);     
-
-    <span class="keyword">try</span> { 
-        mShowText = a.getBoolean(R.styleable.PieChart_showText, <span class="literal">false</span>); 
-        mTextPos = a.getInteger(R.styleable.PieChart_labelPosition, <span class="number">0</span>); 
-    } finally { 
-        a.recycle(); 
-    } 
-} 
-</code></pre><p>注意TypedArray对象是一个共享资源，必须在使用后recycled.</p>
-<h2 id="Add_Properties_and_Events_添加属性和事件">Add Properties and Events 添加属性和事件</h2><p>属性是控制view行为和外观强有力的工具，但是他们只能在view初始化的时候读取。为了提供动态行为，为每一个自定义属性(attribute)公布property getter和setter。举例PieChart如何暴漏(explode)出一个名为showText的property:</p>
-<pre><code><span class="keyword">public</span> <span class="function"><span class="keyword">boolean</span> <span class="title">isShowText</span><span class="params">()</span> </span>{ 
-    <span class="keyword">return</span> mShowText; 
-} 
-
-<span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">setShowText</span><span class="params">(<span class="keyword">boolean</span> showText)</span> </span>{ 
-    mShowText = showText; 
-    invalidate(); 
-    requestLayout(); 
-} 
-</code></pre><p>注意<code>setShowText</code>调用了<code>invalidate()</code>和<code>requestLayout()</code>。这些函数对于确保view的可靠表现非常重要。必须在修改view的任何property之后使其无效（invalidate），因为这可能引起外观改变，所以系统就会知道它需要被重绘。比如，如果一个可能影响view的大小或形状property被改变，你就必须请求一个新的布局。忘记调用这些函数可能产生难以调试的问题。 </p>
-<p>为和重要的事件沟通，自定义view同样应当支持事件监听。例如PieChart暴漏了一个名为<code>OnCurrentItemChanged</code>自定义事件，来通知监听器用户旋转了饼状图，聚焦在一个新的切块上。 </p>
-<p>很容易遗忘公布property和监听器，特别是只有你使用这个自定义视图时。花些时间规划自定义view的接口，就能减少将来维护的成本。<br>一个好的规范是总是公布所有会影响view外观、行为的property。 </p>
-<h2 id="Design_For_Accessibility_为易用性设计">Design For Accessibility 为易用性设计</h2><p>你的自定义view应当支持尽可能多的用户。包括那些因为身体残疾无法看到或使用触摸屏的人。<br>为了支持残疾人，你应该遵循下面的规则： </p>
-<ul>
-<li>用<code>android:contentDescription</code>来标注你的输入框 </li>
-<li>适当的时候调用<code>sendAccessibilityEvent()</code>发送无障碍(accessibility)事件 </li>
-<li>持替换控制器，例如D-pad 和 trackball </li>
-</ul>
-
+<p>Android 框架提供了一系列的基础类和XML标签来帮助你达到这些目标。<br>
                     
+                        <a href="/2015/02/02/2015020201/" class="postShorten-excerpt_link link">
+                            繼續閱讀
+                        </a>
                         
-                    
-                    
-                        <p>
-                            <a href="/2015/02/02/2015020201/#post-footer" class="postShorten-excerpt_link link">
-                                留言與分享
-                            </a>
-                        </p>
                     
                 </div>
             

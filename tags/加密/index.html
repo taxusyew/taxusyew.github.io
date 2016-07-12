@@ -42,7 +42,7 @@
 
     
 
-<header id="header" data-behavior="2">
+<header id="header" data-behavior="1">
     <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
     <h1 class="header-title">
         <a class="header-title-link" href="/ ">Taxus</a>
@@ -60,7 +60,7 @@
             <!-- Define author's picture -->
 
 
-<nav id="sidebar" data-behavior="2">
+<nav id="sidebar" data-behavior="1">
     
     
         <ul class="sidebar-buttons">
@@ -162,7 +162,7 @@
 </nav>
 
             
-            <div id="main" data-behavior="2"
+            <div id="main" data-behavior="1"
                  class="
                         hasCoverMetaIn
                         ">
@@ -172,7 +172,7 @@
 <section class="postShorten-group main-content-wrap">
     
     
-    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+    <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
         <div class="postShorten-wrap">
             
             <div class="postShorten-header">
@@ -194,7 +194,7 @@
 
             </div>
             
-                <div class="postShorten-content" itemprop="articleBody">
+                <div class="postShorten-excerpt" itemprop="articleBody">
                     <p>RSA的使用<br>虽然原理比较复杂，但是实际用起来还是挺简单，今天就先从最简单、最实用的地方入手<br>具体原理，等待之后补充</p>
 <ol>
 <li>选择两个不相等的质数p和q</li>
@@ -203,17 +203,11 @@
 <li>从区间 (1, s) 中选择一个与 s 互质的数 e</li>
 <li>通过运算 ed ≡ 1 (mod s) 求出数字 d<br>即求解 ex + sy = 1 的解，得到的整数解 x ，即为 d</li>
 </ol>
-<p>至此，所有的密钥计算都已经完成，可以得到两对密钥<br>公钥 (n, e)<br>私钥 (n, d)<br>自己留下私钥，把公钥发布出去，谁想给我发信息又不想让别人知道，就用(n, e)加密了发给我<br>别人用我的公钥加密信息m过程: m^e mod n -&gt; c<br>我得到信息c以后的解密过程: c^d mod n -&gt; m</p>
-
                     
+                        <a href="/2014/12/29/2014122901/" class="postShorten-excerpt_link link">
+                            繼續閱讀
+                        </a>
                         
-                    
-                    
-                        <p>
-                            <a href="/2014/12/29/2014122901/#post-footer" class="postShorten-excerpt_link link">
-                                留言與分享
-                            </a>
-                        </p>
                     
                 </div>
             

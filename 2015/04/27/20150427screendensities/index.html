@@ -19,7 +19,7 @@ Use Density-independent Pixels 使用密度无关像素在设计布局时，你�
 <meta property="og:site_name" content="Taxus">
 <meta property="og:description" content="Supporting Different Densities 支持不同分辨率原文地址这节课向你展示如何通过提供不同的资源、使用与分辨率无关的单位来支持不同屏幕分辨率。
 Use Density-independent Pixels 使用密度无关像素在设计布局时，你必须避免一个常见的陷阱就是使用绝对像素定义距离或大小。使用像素定义布局尺寸是个问题，因为不同屏幕有不同的像素密度，所以相同数量的像素可能在">
-<meta property="og:updated_time" content="2015-08-11T01:06:58.378Z">
+<meta property="og:updated_time" content="2016-07-12T04:01:24.709Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Different Densities 不同屏幕分辨率">
 <meta name="twitter:description" content="Supporting Different Densities 支持不同分辨率原文地址这节课向你展示如何通过提供不同的资源、使用与分辨率无关的单位来支持不同屏幕分辨率。
@@ -46,7 +46,7 @@ Use Density-independent Pixels 使用密度无关像素在设计布局时，你�
 
     
 
-<header id="header" data-behavior="4">
+<header id="header" data-behavior="3">
     <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
     <h1 class="header-title">
         <a class="header-title-link" href="/ ">Taxus</a>
@@ -64,7 +64,7 @@ Use Density-independent Pixels 使用密度无关像素在设计布局时，你�
             <!-- Define author's picture -->
 
 
-<nav id="sidebar" data-behavior="4">
+<nav id="sidebar" data-behavior="3">
     
     
         <ul class="sidebar-buttons">
@@ -166,7 +166,7 @@ Use Density-independent Pixels 使用密度无关像素在设计布局时，你�
 </nav>
 
             
-            <div id="main" data-behavior="4"
+            <div id="main" data-behavior="3"
                  class="
                         hasCoverMetaIn
                         ">
@@ -194,7 +194,7 @@ Use Density-independent Pixels 使用密度无关像素在设计布局时，你�
     <div class="post-content markdown" itemprop="articleBody">
         <div class="main-content-wrap">
             <h1 id="Supporting_Different_Densities_支持不同分辨率">Supporting Different Densities 支持不同分辨率</h1><p><a href="http://developer.android.com/training/multiscreen/screendensities.html" target="_blank" rel="external">原文地址</a><br>这节课向你展示如何通过提供不同的资源、使用与分辨率无关的单位来支持不同屏幕分辨率。</p>
-<h2 id="Use_Density-independent_Pixels_使用密度无关像素">Use Density-independent Pixels 使用密度无关像素</h2><p>在设计布局时，你必须避免一个常见的陷阱就是使用绝对像素定义距离或大小。使用像素定义布局尺寸是个问题，因为不同屏幕有不同的像素密度，所以相同数量的像素可能在不同的设备上对应不同的物理尺寸。因此，当指明尺寸的时候，总是使用<code>dp</code>或<code>sp</code>单位。<code>dp</code>是一个密度无关的像素，它对应一个像素在160dpi下的物理尺寸，(注：<a href="http://www.zhihu.com/question/20697111" title="为什么基于160dpi" target="_blank" rel="external">为什么基于160dpi</a>)。<code>sp</code>是基于相同基数的单位，但是会根据用户首选的文本大小缩放(它是一个缩放独立(scale-independent)的像素)，所以在定义文本大小的时候必须使用这个尺寸单位(但是永远别用于布局尺寸)。</p>
+<h2 id="Use_Density-independent_Pixels_使用密度无关像素">Use Density-independent Pixels 使用密度无关像素</h2><p>在设计布局时，你必须避免一个常见的陷阱就是使用绝对像素定义距离或大小。使用像素定义布局尺寸是个问题，因为不同屏幕有不同的像素密度，所以相同数量的像素可能在不同的设备上对应不同的物理尺寸。因此，当指明尺寸的时候，总是使用<code>dp</code>或<code>sp</code>单位。<code>dp</code>是一个密度无关的像素，它对应一个像素在160dpi下的物理尺寸，(注：<a href="http://www.zhihu.com/question/20697111" title="为什么基于160dpi" target="_blank" rel="external">为什么基于160dpi</a>)。<br><a id="more"></a><br><code>sp</code>是基于相同基数的单位，但是会根据用户首选的文本大小缩放(它是一个缩放独立(scale-independent)的像素)，所以在定义文本大小的时候必须使用这个尺寸单位(但是永远别用于布局尺寸)。</p>
 <p>例如，当你设置两个view间的空白的时候，使用<code>dp</code>而非<code>px</code>：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">Button</span> <span class="attribute">android:layout_width</span>=<span class="value">"wrap_content"</span></span><br><span class="line">    <span class="attribute">android:layout_height</span>=<span class="value">"wrap_content"</span></span><br><span class="line">    <span class="attribute">android:text</span>=<span class="value">"@string/clickme"</span></span><br><span class="line">    <span class="attribute">android:layout_marginTop</span>=<span class="value">"20dp"</span> /&gt;</span></span><br></pre></td></tr></table></figure></p>
 <p>当指明文本大小的时候，总是使用<code>sp</code>:<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">TextView</span> <span class="attribute">android:layout_width</span>=<span class="value">"match_parent"</span></span><br><span class="line">    <span class="attribute">android:layout_height</span>=<span class="value">"wrap_content"</span></span><br><span class="line">    <span class="attribute">android:textSize</span>=<span class="value">"20sp"</span> /&gt;</span></span><br></pre></td></tr></table></figure></p>
 <h2 id="Provide_Alternative_Bitmaps_提供替换位图">Provide Alternative Bitmaps 提供替换位图</h2><p>因为Android会运行在屏幕尺寸差异很大的设备上，你必须总是根据每个通用密度提供特定的位图资源:low,medium,high,extra-high密度。这将帮助你在所有的屏幕密度上都获得很好的图像效果和性能。</p>
@@ -296,7 +296,7 @@ Use Density-independent Pixels 使用密度无关像素在设计布局时，你�
 
             </div>
             
-                <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="3">
                     <div class="post-actions-wrap">
     <nav>
         <ul class="post-actions post-action-nav">
@@ -352,7 +352,7 @@ Use Density-independent Pixels 使用密度无关像素在设计布局时，你�
 
 
                 </div>
-                <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+                <div id="share-options-bar" class="share-options-bar" data-behavior="3">
     <ul class="share-options">
         <li class="share-option">
             <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2015/04/27/20150427screendensities/">

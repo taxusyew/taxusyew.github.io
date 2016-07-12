@@ -11,19 +11,16 @@
     
     
     
-    <meta name="description" content="Optimizing the View 优化view现在你有了一个精心设计的视图，可以处理相应手势和在不同状态间转场，你需要确保视图运行很快。为了避免UI感觉迟钝或者回放时卡顿，你必须确保你的动画一直保持每秒60帧(ensure that your animations consistently run at 60 frames per second)。
-Do Less, Less Frequen">
+    <meta name="description" content="Optimizing the View 优化view现在你有了一个精心设计的视图，可以处理相应手势和在不同状态间转场，你需要确保视图运行很快。为了避免UI感觉迟钝或者回放时卡顿，你必须确保你的动画一直保持每秒60帧(ensure that your animations consistently run at 60 frames per second)。">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="自定义Android视图(04/04)">
 <meta property="og:url" content="http://yoursite.com/2015/02/14/2015021401/index.html">
 <meta property="og:site_name" content="Taxus">
-<meta property="og:description" content="Optimizing the View 优化view现在你有了一个精心设计的视图，可以处理相应手势和在不同状态间转场，你需要确保视图运行很快。为了避免UI感觉迟钝或者回放时卡顿，你必须确保你的动画一直保持每秒60帧(ensure that your animations consistently run at 60 frames per second)。
-Do Less, Less Frequen">
-<meta property="og:updated_time" content="2015-08-11T01:18:11.667Z">
+<meta property="og:description" content="Optimizing the View 优化view现在你有了一个精心设计的视图，可以处理相应手势和在不同状态间转场，你需要确保视图运行很快。为了避免UI感觉迟钝或者回放时卡顿，你必须确保你的动画一直保持每秒60帧(ensure that your animations consistently run at 60 frames per second)。">
+<meta property="og:updated_time" content="2016-07-12T04:03:21.272Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="自定义Android视图(04/04)">
-<meta name="twitter:description" content="Optimizing the View 优化view现在你有了一个精心设计的视图，可以处理相应手势和在不同状态间转场，你需要确保视图运行很快。为了避免UI感觉迟钝或者回放时卡顿，你必须确保你的动画一直保持每秒60帧(ensure that your animations consistently run at 60 frames per second)。
-Do Less, Less Frequen">
+<meta name="twitter:description" content="Optimizing the View 优化view现在你有了一个精心设计的视图，可以处理相应手势和在不同状态间转场，你需要确保视图运行很快。为了避免UI感觉迟钝或者回放时卡顿，你必须确保你的动画一直保持每秒60帧(ensure that your animations consistently run at 60 frames per second)。">
     
     
         
@@ -46,7 +43,7 @@ Do Less, Less Frequen">
 
     
 
-<header id="header" data-behavior="4">
+<header id="header" data-behavior="3">
     <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
     <h1 class="header-title">
         <a class="header-title-link" href="/ ">Taxus</a>
@@ -64,7 +61,7 @@ Do Less, Less Frequen">
             <!-- Define author's picture -->
 
 
-<nav id="sidebar" data-behavior="4">
+<nav id="sidebar" data-behavior="3">
     
     
         <ul class="sidebar-buttons">
@@ -166,7 +163,7 @@ Do Less, Less Frequen">
 </nav>
 
             
-            <div id="main" data-behavior="4"
+            <div id="main" data-behavior="3"
                  class="
                         hasCoverMetaIn
                         ">
@@ -193,7 +190,7 @@ Do Less, Less Frequen">
     
     <div class="post-content markdown" itemprop="articleBody">
         <div class="main-content-wrap">
-            <h1 id="Optimizing_the_View_优化view">Optimizing the View 优化view</h1><p>现在你有了一个精心设计的视图，可以处理相应手势和在不同状态间转场，你需要确保视图运行很快。为了避免UI感觉迟钝或者回放时卡顿，你必须确保你的动画一直保持每秒60帧(ensure that your animations consistently run at 60 frames per second)。</p>
+            <h1 id="Optimizing_the_View_优化view">Optimizing the View 优化view</h1><p>现在你有了一个精心设计的视图，可以处理相应手势和在不同状态间转场，你需要确保视图运行很快。为了避免UI感觉迟钝或者回放时卡顿，你必须确保你的动画一直保持每秒60帧(ensure that your animations consistently run at 60 frames per second)。<br><a id="more"></a></p>
 <h2 id="Do_Less,_Less_Frequently_做的更少，经常更少？">Do Less, Less Frequently 做的更少，经常更少？</h2><p>移除那些经常调用的函数中不必要的代码来加速你的视图。从<code>onDraw()</code>下手将会获得最大收益。特别的，你应该移除<code>onDraw()</code>中的分配(allocations)资源，因为分配资源可能导致垃圾回收，进而带来卡顿。在初始化时或动画之间分配对象，永远不要在动画运行的时候分配资源。</p>
 <p>近一步使<code>onDraw()</code>更精简，你应该确保它尽可能少的被调用。大多数调用<code>onDraw()</code>的结果是调用<code>invalidate()</code>，所以减少不必要的调用<code>invalidate()</code>. 如果可能，调用有四个参数的<code>invalidate()</code>版本，而不是无参数的<code>invalidate()</code>. 无参数的版本使整个view失效，而四个参数的版本只会使指明的部分失效。这个方法可以使绘制更有效，避免清除失效矩阵外非的其他视图。</p>
 <p>其他非常耗时的操作是遍历布局。任何时候视图调用<code>requestLayout()</code>，Android UI系统需要遍历整个view结构来确认每个视图的尺寸。如果找到冲突的尺寸，它需要多次遍历。UI设计者有时创建嵌套的<code>ViewGroup</code>对象使得UI表现正确。这些深层视图结构会引起性能问题。确保你的视图结构尽可能的少。</p>
@@ -288,7 +285,7 @@ Do Less, Less Frequen">
 
             </div>
             
-                <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="3">
                     <div class="post-actions-wrap">
     <nav>
         <ul class="post-actions post-action-nav">
@@ -344,7 +341,7 @@ Do Less, Less Frequen">
 
 
                 </div>
-                <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+                <div id="share-options-bar" class="share-options-bar" data-behavior="3">
     <ul class="share-options">
         <li class="share-option">
             <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2015/02/14/2015021401/">

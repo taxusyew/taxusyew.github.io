@@ -11,19 +11,16 @@
     
     
     
-    <meta name="description" content="原型继承原型继承有很多坑，我尽量在下面多总结一些，但是并不能保证面面俱到。而且列举的多了以后，会比较混乱，所以在最前面写出正确的方式。
-12345678910111213141516171819// Vehicle - 父类function Vehicle() &amp;#123;  this.wheel = 0;  this.color = 0;  this.position = &amp;#123;x:0,">
+    <meta name="description" content="原型继承原型继承有很多坑，我尽量在下面多总结一些，但是并不能保证面面俱到。而且列举的多了以后，会比较混乱，所以在最前面写出正确的方式。">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="JavaScript 继承">
 <meta property="og:url" content="http://yoursite.com/2015/07/16/20150716-js-inherit/index.html">
 <meta property="og:site_name" content="Taxus">
-<meta property="og:description" content="原型继承原型继承有很多坑，我尽量在下面多总结一些，但是并不能保证面面俱到。而且列举的多了以后，会比较混乱，所以在最前面写出正确的方式。
-12345678910111213141516171819// Vehicle - 父类function Vehicle() &amp;#123;  this.wheel = 0;  this.color = 0;  this.position = &amp;#123;x:0,">
-<meta property="og:updated_time" content="2015-08-10T10:21:38.915Z">
+<meta property="og:description" content="原型继承原型继承有很多坑，我尽量在下面多总结一些，但是并不能保证面面俱到。而且列举的多了以后，会比较混乱，所以在最前面写出正确的方式。">
+<meta property="og:updated_time" content="2016-07-12T04:02:07.157Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript 继承">
-<meta name="twitter:description" content="原型继承原型继承有很多坑，我尽量在下面多总结一些，但是并不能保证面面俱到。而且列举的多了以后，会比较混乱，所以在最前面写出正确的方式。
-12345678910111213141516171819// Vehicle - 父类function Vehicle() &amp;#123;  this.wheel = 0;  this.color = 0;  this.position = &amp;#123;x:0,">
+<meta name="twitter:description" content="原型继承原型继承有很多坑，我尽量在下面多总结一些，但是并不能保证面面俱到。而且列举的多了以后，会比较混乱，所以在最前面写出正确的方式。">
     
     
         
@@ -46,7 +43,7 @@
 
     
 
-<header id="header" data-behavior="4">
+<header id="header" data-behavior="3">
     <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
     <h1 class="header-title">
         <a class="header-title-link" href="/ ">Taxus</a>
@@ -64,7 +61,7 @@
             <!-- Define author's picture -->
 
 
-<nav id="sidebar" data-behavior="4">
+<nav id="sidebar" data-behavior="3">
     
     
         <ul class="sidebar-buttons">
@@ -166,7 +163,7 @@
 </nav>
 
             
-            <div id="main" data-behavior="4"
+            <div id="main" data-behavior="3"
                  class="
                         hasCoverMetaIn
                         ">
@@ -193,8 +190,7 @@
     
     <div class="post-content markdown" itemprop="articleBody">
         <div class="main-content-wrap">
-            <h1 id="原型继承">原型继承</h1><p>原型继承有很多坑，我尽量在下面多总结一些，但是并不能保证面面俱到。而且列举的多了以后，会比较混乱，所以在最前面写出正确的方式。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Vehicle - 父类</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Vehicle</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.wheel = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">this</span>.color = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">this</span>.position = &#123;x:<span class="number">0</span>, y:<span class="number">0</span>&#125;;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 父类方法</span></span><br><span class="line">Vehicle.prototype.move = <span class="function"><span class="keyword">function</span>(<span class="params">x, y</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.position.x += x;</span><br><span class="line">  <span class="keyword">this</span>.position.y += y;</span><br><span class="line">  <span class="built_in">console</span>.info(<span class="string">'Vehicle moved.'</span>);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// Car - 子类</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Car</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  Vehicle.call(<span class="keyword">this</span>); <span class="comment">// 调用父类构造器.</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 子类继承父类</span></span><br><span class="line">Car.prototype = <span class="built_in">Object</span>.create(Vehicle.prototype); </span><br><span class="line">Car.prototype.constructor = Car;</span><br></pre></td></tr></table></figure>
+            <h1 id="原型继承">原型继承</h1><p>原型继承有很多坑，我尽量在下面多总结一些，但是并不能保证面面俱到。而且列举的多了以后，会比较混乱，所以在最前面写出正确的方式。<br><a id="more"></a><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Vehicle - 父类</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Vehicle</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.wheel = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">this</span>.color = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">this</span>.position = &#123;x:<span class="number">0</span>, y:<span class="number">0</span>&#125;;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 父类方法</span></span><br><span class="line">Vehicle.prototype.move = <span class="function"><span class="keyword">function</span>(<span class="params">x, y</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.position.x += x;</span><br><span class="line">  <span class="keyword">this</span>.position.y += y;</span><br><span class="line">  <span class="built_in">console</span>.info(<span class="string">'Vehicle moved.'</span>);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// Car - 子类</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Car</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  Vehicle.call(<span class="keyword">this</span>); <span class="comment">// 调用父类构造器.</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 子类继承父类</span></span><br><span class="line">Car.prototype = <span class="built_in">Object</span>.create(Vehicle.prototype); </span><br><span class="line">Car.prototype.constructor = Car;</span><br></pre></td></tr></table></figure></p>
 <h2 id="为什么以上正确？">为什么以上正确？</h2><h3 id="1-子类的构造器">1.子类的构造器</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Car.prototype.constructor</span><br><span class="line">→ <span class="keyword">function</span> Car()</span><br></pre></td></tr></table></figure>
 <p>子类构造器指向自己</p>
 <h3 id="2-父类构造器">2.父类构造器</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Vehicle.prototype.constructor</span><br><span class="line">→ <span class="keyword">function</span> Vehicle()</span><br></pre></td></tr></table></figure>
@@ -293,7 +289,7 @@
 
             </div>
             
-                <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="3">
                     <div class="post-actions-wrap">
     <nav>
         <ul class="post-actions post-action-nav">
@@ -349,7 +345,7 @@
 
 
                 </div>
-                <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+                <div id="share-options-bar" class="share-options-bar" data-behavior="3">
     <ul class="share-options">
         <li class="share-option">
             <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2015/07/16/20150716-js-inherit/">
