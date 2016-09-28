@@ -1,0 +1,525 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>一个 yeoman generator 的开发上架流程 | Taxus</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Taxus">
+    
+
+    
+    <meta name="description" content="为什么需要 yeoman开发一个 react 项目，好不容易踩完了坑、搞完各种配置、项目目录结构，一个项目可以跑起来了，但是别的项目也想借鉴，怎么破？
+
+把 demo 压缩成一个 zip 包，传递给对方
+把 demo 简化为一个框架，只保留最需要的文件结构，传到 git 上，可以让其他开发者 clone 下来立马运行
+用 yeoman 构造一个初始化项目的框架，在其他开发者需要的时候，直接安装这个">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一个 yeoman generator 的开发上架流程">
+<meta property="og:url" content="http://yoursite.com/2016/09/28/20160928-node-modules-yeoman/index.html">
+<meta property="og:site_name" content="Taxus">
+<meta property="og:description" content="为什么需要 yeoman开发一个 react 项目，好不容易踩完了坑、搞完各种配置、项目目录结构，一个项目可以跑起来了，但是别的项目也想借鉴，怎么破？
+
+把 demo 压缩成一个 zip 包，传递给对方
+把 demo 简化为一个框架，只保留最需要的文件结构，传到 git 上，可以让其他开发者 clone 下来立马运行
+用 yeoman 构造一个初始化项目的框架，在其他开发者需要的时候，直接安装这个">
+<meta property="og:updated_time" content="2016-09-28T09:51:18.912Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="一个 yeoman generator 的开发上架流程">
+<meta name="twitter:description" content="为什么需要 yeoman开发一个 react 项目，好不容易踩完了坑、搞完各种配置、项目目录结构，一个项目可以跑起来了，但是别的项目也想借鉴，怎么破？
+
+把 demo 压缩成一个 zip 包，传递给对方
+把 demo 简化为一个框架，只保留最需要的文件结构，传到 git 上，可以让其他开发者 clone 下来立马运行
+用 yeoman 构造一个初始化项目的框架，在其他开发者需要的时候，直接安装这个">
+
+    
+    <link rel="alternative" href="/atom.xml" title="Taxus" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="Taxus" title="Taxus"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Taxus">Taxus</a></h1>
+				<h2 class="blog-motto">seeing the world</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">主页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/about">关于</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/09/28/20160928-node-modules-yeoman/" title="一个 yeoman generator 的开发上架流程" itemprop="url">一个 yeoman generator 的开发上架流程</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Taxus" target="_blank" itemprop="author">Taxus</a>
+		
+  <p class="article-time">
+    <time datetime="2016-09-28T04:07:10.000Z" itemprop="datePublished"> 发表于 Sep 28 2016</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#为什么需要_yeoman"><span class="toc-number">1.</span> <span class="toc-text">为什么需要 yeoman</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#传递_zip_包"><span class="toc-number">1.1.</span> <span class="toc-text">传递 zip 包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git"><span class="toc-number">1.2.</span> <span class="toc-text">git</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#yeoman"><span class="toc-number">1.3.</span> <span class="toc-text">yeoman</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#如何开发一个_generator"><span class="toc-number">2.</span> <span class="toc-text">如何开发一个 generator</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装模板生成工具"><span class="toc-number">2.1.</span> <span class="toc-text">安装模板生成工具</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#修改创建项目的脚本"><span class="toc-number">2.2.</span> <span class="toc-text">修改创建项目的脚本</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#用户交互_prompting"><span class="toc-number">2.2.1.</span> <span class="toc-text">用户交互 prompting</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建_package-json"><span class="toc-number">2.2.2.</span> <span class="toc-text">创建 package.json</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建文件夹"><span class="toc-number">2.2.3.</span> <span class="toc-text">创建文件夹</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建预置文件"><span class="toc-number">2.2.4.</span> <span class="toc-text">创建预置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装依赖"><span class="toc-number">2.2.5.</span> <span class="toc-text">安装依赖</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#本地测试"><span class="toc-number">2.3.</span> <span class="toc-text">本地测试</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#如何发布到_npm"><span class="toc-number">3.</span> <span class="toc-text">如何发布到 npm</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#一些坑"><span class="toc-number">4.</span> <span class="toc-text">一些坑</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#npm_源的切换"><span class="toc-number">4.1.</span> <span class="toc-text">npm 源的切换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#gitignore_文件"><span class="toc-number">4.2.</span> <span class="toc-text">gitignore 文件</span></a></li></ol></li></ol>
+		
+		</div>
+		
+		<h1 id="为什么需要_yeoman">为什么需要 yeoman</h1><p>开发一个 react 项目，好不容易踩完了坑、搞完各种配置、项目目录结构，一个项目可以跑起来了，但是别的项目也想借鉴，怎么破？</p>
+<ol>
+<li>把 demo 压缩成一个 zip 包，传递给对方</li>
+<li>把 demo 简化为一个框架，只保留最需要的文件结构，传到 git 上，可以让其他开发者 clone 下来立马运行</li>
+<li>用 yeoman 构造一个初始化项目的框架，在其他开发者需要的时候，直接安装这个模板即可</li>
+</ol>
+<h2 id="传递_zip_包">传递 zip 包</h2><p>方法太 low，太原始</p>
+<h2 id="git">git</h2><p>git 这种方式已经不错了，可以让开发者有一个稳定的结构，</p>
+<p>缺点：</p>
+<ol>
+<li>clone 下来还需要重新 <code>npm install</code> 安装依赖</li>
+<li>不能在 clone 的时候控制项目名称，需要在 clone 完成后，手动修改几个地方：文件夹名、package.json、readme.md，这些项目的配置无法通过 git 实现自动化配置</li>
+</ol>
+<h2 id="yeoman">yeoman</h2><p>可以让用户通过简单的命令，直接新建一个项目出来<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g generator-wallet-react&#10;yo wallet-react</span><br></pre></td></tr></table></figure></p>
+<p>在之后的创建项目的时候，会要求用户输入：项目名、项目描述、作者、项目协议<br>输入完成以后就会构造一个全新的项目，拎包入住，直接 cd 进入工程， <code>npm run start</code> 即可预览文件，整体自动化程度最高</p>
+<h1 id="如何开发一个_generator">如何开发一个 generator</h1><h2 id="安装模板生成工具">安装模板生成工具</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g yo&#10;npm install -g generator-generator</span><br></pre></td></tr></table></figure>
+<p>之后的可以看到项目目录，最关键的的 generator<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#9500;&#9472;&#9472; generators/&#10;&#9474;   &#9492;&#9472;&#9472; app/&#10;&#9474;       &#9500;&#9472;&#9472; index.js&#10;&#9474;       &#9492;&#9472;&#9472; templates/&#10;&#9474;           &#9492;&#9472;&#9472; dummyfile.txt</span><br></pre></td></tr></table></figure></p>
+<h2 id="修改创建项目的脚本">修改创建项目的脚本</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#39;use strict&#39;;&#10;var yeoman = require(&#39;yeoman-generator&#39;);&#10;var chalk = require(&#39;chalk&#39;);&#10;var yosay = require(&#39;yosay&#39;);&#10;var path = require(&#39;path&#39;);&#10;var mkdirp = require(&#39;mkdirp&#39;);&#10;var extend = require(&#39;deep-extend&#39;);&#10;var _ = require(&#39;lodash&#39;);&#10;&#10;&#10;module.exports = yeoman.Base.extend(&#123;&#10;  prompting: function () &#123;&#10;    // Have Yeoman greet the user.&#10;    this.log(yosay(&#10;      &#39;Welcome to the bedazzling &#39; + chalk.red(&#39;generator-wallet-react&#39;) + &#39; generator!&#39;&#10;    ));&#10;&#10;    var prompts = [&#10;    &#123;&#10;      type: &#39;input&#39;,&#10;      name: &#39;projectName&#39;,&#10;      message: &#39;Please input project name (wallet-react):&#39;,&#10;      default: &#39;wallet-react&#39;&#10;    &#125;,&#10;    &#123;&#10;      type: &#39;input&#39;,&#10;      name: &#39;projectDesc&#39;,&#10;      message: &#39;Please input project description:&#39;&#10;    &#125;,&#10;    &#123;&#10;      type: &#39;input&#39;,&#10;      name: &#39;projectAuthor&#39;,&#10;      message: &#39;Author (wallet):&#39;,&#10;      default: &#39;wallet&#39;&#10;    &#125;,&#10;    &#123;&#10;      type: &#39;list&#39;,&#10;      name: &#39;projectLicense&#39;,&#10;      message: &#39;Please choose license:&#39;,&#10;      choices: [&#39;MIT&#39;, &#39;ISC&#39;, &#39;Apache-2.0&#39;, &#39;AGPL-3.0&#39;]&#10;    &#125;&#10;&#10;    ];&#10;&#10;    return this.prompt(prompts).then(function (props) &#123;&#10;      // To access props later use this.props.someAnswer;&#10;      this.props = props;&#10;    &#125;.bind(this));&#10;  &#125;,&#10;&#10;  defaults: function () &#123;&#10;&#10;    if (path.basename(this.destinationPath()) !== this.props.projectName) &#123;&#10;      this.log(&#10;        &#39;Your generator must be inside a folder named &#39; + this.props.projectName + &#39;\n&#39; +&#10;        &#39;I\&#39;ll automatically create this folder.&#39;&#10;      );&#10;      mkdirp(this.props.projectName);&#10;      this.destinationRoot(this.destinationPath(this.props.projectName));&#10;    &#125;&#10;&#10;  &#125;,&#10;&#10;  writing: function () &#123;&#10;    &#10;    // --------------&#10;    // &#21019;&#24314; package.json&#10;    // --------------&#10;    var pkg = &#123;&#125;;&#10;    &#10;    pkg.keywords = pkg.keywords || [];&#10;    pkg.name = this.props.projectName;&#10;    pkg.description = this.props.projectDesc;&#10;    pkg.author = this.props.projectAuthor;&#10;    pkg.license = this.props.projectLicense;&#10;&#10;    extend(pkg, &#123;&#10;      &#34;main&#34;: &#34;index.js&#34;,&#10;      &#34;scripts&#34;: &#123;&#10;        &#34;start&#34;: &#34;webpack-dev-server --inline --progress --colors --content-base release/ --history-api-fallback&#34;,&#10;        &#34;dev&#34;: &#34;webpack-dashboard -- webpack-dev-server --inline --progress --colors --content-base release/ --history-api-fallback&#34;,&#10;        &#34;build&#34;: &#34;webpack&#34;&#10;      &#125;,&#10;        &#34;dependencies&#34;: &#123;&#10;        &#34;autoprefixer&#34;: &#34;^6.4.1&#34;,&#10;        &#34;babel-eslint&#34;: &#34;^6.1.2&#34;,&#10;        &#34;babel-plugin-react-transform&#34;: &#34;^2.0.2&#34;,&#10;        &#34;babel-preset-stage-0&#34;: &#34;^6.5.0&#34;,&#10;        &#34;classnames&#34;: &#34;^2.2.5&#34;,&#10;        &#34;compression&#34;: &#34;^1.6.1&#34;,&#10;        &#34;express&#34;: &#34;^4.13.4&#34;,&#10;        &#34;extract-text-webpack-plugin&#34;: &#34;^1.0.1&#34;,&#10;        &#34;if-env&#34;: &#34;^1.0.0&#34;,&#10;        &#34;postcss-loader&#34;: &#34;^0.13.0&#34;,&#10;        &#34;react&#34;: &#34;^0.14.7&#34;,&#10;        &#34;react-dom&#34;: &#34;^0.14.7&#34;,&#10;        &#34;react-progressbar.js&#34;: &#34;^0.2.0&#34;,&#10;        &#34;react-redux&#34;: &#34;^4.4.5&#34;,&#10;        &#34;react-router&#34;: &#34;^2.0.0&#34;,&#10;        &#34;react-tap-event-plugin&#34;: &#34;^1.0.0&#34;,&#10;        &#34;react-tappable&#34;: &#34;^0.8.4&#34;,&#10;        &#34;react-transform-catch-errors&#34;: &#34;^1.0.2&#34;,&#10;        &#34;react-transform-hmr&#34;: &#34;^1.0.4&#34;,&#10;        &#34;redbox-react&#34;: &#34;^1.3.0&#34;,&#10;        &#34;webpack-dashboard&#34;: &#34;^0.1.8&#34;&#10;      &#125;,&#10;      &#34;devDependencies&#34;: &#123;&#10;        &#34;babel-core&#34;: &#34;^6.5.1&#34;,&#10;        &#34;babel-loader&#34;: &#34;^6.2.2&#34;,&#10;        &#34;babel-preset-es2015&#34;: &#34;^6.5.0&#34;,&#10;        &#34;babel-preset-react&#34;: &#34;^6.5.0&#34;,&#10;        &#34;css-loader&#34;: &#34;^0.23.1&#34;,&#10;        &#34;http-server&#34;: &#34;^0.8.5&#34;,&#10;        &#34;less&#34;: &#34;^2.7.1&#34;,&#10;        &#34;less-loader&#34;: &#34;^2.2.3&#34;,&#10;        &#34;redux&#34;: &#34;^3.5.2&#34;,&#10;        &#34;style-loader&#34;: &#34;^0.13.1&#34;,&#10;        &#34;webpack&#34;: &#34;^1.12.13&#34;,&#10;        &#34;webpack-dev-server&#34;: &#34;^1.14.1&#34;&#10;      &#125;&#10;    &#125;);&#10;    &#10;    this.fs.writeJSON(this.destinationPath(&#39;package.json&#39;), pkg);&#10;&#10;&#10;    // --------------&#10;    // &#21019;&#24314;&#25991;&#20214;&#22841;&#10;    // --------------&#10;    mkdirp(&#39;app/component&#39;);&#10;    mkdirp(&#39;app/reducer&#39;);&#10;    mkdirp(&#39;app/scene&#39;);&#10;    mkdirp(&#39;app/style&#39;);&#10;    mkdirp(&#39;app/util&#39;);&#10;    mkdirp(&#39;release&#39;);&#10;&#10;    // --------------&#10;    // &#22797;&#21046;&#25991;&#20214;&#10;    // --------------&#10;    var compiled = _.template(this.fs.read(this.templatePath(&#39;release/index.html&#39;)));&#10;    this.fs.write(this.destinationPath(&#39;release/index.html&#39;), compiled(&#123;&#10;      htmltitle: this.props.projectName&#10;    &#125;));&#10;&#10;    compiled = _.template(this.fs.read(this.templatePath(&#39;README.md&#39;)));&#10;    this.fs.write(this.destinationPath(&#39;README.md&#39;), compiled(&#123;&#10;      project_name: this.props.projectName,&#10;      project_license: this.props.projectLicense,&#10;      project_author: this.props.projectAuthor&#10;    &#125;));&#10;&#10;    this.fs.copy(&#10;      this.templatePath(&#39;app/component/App.js&#39;),&#10;      this.destinationPath(&#39;app/component/App.js&#39;)&#10;    );&#10;&#10;    this.fs.copy(&#10;      this.templatePath(&#39;app/scene/index.js&#39;),&#10;      this.destinationPath(&#39;app/scene/index.js&#39;)&#10;    );&#10;&#10;    this.fs.copy(&#10;      this.templatePath(&#39;app/style/reset.css&#39;),&#10;      this.destinationPath(&#39;app/style/reset.css&#39;)&#10;    );&#10;&#10;    this.fs.copy(&#10;      this.templatePath(&#39;gitignore.txt&#39;),&#10;      this.destinationPath(&#39;.gitignore&#39;)&#10;    );&#10;&#10;    this.fs.copy(&#10;      this.templatePath(&#39;.babelrc&#39;),&#10;      this.destinationPath(&#39;.babelrc&#39;)&#10;    );&#10;&#10;&#10;    this.fs.copy(&#10;      this.templatePath(&#39;webpack.config.js&#39;),&#10;      this.destinationPath(&#39;webpack.config.js&#39;)&#10;    );&#10;&#10;  &#125;,&#10;&#10;  install: function () &#123;&#10;    this.installDependencies();&#10;  &#125;&#10;&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="用户交互_prompting">用户交互 prompting</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var prompts = [&#10;    &#123;&#10;      type: &#39;input&#39;,&#10;      name: &#39;projectName&#39;,&#10;      message: &#39;Please input project name (wallet-react):&#39;,&#10;      default: &#39;wallet-react&#39;&#10;    &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="创建_package-json">创建 package.json</h3><p>几个信息来源 ：</p>
+<ol>
+<li>用户输入</li>
+<li>已经可以跑通的 react demo 的配置</li>
+</ol>
+<p>两个信息经过 extend 之后 this.fs.writeJSON 输出为真正文件</p>
+<h3 id="创建文件夹">创建文件夹</h3><p>使用 <code>mkdirp</code> 创建希望生成的模板目录结构，可以直接创建嵌套文件，不存在的路径会自动创建<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdirp(&#39;app/component&#39;);</span><br></pre></td></tr></table></figure></p>
+<h3 id="创建预置文件">创建预置文件</h3><p>有几个方法来创建模板里的文件：</p>
+<ol>
+<li><p>用 yeoman 直接拷贝文件到模板目录结构</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">this.fs.copy(&#10;  this.templatePath(&#39;app/scene/index.js&#39;),&#10;  this.destinationPath(&#39;app/scene/index.js&#39;)&#10;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用 lodash 的 template 处理根据用户输入需要动态改变的文件<br>this.fs.read -&gt; _.template -&gt; this.fs.write</p>
+</li>
+</ol>
+<h3 id="安装依赖">安装依赖</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">install: function () &#123;&#10;  this.installDependencies();&#10;&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="本地测试">本地测试</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm link</span><br></pre></td></tr></table></figure>
+<h1 id="如何发布到_npm">如何发布到 npm</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm adduser  // &#20043;&#21518;&#36755;&#20837;&#29992;&#25143;&#21517;&#12289;&#23494;&#30721;&#12289;&#33258;&#24049;&#30340;&#37038;&#31665;&#10;npm publish</span><br></pre></td></tr></table></figure>
+<p>更新版本后发布<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm version 0.1.1&#10;npm publish</span><br></pre></td></tr></table></figure></p>
+<h1 id="一些坑">一些坑</h1><h2 id="npm_源的切换">npm 源的切换</h2><p>我们经常用的都是淘宝的源，在发布的时候需要修改为真正的npm<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nrm use npm</span><br></pre></td></tr></table></figure></p>
+<h2 id="gitignore_文件">gitignore 文件</h2><p><code>.gitignore</code> 文件本身存在 github 的项目里，但是在最后 npm install 的时候，没有跟随模板下来，把generator 里的 <code>.gitignore</code> 修改为 <code>gitignore.txt</code> 然后再 fs.copy 的时候修改为真实的 <code>.gitignore</code> 就可以了。</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://yoursite.com/2016/09/28/20160928-node-modules-yeoman/" data-title="一个 yeoman generator 的开发上架流程 | Taxus" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2016/07/12/20160712-pixel-unit/"  title="20160712 pixel unit">
+ <strong>下一篇：</strong><br/> 
+ <span>20160712 pixel unit
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#为什么需要_yeoman"><span class="toc-number">1.</span> <span class="toc-text">为什么需要 yeoman</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#传递_zip_包"><span class="toc-number">1.1.</span> <span class="toc-text">传递 zip 包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git"><span class="toc-number">1.2.</span> <span class="toc-text">git</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#yeoman"><span class="toc-number">1.3.</span> <span class="toc-text">yeoman</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#如何开发一个_generator"><span class="toc-number">2.</span> <span class="toc-text">如何开发一个 generator</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装模板生成工具"><span class="toc-number">2.1.</span> <span class="toc-text">安装模板生成工具</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#修改创建项目的脚本"><span class="toc-number">2.2.</span> <span class="toc-text">修改创建项目的脚本</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#用户交互_prompting"><span class="toc-number">2.2.1.</span> <span class="toc-text">用户交互 prompting</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建_package-json"><span class="toc-number">2.2.2.</span> <span class="toc-text">创建 package.json</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建文件夹"><span class="toc-number">2.2.3.</span> <span class="toc-text">创建文件夹</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建预置文件"><span class="toc-number">2.2.4.</span> <span class="toc-text">创建预置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装依赖"><span class="toc-number">2.2.5.</span> <span class="toc-text">安装依赖</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#本地测试"><span class="toc-number">2.3.</span> <span class="toc-text">本地测试</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#如何发布到_npm"><span class="toc-number">3.</span> <span class="toc-text">如何发布到 npm</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#一些坑"><span class="toc-number">4.</span> <span class="toc-text">一些坑</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#npm_源的切换"><span class="toc-number">4.1.</span> <span class="toc-text">npm 源的切换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#gitignore_文件"><span class="toc-number">4.2.</span> <span class="toc-text">gitignore 文件</span></a></li></ol></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/Android/" title="Android">Android<sup>9</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/JS/" title="JS">JS<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/view/" title="view">view<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/算法/" title="算法">算法<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/emacs/" title="emacs">emacs<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/chromium/" title="chromium">chromium<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/APICloud/" title="APICloud">APICloud<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/git/" title="git">git<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/grunt/" title="grunt">grunt<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/CSS/" title="CSS">CSS<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/touch/" title="touch">touch<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/hexo/" title="hexo">hexo<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/主题/" title="主题">主题<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/DP/" title="DP">DP<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/zsh/" title="zsh">zsh<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/bash/" title="bash">bash<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/centos/" title="centos">centos<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/配置/" title="配置">配置<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/加密/" title="加密">加密<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/RSA/" title="RSA">RSA<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> jundge jump~ <br/>
+			</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
+		
+		<a href="/about" target="_blank" title="Taxus">Taxus</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
