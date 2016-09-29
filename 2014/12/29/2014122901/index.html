@@ -13,32 +13,29 @@
     
     <meta name="description" content="RSA的使用虽然原理比较复杂，但是实际用起来还是挺简单，今天就先从最简单、最实用的地方入手具体原理，等待之后补充
 
-选择两个不相等的质数p和q
-计算 n = p x q
-计算 s = (p-1) x (q-1)
-从区间 (1, s) 中选择一个与 s 互质的数 e
-通过运算 ed ≡ 1 (mod s) 求出数字 d即求解 ex + sy = 1 的解，得到的整数解 x ，即为 d">
+选择两个不相等的质数 $p$ 和 $q$
+计算公钥、私钥的模数（modulus） $ n = pq$ 
+计算欧拉函数（ totient ） $ s = \phi(n) = (p-1)(q-1)$
+从区间 $(1, s)$ 中选择一个与 $s$ 互质的数 $e$ ， $e$ 作为公钥">
 <meta property="og:type" content="article">
 <meta property="og:title" content="RSA的使用">
 <meta property="og:url" content="http://yoursite.com/2014/12/29/2014122901/index.html">
 <meta property="og:site_name" content="Taxus">
 <meta property="og:description" content="RSA的使用虽然原理比较复杂，但是实际用起来还是挺简单，今天就先从最简单、最实用的地方入手具体原理，等待之后补充
 
-选择两个不相等的质数p和q
-计算 n = p x q
-计算 s = (p-1) x (q-1)
-从区间 (1, s) 中选择一个与 s 互质的数 e
-通过运算 ed ≡ 1 (mod s) 求出数字 d即求解 ex + sy = 1 的解，得到的整数解 x ，即为 d">
-<meta property="og:updated_time" content="2016-07-12T04:02:49.034Z">
+选择两个不相等的质数 $p$ 和 $q$
+计算公钥、私钥的模数（modulus） $ n = pq$ 
+计算欧拉函数（ totient ） $ s = \phi(n) = (p-1)(q-1)$
+从区间 $(1, s)$ 中选择一个与 $s$ 互质的数 $e$ ， $e$ 作为公钥">
+<meta property="og:updated_time" content="2016-09-29T06:00:40.321Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="RSA的使用">
 <meta name="twitter:description" content="RSA的使用虽然原理比较复杂，但是实际用起来还是挺简单，今天就先从最简单、最实用的地方入手具体原理，等待之后补充
 
-选择两个不相等的质数p和q
-计算 n = p x q
-计算 s = (p-1) x (q-1)
-从区间 (1, s) 中选择一个与 s 互质的数 e
-通过运算 ed ≡ 1 (mod s) 求出数字 d即求解 ex + sy = 1 的解，得到的整数解 x ，即为 d">
+选择两个不相等的质数 $p$ 和 $q$
+计算公钥、私钥的模数（modulus） $ n = pq$ 
+计算欧拉函数（ totient ） $ s = \phi(n) = (p-1)(q-1)$
+从区间 $(1, s)$ 中选择一个与 $s$ 互质的数 $e$ ， $e$ 作为公钥">
 
     
     <link rel="alternative" href="/atom.xml" title="Taxus" type="application/atom+xml">
@@ -120,14 +117,14 @@
 		
 		<p>RSA的使用<br>虽然原理比较复杂，但是实际用起来还是挺简单，今天就先从最简单、最实用的地方入手<br>具体原理，等待之后补充</p>
 <ol>
-<li>选择两个不相等的质数p和q</li>
-<li>计算 n = p x q</li>
-<li>计算 s = (p-1) x (q-1)</li>
-<li>从区间 (1, s) 中选择一个与 s 互质的数 e</li>
-<li>通过运算 ed ≡ 1 (mod s) 求出数字 d<br>即求解 ex + sy = 1 的解，得到的整数解 x ，即为 d</li>
+<li>选择两个不相等的质数 $p$ 和 $q$</li>
+<li>计算公钥、私钥的模数（modulus） $ n = pq$ </li>
+<li>计算欧拉函数（ totient ） $ s = \phi(n) = (p-1)(q-1)$</li>
+<li>从区间 $(1, s)$ 中选择一个与 $s$ 互质的数 $e$ ， $e$ 作为公钥</li>
+<li>求出数字 d，满足 $ed \equiv 1  ( \mod s)$<br>即求解 ex + sy = 1 的解，得到的整数解 x ，即为 d<br>$d$ 作为私钥</li>
 </ol>
 <a id="more"></a>
-<p>至此，所有的密钥计算都已经完成，可以得到两对密钥<br>公钥 (n, e)<br>私钥 (n, d)<br>自己留下私钥，把公钥发布出去，谁想给我发信息又不想让别人知道，就用(n, e)加密了发给我<br>别人用我的公钥加密信息m过程: m^e mod n -&gt; c<br>我得到信息c以后的解密过程: c^d mod n -&gt; m</p>
+<p>至此，所有的密钥计算都已经完成，可以得到两对密钥<br>公钥 $(n, e)$<br>私钥 $(n, d)$<br>自己留下私钥，把公钥发布出去，谁想给我发信息又不想让别人知道，就用(n, e)加密了发给我<br>别人用我的公钥加密信息m过程: $ c =  m^e \mod n$<br>我得到信息c以后的解密过程: $ m =  c^d \mod n $</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -510,7 +507,7 @@ $(document).ready(function(){
 
 <!-- Tiny_search End --><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
-  MathJax.Hub.Config("");
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
 </script>
 
 <script type="text/x-mathjax-config">
@@ -522,7 +519,7 @@ $(document).ready(function(){
   });
 </script>
 
-<script type="text/javascript" src="custom_mathjax_source">
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->

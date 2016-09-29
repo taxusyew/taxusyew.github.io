@@ -237,11 +237,9 @@ oh-my-zsh的项目地址在bash中直接执行下面语句，即可从git中下�
      
        <p itemprop="description" >RSA的使用虽然原理比较复杂，但是实际用起来还是挺简单，今天就先从最简单、最实用的地方入手具体原理，等待之后补充
 
-选择两个不相等的质数p和q
-计算 n = p x q
-计算 s = (p-1) x (q-1)
-从区间 (1, s) 中选择一个与 s 互质的数 e
-通过运算 ed</p>
+选择两个不相等的质数 $p$ 和 $q$
+计算公钥、私钥的模数（modulus） $ n = pq$ 
+计算欧拉函数（ totient ） $ s = \phi(n</p>
       
     
     <time datetime="2014-12-29T08:46:40.000Z" itemprop="datePublished">Dec 29 2014</time>
@@ -547,7 +545,7 @@ $(document).ready(function(){
 
 <!-- Tiny_search End --><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
-  MathJax.Hub.Config("");
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
 </script>
 
 <script type="text/x-mathjax-config">
@@ -559,7 +557,7 @@ $(document).ready(function(){
   });
 </script>
 
-<script type="text/javascript" src="custom_mathjax_source">
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->
