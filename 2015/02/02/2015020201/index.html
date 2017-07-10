@@ -13,20 +13,23 @@
     
     <meta name="description" content="在网上总是搜不到很全面的自定义视图教程，大多数都是抄来抄去，即使买的书中相关内容也不是很多。所以还不如直接自己翻译下官方文档 custom views. 一共四篇文章，分步翻译，这是第一篇。
 
-Creating a View Class  创建一个view类一个精心设计的自定义view像其他精心设计的类一样。它包含一系列特别的功能，拥有简单的用户界面，高效使用CPU和内存等等。为达到这些目的，应该">
+Creating a View Class 创建一个view类
+一个精心设计的自定义view像其他精心设计的类一样。它包含一系列特别的功能，拥有简单的用户界面，高效使用CPU和内存等等。为达到这些目的">
 <meta property="og:type" content="article">
 <meta property="og:title" content="自定义Android视图(01/04)">
 <meta property="og:url" content="http://yoursite.com/2015/02/02/2015020201/index.html">
 <meta property="og:site_name" content="Taxus">
 <meta property="og:description" content="在网上总是搜不到很全面的自定义视图教程，大多数都是抄来抄去，即使买的书中相关内容也不是很多。所以还不如直接自己翻译下官方文档 custom views. 一共四篇文章，分步翻译，这是第一篇。
 
-Creating a View Class  创建一个view类一个精心设计的自定义view像其他精心设计的类一样。它包含一系列特别的功能，拥有简单的用户界面，高效使用CPU和内存等等。为达到这些目的，应该">
+Creating a View Class 创建一个view类
+一个精心设计的自定义view像其他精心设计的类一样。它包含一系列特别的功能，拥有简单的用户界面，高效使用CPU和内存等等。为达到这些目的">
 <meta property="og:updated_time" content="2016-07-12T04:03:05.369Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="自定义Android视图(01/04)">
 <meta name="twitter:description" content="在网上总是搜不到很全面的自定义视图教程，大多数都是抄来抄去，即使买的书中相关内容也不是很多。所以还不如直接自己翻译下官方文档 custom views. 一共四篇文章，分步翻译，这是第一篇。
 
-Creating a View Class  创建一个view类一个精心设计的自定义view像其他精心设计的类一样。它包含一系列特别的功能，拥有简单的用户界面，高效使用CPU和内存等等。为达到这些目的，应该">
+Creating a View Class 创建一个view类
+一个精心设计的自定义view像其他精心设计的类一样。它包含一系列特别的功能，拥有简单的用户界面，高效使用CPU和内存等等。为达到这些目的">
 
     
     <link rel="alternative" href="/atom.xml" title="Taxus" type="application/atom+xml">
@@ -102,88 +105,97 @@ Creating a View Class  创建一个view类一个精心设计的自定义view像�
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Creating_a_View_Class_创建一个view类"><span class="toc-number">1.</span> <span class="toc-text">Creating a View Class  创建一个view类</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Subclass_a_View_子类视图"><span class="toc-number">1.1.</span> <span class="toc-text">Subclass a View 子类视图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Define_Custom_Attributes_自定义属性"><span class="toc-number">1.2.</span> <span class="toc-text">Define Custom Attributes 自定义属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Apply_Custom_Attributes_使用自定义属性"><span class="toc-number">1.3.</span> <span class="toc-text">Apply Custom Attributes 使用自定义属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Add_Properties_and_Events_添加属性和事件"><span class="toc-number">1.4.</span> <span class="toc-text">Add Properties and Events 添加属性和事件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Design_For_Accessibility_为易用性设计"><span class="toc-number">1.5.</span> <span class="toc-text">Design For Accessibility 为易用性设计</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#creating-a-view-class-创建一个view类"><span class="toc-number">1.</span> <span class="toc-text">Creating a View Class 创建一个view类</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#define-custom-attributes-自定义属性"><span class="toc-number">1.1.</span> <span class="toc-text">Define Custom Attributes 自定义属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#apply-custom-attributes-使用自定义属性"><span class="toc-number">1.2.</span> <span class="toc-text">Apply Custom Attributes 使用自定义属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#add-properties-and-events-添加属性和事件"><span class="toc-number">1.3.</span> <span class="toc-text">Add Properties and Events 添加属性和事件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#design-for-accessibility-为易用性设计"><span class="toc-number">1.4.</span> <span class="toc-text">Design For Accessibility 为易用性设计</span></a></li></ol></li></ol>
 		
 		</div>
 		
 		<blockquote>
 <p>在网上总是搜不到很全面的自定义视图教程，大多数都是抄来抄去，即使买的书中相关内容也不是很多。所以还不如直接自己翻译下官方文档 <a href="http://developer.android.com/training/custom-views/" target="_blank" rel="external">custom views</a>. 一共四篇文章，分步翻译，这是第一篇。</p>
 </blockquote>
-<h1 id="Creating_a_View_Class_创建一个view类">Creating a View Class  创建一个view类</h1><p>一个精心设计的自定义view像其他精心设计的类一样。它包含一系列特别的功能，拥有简单的用户界面，高效使用CPU和内存等等。为达到这些目的，应该做到：  </p>
+<h1 id="creating-a-view-class-创建一个view类">Creating a View Class 创建一个view类</h1>
+<p>一个精心设计的自定义view像其他精心设计的类一样。它包含一系列特别的功能，拥有简单的用户界面，高效使用CPU和内存等等。为达到这些目的，应该做到：</p>
 <ul>
 <li>符合Android标准</li>
 <li>提供可以和Android XML通用的自定义属性</li>
 <li>支持多个Android平台</li>
 </ul>
-<p>Android 框架提供了一系列的基础类和XML标签来帮助你达到这些目标。<br><a id="more"></a></p>
-<h2 id="Subclass_a_View_子类视图">Subclass a View 子类视图</h2><p>所有Android框架中的视图都拓展来自View类。 自定义的视图也可以直接拓展View，或者为了节省时间，拓展一个已经存在的子类，例如Button.</p>
-<p>为了让ADT可以和你的view交互，至少要提供一个参数为Context和AttributeSet对象的构造器。该构造器允许布局编辑器创建、编辑自定义view的实例。 </p>
-<h2 id="Define_Custom_Attributes_自定义属性">Define Custom Attributes 自定义属性</h2><p>为了在界面中添加一个原生的View，可以在XML元素中声明它，然后通过元素属性控制它的外观和行为。好的自定义view可以允许通过XML增加、改变样式。必须做到如下要求才能在自定义view中实现这些效果:  </p>
+<p>Android 框架提供了一系列的基础类和XML标签来帮助你达到这些目标。 <a id="more"></a> ## Subclass a View 子类视图 所有Android框架中的视图都拓展来自View类。 自定义的视图也可以直接拓展View，或者为了节省时间，拓展一个已经存在的子类，例如Button.</p>
+<p>为了让ADT可以和你的view交互，至少要提供一个参数为Context和AttributeSet对象的构造器。该构造器允许布局编辑器创建、编辑自定义view的实例。</p>
+<h2 id="define-custom-attributes-自定义属性">Define Custom Attributes 自定义属性</h2>
+<p>为了在界面中添加一个原生的View，可以在XML元素中声明它，然后通过元素属性控制它的外观和行为。好的自定义view可以允许通过XML增加、改变样式。必须做到如下要求才能在自定义view中实现这些效果:</p>
 <ul>
-<li>在&lt;declare-styleable&gt;资源元素中为你的view定义自定义属性 </li>
-<li>在XML布局中指明属性的值 </li>
-<li>在运行时取回属性数据 </li>
-<li>将取回的数据应用在view中  </li>
+<li>在&lt;declare-styleable&gt;资源元素中为你的view定义自定义属性</li>
+<li>在XML布局中指明属性的值</li>
+<li>在运行时取回属性数据</li>
+<li>将取回的数据应用在view中</li>
 </ul>
-<p>这节将定义、设置属性值，下节将取回、使用这些值。<br>在你的项目中添加<code>&lt;declare-styleable&gt;</code>来定义自定义属性。通常这些自定义的放在<code>res/values/attrs.xml</code>文件中。例如：</p>
-<pre><code><span class="tag">&lt;<span class="title">resources</span>&gt;</span> 
-    <span class="tag">&lt;<span class="title">declare-styleable</span> <span class="attribute">name</span>=<span class="value">"PieChart"</span>&gt;</span> 
-        <span class="tag">&lt;<span class="title">attr</span> <span class="attribute">name</span>=<span class="value">"showText"</span> <span class="attribute">format</span>=<span class="value">"boolean"</span> /&gt;</span> 
-        <span class="tag">&lt;<span class="title">attr</span> <span class="attribute">name</span>=<span class="value">"labelPosition"</span> <span class="attribute">format</span>=<span class="value">"enum"</span>&gt;</span> 
-            <span class="tag">&lt;<span class="title">enum</span> <span class="attribute">name</span>=<span class="value">"left"</span> <span class="attribute">value</span>=<span class="value">"0"</span>/&gt;</span> 
-            <span class="tag">&lt;<span class="title">enum</span> <span class="attribute">name</span>=<span class="value">"right"</span> <span class="attribute">value</span>=<span class="value">"1"</span>/&gt;</span> 
-        <span class="tag">&lt;/<span class="title">attr</span>&gt;</span> 
-    <span class="tag">&lt;/<span class="title">declare-styleable</span>&gt;</span> 
-<span class="tag">&lt;/<span class="title">resources</span>&gt;</span>
-</code></pre><p>这段代码声明了两个自定义属性，<code>showText、labelPosition</code>，属于一个可变样式的实体<code>PieChart</code>.<br>可变样式实体的名字通常情况下和自定义view的类名相同。虽然没有严格的要求应该遵循这样的习惯，<br>但是很多流行的代码编辑器依赖这种命名习惯来提供语句结束（statement completion 状态补全？）。 </p>
-<p>一旦定义了自定义属性，就能在布局XML文件中像原生属性一样使用它们。唯一的不用<br>在于，你的自定义属性属于不同的命名空间。它们属于<code>http://schemas.android.com/apk/res/[your package name]</code>而非<code>http://schemas.android.com/apk/res/android</code>.<br>举例如何在<code>PieChart</code>中使用为其定义的属性： </p>
-<pre><code><span class="pi">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span> 
-<span class="tag">&lt;<span class="title">LinearLayout</span> <span class="attribute">xmlns:android</span>=<span class="value">"http://schemas.android.com/apk/res/android"</span> 
-              <span class="attribute">xmlns:custom</span>=<span class="value">"http://schemas.android.com/apk/res/com.example.customviews"</span>&gt;</span> 
-    <span class="tag">&lt;<span class="title">com.example.customviews.charting.PieChart</span> 
-        <span class="attribute">custom:showText</span>=<span class="value">"true"</span> 
-        <span class="attribute">custom:labelPosition</span>=<span class="value">"left"</span> /&gt;</span> 
-<span class="tag">&lt;/<span class="title">LinearLayout</span>&gt;</span> 
-</code></pre><p>为了避免重复的输入很长的命名URI，上面的例子用了xmlns缩写。这个缩写指明custom是<code>http://schemas.android.com/apk/res/com.example.customviews</code>的别名。<br>你可以为命名空间选择任意的别名。<br>（me:别名是在声明属性时候用的，也就是&lt;&gt;的内部，而不是&lt;&gt;的第一行）<br>注意在布局文件中添加自定义视图的XML tag(&lt;&gt;元素的第一行)的名字。它是自定义view的全路径名。<br>如果你的view类是内部类，就必须用它外部类来补全名字。例如，<code>PieCart</code>类有个内部<br>类<code>PieView</code>. 为了对这个类使用自定义属性，tag就必须使用<code>com.example.customviews.charting.PieChart$PieView</code></p>
-<h2 id="Apply_Custom_Attributes_使用自定义属性">Apply Custom Attributes 使用自定义属性</h2><p>当在XML布局中创建view的时候，所有的XML tag都通过资源bundle被读取出来作为<code>AttributeSet</code>参数传递给view的构造函数。虽然有可能直接通过<code>AttributeSet</code>读取值，但是这么做会有以下缺点：</p>
+<p>这节将定义、设置属性值，下节将取回、使用这些值。<br>
+在你的项目中添加<code>&lt;declare-styleable&gt;</code>来定义自定义属性。通常这些自定义的放在<code>res/values/attrs.xml</code>文件中。例如：</p>
+<pre><code>&lt;resources&gt; 
+    &lt;declare-styleable name=&quot;PieChart&quot;&gt; 
+        &lt;attr name=&quot;showText&quot; format=&quot;boolean&quot; /&gt; 
+        &lt;attr name=&quot;labelPosition&quot; format=&quot;enum&quot;&gt; 
+            &lt;enum name=&quot;left&quot; value=&quot;0&quot;/&gt; 
+            &lt;enum name=&quot;right&quot; value=&quot;1&quot;/&gt; 
+        &lt;/attr&gt; 
+    &lt;/declare-styleable&gt; 
+&lt;/resources&gt;</code></pre>
+<p>这段代码声明了两个自定义属性，<code>showText、labelPosition</code>，属于一个可变样式的实体<code>PieChart</code>. 可变样式实体的名字通常情况下和自定义view的类名相同。虽然没有严格的要求应该遵循这样的习惯， 但是很多流行的代码编辑器依赖这种命名习惯来提供语句结束（statement completion 状态补全？）。</p>
+<p>一旦定义了自定义属性，就能在布局XML文件中像原生属性一样使用它们。唯一的不用 在于，你的自定义属性属于不同的命名空间。它们属于<code>http://schemas.android.com/apk/res/[your package name]</code>而非<code>http://schemas.android.com/apk/res/android</code>. 举例如何在<code>PieChart</code>中使用为其定义的属性：</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt; 
+&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot; 
+              xmlns:custom=&quot;http://schemas.android.com/apk/res/com.example.customviews&quot;&gt; 
+    &lt;com.example.customviews.charting.PieChart 
+        custom:showText=&quot;true&quot; 
+        custom:labelPosition=&quot;left&quot; /&gt; 
+&lt;/LinearLayout&gt; </code></pre>
+<p>为了避免重复的输入很长的命名URI，上面的例子用了xmlns缩写。这个缩写指明custom是<code>http://schemas.android.com/apk/res/com.example.customviews</code>的别名。 你可以为命名空间选择任意的别名。 （me:别名是在声明属性时候用的，也就是&lt;&gt;的内部，而不是&lt;&gt;的第一行）<br>
+注意在布局文件中添加自定义视图的XML tag(&lt;&gt;元素的第一行)的名字。它是自定义view的全路径名。 如果你的view类是内部类，就必须用它外部类来补全名字。例如，<code>PieCart</code>类有个内部 类<code>PieView</code>. 为了对这个类使用自定义属性，tag就必须使用<code>com.example.customviews.charting.PieChart$PieView</code></p>
+<h2 id="apply-custom-attributes-使用自定义属性">Apply Custom Attributes 使用自定义属性</h2>
+<p>当在XML布局中创建view的时候，所有的XML tag都通过资源bundle被读取出来作为<code>AttributeSet</code>参数传递给view的构造函数。虽然有可能直接通过<code>AttributeSet</code>读取值，但是这么做会有以下缺点：</p>
 <ul>
-<li>属性值中的资源引用是未解析（解码？resolved）的 </li>
-<li>样式未被应用 </li>
+<li>属性值中的资源引用是未解析（解码？resolved）的</li>
+<li>样式未被应用</li>
 </ul>
-<p>相反的，传递AttributeSet给<code>obtainStyledAttributes()</code>. 这个方法回传一个<code>TypeArray</code>数组，其中的值都已经被dereferenced（间接引用）、styled（样式化）。<br>Android的资源编译器为能轻松调用<code>obtainStyledAttributes()</code>做了大量工作。每个在res目录中的<code>&lt;declare-styleable&gt;</code>资源，生成R.java定义包含属性ids和常量集合（定义在数组中每个属性的索引）的数组。<br>使用预定义常量来通过<code>TypedArray</code>读取属性。举例<code>PieChart</code>类如何读取属性：</p>
-<pre><code><span class="function"><span class="keyword">public</span> <span class="title">PieChart</span><span class="params">(Context context, AttributeSet attrs)</span> </span>{ 
+<p>相反的，传递AttributeSet给<code>obtainStyledAttributes()</code>. 这个方法回传一个<code>TypeArray</code>数组，其中的值都已经被dereferenced（间接引用）、styled（样式化）。<br>
+Android的资源编译器为能轻松调用<code>obtainStyledAttributes()</code>做了大量工作。每个在res目录中的<code>&lt;declare-styleable&gt;</code>资源，生成R.java定义包含属性ids和常量集合（定义在数组中每个属性的索引）的数组。<br>
+使用预定义常量来通过<code>TypedArray</code>读取属性。举例<code>PieChart</code>类如何读取属性：</p>
+<pre><code>public PieChart(Context context, AttributeSet attrs) { 
     super(context, attrs); 
     TypedArray a = context.getTheme().obtainStyledAttributes( 
                                         attrs, 
                                         R.styleable.PieChart, 
-                                        <span class="number">0</span>, <span class="number">0</span>);     
-
-    <span class="keyword">try</span> { 
-        mShowText = a.getBoolean(R.styleable.PieChart_showText, <span class="literal">false</span>); 
-        mTextPos = a.getInteger(R.styleable.PieChart_labelPosition, <span class="number">0</span>); 
+                                        0, 0);  
+    
+    try { 
+        mShowText = a.getBoolean(R.styleable.PieChart_showText, false); 
+        mTextPos = a.getInteger(R.styleable.PieChart_labelPosition, 0); 
     } finally { 
         a.recycle(); 
     } 
-} 
-</code></pre><p>注意TypedArray对象是一个共享资源，必须在使用后recycled.</p>
-<h2 id="Add_Properties_and_Events_添加属性和事件">Add Properties and Events 添加属性和事件</h2><p>属性是控制view行为和外观强有力的工具，但是他们只能在view初始化的时候读取。为了提供动态行为，为每一个自定义属性(attribute)公布property getter和setter。举例PieChart如何暴漏(explode)出一个名为showText的property:</p>
-<pre><code><span class="keyword">public</span> <span class="function"><span class="keyword">boolean</span> <span class="title">isShowText</span><span class="params">()</span> </span>{ 
-    <span class="keyword">return</span> mShowText; 
+} </code></pre>
+<p>注意TypedArray对象是一个共享资源，必须在使用后recycled.</p>
+<h2 id="add-properties-and-events-添加属性和事件">Add Properties and Events 添加属性和事件</h2>
+<p>属性是控制view行为和外观强有力的工具，但是他们只能在view初始化的时候读取。为了提供动态行为，为每一个自定义属性(attribute)公布property getter和setter。举例PieChart如何暴漏(explode)出一个名为showText的property:</p>
+<pre><code>public boolean isShowText() { 
+    return mShowText; 
 } 
 
-<span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">setShowText</span><span class="params">(<span class="keyword">boolean</span> showText)</span> </span>{ 
+public void setShowText(boolean showText) { 
     mShowText = showText; 
     invalidate(); 
     requestLayout(); 
-} 
-</code></pre><p>注意<code>setShowText</code>调用了<code>invalidate()</code>和<code>requestLayout()</code>。这些函数对于确保view的可靠表现非常重要。必须在修改view的任何property之后使其无效（invalidate），因为这可能引起外观改变，所以系统就会知道它需要被重绘。比如，如果一个可能影响view的大小或形状property被改变，你就必须请求一个新的布局。忘记调用这些函数可能产生难以调试的问题。 </p>
-<p>为和重要的事件沟通，自定义view同样应当支持事件监听。例如PieChart暴漏了一个名为<code>OnCurrentItemChanged</code>自定义事件，来通知监听器用户旋转了饼状图，聚焦在一个新的切块上。 </p>
-<p>很容易遗忘公布property和监听器，特别是只有你使用这个自定义视图时。花些时间规划自定义view的接口，就能减少将来维护的成本。<br>一个好的规范是总是公布所有会影响view外观、行为的property。 </p>
-<h2 id="Design_For_Accessibility_为易用性设计">Design For Accessibility 为易用性设计</h2><p>你的自定义view应当支持尽可能多的用户。包括那些因为身体残疾无法看到或使用触摸屏的人。<br>为了支持残疾人，你应该遵循下面的规则： </p>
+} </code></pre>
+<p>注意<code>setShowText</code>调用了<code>invalidate()</code>和<code>requestLayout()</code>。这些函数对于确保view的可靠表现非常重要。必须在修改view的任何property之后使其无效（invalidate），因为这可能引起外观改变，所以系统就会知道它需要被重绘。比如，如果一个可能影响view的大小或形状property被改变，你就必须请求一个新的布局。忘记调用这些函数可能产生难以调试的问题。</p>
+<p>为和重要的事件沟通，自定义view同样应当支持事件监听。例如PieChart暴漏了一个名为<code>OnCurrentItemChanged</code>自定义事件，来通知监听器用户旋转了饼状图，聚焦在一个新的切块上。</p>
+<p>很容易遗忘公布property和监听器，特别是只有你使用这个自定义视图时。花些时间规划自定义view的接口，就能减少将来维护的成本。 一个好的规范是总是公布所有会影响view外观、行为的property。</p>
+<h2 id="design-for-accessibility-为易用性设计">Design For Accessibility 为易用性设计</h2>
+<p>你的自定义view应当支持尽可能多的用户。包括那些因为身体残疾无法看到或使用触摸屏的人。<br>
+为了支持残疾人，你应该遵循下面的规则：</p>
 <ul>
-<li>用<code>android:contentDescription</code>来标注你的输入框 </li>
-<li>适当的时候调用<code>sendAccessibilityEvent()</code>发送无障碍(accessibility)事件 </li>
-<li>持替换控制器，例如D-pad 和 trackball </li>
+<li>用<code>android:contentDescription</code>来标注你的输入框</li>
+<li>适当的时候调用<code>sendAccessibilityEvent()</code>发送无障碍(accessibility)事件</li>
+<li>持替换控制器，例如D-pad 和 trackball</li>
 </ul>
   
 	</div>
@@ -242,7 +254,7 @@ Creating a View Class  创建一个view类一个精心设计的自定义view像�
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Creating_a_View_Class_创建一个view类"><span class="toc-number">1.</span> <span class="toc-text">Creating a View Class  创建一个view类</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Subclass_a_View_子类视图"><span class="toc-number">1.1.</span> <span class="toc-text">Subclass a View 子类视图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Define_Custom_Attributes_自定义属性"><span class="toc-number">1.2.</span> <span class="toc-text">Define Custom Attributes 自定义属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Apply_Custom_Attributes_使用自定义属性"><span class="toc-number">1.3.</span> <span class="toc-text">Apply Custom Attributes 使用自定义属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Add_Properties_and_Events_添加属性和事件"><span class="toc-number">1.4.</span> <span class="toc-text">Add Properties and Events 添加属性和事件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Design_For_Accessibility_为易用性设计"><span class="toc-number">1.5.</span> <span class="toc-text">Design For Accessibility 为易用性设计</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#creating-a-view-class-创建一个view类"><span class="toc-number">1.</span> <span class="toc-text">Creating a View Class 创建一个view类</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#define-custom-attributes-自定义属性"><span class="toc-number">1.1.</span> <span class="toc-text">Define Custom Attributes 自定义属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#apply-custom-attributes-使用自定义属性"><span class="toc-number">1.2.</span> <span class="toc-text">Apply Custom Attributes 使用自定义属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#add-properties-and-events-添加属性和事件"><span class="toc-number">1.3.</span> <span class="toc-text">Add Properties and Events 添加属性和事件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#design-for-accessibility-为易用性设计"><span class="toc-number">1.4.</span> <span class="toc-text">Design For Accessibility 为易用性设计</span></a></li></ol></li></ol>
  
   </div>
 
@@ -373,7 +385,7 @@ Creating a View Class  创建一个view类一个精心设计的自定义view像�
 		
 
 		<p class="copyright">
-		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2017 
 		
 		<a href="/about" target="_blank" title="Taxus">Taxus</a>
 		
@@ -559,6 +571,35 @@ $(document).ready(function(){
 
 <!-- MathJax Begin -->
 <!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
 
 
 <!-- MathJax End -->

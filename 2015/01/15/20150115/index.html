@@ -11,22 +11,22 @@
     
 
     
-    <meta name="description" content="每次启动emacs的时候，不管进入哪个mode输入”(“都不能自动出现”)”并把光标放到中间很麻烦，所以找到插件autopair，但是安装好后还是不会自动启动每次都要M-x autopair 才行，依旧不方便所以为了让它自启动，折腾了很久，终于搞定，记录一下~
+    <meta name="description" content="每次启动emacs的时候，不管进入哪个mode输入“(”都不能自动出现“)”并把光标放到中间 很麻烦，所以找到插件autopair，但是安装好后还是不会自动启动 每次都要M-x autopair 才行，依旧不方便 所以为了让它自启动，折腾了很久，终于搞定，记录一下~
 
-平台:Windows 8.1 X64emacs 24">
+平台: Windows 8.1 X64 emacs 24">
 <meta property="og:type" content="article">
 <meta property="og:title" content="emacs配置自动加载autopair">
 <meta property="og:url" content="http://yoursite.com/2015/01/15/20150115/index.html">
 <meta property="og:site_name" content="Taxus">
-<meta property="og:description" content="每次启动emacs的时候，不管进入哪个mode输入”(“都不能自动出现”)”并把光标放到中间很麻烦，所以找到插件autopair，但是安装好后还是不会自动启动每次都要M-x autopair 才行，依旧不方便所以为了让它自启动，折腾了很久，终于搞定，记录一下~
+<meta property="og:description" content="每次启动emacs的时候，不管进入哪个mode输入“(”都不能自动出现“)”并把光标放到中间 很麻烦，所以找到插件autopair，但是安装好后还是不会自动启动 每次都要M-x autopair 才行，依旧不方便 所以为了让它自启动，折腾了很久，终于搞定，记录一下~
 
-平台:Windows 8.1 X64emacs 24">
+平台: Windows 8.1 X64 emacs 24">
 <meta property="og:updated_time" content="2016-07-12T03:59:47.464Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="emacs配置自动加载autopair">
-<meta name="twitter:description" content="每次启动emacs的时候，不管进入哪个mode输入”(“都不能自动出现”)”并把光标放到中间很麻烦，所以找到插件autopair，但是安装好后还是不会自动启动每次都要M-x autopair 才行，依旧不方便所以为了让它自启动，折腾了很久，终于搞定，记录一下~
+<meta name="twitter:description" content="每次启动emacs的时候，不管进入哪个mode输入“(”都不能自动出现“)”并把光标放到中间 很麻烦，所以找到插件autopair，但是安装好后还是不会自动启动 每次都要M-x autopair 才行，依旧不方便 所以为了让它自启动，折腾了很久，终于搞定，记录一下~
 
-平台:Windows 8.1 X64emacs 24">
+平台: Windows 8.1 X64 emacs 24">
 
     
     <link rel="alternative" href="/atom.xml" title="Taxus" type="application/atom+xml">
@@ -106,21 +106,18 @@
 		
 		</div>
 		
-		<p>每次启动emacs的时候，不管进入哪个mode输入”(“都不能自动出现”)”并把光标放到中间<br>很麻烦，所以找到插件autopair，但是安装好后还是不会自动启动<br>每次都要M-x autopair 才行，依旧不方便<br>所以为了让它自启动，折腾了很久，终于搞定，记录一下~</p>
+		<p>每次启动emacs的时候，不管进入哪个mode输入“(”都不能自动出现“)”并把光标放到中间 很麻烦，所以找到插件autopair，但是安装好后还是不会自动启动 每次都要M-x autopair 才行，依旧不方便 所以为了让它自启动，折腾了很久，终于搞定，记录一下~</p>
 <blockquote>
-<p>平台:<br>Windows 8.1 X64<br>emacs 24<br><a id="more"></a></p>
+<p>平台: Windows 8.1 X64 emacs 24 <a id="more"></a></p>
 </blockquote>
-<ol>
-<li><p>打开文件<code>C:\Users\jedi\AppData\Roaming\.emacs.d\init.el</code>根据已经有的配置，找到合适位置输入<code>(require &#39;init-autopair)</code>，要避免添加到不生效的位置，因为配置文件中会判断平台</p>
-</li>
-<li><p>在下面的文件夹<code>C:\Users\jedi\AppData\Roaming\.emacs.d\lisp\</code>新建文件<code>init-autopair.el</code><br>输入内容</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(require &#39;autopair)&#10;(autopair-global-mode)&#10;(provide &#39;init-autopair)</span><br></pre></td></tr></table></figure>
-</li>
+<ol style="list-style-type: decimal">
+<li><p>打开文件<code>C:\Users\jedi\AppData\Roaming\.emacs.d\init.el</code>根据已经有的配置，找到合适位置输入<code>(require 'init-autopair)</code>，要避免添加到不生效的位置，因为配置文件中会判断平台</p></li>
+<li><p>在下面的文件夹<code>C:\Users\jedi\AppData\Roaming\.emacs.d\lisp\</code>新建文件<code>init-autopair.el</code> 输入内容 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(require &#39;autopair)&#10;(autopair-global-mode)&#10;(provide &#39;init-autopair)</span><br></pre></td></tr></table></figure></p></li>
 </ol>
 <p>前两行为autopair.el中的文档注释内容，后一行自己添加，等于告诉其他地方，这个包就是init-autopair，否则会报错</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">error: Required feature &#39;init-autopair&#39; was not provided&#10;To ensure normal operation, you should investigate and remove the&#10;cause of the error in your initialization file. Start Emacs with&#10;the &#39;--debug-init&#39; option to view a complete error backtrace.</span><br></pre></td></tr></table></figure>
-<ol>
-<li>最后<code>c:\Users\jedi\AppData\Roaming\.emacs.d\site-lisp\</code><br>新建文件夹autopair，把autopair.el拷进去，之后每次启动emacs就能直接使用autopair</li>
+<ol start="3" style="list-style-type: decimal">
+<li>最后<code>c:\Users\jedi\AppData\Roaming\.emacs.d\site-lisp\</code> 新建文件夹autopair，把autopair.el拷进去，之后每次启动emacs就能直接使用autopair</li>
 </ol>
   
 	</div>
@@ -310,7 +307,7 @@
 		
 
 		<p class="copyright">
-		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2017 
 		
 		<a href="/about" target="_blank" title="Taxus">Taxus</a>
 		
@@ -496,6 +493,35 @@ $(document).ready(function(){
 
 <!-- MathJax Begin -->
 <!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
 
 
 <!-- MathJax End -->

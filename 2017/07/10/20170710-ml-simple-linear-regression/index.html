@@ -4,32 +4,32 @@
 <head>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
   
-    <title>Different Densities 不同屏幕分辨率 | Taxus</title>
+    <title>简单线性回归 | Taxus</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Taxus">
     
 
     
-    <meta name="description" content="Supporting Different Densities 支持不同分辨率
-原文地址 这节课向你展示如何通过提供不同的资源、使用与分辨率无关的单位来支持不同屏幕分辨率。
-Use Density-independent Pixels 使用密度无关像素
-在设计布局时，你必须避免一个常见的陷阱就是使用绝对像素定义距离或大小。使用像素定义布局尺寸是个问题，因为不同屏幕有不同的像素密度，所以相同数量">
+    <meta name="description" content="什么是简单线性回归
+给定一个数据集合，取出其中一列值，作为解释变量 X，顾名思义，我们将用它来解释我们希望预估的变量 Y. 选取完解释变量后，我们使用选择学习算法，来通过 X 推测 Y，最终得到一个回归直线。 我们通常选择的学习算法是“最小二乘法”。 有关最小二乘法的详细解释可以查看：最小二乘法详细解释，在此不再赘述。
+有关最小二乘法的误区
+在没有真正的亲自手写一个回归算法的时候，我一直以为">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Different Densities 不同屏幕分辨率">
-<meta property="og:url" content="http://yoursite.com/2015/04/27/20150427screendensities/index.html">
+<meta property="og:title" content="简单线性回归">
+<meta property="og:url" content="http://yoursite.com/2017/07/10/20170710-ml-simple-linear-regression/index.html">
 <meta property="og:site_name" content="Taxus">
-<meta property="og:description" content="Supporting Different Densities 支持不同分辨率
-原文地址 这节课向你展示如何通过提供不同的资源、使用与分辨率无关的单位来支持不同屏幕分辨率。
-Use Density-independent Pixels 使用密度无关像素
-在设计布局时，你必须避免一个常见的陷阱就是使用绝对像素定义距离或大小。使用像素定义布局尺寸是个问题，因为不同屏幕有不同的像素密度，所以相同数量">
-<meta property="og:updated_time" content="2016-09-29T04:17:06.915Z">
+<meta property="og:description" content="什么是简单线性回归
+给定一个数据集合，取出其中一列值，作为解释变量 X，顾名思义，我们将用它来解释我们希望预估的变量 Y. 选取完解释变量后，我们使用选择学习算法，来通过 X 推测 Y，最终得到一个回归直线。 我们通常选择的学习算法是“最小二乘法”。 有关最小二乘法的详细解释可以查看：最小二乘法详细解释，在此不再赘述。
+有关最小二乘法的误区
+在没有真正的亲自手写一个回归算法的时候，我一直以为">
+<meta property="og:updated_time" content="2017-07-10T03:29:19.236Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Different Densities 不同屏幕分辨率">
-<meta name="twitter:description" content="Supporting Different Densities 支持不同分辨率
-原文地址 这节课向你展示如何通过提供不同的资源、使用与分辨率无关的单位来支持不同屏幕分辨率。
-Use Density-independent Pixels 使用密度无关像素
-在设计布局时，你必须避免一个常见的陷阱就是使用绝对像素定义距离或大小。使用像素定义布局尺寸是个问题，因为不同屏幕有不同的像素密度，所以相同数量">
+<meta name="twitter:title" content="简单线性回归">
+<meta name="twitter:description" content="什么是简单线性回归
+给定一个数据集合，取出其中一列值，作为解释变量 X，顾名思义，我们将用它来解释我们希望预估的变量 Y. 选取完解释变量后，我们使用选择学习算法，来通过 X 推测 Y，最终得到一个回归直线。 我们通常选择的学习算法是“最小二乘法”。 有关最小二乘法的详细解释可以查看：最小二乘法详细解释，在此不再赘述。
+有关最小二乘法的误区
+在没有真正的亲自手写一个回归算法的时候，我一直以为">
 
     
     <link rel="alternative" href="/atom.xml" title="Taxus" type="application/atom+xml">
@@ -89,14 +89,14 @@ Use Density-independent Pixels 使用密度无关像素
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/04/27/20150427screendensities/" title="Different Densities 不同屏幕分辨率" itemprop="url">Different Densities 不同屏幕分辨率</a>
+      <a href="/2017/07/10/20170710-ml-simple-linear-regression/" title="简单线性回归" itemprop="url">简单线性回归</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Taxus" target="_blank" itemprop="author">Taxus</a>
 		
   <p class="article-time">
-    <time datetime="2015-04-27T06:28:04.000Z" itemprop="datePublished"> 发表于 Apr 27 2015</time>
+    <time datetime="2017-07-10T02:29:24.000Z" itemprop="datePublished"> 发表于 Jul 10 2017</time>
     
   </p>
 </header>
@@ -105,43 +105,49 @@ Use Density-independent Pixels 使用密度无关像素
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#supporting-different-densities-支持不同分辨率"><span class="toc-number">1.</span> <span class="toc-text">Supporting Different Densities 支持不同分辨率</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#use-density-independent-pixels-使用密度无关像素"><span class="toc-number">1.1.</span> <span class="toc-text">Use Density-independent Pixels 使用密度无关像素</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#provide-alternative-bitmaps-提供替换位图"><span class="toc-number">1.2.</span> <span class="toc-text">Provide Alternative Bitmaps 提供替换位图</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#什么是简单线性回归"><span class="toc-number">1.</span> <span class="toc-text">什么是简单线性回归</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#有关最小二乘法的误区"><span class="toc-number">2.</span> <span class="toc-text">有关最小二乘法的误区</span></a></li></ol>
 		
 		</div>
 		
-		<h1 id="supporting-different-densities-支持不同分辨率">Supporting Different Densities 支持不同分辨率</h1>
-<p><a href="http://developer.android.com/training/multiscreen/screendensities.html" target="_blank" rel="external">原文地址</a> 这节课向你展示如何通过提供不同的资源、使用与分辨率无关的单位来支持不同屏幕分辨率。</p>
-<h2 id="use-density-independent-pixels-使用密度无关像素">Use Density-independent Pixels 使用密度无关像素</h2>
-<p>在设计布局时，你必须避免一个常见的陷阱就是使用绝对像素定义距离或大小。使用像素定义布局尺寸是个问题，因为不同屏幕有不同的像素密度，所以相同数量的像素可能在不同的设备上对应不同的物理尺寸。因此，当指明尺寸的时候，总是使用<code>dp</code>或<code>sp</code>单位。<code>dp</code>是一个密度无关的像素，它对应一个像素在160dpi下的物理尺寸，(注：<a href="http://www.zhihu.com/question/20697111" title="为什么基于160dpi" target="_blank" rel="external">为什么基于160dpi</a>)。 <a id="more"></a> <code>sp</code>是基于相同基数的单位，但是会根据用户首选的文本大小缩放(它是一个缩放独立(scale-independent)的像素)，所以在定义文本大小的时候必须使用这个尺寸单位(但是永远别用于布局尺寸)。</p>
-<p>例如，当你设置两个view间的空白的时候，使用<code>dp</code>而非<code>px</code>： <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">Button</span> <span class="attribute">android:layout_width</span>=<span class="value">"wrap_content"</span></span><br><span class="line">    <span class="attribute">android:layout_height</span>=<span class="value">"wrap_content"</span></span><br><span class="line">    <span class="attribute">android:text</span>=<span class="value">"@string/clickme"</span></span><br><span class="line">    <span class="attribute">android:layout_marginTop</span>=<span class="value">"20dp"</span> /&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>当指明文本大小的时候，总是使用<code>sp</code>: <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">TextView</span> <span class="attribute">android:layout_width</span>=<span class="value">"match_parent"</span></span><br><span class="line">    <span class="attribute">android:layout_height</span>=<span class="value">"wrap_content"</span></span><br><span class="line">    <span class="attribute">android:textSize</span>=<span class="value">"20sp"</span> /&gt;</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="provide-alternative-bitmaps-提供替换位图">Provide Alternative Bitmaps 提供替换位图</h2>
-<p>因为Android会运行在屏幕尺寸差异很大的设备上，你必须总是根据每个通用密度提供特定的位图资源:low,medium,high,extra-high密度。这将帮助你在所有的屏幕密度上都获得很好的图像效果和性能。</p>
-<p>为了生成这些图像，你应该从原始的矢量图开始，根据下面的比例为每个密度生成图像：</p>
-<ul>
-<li>xhdpi:2.0</li>
-<li>hdpi: 1.5</li>
-<li>mdpi:1.0 (基线)</li>
-<li>ldpi: 0.75</li>
-</ul>
-<p>这意味着如果你为xhdpi设备生成一个200X200的图像，就必须为hdpi，mdpi,ldpi生成相应的150X150, 100X100, 75X75资源。</p>
-<p>将这些图像放置在<code>res/</code>文件夹下适当的位置，然后系统在运行时会自动根据设备的屏幕密度挑选合适的文件： <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">MyProject/</span><br><span class="line">  res/</span><br><span class="line">    drawable-xhdpi/</span><br><span class="line">        awesomeimage.png</span><br><span class="line">    drawable-hdpi/</span><br><span class="line">        awesomeimage.png</span><br><span class="line">    drawable-mdpi/</span><br><span class="line">        awesomeimage.png</span><br><span class="line">    drawable-ldpi/</span><br><span class="line">        awesomeimage.png</span><br></pre></td></tr></table></figure></p>
-<p>任何时候你引用<code>@drawable/awesomeimage</code>，系统会根据屏幕dpi选择合适的图片。</p>
-<p>把应用的启动图标放在<code>mipmap/</code>文件夹下 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">res/...</span><br><span class="line">    mipmap-ldpi/...</span><br><span class="line">        finished_launcher_asset.png</span><br><span class="line">    mipmap-mdpi/...</span><br><span class="line">        finished_launcher_asset.png</span><br><span class="line">    mipmap-hdpi/...</span><br><span class="line">        finished_launcher_asset.png</span><br><span class="line">    mipmap-xhdpi/...</span><br><span class="line">        finished_launcher_asset.png</span><br><span class="line">    mipmap-xxhdpi/...</span><br><span class="line">        finished_launcher_asset.png</span><br><span class="line">    mipmap-xxxhdpi/...</span><br><span class="line">        finished_launcher_asset.png</span><br></pre></td></tr></table></figure></p>
-<blockquote>
-<p>注意：应该把所有的启动图标都放在<code>res/mipmap-[density]/</code>文件夹下，而不是<code>drawable/</code>文件夹，来确保启动app使用最佳分辨率。有关mipmap文件夹的更多信息，请查看 <a href="http://developer.android.com/tools/projects/index.html#mipmap" target="_blank" rel="external">管理项目概览</a></p>
-</blockquote>
-<p>查看<a href="http://developer.android.com/design/style/iconography.html" title="Icon Design Guidelines" target="_blank" rel="external">图标设计指导</a>，获取创建应用图标的更多提示。</p>
+		<h1 id="什么是简单线性回归">什么是简单线性回归</h1>
+<p>给定一个数据集合，取出其中一列值，作为解释变量 X，顾名思义，我们将用它来解释我们希望预估的变量 Y. 选取完解释变量后，我们使用选择学习算法，来通过 X 推测 Y，最终得到一个回归直线。 我们通常选择的学习算法是“最小二乘法”。 有关最小二乘法的详细解释可以查看：<a href="https://zh.wikipedia.org/wiki/%E6%9C%80%E5%B0%8F%E4%BA%8C%E4%B9%98%E6%B3%95" target="_blank" rel="external">最小二乘法详细解释</a>，在此不再赘述。</p>
+<h1 id="有关最小二乘法的误区">有关最小二乘法的误区</h1>
+<p>在没有真正的亲自手写一个回归算法的时候，我一直以为算法的运行流程如下：</p>
+<ol style="list-style-type: decimal">
+<li>设置回归的目标函数<br>
+</li>
+<li>每次使用一条数据，通过这个目标函数计算，优化一下参数<br>
+</li>
+<li>下次迭代使用新数据，新参数<br>
+</li>
+<li>最终在数据迭代完成以后，参数优化完成</li>
+</ol>
+<p>后来在自己亲手实现算法的时候，发现并不是这样一个数据一个数据的迭代优化参数，而是拿着所有数据，整体的计算参数。 真实流程如下：</p>
+<ol style="list-style-type: decimal">
+<li>根据最小二乘法（OLS）计算出来回归直线的两个参数计算公式:<br>
+<span class="math display">\[
+a = (\overline{X}\overline{Y} - \overline{XY}) \over (\overline{X})^2 - \overline{X^2} 
+\]</span></li>
+</ol>
+<p><span class="math display">\[
+b = \overline{Y} - a \overline{X}
+\]</span> 2. 可以看到为了得到这两个参数值，我们需要计算 4 个不同的均值： <span class="math display">\[
+\overline{X}
+\]</span> <span class="math display">\[
+\overline{Y}
+\]</span> <span class="math display">\[
+(\overline{X})^2
+\]</span> <span class="math display">\[
+\overline{X^2} 
+\]</span></p>
+<ol start="3" style="list-style-type: decimal">
+<li>剩下的就是一次性使用全部数据，计算上面的 4 个值，然后带入第一步的公式，即可得到归回方程的系数</li>
+</ol>
   
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
 
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/Android/">Android</a>
-  </div>
 
 </div>
 
@@ -149,7 +155,7 @@ Use Density-independent Pixels 使用密度无关像素
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2015/04/27/20150427screendensities/" data-title="Different Densities 不同屏幕分辨率 | Taxus" data-tsina="null" class="share clearfix">
+	  <div data-url="http://yoursite.com/2017/07/10/20170710-ml-simple-linear-regression/" data-title="简单线性回归 | Taxus" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -162,19 +168,11 @@ Use Density-independent Pixels 使用密度无关像素
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2015/05/14/20150514-experiment/" title="Javascript 小实验">
-  <strong>上一篇：</strong><br/>
-  <span>
-  Javascript 小实验</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2015/04/22/20150422Graphics-architecture/"  title="Graphics architecture 图形架构">
+<a href="/2016/09/28/20160928-node-modules-yeoman/"  title="一个 yeoman generator 的开发上架流程">
  <strong>下一篇：</strong><br/> 
- <span>Graphics architecture 图形架构
+ <span>一个 yeoman generator 的开发上架流程
 </span>
 </a>
 </div>
@@ -189,7 +187,7 @@ Use Density-independent Pixels 使用密度无关像素
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#supporting-different-densities-支持不同分辨率"><span class="toc-number">1.</span> <span class="toc-text">Supporting Different Densities 支持不同分辨率</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#use-density-independent-pixels-使用密度无关像素"><span class="toc-number">1.1.</span> <span class="toc-text">Use Density-independent Pixels 使用密度无关像素</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#provide-alternative-bitmaps-提供替换位图"><span class="toc-number">1.2.</span> <span class="toc-text">Provide Alternative Bitmaps 提供替换位图</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#什么是简单线性回归"><span class="toc-number">1.</span> <span class="toc-text">什么是简单线性回归</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#有关最小二乘法的误区"><span class="toc-number">2.</span> <span class="toc-text">有关最小二乘法的误区</span></a></li></ol>
  
   </div>
 

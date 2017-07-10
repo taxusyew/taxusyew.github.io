@@ -11,19 +11,22 @@
     
 
     
-    <meta name="description" content="计算两点间最短距离n各节点的图，最笨的方法是遍历n叉树，一共n层，根据每个路径的情况进行判断是否再向下深入遍历。
-Dijstar最原始的方法太笨，耗时、耗空间严重，所以我们尝试使用表来存储二维表，每一行表示当前节点到其他节点的最短路径每处理完一个节点，就向下一行">
+    <meta name="description" content="计算两点间最短距离 n各节点的图，最笨的方法是遍历n叉树，一共n层，根据每个路径的情况进行判断是否再向下深入遍历。
+Dijstar
+最原始的方法太笨，耗时、耗空间严重，所以我们尝试使用表来存储 二维表，每一行表示当前节点到其他节点的最短路径 每处理完一个节点，就向下一行">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Dijstar算法">
 <meta property="og:url" content="http://yoursite.com/2015/07/03/20150703-dijstar/index.html">
 <meta property="og:site_name" content="Taxus">
-<meta property="og:description" content="计算两点间最短距离n各节点的图，最笨的方法是遍历n叉树，一共n层，根据每个路径的情况进行判断是否再向下深入遍历。
-Dijstar最原始的方法太笨，耗时、耗空间严重，所以我们尝试使用表来存储二维表，每一行表示当前节点到其他节点的最短路径每处理完一个节点，就向下一行">
+<meta property="og:description" content="计算两点间最短距离 n各节点的图，最笨的方法是遍历n叉树，一共n层，根据每个路径的情况进行判断是否再向下深入遍历。
+Dijstar
+最原始的方法太笨，耗时、耗空间严重，所以我们尝试使用表来存储 二维表，每一行表示当前节点到其他节点的最短路径 每处理完一个节点，就向下一行">
 <meta property="og:updated_time" content="2016-07-12T04:01:53.294Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Dijstar算法">
-<meta name="twitter:description" content="计算两点间最短距离n各节点的图，最笨的方法是遍历n叉树，一共n层，根据每个路径的情况进行判断是否再向下深入遍历。
-Dijstar最原始的方法太笨，耗时、耗空间严重，所以我们尝试使用表来存储二维表，每一行表示当前节点到其他节点的最短路径每处理完一个节点，就向下一行">
+<meta name="twitter:description" content="计算两点间最短距离 n各节点的图，最笨的方法是遍历n叉树，一共n层，根据每个路径的情况进行判断是否再向下深入遍历。
+Dijstar
+最原始的方法太笨，耗时、耗空间严重，所以我们尝试使用表来存储 二维表，每一行表示当前节点到其他节点的最短路径 每处理完一个节点，就向下一行">
 
     
     <link rel="alternative" href="/atom.xml" title="Taxus" type="application/atom+xml">
@@ -99,24 +102,23 @@ Dijstar最原始的方法太笨，耗时、耗空间严重，所以我们尝试�
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Dijstar"><span class="toc-number">1.</span> <span class="toc-text">Dijstar</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#解惑"><span class="toc-number">2.</span> <span class="toc-text">解惑</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#这次有一个节点差一点就是最短路径，可是有一个更近的，选了更近的以后是不是以后的方向都会偏离之前第二短的？是不是以后反而会越来越长？"><span class="toc-number">2.1.</span> <span class="toc-text">这次有一个节点差一点就是最短路径，可是有一个更近的，选了更近的以后是不是以后的方向都会偏离之前第二短的？是不是以后反而会越来越长？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如果一行里有两个相同的最小值怎么办？"><span class="toc-number">2.2.</span> <span class="toc-text">如果一行里有两个相同的最小值怎么办？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#此时得到起点到每个路径的最小值，但是还想知道路径怎么办？"><span class="toc-number">2.3.</span> <span class="toc-text">此时得到起点到每个路径的最小值，但是还想知道路径怎么办？</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#dijstar"><span class="toc-number">1.</span> <span class="toc-text">Dijstar</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#解惑"><span class="toc-number">2.</span> <span class="toc-text">解惑</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#这次有一个节点差一点就是最短路径可是有一个更近的选了更近的以后是不是以后的方向都会偏离之前第二短的是不是以后反而会越来越长"><span class="toc-number">2.1.</span> <span class="toc-text">这次有一个节点差一点就是最短路径，可是有一个更近的，选了更近的以后是不是以后的方向都会偏离之前第二短的？是不是以后反而会越来越长？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如果一行里有两个相同的最小值怎么办"><span class="toc-number">2.2.</span> <span class="toc-text">如果一行里有两个相同的最小值怎么办？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#此时得到起点到每个路径的最小值但是还想知道路径怎么办"><span class="toc-number">2.3.</span> <span class="toc-text">此时得到起点到每个路径的最小值，但是还想知道路径怎么办？</span></a></li></ol></li></ol>
 		
 		</div>
 		
-		<p>计算两点间最短距离<br>n各节点的图，最笨的方法是遍历n叉树，一共n层，根据每个路径的情况进行判断是否再向下深入遍历。</p>
-<h1 id="Dijstar">Dijstar</h1><p>最原始的方法太笨，耗时、耗空间严重，所以我们尝试使用表来存储<br>二维表，每一行表示当前节点到其他节点的最短路径<br>每处理完一个节点，就向下一行<br><a id="more"></a></p>
-<ol>
-<li>始化第一行，起始节点I到所有节点的距离为正无穷</li>
-<li>计算第一行，以起点开始，计算和每一个节点的距离，并修改其值，然后把不能直接抵达的节点依旧写正无穷</li>
-<li>选当前行最小值节点作为下一行的起点</li>
-<li>每开始一次都把这个节点排除出去，进入下一行重复查找最小值节点</li>
-</ol>
+		<p>计算两点间最短距离 n各节点的图，最笨的方法是遍历n叉树，一共n层，根据每个路径的情况进行判断是否再向下深入遍历。</p>
+<h1 id="dijstar">Dijstar</h1>
+<p>最原始的方法太笨，耗时、耗空间严重，所以我们尝试使用表来存储 二维表，每一行表示当前节点到其他节点的最短路径 每处理完一个节点，就向下一行 <a id="more"></a> 1. 始化第一行，起始节点I到所有节点的距离为正无穷 2. 计算第一行，以起点开始，计算和每一个节点的距离，并修改其值，然后把不能直接抵达的节点依旧写正无穷 3. 选当前行最小值节点作为下一行的起点 4. 每开始一次都把这个节点排除出去，进入下一行重复查找最小值节点</p>
 <blockquote>
 <p>already-cost(Node-Chosen) + cost(Node-Chosen -&gt; Node-dest) ? already-cost(Node-dest)</p>
 </blockquote>
-<h1 id="解惑">解惑</h1><h2 id="这次有一个节点差一点就是最短路径，可是有一个更近的，选了更近的以后是不是以后的方向都会偏离之前第二短的？是不是以后反而会越来越长？">这次有一个节点差一点就是最短路径，可是有一个更近的，选了更近的以后是不是以后的方向都会偏离之前第二短的？是不是以后反而会越来越长？</h2><p>答：不是，如果以后节点偏离了，计算出来的新值始终没有超过之前差一点就最小的值，那么就不会更新这个值，只有在更优的情况下会更新它</p>
-<h2 id="如果一行里有两个相同的最小值怎么办？">如果一行里有两个相同的最小值怎么办？</h2><p>答：随便选</p>
-<h2 id="此时得到起点到每个路径的最小值，但是还想知道路径怎么办？">此时得到起点到每个路径的最小值，但是还想知道路径怎么办？</h2><p>反向查询，从目的地向后查询</p>
+<h1 id="解惑">解惑</h1>
+<h2 id="这次有一个节点差一点就是最短路径可是有一个更近的选了更近的以后是不是以后的方向都会偏离之前第二短的是不是以后反而会越来越长">这次有一个节点差一点就是最短路径，可是有一个更近的，选了更近的以后是不是以后的方向都会偏离之前第二短的？是不是以后反而会越来越长？</h2>
+<p>答：不是，如果以后节点偏离了，计算出来的新值始终没有超过之前差一点就最小的值，那么就不会更新这个值，只有在更优的情况下会更新它</p>
+<h2 id="如果一行里有两个相同的最小值怎么办">如果一行里有两个相同的最小值怎么办？</h2>
+<p>答：随便选</p>
+<h2 id="此时得到起点到每个路径的最小值但是还想知道路径怎么办">此时得到起点到每个路径的最小值，但是还想知道路径怎么办？</h2>
+<p>反向查询，从目的地向后查询</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -174,7 +176,7 @@ Dijstar最原始的方法太笨，耗时、耗空间严重，所以我们尝试�
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Dijstar"><span class="toc-number">1.</span> <span class="toc-text">Dijstar</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#解惑"><span class="toc-number">2.</span> <span class="toc-text">解惑</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#这次有一个节点差一点就是最短路径，可是有一个更近的，选了更近的以后是不是以后的方向都会偏离之前第二短的？是不是以后反而会越来越长？"><span class="toc-number">2.1.</span> <span class="toc-text">这次有一个节点差一点就是最短路径，可是有一个更近的，选了更近的以后是不是以后的方向都会偏离之前第二短的？是不是以后反而会越来越长？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如果一行里有两个相同的最小值怎么办？"><span class="toc-number">2.2.</span> <span class="toc-text">如果一行里有两个相同的最小值怎么办？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#此时得到起点到每个路径的最小值，但是还想知道路径怎么办？"><span class="toc-number">2.3.</span> <span class="toc-text">此时得到起点到每个路径的最小值，但是还想知道路径怎么办？</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#dijstar"><span class="toc-number">1.</span> <span class="toc-text">Dijstar</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#解惑"><span class="toc-number">2.</span> <span class="toc-text">解惑</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#这次有一个节点差一点就是最短路径可是有一个更近的选了更近的以后是不是以后的方向都会偏离之前第二短的是不是以后反而会越来越长"><span class="toc-number">2.1.</span> <span class="toc-text">这次有一个节点差一点就是最短路径，可是有一个更近的，选了更近的以后是不是以后的方向都会偏离之前第二短的？是不是以后反而会越来越长？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如果一行里有两个相同的最小值怎么办"><span class="toc-number">2.2.</span> <span class="toc-text">如果一行里有两个相同的最小值怎么办？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#此时得到起点到每个路径的最小值但是还想知道路径怎么办"><span class="toc-number">2.3.</span> <span class="toc-text">此时得到起点到每个路径的最小值，但是还想知道路径怎么办？</span></a></li></ol></li></ol>
  
   </div>
 
@@ -305,7 +307,7 @@ Dijstar最原始的方法太笨，耗时、耗空间严重，所以我们尝试�
 		
 
 		<p class="copyright">
-		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2017 
 		
 		<a href="/about" target="_blank" title="Taxus">Taxus</a>
 		
@@ -491,6 +493,35 @@ $(document).ready(function(){
 
 <!-- MathJax Begin -->
 <!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
 
 
 <!-- MathJax End -->

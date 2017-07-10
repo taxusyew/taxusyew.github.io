@@ -11,22 +11,22 @@
     
 
     
-    <meta name="description" content="Custom Drawing 自定义绘图自定义视图中最重要的部分是其外观。自定义绘图的复杂性会根据你的APP而定。这节将会覆盖最常用的操作。
-Override onDraw()  重载onDraw()绘制自定义视图最重要的部分就是重载onDraw()方法。onDraw()的参数是一个view可用来绘制自己的Canvas对象。
-Canvas类定义了方法来绘制文字、线条、位图和其余很多图元（graph">
+    <meta name="description" content="Custom Drawing 自定义绘图
+自定义视图中最重要的部分是其外观。自定义绘图的复杂性会根据你的APP而定。这节将会覆盖最常用的操作。 ## Override onDraw() 重载onDraw() 绘制自定义视图最重要的部分就是重载onDraw()方法。onDraw()的参数是一个view可用来绘制自己的Canvas对象。
+Canvas类定义了方法来绘制文字、线条、位图和其余很多图元">
 <meta property="og:type" content="article">
 <meta property="og:title" content="自定义Android视图(02/04)">
 <meta property="og:url" content="http://yoursite.com/2015/02/10/2015021001/index.html">
 <meta property="og:site_name" content="Taxus">
-<meta property="og:description" content="Custom Drawing 自定义绘图自定义视图中最重要的部分是其外观。自定义绘图的复杂性会根据你的APP而定。这节将会覆盖最常用的操作。
-Override onDraw()  重载onDraw()绘制自定义视图最重要的部分就是重载onDraw()方法。onDraw()的参数是一个view可用来绘制自己的Canvas对象。
-Canvas类定义了方法来绘制文字、线条、位图和其余很多图元（graph">
+<meta property="og:description" content="Custom Drawing 自定义绘图
+自定义视图中最重要的部分是其外观。自定义绘图的复杂性会根据你的APP而定。这节将会覆盖最常用的操作。 ## Override onDraw() 重载onDraw() 绘制自定义视图最重要的部分就是重载onDraw()方法。onDraw()的参数是一个view可用来绘制自己的Canvas对象。
+Canvas类定义了方法来绘制文字、线条、位图和其余很多图元">
 <meta property="og:updated_time" content="2016-07-12T04:03:09.097Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="自定义Android视图(02/04)">
-<meta name="twitter:description" content="Custom Drawing 自定义绘图自定义视图中最重要的部分是其外观。自定义绘图的复杂性会根据你的APP而定。这节将会覆盖最常用的操作。
-Override onDraw()  重载onDraw()绘制自定义视图最重要的部分就是重载onDraw()方法。onDraw()的参数是一个view可用来绘制自己的Canvas对象。
-Canvas类定义了方法来绘制文字、线条、位图和其余很多图元（graph">
+<meta name="twitter:description" content="Custom Drawing 自定义绘图
+自定义视图中最重要的部分是其外观。自定义绘图的复杂性会根据你的APP而定。这节将会覆盖最常用的操作。 ## Override onDraw() 重载onDraw() 绘制自定义视图最重要的部分就是重载onDraw()方法。onDraw()的参数是一个view可用来绘制自己的Canvas对象。
+Canvas类定义了方法来绘制文字、线条、位图和其余很多图元">
 
     
     <link rel="alternative" href="/atom.xml" title="Taxus" type="application/atom+xml">
@@ -102,119 +102,120 @@ Canvas类定义了方法来绘制文字、线条、位图和其余很多图元�
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Custom_Drawing_自定义绘图"><span class="toc-number">1.</span> <span class="toc-text">Custom Drawing 自定义绘图</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Override_onDraw()_重载onDraw()"><span class="toc-number">1.1.</span> <span class="toc-text">Override onDraw()  重载onDraw()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Create_Drawing_Objects_创建绘制对象"><span class="toc-number">1.2.</span> <span class="toc-text">Create Drawing Objects 创建绘制对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Handle_Layout_Events_处理布局事件"><span class="toc-number">1.3.</span> <span class="toc-text">Handle Layout Events 处理布局事件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Draw!_绘制"><span class="toc-number">1.4.</span> <span class="toc-text">Draw! 绘制</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#custom-drawing-自定义绘图"><span class="toc-number">1.</span> <span class="toc-text">Custom Drawing 自定义绘图</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#handle-layout-events-处理布局事件"><span class="toc-number">1.1.</span> <span class="toc-text">Handle Layout Events 处理布局事件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#draw-绘制"><span class="toc-number">1.2.</span> <span class="toc-text">Draw! 绘制</span></a></li></ol></li></ol>
 		
 		</div>
 		
-		<h1 id="Custom_Drawing_自定义绘图">Custom Drawing 自定义绘图</h1><p>自定义视图中最重要的部分是其外观。自定义绘图的复杂性会根据你的APP而定。这节将会覆盖最常用的操作。</p>
-<h2 id="Override_onDraw()_重载onDraw()">Override onDraw()  重载onDraw()</h2><p>绘制自定义视图最重要的部分就是重载<code>onDraw()</code>方法。<code>onDraw()</code>的参数是一个view可用来绘制自己的Canvas对象。</p>
-<p>Canvas类定义了方法来绘制文字、线条、位图和其余很多图元（graphics primitives 基本图形）。<br>可以在onDraw()中使用这些方法来绘制自己的UI。</p>
-<p>在调用任何绘制方法前，应该创建Paint对象。下节将详细介绍Paint.<br><a id="more"></a></p>
-<h2 id="Create_Drawing_Objects_创建绘制对象">Create Drawing Objects 创建绘制对象</h2><p><code>android.graphics</code>框架将绘图分为两部分：</p>
+		<h1 id="custom-drawing-自定义绘图">Custom Drawing 自定义绘图</h1>
+<p>自定义视图中最重要的部分是其外观。自定义绘图的复杂性会根据你的APP而定。这节将会覆盖最常用的操作。 ## Override onDraw() 重载onDraw() 绘制自定义视图最重要的部分就是重载<code>onDraw()</code>方法。<code>onDraw()</code>的参数是一个view可用来绘制自己的Canvas对象。</p>
+<p>Canvas类定义了方法来绘制文字、线条、位图和其余很多图元（graphics primitives 基本图形）。 可以在onDraw()中使用这些方法来绘制自己的UI。</p>
+<p>在调用任何绘制方法前，应该创建Paint对象。下节将详细介绍Paint. <a id="more"></a> ## Create Drawing Objects 创建绘制对象 <code>android.graphics</code>框架将绘图分为两部分：</p>
 <ul>
 <li>画什么，用Canvas控制</li>
 <li>怎么画，用Paint控制</li>
 </ul>
-<p>例如，Canvas提供了方法绘制直线，同时Paint提供定义直线颜色的方法。Canvas有方法绘制矩形，<br>Paint定义是否对其填充颜色。简单来说，Canvas定义你可以绘制的形状，Paint定义绘制图形的颜色、样式、字体。</p>
+<p>例如，Canvas提供了方法绘制直线，同时Paint提供定义直线颜色的方法。Canvas有方法绘制矩形， Paint定义是否对其填充颜色。简单来说，Canvas定义你可以绘制的形状，Paint定义绘制图形的颜色、样式、字体。</p>
 <p>在你绘制任何东西之前，你需要创建一个或多个Paint对象。PieChart例子通过init()来实现，通过构造函数来调用。</p>
-<pre><code><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">()</span> </span>{
-   mTextPaint = <span class="keyword">new</span> Paint(Paint.ANTI_ALIAS_FLAG);
+<pre><code>private void init() {
+   mTextPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
    mTextPaint.setColor(mTextColor);
-   <span class="keyword">if</span> (mTextHeight == <span class="number">0</span>) {
+   if (mTextHeight == 0) {
        mTextHeight = mTextPaint.getTextSize();
-   } <span class="keyword">else</span> {
+   } else {
        mTextPaint.setTextSize(mTextHeight);
    }
 
-   mPiePaint = <span class="keyword">new</span> Paint(Paint.ANTI_ALIAS_FLAG);
+   mPiePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
    mPiePaint.setStyle(Paint.Style.FILL);
    mPiePaint.setTextSize(mTextHeight);
 
-   mShadowPaint = <span class="keyword">new</span> Paint(<span class="number">0</span>);
-   mShadowPaint.setColor(<span class="number">0xff101010</span>);
-   mShadowPaint.setMaskFilter(<span class="keyword">new</span> BlurMaskFilter(<span class="number">8</span>, BlurMaskFilter.Blur.NORMAL));
+   mShadowPaint = new Paint(0);
+   mShadowPaint.setColor(0xff101010);
+   mShadowPaint.setMaskFilter(new BlurMaskFilter(8, BlurMaskFilter.Blur.NORMAL));
 
-   ...
-</code></pre><p>提前创建对象是一个很重要的优化手段。View会被频繁的重绘，很多绘制对象需要昂贵的初始化。<br>在<code>onDraw()</code>中创建绘制对象将会降低性能，使UI出现卡顿。</p>
-<h2 id="Handle_Layout_Events_处理布局事件">Handle Layout Events 处理布局事件</h2><p>为了妥善的绘制自定义视图，你需要知道它的尺寸。复杂的自定义视图通常会根据它在屏幕上区域的大小和尺寸进行多次布局计算。永远不要假设你的视图在屏幕上的大小。即使只有一个app使用你的view，该app需要处理不同屏幕尺寸，多个屏幕密度，水平、垂直模式下的不同高宽比。</p>
+   ...</code></pre>
+<p>提前创建对象是一个很重要的优化手段。View会被频繁的重绘，很多绘制对象需要昂贵的初始化。 在<code>onDraw()</code>中创建绘制对象将会降低性能，使UI出现卡顿。</p>
+<h2 id="handle-layout-events-处理布局事件">Handle Layout Events 处理布局事件</h2>
+<p>为了妥善的绘制自定义视图，你需要知道它的尺寸。复杂的自定义视图通常会根据它在屏幕上区域的大小和尺寸进行多次布局计算。永远不要假设你的视图在屏幕上的大小。即使只有一个app使用你的view，该app需要处理不同屏幕尺寸，多个屏幕密度，水平、垂直模式下的不同高宽比。</p>
 <p>虽然view有很多方法处理尺寸问题，但是它们中的绝大多数不需要被重载。如果你的视图不需要特别控制其大小，就只需要重载一个方法：<code>onSizeChanged()</code></p>
-<p><code>onSizeChanged()</code>在你的视图第一次分配尺寸的时候被调用，之后任何原因引起视图尺寸改变都会调用它。在<code>onSizeChanged()</code>中计算位置、维度、和其他与视图相关的值，避免每次绘制的时候重复计算。<br>在PieChart例子中，PieChart视图在<code>onSizeChanged()</code>中计算边框矩形、相对位置、文本标签和其他视觉元素</p>
-<p>当你的视图分配了一个大小，布局管理假设该尺寸包含此视图的所有padding。<br>当你计算视图尺寸的时候须处理padding值。<code>PieChart.onSizeChanged()</code>的例子：</p>
-<pre><code><span class="comment">// 计算 padding</span>
-<span class="keyword">float</span> xpad = (<span class="keyword">float</span>)(getPaddingLeft() + getPaddingRight());
-<span class="keyword">float</span> ypad = (<span class="keyword">float</span>)(getPaddingTop() + getPaddingBottom());
+<p><code>onSizeChanged()</code>在你的视图第一次分配尺寸的时候被调用，之后任何原因引起视图尺寸改变都会调用它。在<code>onSizeChanged()</code>中计算位置、维度、和其他与视图相关的值，避免每次绘制的时候重复计算。 在PieChart例子中，PieChart视图在<code>onSizeChanged()</code>中计算边框矩形、相对位置、文本标签和其他视觉元素</p>
+<p>当你的视图分配了一个大小，布局管理假设该尺寸包含此视图的所有padding。 当你计算视图尺寸的时候须处理padding值。<code>PieChart.onSizeChanged()</code>的例子：</p>
+<pre><code>// 计算 padding
+float xpad = (float)(getPaddingLeft() + getPaddingRight());
+float ypad = (float)(getPaddingTop() + getPaddingBottom());
 
-<span class="comment">// 计算 label</span>
-<span class="keyword">if</span> (mShowText) xpad += mTextWidth;
+// 计算 label
+if (mShowText) xpad += mTextWidth;
 
-<span class="keyword">float</span> ww = (<span class="keyword">float</span>)w - xpad;
-<span class="keyword">float</span> hh = (<span class="keyword">float</span>)h - ypad;
+float ww = (float)w - xpad;
+float hh = (float)h - ypad;
 
-<span class="comment">// 计算pie能有多大</span>
-<span class="keyword">float</span> diameter = Math.<span class="built_in">min</span>(ww, hh);
-</code></pre><p>如果你需要更好的控制视图的布局参数，那就实现(implement)<code>onMeasure()</code>方法。该方法的参数是<br><code>View.MeasureSpec</code>，该值会告诉你视图的父节点希望你的视图尺寸是多少，还有这个尺寸是硬性规定的最大值，还是只是一个建议值。为了优化，这些值被加密(pack)存储为整数，使用静态<code>View.MeasureSpec</code>方法解密(unpack)每个整数中的信息。</p>
+// 计算pie能有多大
+float diameter = Math.min(ww, hh);</code></pre>
+<p>如果你需要更好的控制视图的布局参数，那就实现(implement)<code>onMeasure()</code>方法。该方法的参数是 <code>View.MeasureSpec</code>，该值会告诉你视图的父节点希望你的视图尺寸是多少，还有这个尺寸是硬性规定的最大值，还是只是一个建议值。为了优化，这些值被加密(pack)存储为整数，使用静态<code>View.MeasureSpec</code>方法解密(unpack)每个整数中的信息。</p>
 <p>PieChart 实现<code>onMeasure()</code>，试图创建它的区域足够大来让它的标签尽可能的大</p>
-<pre><code>@<span class="function">Override
-<span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onMeasure</span><span class="params">(<span class="keyword">int</span> widthMeasureSpec, <span class="keyword">int</span> heightMeasureSpec)</span> </span>{
-   <span class="comment">// Try for a width based on our minimum</span>
-   <span class="comment">// 基于最小值尝试得到宽度</span>
-   <span class="keyword">int</span> minw = getPaddingLeft() + getPaddingRight() + getSuggestedMinimumWidth();
-   <span class="keyword">int</span> w = resolveSizeAndState(minw, widthMeasureSpec, <span class="number">1</span>);
+<pre><code>@Override
+protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+   // Try for a width based on our minimum
+   // 基于最小值尝试得到宽度
+   int minw = getPaddingLeft() + getPaddingRight() + getSuggestedMinimumWidth();
+   int w = resolveSizeAndState(minw, widthMeasureSpec, 1);
 
-   <span class="comment">// Whatever the width ends up being, ask for a height that would let the pie</span>
-   <span class="comment">// get as big as it can</span>
-   <span class="comment">// 无论最终宽度多少，设置高度让pie尽可能的大</span>
-   <span class="keyword">int</span> minh = MeasureSpec.getSize(w) - (<span class="keyword">int</span>)mTextWidth + getPaddingBottom() + getPaddingTop();
-   <span class="keyword">int</span> h = resolveSizeAndState(MeasureSpec.getSize(w) - (<span class="keyword">int</span>)mTextWidth, heightMeasureSpec, <span class="number">0</span>);
+   // Whatever the width ends up being, ask for a height that would let the pie
+   // get as big as it can
+   // 无论最终宽度多少，设置高度让pie尽可能的大
+   int minh = MeasureSpec.getSize(w) - (int)mTextWidth + getPaddingBottom() + getPaddingTop();
+   int h = resolveSizeAndState(MeasureSpec.getSize(w) - (int)mTextWidth, heightMeasureSpec, 0);
 
    setMeasuredDimension(w, h);
-}
-</code></pre><p>代码中有三点需要注意：</p>
+}</code></pre>
+<p>代码中有三点需要注意：</p>
 <ul>
 <li>计算时考虑到了视图的padding。就像之前提到过的，这是视图的责任。</li>
-<li>辅助方法<code>resolveSizeAndState()</code>用来创建最终的宽度、高度值。该辅助方法返回一个合适的<br><code>View.MeasureSpec</code>值，通过比较视图希望的大小和传入<code>onMeasure()</code>的详细说明（spec）</li>
+<li>辅助方法<code>resolveSizeAndState()</code>用来创建最终的宽度、高度值。该辅助方法返回一个合适的 <code>View.MeasureSpec</code>值，通过比较视图希望的大小和传入<code>onMeasure()</code>的详细说明（spec）</li>
 <li><code>onMeasure()</code>没有返回值，相反，其通过调用<code>setMeasuredDimension()</code>提交计算结果。调用该方法是强制性的。如果你忽略这个调用，视图类将会抛出一个运行时错误</li>
 </ul>
-<h2 id="Draw!_绘制">Draw! 绘制</h2><p>一旦你创建对象、测量大小的代码完成了，你就可以实现<code>onDraw()</code>.  每个视图实现的<code>onDraw()</code>都不同，但是有一些绝大多数视图通用的操作：</p>
+<h2 id="draw-绘制">Draw! 绘制</h2>
+<p>一旦你创建对象、测量大小的代码完成了，你就可以实现<code>onDraw()</code>. 每个视图实现的<code>onDraw()</code>都不同，但是有一些绝大多数视图通用的操作：</p>
 <ul>
 <li>绘制文字用<code>drawText()</code>. 用<code>setTypeface()</code>指明字形，<code>setColor()</code>设置字体颜色。</li>
 <li>用<code>drawRect(),drawOval(),drawArc()</code>绘制基础图形。<code>setStyle()</code>设置形状是否被填充、是否有外部轮廓</li>
-<li>用Path类创建更复杂的图形。对Path对象定义添加直线、曲线，然后用<code>drawPath()</code>绘制图形。<br>和基础图形一样，可以对用<code>setStyle()</code>对path设置轮廓、填充。</li>
+<li>用Path类创建更复杂的图形。对Path对象定义添加直线、曲线，然后用<code>drawPath()</code>绘制图形。 和基础图形一样，可以对用<code>setStyle()</code>对path设置轮廓、填充。</li>
 <li>用LinearGradient对象定义渐变填充。调用<code>setShader()</code>将定义的LinearGradient渐变填充至图形。</li>
 <li>用<code>drawBitmap()</code>绘制位图</li>
 </ul>
 <p>例如PieChart中的代码；</p>
-<pre><code>protected void onDraw(Canvas <span class="keyword">canvas</span>) {
-   super.onDraw(<span class="keyword">canvas</span>);
+<pre><code>protected void onDraw(Canvas canvas) {
+   super.onDraw(canvas);
 
-   <span class="comment">// Draw the shadow</span>
-   <span class="comment">// 绘制阴影</span>
-   <span class="keyword">canvas</span>.drawOval(
+   // Draw the shadow
+   // 绘制阴影
+   canvas.drawOval(
            mShadowBounds,
            mShadowPaint
    );
 
-   <span class="comment">// Draw the label text</span>
-   <span class="comment">// 绘制标签文本</span>
-   <span class="keyword">canvas</span>.drawText(mData.get(mCurrentItem).mLabel, mTextX, mTextY, mTextPaint);
+   // Draw the label text
+   // 绘制标签文本
+   canvas.drawText(mData.get(mCurrentItem).mLabel, mTextX, mTextY, mTextPaint);
 
-   <span class="comment">// Draw the pie slices</span>
-   <span class="comment">// 绘制pie切块</span>
-   <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; mData.<span class="keyword">size</span>(); ++i) {
+   // Draw the pie slices
+   // 绘制pie切块
+   for (int i = 0; i &lt; mData.size(); ++i) {
        Item it = mData.get(i);
        mPiePaint.setShader(it.mShader);
-       <span class="keyword">canvas</span>.drawArc(mBounds,
-               <span class="number">360</span> - it.mEndAngle,
+       canvas.drawArc(mBounds,
+               360 - it.mEndAngle,
                it.mEndAngle - it.mStartAngle,
                true, mPiePaint);
    }
 
-   <span class="comment">// Draw the pointer</span>
-   <span class="comment">// 绘制点</span>
-   <span class="keyword">canvas</span>.drawLine(mTextX, mPointerY, mPointerX, mPointerY, mTextPaint);
-   <span class="keyword">canvas</span>.drawCircle(mPointerX, mPointerY, mPointerSize, mTextPaint);
-}
-</code></pre>  
+   // Draw the pointer
+   // 绘制点
+   canvas.drawLine(mTextX, mPointerY, mPointerX, mPointerY, mTextPaint);
+   canvas.drawCircle(mPointerX, mPointerY, mPointerSize, mTextPaint);
+}</code></pre>
+  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
@@ -271,7 +272,7 @@ Canvas类定义了方法来绘制文字、线条、位图和其余很多图元�
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Custom_Drawing_自定义绘图"><span class="toc-number">1.</span> <span class="toc-text">Custom Drawing 自定义绘图</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Override_onDraw()_重载onDraw()"><span class="toc-number">1.1.</span> <span class="toc-text">Override onDraw()  重载onDraw()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Create_Drawing_Objects_创建绘制对象"><span class="toc-number">1.2.</span> <span class="toc-text">Create Drawing Objects 创建绘制对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Handle_Layout_Events_处理布局事件"><span class="toc-number">1.3.</span> <span class="toc-text">Handle Layout Events 处理布局事件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Draw!_绘制"><span class="toc-number">1.4.</span> <span class="toc-text">Draw! 绘制</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#custom-drawing-自定义绘图"><span class="toc-number">1.</span> <span class="toc-text">Custom Drawing 自定义绘图</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#handle-layout-events-处理布局事件"><span class="toc-number">1.1.</span> <span class="toc-text">Handle Layout Events 处理布局事件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#draw-绘制"><span class="toc-number">1.2.</span> <span class="toc-text">Draw! 绘制</span></a></li></ol></li></ol>
  
   </div>
 
@@ -402,7 +403,7 @@ Canvas类定义了方法来绘制文字、线条、位图和其余很多图元�
 		
 
 		<p class="copyright">
-		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2017 
 		
 		<a href="/about" target="_blank" title="Taxus">Taxus</a>
 		
@@ -588,6 +589,35 @@ $(document).ready(function(){
 
 <!-- MathJax Begin -->
 <!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
 
 
 <!-- MathJax End -->

@@ -78,20 +78,42 @@
   
 <section class="post" itemscope itemprop="blogitem">
   
+    <a href="/2014/12/15/2014121502/" title="初级折腾emacs" itemprop="url">
+  
+    <h1 itemprop="name">初级折腾emacs</h1>
+    
+     
+       <p itemprop="description" >学习使用emacs很多年了，但是一直因为更喜欢vim编辑文本时候飞一样的感觉，所以总是没有动力去学习它。
+现在的工作是前端，工作用的编辑器更多的还是sublime 3，但总是没由来的想把emacs用好，so～重新开始折腾吧
+一年以前，看了一个博客：一年变成emacs高手，可惜</p>
+      
+    
+    <time datetime="2014-12-15T08:34:39.000Z" itemprop="datePublished">Dec 15 2014</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
     <a href="/2014/12/15/20141215/" title="hexo安装新主题" itemprop="url">
   
     <h1 itemprop="name">hexo安装新主题</h1>
     
      
-           <p itemprop="description" >初次安装进入hexo项目的文件夹
+           <p itemprop="description" >初次安装
+进入hexo项目的文件夹
 执行
 git clone &amp;lt;repository&amp;gt; themes/&amp;lt;theme-name&amp;gt;
 然后修改 hexo/_config.yml
 
-P82  theme: alberta      // 修改为
+P82 theme: alberta // 修改为
 
-然后重新生成
-he</p>
+然后重新生成</p>
         
     
     <time datetime="2014-12-15T05:02:40.000Z" itemprop="datePublished">Dec 15 2014</time>
@@ -238,7 +260,7 @@ he</p>
 		
 
 		<p class="copyright">
-		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2017 
 		
 		<a href="/about" target="_blank" title="Taxus">Taxus</a>
 		
@@ -347,6 +369,35 @@ $(document).ready(function(){
 
 <!-- MathJax Begin -->
 <!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
 
 
 <!-- MathJax End -->

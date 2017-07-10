@@ -108,20 +108,11 @@
 		
 		<p>一段时间以来，总是想着编译成功chromium，试着研究一下浏览器底层的东西，看看内核是怎么处理html、css、js源码。折腾了一段时间，到目前为止依旧是失败的，最好的进度是到了<strong>[6000/12442]</strong>.</p>
 <p><strong>[2015-03-01 终于成功一次]</strong></p>
-<p><a href="http://dev.chromium.org/developers/how-tos/get-the-code" target="_blank" rel="external">官方指导地址</a><br><a id="more"></a><br>第一阶段平台</p>
-<blockquote>
-<p>Windows 8.1 x64 中文版安装英文语言包<br>Visual Studio 2013 Ultimate update 4<br>Windows Driver Kit 7.1</p>
-</blockquote>
-<p>第二阶段平台</p>
-<blockquote>
-<p>Centos 6.5 x64<br>KVM虚拟机上安装 Windows 7 sp1 x64 英文版<br>Visual Studio 2013 Ultimate update 4<br>升级IE到10</p>
-</blockquote>
-<h1 id="失败的尝试">失败的尝试</h1><p><a href="http://commondatastorage.googleapis.com/chrome-infra-docs/flat/depot_tools/docs/html/depot_tools_tutorial.html#_setting_up" target="_blank" rel="external">配置depot_tools</a>  </p>
-<ol>
-<li>下载depot_tools工具包，然后将其解压</li>
-<li>添加解压地址到<code>PATH</code>的末尾</li>
-<li>第一次运行时，在cmd shell中运行<code>gclient</code>，不加任何参数</li>
-</ol>
+<p><a href="http://dev.chromium.org/developers/how-tos/get-the-code" target="_blank" rel="external">官方指导地址</a> <a id="more"></a> 第一阶段平台 &gt; Windows 8.1 x64 中文版安装英文语言包 &gt; Visual Studio 2013 Ultimate update 4 &gt; Windows Driver Kit 7.1</p>
+<p>第二阶段平台 &gt; Centos 6.5 x64 &gt; KVM虚拟机上安装 Windows 7 sp1 x64 英文版 &gt; Visual Studio 2013 Ultimate update 4 &gt; 升级IE到10</p>
+<h1 id="失败的尝试">失败的尝试</h1>
+<p><a href="http://commondatastorage.googleapis.com/chrome-infra-docs/flat/depot_tools/docs/html/depot_tools_tutorial.html#_setting_up" target="_blank" rel="external">配置depot_tools</a><br>
+1. 下载depot_tools工具包，然后将其解压 2. 添加解压地址到<code>PATH</code>的末尾 3. 第一次运行时，在cmd shell中运行<code>gclient</code>，不加任何参数</p>
 <p>使用命令：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">set</span> DEPOT_TOOLS_WIN_TOOLCHAIN=<span class="number">0</span></span><br><span class="line"><span class="built_in">set</span> GYP_MSVS_VERSION=<span class="number">2013</span></span><br><span class="line"><span class="built_in">set</span> GYP_GENERATORS=msvs-ninja,ninja</span><br><span class="line"></span><br><span class="line">fetch --nohooks chromium</span><br><span class="line">gclient sync</span><br><span class="line">gclient runhooks</span><br><span class="line"></span><br><span class="line">ninja -C out/Debug chrome</span><br></pre></td></tr></table></figure>
 <p>一共就这些命令，结果是不停的出错，以下是部分出错的情况：</p>
@@ -137,12 +128,13 @@
 <p>↑第一平台出现，原因不明</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">RULE Generating Mojo bindings from /vibration_manager.mojom</span><br></pre></td></tr></table></figure>
 <p>↑第二平台出现，原因不明</p>
-<h1 id="成功">成功</h1><p><strong>[2015-03-01 终于成功一次]</strong></p>
+<h1 id="成功">成功</h1>
+<p><strong>[2015-03-01 终于成功一次]</strong></p>
 <p>在第二平台所有内容都不改变的情况下，使用下列命令成功编译出chromium</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">set</span> GYP_DEFINES=component=shared_library</span><br><span class="line"><span class="built_in">set</span> GYP_MSVS_VERSION=<span class="number">2013</span></span><br><span class="line"><span class="built_in">set</span> GYP_GENERATORS=msvs-ninja,ninja</span><br><span class="line">gclient runhooks</span><br><span class="line">gclient cleanup</span><br><span class="line">gclient runhooks</span><br><span class="line">ninja -C out/Debug chrome</span><br></pre></td></tr></table></figure>
 <p>是添加上了<code>set GYP_DEFINES=component=shared_library</code>这条设置，但是在第一平台下，这个设置会过早的引起错误，去掉以后才会编译到1000多个文件后失败，否则只有十几个文件可以编译成功，但是在第二平台下反而要加上。</p>
 <p><strong>平台总结：</strong></p>
-<ol>
+<ol style="list-style-type: decimal">
 <li>最好还是windows 7 x64，如果是window 8.1会出现更多不明原因</li>
 <li>系统分配磁盘空间最少80G，最开始的40G是远远不够的</li>
 <li>在第二平台下，整个编译时长需要5小时左右，对于虚拟机来说还算可以接受</li>
@@ -335,7 +327,7 @@
 		
 
 		<p class="copyright">
-		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2017 
 		
 		<a href="/about" target="_blank" title="Taxus">Taxus</a>
 		
@@ -521,6 +513,35 @@ $(document).ready(function(){
 
 <!-- MathJax Begin -->
 <!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
 
 
 <!-- MathJax End -->

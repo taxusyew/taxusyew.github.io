@@ -11,22 +11,25 @@
     
 
     
-    <meta name="description" content="Making the View Interactive  让view可以交互原文链接
+    <meta name="description" content="Making the View Interactive 让view可以交互
+原文链接
 绘制UI只是自定义视图的一部分。你同样需要使你的视图以接近（closely resembles）现实世界的行为方式响应用户输入。对象应当一直和真实对象的行为一致。例如图像不应该从所在地方立即弹出然后重新出现在其他地方，因为真实世界的对象不会这样。相反，图像应该从一个地方移动到另一个地方。
-使用者在交互的过程中会感">
+使用者在交互的过程">
 <meta property="og:type" content="article">
 <meta property="og:title" content="自定义Android视图(03/04)">
 <meta property="og:url" content="http://yoursite.com/2015/02/11/2015021101/index.html">
 <meta property="og:site_name" content="Taxus">
-<meta property="og:description" content="Making the View Interactive  让view可以交互原文链接
+<meta property="og:description" content="Making the View Interactive 让view可以交互
+原文链接
 绘制UI只是自定义视图的一部分。你同样需要使你的视图以接近（closely resembles）现实世界的行为方式响应用户输入。对象应当一直和真实对象的行为一致。例如图像不应该从所在地方立即弹出然后重新出现在其他地方，因为真实世界的对象不会这样。相反，图像应该从一个地方移动到另一个地方。
-使用者在交互的过程中会感">
+使用者在交互的过程">
 <meta property="og:updated_time" content="2016-07-12T04:03:13.705Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="自定义Android视图(03/04)">
-<meta name="twitter:description" content="Making the View Interactive  让view可以交互原文链接
+<meta name="twitter:description" content="Making the View Interactive 让view可以交互
+原文链接
 绘制UI只是自定义视图的一部分。你同样需要使你的视图以接近（closely resembles）现实世界的行为方式响应用户输入。对象应当一直和真实对象的行为一致。例如图像不应该从所在地方立即弹出然后重新出现在其他地方，因为真实世界的对象不会这样。相反，图像应该从一个地方移动到另一个地方。
-使用者在交互的过程中会感">
+使用者在交互的过程">
 
     
     <link rel="alternative" href="/atom.xml" title="Taxus" type="application/atom+xml">
@@ -102,88 +105,90 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Making_the_View_Interactive_让view可以交互"><span class="toc-number">1.</span> <span class="toc-text">Making the View Interactive  让view可以交互</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Handle_Input_Gestures_处理输入手势"><span class="toc-number">1.1.</span> <span class="toc-text">Handle Input Gestures 处理输入手势</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Create_Physically_Plausible_Motion_创建物理合理(plausible)的行为"><span class="toc-number">1.2.</span> <span class="toc-text">Create Physically Plausible Motion 创建物理合理(plausible)的行为</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Make_Your_Transitions_Smooth_让你的转场更流畅"><span class="toc-number">1.3.</span> <span class="toc-text">Make Your Transitions Smooth 让你的转场更流畅</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#making-the-view-interactive-让view可以交互"><span class="toc-number">1.</span> <span class="toc-text">Making the View Interactive 让view可以交互</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#create-physically-plausible-motion-创建物理合理plausible的行为"><span class="toc-number">1.1.</span> <span class="toc-text">Create Physically Plausible Motion 创建物理合理(plausible)的行为</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#make-your-transitions-smooth-让你的转场更流畅"><span class="toc-number">1.2.</span> <span class="toc-text">Make Your Transitions Smooth 让你的转场更流畅</span></a></li></ol></li></ol>
 		
 		</div>
 		
-		<h1 id="Making_the_View_Interactive_让view可以交互">Making the View Interactive  让view可以交互</h1><p><a href="http://developer.android.com/training/custom-views/making-interactive.html" title="原文链接" target="_blank" rel="external">原文链接</a></p>
+		<h1 id="making-the-view-interactive-让view可以交互">Making the View Interactive 让view可以交互</h1>
+<p><a href="http://developer.android.com/training/custom-views/making-interactive.html" title="原文链接" target="_blank" rel="external">原文链接</a></p>
 <p>绘制UI只是自定义视图的一部分。你同样需要使你的视图以接近（closely resembles）现实世界的行为方式响应用户输入。对象应当一直和真实对象的行为一致。例如图像不应该从所在地方立即弹出然后重新出现在其他地方，因为真实世界的对象不会这样。相反，图像应该从一个地方移动到另一个地方。</p>
 <p>使用者在交互的过程中会感受到微妙的行为或感受，然后和模拟真实世界进行最佳互动。例如当使用者投掷（滑动？fling）一个UI对象，刚开始他们应该感受到因摩擦而引起的运动延迟，最后感觉到运动的动能超越滑动( sense momentum that carries the motion beyond the fling)。</p>
-<p>这节课演示如何使用Android框架的特性来为自定义属性增加真实世界的行为。<br><a id="more"></a></p>
-<h2 id="Handle_Input_Gestures_处理输入手势">Handle Input Gestures 处理输入手势</h2><p>同许多其他UI框架一样，Android支持输入事件模型。用户的行为转化为时间最终触发回调，你可以重载回调来自定义应用如何应对用户的输入。</p>
+<p>这节课演示如何使用Android框架的特性来为自定义属性增加真实世界的行为。 <a id="more"></a> ## Handle Input Gestures 处理输入手势 同许多其他UI框架一样，Android支持输入事件模型。用户的行为转化为时间最终触发回调，你可以重载回调来自定义应用如何应对用户的输入。</p>
 <p>Android系统中最常见的输入事件是touch，它会触发<code>onTouchEvent(android.view.MotionEvent)</code>.重载这个方法来处理事件</p>
-<pre><code><span class="annotation">@Override</span>
-<span class="keyword">public</span> <span class="function"><span class="keyword">boolean</span> <span class="title">onTouchEvent</span><span class="params">(MotionEvent event)</span> </span>{
-    <span class="function"><span class="keyword">return</span> <span class="keyword">super</span>.<span class="title">onTouchEvent</span><span class="params">(event)</span></span>;
-}
-</code></pre><p>触摸事件本身并不是特别有用。现代的UI触摸定义交互手势：点击tapping，拉pulling，推pushing，投掷flinging，缩放zooming. Android提供<code>GestureDetector</code>将原始的touch事件转换为手势(gesture)。</p>
-<p>通过传递一个<code>GestureDetector.OnGestureListener</code>类的实例作为参数构造<code>GestureDetector</code>.如果你只是希望处理少数手势，你可以拓展<code>GestureDetector.SimpleOnGestureListener</code>而非实现<code>GestureDetector.OnGestureListener</code>接口。下面的代码创建了一个拓展 <code>GestureDetector.SimpleOnGestureListener</code><br>并重载<code>onDown(MotionEvent)</code>方法的类</p>
-<pre><code><span class="class"><span class="keyword">class</span> <span class="title">mListener</span> <span class="keyword"><span class="keyword">extends</span></span> <span class="title">GestureDetector</span>.<span class="title">SimpleOnGestureListener</span> {</span>
-   <span class="annotation">@Override</span>
-   public boolean onDown(<span class="type">MotionEvent</span> e) {
-       <span class="keyword">return</span> <span class="literal">true</span>;
+<pre><code>@Override
+public boolean onTouchEvent(MotionEvent event) {
+    return super.onTouchEvent(event);
+}</code></pre>
+<p>触摸事件本身并不是特别有用。现代的UI触摸定义交互手势：点击tapping，拉pulling，推pushing，投掷flinging，缩放zooming. Android提供<code>GestureDetector</code>将原始的touch事件转换为手势(gesture)。</p>
+<p>通过传递一个<code>GestureDetector.OnGestureListener</code>类的实例作为参数构造<code>GestureDetector</code>.如果你只是希望处理少数手势，你可以拓展<code>GestureDetector.SimpleOnGestureListener</code>而非实现<code>GestureDetector.OnGestureListener</code>接口。下面的代码创建了一个拓展 <code>GestureDetector.SimpleOnGestureListener</code> 并重载<code>onDown(MotionEvent)</code>方法的类</p>
+<pre><code>class mListener extends GestureDetector.SimpleOnGestureListener {
+   @Override
+   public boolean onDown(MotionEvent e) {
+       return true;
    }
 }
 
-mDetector = <span class="keyword">new</span> <span class="type">GestureDetector</span>(<span class="type">PieChart</span>.<span class="keyword">this</span>.getContext(), <span class="keyword">new</span> mListener());
-</code></pre><p>无论是否使用<code>GestureDetector.SimpleOnGestureListener</code>，你都应该实现一个<code>return ture;</code>的<code>onDown()</code>方法。这一步是必要的，因为所有手势都从<code>onDown()</code>消息开始。如果你像<code>GestureDetector.SimpleOnGestrueLinstener</code>一样在<code>onDown()</code>中返回<code>false</code>，系统假设你希望忽略余下的手势（If you return false from onDown(), as GestureDetector.SimpleOnGestureListener does, the system assumes that you want to ignore the rest of the gesture），其余<code>GestureDetector.OnGestrueListener</code>的方法将永远不会被执行。只有你在真正希望忽略整个手势的时候才应该在<code>onDown(</code>)中返回<code>false</code>。一旦你实现了<code>GestureDetector.OnGestureListener</code>，并且创建了<code>GestrueDetector</code>的实例，你就能使用<code>GestureDetector</code>和在<code>onTouchEvent()</code>中收到的touch事件交互。</p>
-<pre><code>@<span class="type">Override</span>
-public boolean onTouchEvent(<span class="type">MotionEvent</span> event) {
-   boolean <span class="literal">result</span> = mDetector.onTouchEvent(event);
-   <span class="keyword">if</span> (!<span class="literal">result</span>) {
-       <span class="keyword">if</span> (event.getAction() == <span class="type">MotionEvent</span>.<span class="type">ACTION_UP</span>) {
+mDetector = new GestureDetector(PieChart.this.getContext(), new mListener());</code></pre>
+<p>无论是否使用<code>GestureDetector.SimpleOnGestureListener</code>，你都应该实现一个<code>return ture;</code>的<code>onDown()</code>方法。这一步是必要的，因为所有手势都从<code>onDown()</code>消息开始。如果你像<code>GestureDetector.SimpleOnGestrueLinstener</code>一样在<code>onDown()</code>中返回<code>false</code>，系统假设你希望忽略余下的手势（If you return false from onDown(), as GestureDetector.SimpleOnGestureListener does, the system assumes that you want to ignore the rest of the gesture），其余<code>GestureDetector.OnGestrueListener</code>的方法将永远不会被执行。只有你在真正希望忽略整个手势的时候才应该在<code>onDown(</code>)中返回<code>false</code>。一旦你实现了<code>GestureDetector.OnGestureListener</code>，并且创建了<code>GestrueDetector</code>的实例，你就能使用<code>GestureDetector</code>和在<code>onTouchEvent()</code>中收到的touch事件交互。</p>
+<pre><code>@Override
+public boolean onTouchEvent(MotionEvent event) {
+   boolean result = mDetector.onTouchEvent(event);
+   if (!result) {
+       if (event.getAction() == MotionEvent.ACTION_UP) {
            stopScrolling();
-           <span class="literal">result</span> = <span class="literal">true</span>;
+           result = true;
        }
    }
-   <span class="keyword">return</span> <span class="literal">result</span>;
-}
-</code></pre><p>当你传递给<code>onTouchEvent()</code>一个未被确认手势的touch事件是，它返回<code>false</code>.你就可以运行自定义的手势检测代码。</p>
-<h2 id="Create_Physically_Plausible_Motion_创建物理合理(plausible)的行为">Create Physically Plausible Motion 创建物理合理(plausible)的行为</h2><p>手势是控制触摸屏的有力工具，除非他们的结果在物理上是合理的，否则就有可能反直觉、难以记忆。一个好的例子是fling手势：用户快速跨越屏幕移动手指然后离开屏幕。如果UI响应是和滑动方向一致的快速移动，然后减速，这个手势才有道理，就像用户推动了飞轮（flywheel）使其旋转。</p>
+   return result;
+}</code></pre>
+<p>当你传递给<code>onTouchEvent()</code>一个未被确认手势的touch事件是，它返回<code>false</code>.你就可以运行自定义的手势检测代码。</p>
+<h2 id="create-physically-plausible-motion-创建物理合理plausible的行为">Create Physically Plausible Motion 创建物理合理(plausible)的行为</h2>
+<p>手势是控制触摸屏的有力工具，除非他们的结果在物理上是合理的，否则就有可能反直觉、难以记忆。一个好的例子是fling手势：用户快速跨越屏幕移动手指然后离开屏幕。如果UI响应是和滑动方向一致的快速移动，然后减速，这个手势才有道理，就像用户推动了飞轮（flywheel）使其旋转。</p>
 <p>然而，模拟飞轮的感觉并非微不足道(trivial)。让飞轮模型正确工作需要很多物理和数学知识。幸运的是，Android提供辅助类来模拟这些行为。<code>Scroller</code>类是处理飞轮风格fling手势的基础。</p>
 <p>开始一个fling，调用<code>fling()</code>传入fling的初始速度和最大、最小的x、y值。对于速度值，可以使用<code>GestureDetector</code>为你计算这个值。</p>
-<pre><code><span class="annotation">@Override</span>
-<span class="keyword">public</span> <span class="function"><span class="keyword">boolean</span> <span class="title">onFling</span><span class="params">(MotionEvent e1, MotionEvent e2, <span class="keyword">float</span> velocityX, <span class="keyword">float</span> velocityY)</span> </span>{
+<pre><code>@Override
+public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
    mScroller.fling(currentX, currentY, velocityX / SCALE, velocityY / SCALE, minX, minY, maxX, maxY);
    postInvalidate();
-}
-</code></pre><p>注意：虽然通过<code>GestureDetector</code>计算速度物理上来说是精确的，但是很多开发者感觉使用这个值来fling动画会太快。通常把x、y速度除以4或8.</p>
+}</code></pre>
+<p>注意：虽然通过<code>GestureDetector</code>计算速度物理上来说是精确的，但是很多开发者感觉使用这个值来fling动画会太快。通常把x、y速度除以4或8.</p>
 <p>调用<code>fling()</code>设置fling手势的物理模型。无论如何，你需要用<code>Scroller.computeScrollOffset()</code>来定期更新Scroller. <code>computeScrollOffset()</code>通过读取当前时间，使用物理模型计算那时的x、y位置来更新Scroller对象内部状态。调用<code>getCurrX()</code>和<code>getCurrY()</code>来获取这些值。</p>
 <p>大多数视图通过直接调用<code>scrollTo()</code>传递Scroller对象的x、y值。PieChart例子有一点不同：它使用当前滚动的y值来设置图标的旋转角度。</p>
-<pre><code><span class="keyword">if</span> (!mScroller.isFinished<span class="literal">()</span>) {
-    mScroller.computeScrollOffset<span class="literal">()</span>;
-    setPieRotation(mScroller.getCurrY<span class="literal">()</span>);
-}
-</code></pre><p>Scroller类为你计算滚动位置，但是它不会自动对自定义视图应用这些位置。确保尽可能多(often enough)的得到、应用新坐标，使滚动动画看起来很顺畅是你的责任。有两种方法做到这些：</p>
+<pre><code>if (!mScroller.isFinished()) {
+    mScroller.computeScrollOffset();
+    setPieRotation(mScroller.getCurrY());
+}</code></pre>
+<p>Scroller类为你计算滚动位置，但是它不会自动对自定义视图应用这些位置。确保尽可能多(often enough)的得到、应用新坐标，使滚动动画看起来很顺畅是你的责任。有两种方法做到这些：</p>
 <ul>
 <li>为了强制重新绘制，调用<code>fling()</code>之后再调用<code>postInvalidate()</code>. 这个技巧要求每次滚动偏移改变的时候在<code>onDraw()</code>中计算滚动偏移，然后调用<code>postInvalidate()</code>.</li>
 <li>设置<code>ValueAnimator</code>使fling的过程顺畅，然后调用<code>addUpdateListener()</code>来添加监听器处理动画。</li>
 </ul>
 <p>PieChart使用第二个方法。这个技巧设置更复杂，但是和动画系统配合的更密切，而且不需要使潜在的非必须视图失效(view invalidation)。缺点是<code>ValueAnimator</code>在API 11之前不可用，所以这个技巧在运行低于3.0系统的设备上无法使用。</p>
 <p>注意：<code>ValueAnimator</code>在低于API 11时无法使用，但是你仍然可以在那些平台使用。你只需要确保在运行时检查当前API等级，然后如果等级低于11时，忽略调用视图动画系统。</p>
-<pre><code>mScroller = <span class="keyword">new</span> Scroller(getContext(), <span class="keyword">null</span>, <span class="keyword">true</span>);
-mScrollAnimator = ValueAnimator.ofFloat(<span class="number">0</span>,<span class="number">1</span>);
-mScrollAnimator.addUpdateListener(<span class="keyword">new</span> ValueAnimator.AnimatorUpdateListener() {
-   <span class="annotation">@Override</span>
-   <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">onAnimationUpdate</span><span class="params">(ValueAnimator valueAnimator)</span> </span>{
-       <span class="keyword">if</span> (!mScroller.isFinished()) {
+<pre><code>mScroller = new Scroller(getContext(), null, true);
+mScrollAnimator = ValueAnimator.ofFloat(0,1);
+mScrollAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+   @Override
+   public void onAnimationUpdate(ValueAnimator valueAnimator) {
+       if (!mScroller.isFinished()) {
            mScroller.computeScrollOffset();
            setPieRotation(mScroller.getCurrY());
-       } <span class="keyword">else</span> {
+       } else {
            mScrollAnimator.cancel();
            onScrollFinished();
        }
    }
-});
-</code></pre><h2 id="Make_Your_Transitions_Smooth_让你的转场更流畅">Make Your Transitions Smooth 让你的转场更流畅</h2><p>用户希望现代UI在不同状态间流畅的转场。UI元素淡入淡出而非直接出现、消失。运动流畅的开始、结束，而非突然开始、停止。Android属性动画框架( property animation framework)，在Android 3.0时引入，使得流畅转场很容易。</p>
+});</code></pre>
+<h2 id="make-your-transitions-smooth-让你的转场更流畅">Make Your Transitions Smooth 让你的转场更流畅</h2>
+<p>用户希望现代UI在不同状态间流畅的转场。UI元素淡入淡出而非直接出现、消失。运动流畅的开始、结束，而非突然开始、停止。Android属性动画框架( property animation framework)，在Android 3.0时引入，使得流畅转场很容易。</p>
 <p>当一个可能影响视图外观的property改变时，不要直接改变该property。相反，应该使用<code>ValueAnimator</code>来做这些改变。接下来的列子，修改PieChart当前选择的切块，引起整个图标的旋转，选择指针指向被选中的切片中间。<code>ValueAnimator</code>在几百毫秒的跨度里改变旋转，而不是直接设置新旋转的值。</p>
-<pre><code>mAutoCenterAnimator = ObjectAnimator.ofInt(PieChart.this, "PieRotation", 0)<span class="comment">;</span>
-mAutoCenterAnimator.setIntValues(targetAngle)<span class="comment">;</span>
-mAutoCenterAnimator.setDuration(AUTOCENTER_ANIM_DURATION)<span class="comment">;</span>
-mAutoCenterAnimator.start()<span class="comment">;</span>
-</code></pre><p>如果你想改变的是view的基本property，使用动画会更简单，因为视图有一个内建的<code>ViewPropertyAnimator</code>，它会优化多个改变属性时的模拟动画。例如：</p>
-<pre><code><span class="tag">animate</span>()<span class="class">.rotation</span>(<span class="tag">targetAngle</span>)<span class="class">.setDuration</span>(<span class="tag">ANIM_DURATION</span>)<span class="class">.start</span>();
-</code></pre>  
+<pre><code>mAutoCenterAnimator = ObjectAnimator.ofInt(PieChart.this, &quot;PieRotation&quot;, 0);
+mAutoCenterAnimator.setIntValues(targetAngle);
+mAutoCenterAnimator.setDuration(AUTOCENTER_ANIM_DURATION);
+mAutoCenterAnimator.start();</code></pre>
+<p>如果你想改变的是view的基本property，使用动画会更简单，因为视图有一个内建的<code>ViewPropertyAnimator</code>，它会优化多个改变属性时的模拟动画。例如：</p>
+<pre><code>animate().rotation(targetAngle).setDuration(ANIM_DURATION).start();</code></pre>
+  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
@@ -240,7 +245,7 @@ mAutoCenterAnimator.start()<span class="comment">;</span>
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Making_the_View_Interactive_让view可以交互"><span class="toc-number">1.</span> <span class="toc-text">Making the View Interactive  让view可以交互</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Handle_Input_Gestures_处理输入手势"><span class="toc-number">1.1.</span> <span class="toc-text">Handle Input Gestures 处理输入手势</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Create_Physically_Plausible_Motion_创建物理合理(plausible)的行为"><span class="toc-number">1.2.</span> <span class="toc-text">Create Physically Plausible Motion 创建物理合理(plausible)的行为</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Make_Your_Transitions_Smooth_让你的转场更流畅"><span class="toc-number">1.3.</span> <span class="toc-text">Make Your Transitions Smooth 让你的转场更流畅</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#making-the-view-interactive-让view可以交互"><span class="toc-number">1.</span> <span class="toc-text">Making the View Interactive 让view可以交互</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#create-physically-plausible-motion-创建物理合理plausible的行为"><span class="toc-number">1.1.</span> <span class="toc-text">Create Physically Plausible Motion 创建物理合理(plausible)的行为</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#make-your-transitions-smooth-让你的转场更流畅"><span class="toc-number">1.2.</span> <span class="toc-text">Make Your Transitions Smooth 让你的转场更流畅</span></a></li></ol></li></ol>
  
   </div>
 
@@ -371,7 +376,7 @@ mAutoCenterAnimator.start()<span class="comment">;</span>
 		
 
 		<p class="copyright">
-		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2017 
 		
 		<a href="/about" target="_blank" title="Taxus">Taxus</a>
 		
@@ -557,6 +562,35 @@ $(document).ready(function(){
 
 <!-- MathJax Begin -->
 <!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
 
 
 <!-- MathJax End -->

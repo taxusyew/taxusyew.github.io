@@ -11,49 +11,52 @@
     
 
     
-    <meta name="description" content="初次安装进入hexo项目的文件夹
+    <meta name="description" content="初次安装
+进入hexo项目的文件夹
 执行
 git clone &amp;lt;repository&amp;gt; themes/&amp;lt;theme-name&amp;gt;
 然后修改 hexo/_config.yml
 
-P82  theme: alberta      // 修改为
+P82 theme: alberta // 修改为
 
 然后重新生成
 hexo generate
 hexo server
 打开localhost:4000看看就行
-更新hexo最近因为重新安装系">
+更新hexo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="hexo安装新主题">
 <meta property="og:url" content="http://yoursite.com/2014/12/15/20141215/index.html">
 <meta property="og:site_name" content="Taxus">
-<meta property="og:description" content="初次安装进入hexo项目的文件夹
+<meta property="og:description" content="初次安装
+进入hexo项目的文件夹
 执行
 git clone &amp;lt;repository&amp;gt; themes/&amp;lt;theme-name&amp;gt;
 然后修改 hexo/_config.yml
 
-P82  theme: alberta      // 修改为
+P82 theme: alberta // 修改为
 
 然后重新生成
 hexo generate
 hexo server
 打开localhost:4000看看就行
-更新hexo最近因为重新安装系">
+更新hexo">
 <meta property="og:updated_time" content="2015-08-04T08:52:39.243Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo安装新主题">
-<meta name="twitter:description" content="初次安装进入hexo项目的文件夹
+<meta name="twitter:description" content="初次安装
+进入hexo项目的文件夹
 执行
 git clone &amp;lt;repository&amp;gt; themes/&amp;lt;theme-name&amp;gt;
 然后修改 hexo/_config.yml
 
-P82  theme: alberta      // 修改为
+P82 theme: alberta // 修改为
 
 然后重新生成
 hexo generate
 hexo server
 打开localhost:4000看看就行
-更新hexo最近因为重新安装系">
+更新hexo">
 
     
     <link rel="alternative" href="/atom.xml" title="Taxus" type="application/atom+xml">
@@ -133,19 +136,21 @@ hexo server
 		
 		</div>
 		
-		<h1 id="初次安装">初次安装</h1><p>进入hexo项目的文件夹</p>
+		<h1 id="初次安装">初次安装</h1>
+<p>进入hexo项目的文件夹</p>
 <p>执行</p>
-<pre><code>git <span class="keyword">clone</span> <span class="title">&lt;repository</span>&gt; themes/<span class="tag">&lt;theme-name&gt;</span>
-</code></pre><p>然后修改 hexo/_config.yml</p>
+<pre><code>git clone &lt;repository&gt; themes/&lt;theme-name&gt;</code></pre>
+<p>然后修改 hexo/_config.yml</p>
 <blockquote>
-<p>P82  theme: alberta      // 修改为<theme-name></theme-name></p>
+<p>P82 theme: alberta // 修改为<theme-name></theme-name></p>
 </blockquote>
 <p>然后重新生成</p>
 <pre><code>hexo generate
-hexo <span class="keyword">server</span>
-</code></pre><p>打开localhost:4000看看就行</p>
-<h1 id="更新hexo">更新hexo</h1><p>最近因为重新安装系统，所以重新安装了一遍node，但是进入hexo文件夹后，执行<code>hexo generate</code>就会报错，所以重新安装了一遍hexo<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo</span><br></pre></td></tr></table></figure></p>
-<p>重新安装一遍hexo以后，会造成一个问题，hexo的配置文件<code>_config.yml</code>被修改了，把之前保存好的给复原回来<br>主要就是deploy项的参数，type由github换为git，repository换为repo即可</p>
+hexo server</code></pre>
+<p>打开localhost:4000看看就行</p>
+<h1 id="更新hexo">更新hexo</h1>
+<p>最近因为重新安装系统，所以重新安装了一遍node，但是进入hexo文件夹后，执行<code>hexo generate</code>就会报错，所以重新安装了一遍hexo <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo</span><br></pre></td></tr></table></figure></p>
+<p>重新安装一遍hexo以后，会造成一个问题，hexo的配置文件<code>_config.yml</code>被修改了，把之前保存好的给复原回来 主要就是deploy项的参数，type由github换为git，repository换为repo即可</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -326,7 +331,7 @@ hexo <span class="keyword">server</span>
 		
 
 		<p class="copyright">
-		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2017 
 		
 		<a href="/about" target="_blank" title="Taxus">Taxus</a>
 		
@@ -512,6 +517,35 @@ $(document).ready(function(){
 
 <!-- MathJax Begin -->
 <!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
 
 
 <!-- MathJax End -->

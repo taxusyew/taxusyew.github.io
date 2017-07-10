@@ -15,7 +15,7 @@
 
 小明在玩一个扔骰子游戏，每次扔出等概率得到1到6的点数，现在他开始扔骰子，并把每次得到的点数累加(从0开始)，如果某一次他扔完之后的累加和恰好为2015则为成功，越过2015为失败(即某次从小于2015的某个数加完后变为大于2015的某个数)，小明成功的概率约为？
 
-稍微分析以后就可以得到要到">
+稍微分析以后就可以">
 <meta property="og:type" content="article">
 <meta property="og:title" content="投色子正好到2015的概率">
 <meta property="og:url" content="http://yoursite.com/2015/04/03/20150403dice/index.html">
@@ -24,7 +24,7 @@
 
 小明在玩一个扔骰子游戏，每次扔出等概率得到1到6的点数，现在他开始扔骰子，并把每次得到的点数累加(从0开始)，如果某一次他扔完之后的累加和恰好为2015则为成功，越过2015为失败(即某次从小于2015的某个数加完后变为大于2015的某个数)，小明成功的概率约为？
 
-稍微分析以后就可以得到要到">
+稍微分析以后就可以">
 <meta property="og:updated_time" content="2016-07-12T04:00:26.074Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="投色子正好到2015的概率">
@@ -32,7 +32,7 @@
 
 小明在玩一个扔骰子游戏，每次扔出等概率得到1到6的点数，现在他开始扔骰子，并把每次得到的点数累加(从0开始)，如果某一次他扔完之后的累加和恰好为2015则为成功，越过2015为失败(即某次从小于2015的某个数加完后变为大于2015的某个数)，小明成功的概率约为？
 
-稍微分析以后就可以得到要到">
+稍微分析以后就可以">
 
     
     <link rel="alternative" href="/atom.xml" title="Taxus" type="application/atom+xml">
@@ -116,27 +116,24 @@
 <blockquote>
 <p>小明在玩一个扔骰子游戏，每次扔出等概率得到1到6的点数，现在他开始扔骰子，并把每次得到的点数累加(从0开始)，如果某一次他扔完之后的累加和恰好为2015则为成功，越过2015为失败(即某次从小于2015的某个数加完后变为大于2015的某个数)，小明成功的概率约为？</p>
 </blockquote>
-<p>稍微分析以后就可以得到要到2015，有六种情况：2014+1，2013+2，2012+3，2011+4，2010+5，2009+6<br><a id="more"></a></p>
-<blockquote>
-<p>PN 表示投掷点数累加和恰好到N时的概率<br>QN 表示投掷一次为N的概率，可得QN都为 1/6</p>
-</blockquote>
-<p><code>P2014 X Q1</code> 表示在上一次2014的情况下，下次投1的概率<br><code>P2013 X Q2</code> 表示在上一次2013的情况下，下次投2的概率</p>
-<p>以此类推 </p>
-<pre><code><span class="keyword">P</span><span class="number">2015</span> = <span class="keyword">P</span><span class="number">2014</span> <span class="keyword">X</span> Q<span class="number">1</span> + <span class="keyword">P</span><span class="number">2013</span> <span class="keyword">X</span> Q<span class="number">2</span> + <span class="keyword">P</span><span class="number">2012</span> <span class="keyword">X</span> Q<span class="number">3</span> + <span class="keyword">P</span><span class="number">2011</span> <span class="keyword">X</span> Q<span class="number">4</span> + <span class="keyword">P</span><span class="number">2010</span> <span class="keyword">X</span> Q<span class="number">5</span> + <span class="keyword">P</span><span class="number">2009</span> <span class="keyword">X</span> Q<span class="number">6</span>
-      = ( <span class="keyword">P</span><span class="number">2014</span> + <span class="keyword">P</span><span class="number">2013</span> + <span class="keyword">P</span><span class="number">2012</span> + <span class="keyword">P</span><span class="number">2011</span> + <span class="keyword">P</span><span class="number">2010</span> + <span class="keyword">P</span><span class="number">2009</span>) / <span class="number">6</span>
-</code></pre><p>再由此递归下去，比较典型的动态规划问题<br>但是注意到计算P6~P1的时候，这里面有个陷阱，这几个值不是都等于1/6的<br>P1比较简单，肯定是1/6<br>但是 <code>P2 = 2 = 1+1</code> 有两种情况，而不是简单的Q1问题</p>
-<pre><code>P2 = <span class="number">1</span>/<span class="number">6</span> + <span class="number">1</span>/<span class="number">6</span> X <span class="number">1</span>/<span class="number">6</span> = (<span class="number">1</span> + <span class="number">1</span>/<span class="number">6</span> ) /<span class="number">6</span>
+<p>稍微分析以后就可以得到要到2015，有六种情况：2014+1，2013+2，2012+3，2011+4，2010+5，2009+6 <a id="more"></a> &gt; PN 表示投掷点数累加和恰好到N时的概率 &gt; QN 表示投掷一次为N的概率，可得QN都为 1/6</p>
+<p><code>P2014 X Q1</code> 表示在上一次2014的情况下，下次投1的概率 <code>P2013 X Q2</code> 表示在上一次2013的情况下，下次投2的概率</p>
+<p>以此类推</p>
+<pre><code>P2015 = P2014 X Q1 + P2013 X Q2 + P2012 X Q3 + P2011 X Q4 + P2010 X Q5 + P2009 X Q6
+      = ( P2014 + P2013 + P2012 + P2011 + P2010 + P2009) / 6</code></pre>
+<p>再由此递归下去，比较典型的动态规划问题 但是注意到计算P6~P1的时候，这里面有个陷阱，这几个值不是都等于1/6的 P1比较简单，肯定是1/6 但是 <code>P2 = 2 = 1+1</code> 有两种情况，而不是简单的Q1问题</p>
+<pre><code>P2 = 1/6 + 1/6 X 1/6 = (1 + 1/6 ) /6
 
 同理 
-P3 = <span class="number">3</span> = <span class="number">1</span> + <span class="number">2</span> = <span class="number">2</span> + <span class="number">1</span> = <span class="number">1</span> + <span class="number">1</span> + <span class="number">1</span>
-   = <span class="number">1</span>/<span class="number">6</span> + <span class="number">1</span>/<span class="number">6</span> X <span class="number">1</span>/<span class="number">6</span> X <span class="number">2</span> + <span class="number">1</span>/<span class="number">6</span> X <span class="number">1</span>/<span class="number">6</span> X <span class="number">1</span>/<span class="number">6</span>
-   = (<span class="number">1</span> + <span class="number">1</span>/<span class="number">6</span> X <span class="number">2</span> + <span class="number">1</span>/<span class="number">6</span> X <span class="number">1</span>/<span class="number">6</span>) / <span class="number">6</span>
-   = (<span class="number">1</span> + P1 + P2) / <span class="number">6</span>
+P3 = 3 = 1 + 2 = 2 + 1 = 1 + 1 + 1
+   = 1/6 + 1/6 X 1/6 X 2 + 1/6 X 1/6 X 1/6
+   = (1 + 1/6 X 2 + 1/6 X 1/6) / 6
+   = (1 + P1 + P2) / 6
 
-P4 = (<span class="number">1</span> + P1 + P2 + P3) / <span class="number">6</span>
-</code></pre><p>附上渣渣程序一例：<a href="https://github.com/taxusyew/c/blob/master/Algorithm/diceSum.c" target="_blank" rel="external">diceSum.c</a></p>
+P4 = (1 + P1 + P2 + P3) / 6</code></pre>
+<p>附上渣渣程序一例：<a href="https://github.com/taxusyew/c/blob/master/Algorithm/diceSum.c" target="_blank" rel="external">diceSum.c</a></p>
 <p>但这是非常笨的一个计算方法，还没找到数学上的统一计算公式，原来以为在最后的 P1~ P6的时候可以化简，但是反而数据变得更不规则</p>
-<p>经过测试发现，在到P9的时候，基本就已经收敛到了 0.28，所以之后的数据基本都向 <code>2/7</code> 收敛<br>虽然这道题的答案找到了，但是相对于一道算法笔试题来说，应该有更简单的思考方式，所以有机会应该找找有没有更简练的数学计算方法，先挖坑，以后再填。</p>
+<p>经过测试发现，在到P9的时候，基本就已经收敛到了 0.28，所以之后的数据基本都向 <code>2/7</code> 收敛 虽然这道题的答案找到了，但是相对于一道算法笔试题来说，应该有更简单的思考方式，所以有机会应该找找有没有更简练的数学计算方法，先挖坑，以后再填。</p>
 <p>附上有可能相关的信息：</p>
 <p><a href="http://en.wikipedia.org/wiki/Random_walk" target="_blank" rel="external">Random_walk模型</a></p>
 <p><a href="http://zh.wikipedia.org/wiki/%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E9%93%BE" target="_blank" rel="external">马尔科夫链</a></p>
@@ -328,7 +325,7 @@ P4 = (<span class="number">1</span> + P1 + P2 + P3) / <span class="number">6</sp
 		
 
 		<p class="copyright">
-		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2017 
 		
 		<a href="/about" target="_blank" title="Taxus">Taxus</a>
 		
@@ -514,6 +511,35 @@ $(document).ready(function(){
 
 <!-- MathJax Begin -->
 <!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
 
 
 <!-- MathJax End -->

@@ -11,31 +11,31 @@
     
 
     
-    <meta name="description" content="RSA的使用虽然原理比较复杂，但是实际用起来还是挺简单，今天就先从最简单、最实用的地方入手具体原理，等待之后补充
+    <meta name="description" content="RSA的使用 虽然原理比较复杂，但是实际用起来还是挺简单，今天就先从最简单、最实用的地方入手 具体原理，等待之后补充
 
-选择两个不相等的质数 $p$ 和 $q$
-计算公钥、私钥的模数（modulus） $ n = pq$ 
-计算欧拉函数（ totient ） $ s = \phi(n) = (p-1)(q-1)$
-从区间 $(1, s)$ 中选择一个与 $s$ 互质的数 $e$ ， $e$ 作为公钥">
+选择两个不相等的质数 \(p\) 和 \(q\)
+计算公钥、私钥的模数（modulus） $ n = pq$
+计算欧拉函数（ totient ） $ s = (n) = (p-1)(q-1)$
+从区间 \((1, s)\) 中选择一个与 \(s\) 互质的数 \(e\)">
 <meta property="og:type" content="article">
 <meta property="og:title" content="RSA的使用">
 <meta property="og:url" content="http://yoursite.com/2014/12/29/2014122901/index.html">
 <meta property="og:site_name" content="Taxus">
-<meta property="og:description" content="RSA的使用虽然原理比较复杂，但是实际用起来还是挺简单，今天就先从最简单、最实用的地方入手具体原理，等待之后补充
+<meta property="og:description" content="RSA的使用 虽然原理比较复杂，但是实际用起来还是挺简单，今天就先从最简单、最实用的地方入手 具体原理，等待之后补充
 
-选择两个不相等的质数 $p$ 和 $q$
-计算公钥、私钥的模数（modulus） $ n = pq$ 
-计算欧拉函数（ totient ） $ s = \phi(n) = (p-1)(q-1)$
-从区间 $(1, s)$ 中选择一个与 $s$ 互质的数 $e$ ， $e$ 作为公钥">
+选择两个不相等的质数 \(p\) 和 \(q\)
+计算公钥、私钥的模数（modulus） $ n = pq$
+计算欧拉函数（ totient ） $ s = (n) = (p-1)(q-1)$
+从区间 \((1, s)\) 中选择一个与 \(s\) 互质的数 \(e\)">
 <meta property="og:updated_time" content="2016-09-29T06:00:40.321Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="RSA的使用">
-<meta name="twitter:description" content="RSA的使用虽然原理比较复杂，但是实际用起来还是挺简单，今天就先从最简单、最实用的地方入手具体原理，等待之后补充
+<meta name="twitter:description" content="RSA的使用 虽然原理比较复杂，但是实际用起来还是挺简单，今天就先从最简单、最实用的地方入手 具体原理，等待之后补充
 
-选择两个不相等的质数 $p$ 和 $q$
-计算公钥、私钥的模数（modulus） $ n = pq$ 
-计算欧拉函数（ totient ） $ s = \phi(n) = (p-1)(q-1)$
-从区间 $(1, s)$ 中选择一个与 $s$ 互质的数 $e$ ， $e$ 作为公钥">
+选择两个不相等的质数 \(p\) 和 \(q\)
+计算公钥、私钥的模数（modulus） $ n = pq$
+计算欧拉函数（ totient ） $ s = (n) = (p-1)(q-1)$
+从区间 \((1, s)\) 中选择一个与 \(s\) 互质的数 \(e\)">
 
     
     <link rel="alternative" href="/atom.xml" title="Taxus" type="application/atom+xml">
@@ -115,16 +115,17 @@
 		
 		</div>
 		
-		<p>RSA的使用<br>虽然原理比较复杂，但是实际用起来还是挺简单，今天就先从最简单、最实用的地方入手<br>具体原理，等待之后补充</p>
-<ol>
-<li>选择两个不相等的质数 $p$ 和 $q$</li>
-<li>计算公钥、私钥的模数（modulus） $ n = pq$ </li>
-<li>计算欧拉函数（ totient ） $ s = \phi(n) = (p-1)(q-1)$</li>
-<li>从区间 $(1, s)$ 中选择一个与 $s$ 互质的数 $e$ ， $e$ 作为公钥</li>
-<li>求出数字 d，满足 $ed \equiv 1  ( \mod s)$<br>即求解 ex + sy = 1 的解，得到的整数解 x ，即为 d<br>$d$ 作为私钥</li>
+		<p>RSA的使用 虽然原理比较复杂，但是实际用起来还是挺简单，今天就先从最简单、最实用的地方入手 具体原理，等待之后补充</p>
+<ol style="list-style-type: decimal">
+<li>选择两个不相等的质数 <span class="math inline">\(p\)</span> 和 <span class="math inline">\(q\)</span></li>
+<li>计算公钥、私钥的模数（modulus） $ n = pq$</li>
+<li>计算欧拉函数（ totient ） $ s = (n) = (p-1)(q-1)$</li>
+<li>从区间 <span class="math inline">\((1, s)\)</span> 中选择一个与 <span class="math inline">\(s\)</span> 互质的数 <span class="math inline">\(e\)</span> ， <span class="math inline">\(e\)</span> 作为公钥</li>
+<li>求出数字 d，满足 <span class="math inline">\(ed \equiv 1 ( \mod s)\)</span><br>
+即求解 ex + sy = 1 的解，得到的整数解 x ，即为 d <span class="math inline">\(d\)</span> 作为私钥</li>
 </ol>
 <a id="more"></a>
-<p>至此，所有的密钥计算都已经完成，可以得到两对密钥<br>公钥 $(n, e)$<br>私钥 $(n, d)$<br>自己留下私钥，把公钥发布出去，谁想给我发信息又不想让别人知道，就用(n, e)加密了发给我<br>别人用我的公钥加密信息m过程: $ c =  m^e \mod n$<br>我得到信息c以后的解密过程: $ m =  c^d \mod n $</p>
+<p>至此，所有的密钥计算都已经完成，可以得到两对密钥 公钥 <span class="math inline">\((n, e)\)</span> 私钥 <span class="math inline">\((n, d)\)</span> 自己留下私钥，把公钥发布出去，谁想给我发信息又不想让别人知道，就用(n, e)加密了发给我 别人用我的公钥加密信息m过程: $ c = m^e n$ 我得到信息c以后的解密过程: $ m = c^d n $</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -313,7 +314,7 @@
 		
 
 		<p class="copyright">
-		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2017 
 		
 		<a href="/about" target="_blank" title="Taxus">Taxus</a>
 		
@@ -499,6 +500,35 @@ $(document).ready(function(){
 
 <!-- MathJax Begin -->
 <!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
 
 
 <!-- MathJax End -->

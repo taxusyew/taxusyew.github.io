@@ -12,23 +12,20 @@
 
     
     <meta name="description" content="一直很好奇git的分支来回切换的时候会有什么用处，是的真正的修改源文件，还是只记录在.git里面，等到需要的时候再做处理
-实验如下：
-第一部分：创建不同branch123456mkdir branchgit    // 新建文件夹cd branckgit  git init           // 初始化gitvim index.html     // 新建文件index.htmlgit add">
+实验如下： # 第一部分：创建不同branch 123456mkdir branchgit    // 新建文件夹cd branckgit  git init           // 初始化gitvim index.html     // 新建文件index.htmlgit">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Git的分支管理">
 <meta property="og:url" content="http://yoursite.com/2015/01/30/2015013001/index.html">
 <meta property="og:site_name" content="Taxus">
 <meta property="og:description" content="一直很好奇git的分支来回切换的时候会有什么用处，是的真正的修改源文件，还是只记录在.git里面，等到需要的时候再做处理
-实验如下：
-第一部分：创建不同branch123456mkdir branchgit    // 新建文件夹cd branckgit  git init           // 初始化gitvim index.html     // 新建文件index.htmlgit add">
+实验如下： # 第一部分：创建不同branch 123456mkdir branchgit    // 新建文件夹cd branckgit  git init           // 初始化gitvim index.html     // 新建文件index.htmlgit">
 <meta property="og:image" content="http://i.imgur.com/7h0QBjH.gif">
 <meta property="og:image" content="http://i.imgur.com/eCci1zD.gif">
 <meta property="og:updated_time" content="2016-07-12T04:02:59.531Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git的分支管理">
 <meta name="twitter:description" content="一直很好奇git的分支来回切换的时候会有什么用处，是的真正的修改源文件，还是只记录在.git里面，等到需要的时候再做处理
-实验如下：
-第一部分：创建不同branch123456mkdir branchgit    // 新建文件夹cd branckgit  git init           // 初始化gitvim index.html     // 新建文件index.htmlgit add">
+实验如下： # 第一部分：创建不同branch 123456mkdir branchgit    // 新建文件夹cd branckgit  git init           // 初始化gitvim index.html     // 新建文件index.htmlgit">
 
     
     <link rel="alternative" href="/atom.xml" title="Taxus" type="application/atom+xml">
@@ -104,23 +101,26 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#第一部分：创建不同branch"><span class="toc-number">1.</span> <span class="toc-text">第一部分：创建不同branch</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第二部分：branch之间的合并"><span class="toc-number">2.</span> <span class="toc-text">第二部分：branch之间的合并</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第三部分：图形化查看git的已经走过的路线"><span class="toc-number">3.</span> <span class="toc-text">第三部分：图形化查看git的已经走过的路线</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#第二部分branch之间的合并"><span class="toc-number">1.</span> <span class="toc-text">第二部分：branch之间的合并</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第三部分图形化查看git的已经走过的路线"><span class="toc-number">2.</span> <span class="toc-text">第三部分：图形化查看git的已经走过的路线</span></a></li></ol>
 		
 		</div>
 		
 		<p>一直很好奇git的分支来回切换的时候会有什么用处，是的真正的修改源文件，还是只记录在.git里面，等到需要的时候再做处理</p>
-<p>实验如下：</p>
-<h1 id="第一部分：创建不同branch">第一部分：创建不同branch</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mkdir branchgit    // 新建文件夹</span><br><span class="line"><span class="built_in">cd</span> branckgit  </span><br><span class="line">git init           // 初始化git</span><br><span class="line">vim index.html     // 新建文件index.html</span><br><span class="line">git add .</span><br><span class="line">git commit</span><br></pre></td></tr></table></figure>
+<p>实验如下： # 第一部分：创建不同branch <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mkdir branchgit    // 新建文件夹</span><br><span class="line"><span class="built_in">cd</span> branckgit  </span><br><span class="line">git init           // 初始化git</span><br><span class="line">vim index.html     // 新建文件index.html</span><br><span class="line">git add .</span><br><span class="line">git commit</span><br></pre></td></tr></table></figure></p>
 <a id="more"></a>
-<p>修改index.html文件，回到shell中保存修改<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git add .          // 已改变的文件和从未添加过的文件是一个级别，都要add一下</span><br><span class="line">git commit</span><br></pre></td></tr></table></figure></p>
-<p>此时完成master分支的修改，创建一个新的branch<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git branch editor</span><br><span class="line">``` </span><br><span class="line">此时还不会自动切换过去，要自己执行下面的命令</span><br><span class="line">```bash</span><br><span class="line">git checkout editor</span><br></pre></td></tr></table></figure></p>
+<p>修改index.html文件，回到shell中保存修改 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git add .          // 已改变的文件和从未添加过的文件是一个级别，都要add一下</span><br><span class="line">git commit</span><br></pre></td></tr></table></figure></p>
+<p>此时完成master分支的修改，创建一个新的branch <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git branch editor</span><br><span class="line">``` </span><br><span class="line">此时还不会自动切换过去，要自己执行下面的命令</span><br><span class="line">```bash</span><br><span class="line">git checkout editor</span><br></pre></td></tr></table></figure></p>
 <p>这时就能切过去，shell提示符[]中亮蓝色的就是当前分支</p>
 <p>此时修改文件，添加部分语句后，在editor分支中<code>git add . ; git commit</code></p>
 <p>此时准备工作完成，来回切换branch就是下面的gif所示</p>
 <p>master -&gt; editor 点击index.html，看到index.html添加了一些代码</p>
 <p>editor -&gt; master 点击index.html，看到index.html减少了一些代码</p>
-<p><img src="http://i.imgur.com/7h0QBjH.gif" alt="git branch"></p>
-<h1 id="第二部分：branch之间的合并">第二部分：branch之间的合并</h1><p>我们在editor分支上添加完了新功能，现在又想回到master添加功能，这时变成了在两个分支都向前推进了代码，此时进行合并</p>
+<div class="figure">
+<img src="http://i.imgur.com/7h0QBjH.gif" alt="git branch">
+<p class="caption">git branch</p>
+</div>
+<h1 id="第二部分branch之间的合并">第二部分：branch之间的合并</h1>
+我们在editor分支上添加完了新功能，现在又想回到master添加功能，这时变成了在两个分支都向前推进了代码，此时进行合并
 <pre><code>git merge editor
 </code></pre>
 果断报错，提示我们有冲突 CONFLICT，此时就需要我们人工进行合并了
@@ -128,12 +128,17 @@
 ======
 &gt;&gt;&gt;&gt;  editor
 </code></pre>
-
-<p>这三行中间分隔了两个代码块，就是git无法自己确定那个在前的问题，因为我们在两个分支对同一个文件同一行都向前推进了<br>所以调整一下这两个代码块，同时删除三行提示<br>保存回到git中<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit <span class="operator">-a</span></span><br></pre></td></tr></table></figure></p>
-<p>OK，一切搞定<br>此时我们就把再editor中创建的代码合并到了master中，再切回editor看下，里面的代码没有改变</p>
-<p><img src="http://i.imgur.com/eCci1zD.gif" alt="git branch merge"></p>
-<h1 id="第三部分：图形化查看git的已经走过的路线">第三部分：图形化查看git的已经走过的路线</h1><p>命令行输入<code>gitk</code>可以直接看到图形化的显示，注意在不同的branch上看到的结果是不同的</p>
-<p>PS：<br><code>git commit -a = git add . ; git commit</code><br>但是简化的命令无法加入新建的文件，所以如果要修改，还得老实的输入两条命令</p>
+<p>这三行中间分隔了两个代码块，就是git无法自己确定那个在前的问题，因为我们在两个分支对同一个文件同一行都向前推进了 所以调整一下这两个代码块，同时删除三行提示 保存回到git中 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit <span class="operator">-a</span></span><br></pre></td></tr></table></figure></p>
+<p>OK，一切搞定 此时我们就把再editor中创建的代码合并到了master中，再切回editor看下，里面的代码没有改变</p>
+<div class="figure">
+<img src="http://i.imgur.com/eCci1zD.gif" alt="git branch merge">
+<p class="caption">git branch merge</p>
+</div>
+<h1 id="第三部分图形化查看git的已经走过的路线">第三部分：图形化查看git的已经走过的路线</h1>
+<p>命令行输入<code>gitk</code>可以直接看到图形化的显示，注意在不同的branch上看到的结果是不同的</p>
+<p>PS：<br>
+<code>git commit -a = git add . ; git commit</code><br>
+但是简化的命令无法加入新建的文件，所以如果要修改，还得老实的输入两条命令</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -191,7 +196,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#第一部分：创建不同branch"><span class="toc-number">1.</span> <span class="toc-text">第一部分：创建不同branch</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第二部分：branch之间的合并"><span class="toc-number">2.</span> <span class="toc-text">第二部分：branch之间的合并</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第三部分：图形化查看git的已经走过的路线"><span class="toc-number">3.</span> <span class="toc-text">第三部分：图形化查看git的已经走过的路线</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#第二部分branch之间的合并"><span class="toc-number">1.</span> <span class="toc-text">第二部分：branch之间的合并</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第三部分图形化查看git的已经走过的路线"><span class="toc-number">2.</span> <span class="toc-text">第三部分：图形化查看git的已经走过的路线</span></a></li></ol>
  
   </div>
 
@@ -322,7 +327,7 @@
 		
 
 		<p class="copyright">
-		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2017 
 		
 		<a href="/about" target="_blank" title="Taxus">Taxus</a>
 		
@@ -508,6 +513,35 @@ $(document).ready(function(){
 
 <!-- MathJax Begin -->
 <!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
 
 
 <!-- MathJax End -->

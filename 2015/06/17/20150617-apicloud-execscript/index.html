@@ -11,19 +11,25 @@
     
 
     
-    <meta name="description" content="传递对象正确方式：先转义再传递，并且用单引号包裹1234api.execScript(&amp;#123;    name:&apos;win_withdraw&apos;,    script:&apos;switchCard(\&apos;&apos;+JSON.stringify(gBankList[_index])+&apos;\&apos;);&apos;&amp;#125;);
-接收方1234function switchCard (_str) &amp;#123;    var _ob">
+    <meta name="description" content="传递对象
+正确方式：先转义再传递，并且用单引号包裹
+1234api.execScript(&amp;#123;    name:&apos;win_withdraw&apos;,    script:&apos;switchCard(\&apos;&apos;+JSON.stringify(gBankList[_index])+&apos;\&apos;);&apos;&amp;#125;);
+接收方 1234function switchCard (_str) &amp;#123;    v">
 <meta property="og:type" content="article">
 <meta property="og:title" content="execScript传递参数详解">
 <meta property="og:url" content="http://yoursite.com/2015/06/17/20150617-apicloud-execscript/index.html">
 <meta property="og:site_name" content="Taxus">
-<meta property="og:description" content="传递对象正确方式：先转义再传递，并且用单引号包裹1234api.execScript(&amp;#123;    name:&apos;win_withdraw&apos;,    script:&apos;switchCard(\&apos;&apos;+JSON.stringify(gBankList[_index])+&apos;\&apos;);&apos;&amp;#125;);
-接收方1234function switchCard (_str) &amp;#123;    var _ob">
+<meta property="og:description" content="传递对象
+正确方式：先转义再传递，并且用单引号包裹
+1234api.execScript(&amp;#123;    name:&apos;win_withdraw&apos;,    script:&apos;switchCard(\&apos;&apos;+JSON.stringify(gBankList[_index])+&apos;\&apos;);&apos;&amp;#125;);
+接收方 1234function switchCard (_str) &amp;#123;    v">
 <meta property="og:updated_time" content="2016-07-12T04:01:47.598Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="execScript传递参数详解">
-<meta name="twitter:description" content="传递对象正确方式：先转义再传递，并且用单引号包裹1234api.execScript(&amp;#123;    name:&apos;win_withdraw&apos;,    script:&apos;switchCard(\&apos;&apos;+JSON.stringify(gBankList[_index])+&apos;\&apos;);&apos;&amp;#125;);
-接收方1234function switchCard (_str) &amp;#123;    var _ob">
+<meta name="twitter:description" content="传递对象
+正确方式：先转义再传递，并且用单引号包裹
+1234api.execScript(&amp;#123;    name:&apos;win_withdraw&apos;,    script:&apos;switchCard(\&apos;&apos;+JSON.stringify(gBankList[_index])+&apos;\&apos;);&apos;&amp;#125;);
+接收方 1234function switchCard (_str) &amp;#123;    v">
 
     
     <link rel="alternative" href="/atom.xml" title="Taxus" type="application/atom+xml">
@@ -99,23 +105,28 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#传递对象"><span class="toc-number">1.</span> <span class="toc-text">传递对象</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#正确方式：先转义再传递，并且用单引号包裹"><span class="toc-number">1.1.</span> <span class="toc-text">正确方式：先转义再传递，并且用单引号包裹</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#直接传递对象"><span class="toc-number">1.2.</span> <span class="toc-text">直接传递对象</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#传递对象"><span class="toc-number">1.</span> <span class="toc-text">传递对象</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#正确方式先转义再传递并且用单引号包裹"><span class="toc-number">1.1.</span> <span class="toc-text">正确方式：先转义再传递，并且用单引号包裹</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#直接传递对象"><span class="toc-number">1.2.</span> <span class="toc-text">直接传递对象</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#传递字符串"><span class="toc-number">2.</span> <span class="toc-text">传递字符串</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#传递数字"><span class="toc-number">3.</span> <span class="toc-text">传递数字</span></a></li></ol>
 		
 		</div>
 		
-		<h1 id="传递对象">传递对象</h1><h2 id="正确方式：先转义再传递，并且用单引号包裹">正确方式：先转义再传递，并且用单引号包裹</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">api.execScript(&#123;</span><br><span class="line">    name:<span class="string">'win_withdraw'</span>,</span><br><span class="line">    script:<span class="string">'switchCard(\''</span>+<span class="built_in">JSON</span>.stringify(gBankList[_index])+<span class="string">'\');'</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>接收方<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">switchCard</span> (<span class="params">_str</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> _obj = <span class="built_in">JSON</span>.parse(_str);</span><br><span class="line">	<span class="comment">// Do something</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+		<h1 id="传递对象">传递对象</h1>
+<h2 id="正确方式先转义再传递并且用单引号包裹">正确方式：先转义再传递，并且用单引号包裹</h2>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">api.execScript(&#123;</span><br><span class="line">    name:<span class="string">'win_withdraw'</span>,</span><br><span class="line">    script:<span class="string">'switchCard(\''</span>+<span class="built_in">JSON</span>.stringify(gBankList[_index])+<span class="string">'\');'</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>接收方 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">switchCard</span> (<span class="params">_str</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> _obj = <span class="built_in">JSON</span>.parse(_str);</span><br><span class="line">	<span class="comment">// Do something</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <a id="more"></a>
-<p>错误↓<br><code>script:&#39;switchCard(&#39;+JSON.stringify(gBankList[_index])+&#39;);&#39;</code><br>如果不加单引号，在接收方<code>JSON.parse(_str)</code>的时候会报错</p>
-<h2 id="直接传递对象">直接传递对象</h2><p><code>script:&#39;switchCard(&#39;+gBankList[_index]+&#39;);&#39;</code><br>此时会报<strong>运行时</strong>错误  <code>Uncaught ReferenceError: XXX is not defined at JsRuntime: 1</code></p>
-<p>#传递字符串<br>正确↓<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var str = &#34;foo&#34;;&#10;api.execScript(&#123;&#10;    name:&#39;win_withdraw&#39;,&#10;    script:&#39;switchCard(&#34;&#39;+str+&#39;&#34;);&#39;&#10;&#125;);</span><br></pre></td></tr></table></figure></p>
-<p>正确↓<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var str = &#34;foo&#34;;&#10;api.execScript(&#123;&#10;    name:&#39;win_withdraw&#39;,&#10;    script:&#39;switchCard(\&#39;&#39;+str+&#39;\&#39;);&#39;&#10;&#125;);</span><br></pre></td></tr></table></figure></p>
-<p>错误↓<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var str = &#34;foo&#34;;&#10;api.execScript(&#123;&#10;    name:&#39;win_withdraw&#39;,&#10;    script:&#39;switchCard(&#39;+str+&#39;);&#39;&#10;&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>错误↓ <code>script:'switchCard('+JSON.stringify(gBankList[_index])+');'</code> 如果不加单引号，在接收方<code>JSON.parse(_str)</code>的时候会报错</p>
+<h2 id="直接传递对象">直接传递对象</h2>
+<p><code>script:'switchCard('+gBankList[_index]+');'</code> 此时会报<strong>运行时</strong>错误 <code>Uncaught ReferenceError: XXX is not defined at JsRuntime: 1</code></p>
+<h1 id="传递字符串">传递字符串</h1>
+<p>正确↓ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var str = &#34;foo&#34;;&#10;api.execScript(&#123;&#10;    name:&#39;win_withdraw&#39;,&#10;    script:&#39;switchCard(&#34;&#39;+str+&#39;&#34;);&#39;&#10;&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>正确↓ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var str = &#34;foo&#34;;&#10;api.execScript(&#123;&#10;    name:&#39;win_withdraw&#39;,&#10;    script:&#39;switchCard(\&#39;&#39;+str+&#39;\&#39;);&#39;&#10;&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>错误↓ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var str = &#34;foo&#34;;&#10;api.execScript(&#123;&#10;    name:&#39;win_withdraw&#39;,&#10;    script:&#39;switchCard(&#39;+str+&#39;);&#39;&#10;&#125;);</span><br></pre></td></tr></table></figure></p>
 <blockquote>
 <p>以上情况 var str = “foo” 与 var str = ‘foo’ 等价</p>
 </blockquote>
-<p>#传递数字</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var num = 123;&#10;api.execScript(&#123;&#10;    name:&#39;win_withdraw&#39;,&#10;    script:&#39;switchCard(&#39;+num+&#39;);&#39;&#10;&#125;);</span><br></pre></td></tr></table></figure>  
+<h1 id="传递数字">传递数字</h1>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var num = 123;&#10;api.execScript(&#123;&#10;    name:&#39;win_withdraw&#39;,&#10;    script:&#39;switchCard(&#39;+num+&#39;);&#39;&#10;&#125;);</span><br></pre></td></tr></table></figure>
+  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
@@ -172,7 +183,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#传递对象"><span class="toc-number">1.</span> <span class="toc-text">传递对象</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#正确方式：先转义再传递，并且用单引号包裹"><span class="toc-number">1.1.</span> <span class="toc-text">正确方式：先转义再传递，并且用单引号包裹</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#直接传递对象"><span class="toc-number">1.2.</span> <span class="toc-text">直接传递对象</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#传递对象"><span class="toc-number">1.</span> <span class="toc-text">传递对象</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#正确方式先转义再传递并且用单引号包裹"><span class="toc-number">1.1.</span> <span class="toc-text">正确方式：先转义再传递，并且用单引号包裹</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#直接传递对象"><span class="toc-number">1.2.</span> <span class="toc-text">直接传递对象</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#传递字符串"><span class="toc-number">2.</span> <span class="toc-text">传递字符串</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#传递数字"><span class="toc-number">3.</span> <span class="toc-text">传递数字</span></a></li></ol>
  
   </div>
 
@@ -303,7 +314,7 @@
 		
 
 		<p class="copyright">
-		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2017 
 		
 		<a href="/about" target="_blank" title="Taxus">Taxus</a>
 		
@@ -489,6 +500,35 @@ $(document).ready(function(){
 
 <!-- MathJax Begin -->
 <!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
 
 
 <!-- MathJax End -->
