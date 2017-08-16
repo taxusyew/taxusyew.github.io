@@ -11,19 +11,18 @@
     
 
     
-    <meta name="description" content="原型继承
-原型继承有很多坑，我尽量在下面多总结一些，但是并不能保证面面俱到。而且列举的多了以后，会比较混乱，所以在最前面写出正确的方式。">
+    <meta name="description" content="原型继承 原型继承有很多坑，我尽量在下面多总结一些，但是并不能保证面面俱到。而且列举的多了以后，会比较混乱，所以在最前面写出正确的方式。">
+<meta name="keywords" content="JS">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript 继承">
 <meta property="og:url" content="http://yoursite.com/2015/07/16/20150716-js-inherit/index.html">
 <meta property="og:site_name" content="Taxus">
-<meta property="og:description" content="原型继承
-原型继承有很多坑，我尽量在下面多总结一些，但是并不能保证面面俱到。而且列举的多了以后，会比较混乱，所以在最前面写出正确的方式。">
+<meta property="og:description" content="原型继承 原型继承有很多坑，我尽量在下面多总结一些，但是并不能保证面面俱到。而且列举的多了以后，会比较混乱，所以在最前面写出正确的方式。">
+<meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2016-07-12T04:02:07.157Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript 继承">
-<meta name="twitter:description" content="原型继承
-原型继承有很多坑，我尽量在下面多总结一些，但是并不能保证面面俱到。而且列举的多了以后，会比较混乱，所以在最前面写出正确的方式。">
+<meta name="twitter:description" content="原型继承 原型继承有很多坑，我尽量在下面多总结一些，但是并不能保证面面俱到。而且列举的多了以后，会比较混乱，所以在最前面写出正确的方式。">
 
     
     <link rel="alternative" href="/atom.xml" title="Taxus" type="application/atom+xml">
@@ -35,7 +34,7 @@
     <link rel="apple-touch-icon" href="/img/jacman.jpg">
     <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
     
-    <link rel="stylesheet" href="/css/style.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    <link rel="stylesheet" href="/css/style.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
   <body>
@@ -90,7 +89,7 @@
 		<a href="/about" title="Taxus" target="_blank" itemprop="author">Taxus</a>
 		
   <p class="article-time">
-    <time datetime="2015-07-16T04:57:48.000Z" itemprop="datePublished"> 发表于 Jul 16 2015</time>
+    <time datetime="2015-07-16T05:57:48.000Z" itemprop="datePublished"> 发表于 Jul 16 2015</time>
     
   </p>
 </header>
@@ -104,31 +103,31 @@
 		</div>
 		
 		<h1 id="原型继承">原型继承</h1>
-<p>原型继承有很多坑，我尽量在下面多总结一些，但是并不能保证面面俱到。而且列举的多了以后，会比较混乱，所以在最前面写出正确的方式。 <a id="more"></a> <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Vehicle - 父类</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Vehicle</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.wheel = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">this</span>.color = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">this</span>.position = &#123;x:<span class="number">0</span>, y:<span class="number">0</span>&#125;;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 父类方法</span></span><br><span class="line">Vehicle.prototype.move = <span class="function"><span class="keyword">function</span>(<span class="params">x, y</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.position.x += x;</span><br><span class="line">  <span class="keyword">this</span>.position.y += y;</span><br><span class="line">  <span class="built_in">console</span>.info(<span class="string">'Vehicle moved.'</span>);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// Car - 子类</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Car</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  Vehicle.call(<span class="keyword">this</span>); <span class="comment">// 调用父类构造器.</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 子类继承父类</span></span><br><span class="line">Car.prototype = <span class="built_in">Object</span>.create(Vehicle.prototype); </span><br><span class="line">Car.prototype.constructor = Car;</span><br></pre></td></tr></table></figure></p>
+<p>原型继承有很多坑，我尽量在下面多总结一些，但是并不能保证面面俱到。而且列举的多了以后，会比较混乱，所以在最前面写出正确的方式。 <a id="more"></a> <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Vehicle - 父类</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Vehicle</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">this</span>.wheel = <span class="number">0</span>;</div><div class="line">  <span class="keyword">this</span>.color = <span class="number">0</span>;</div><div class="line">  <span class="keyword">this</span>.position = &#123;<span class="attr">x</span>:<span class="number">0</span>, <span class="attr">y</span>:<span class="number">0</span>&#125;;</div><div class="line">&#125;</div><div class="line"><span class="comment">// 父类方法</span></div><div class="line">Vehicle.prototype.move = <span class="function"><span class="keyword">function</span>(<span class="params">x, y</span>) </span>&#123;</div><div class="line">  <span class="keyword">this</span>.position.x += x;</div><div class="line">  <span class="keyword">this</span>.position.y += y;</div><div class="line">  <span class="built_in">console</span>.info(<span class="string">'Vehicle moved.'</span>);</div><div class="line">&#125;;</div><div class="line"><span class="comment">// Car - 子类</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Car</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  Vehicle.call(<span class="keyword">this</span>); <span class="comment">// 调用父类构造器.</span></div><div class="line">&#125;</div><div class="line"><span class="comment">// 子类继承父类</span></div><div class="line">Car.prototype = <span class="built_in">Object</span>.create(Vehicle.prototype); </div><div class="line">Car.prototype.constructor = Car;</div></pre></td></tr></table></figure></p>
 <h2 id="为什么以上正确">为什么以上正确？</h2>
 <h3 id="子类的构造器">1.子类的构造器</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Car.prototype.constructor</span><br><span class="line">→ <span class="keyword">function</span> Car()</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Car.prototype.constructor</div><div class="line">→ <span class="keyword">function</span> Car()</div></pre></td></tr></table></figure>
 <p>子类构造器指向自己</p>
 <h3 id="父类构造器">2.父类构造器</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Vehicle.prototype.constructor</span><br><span class="line">→ <span class="keyword">function</span> Vehicle()</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Vehicle.prototype.constructor</div><div class="line">→ <span class="keyword">function</span> Vehicle()</div></pre></td></tr></table></figure>
 <p>父类构造器指向自己</p>
 <h3 id="子类是否继承父类方法">3.子类是否继承父类方法</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var ford = new Car()</span><br><span class="line">ford.position.x = <span class="number">3</span></span><br><span class="line">ford.position.y = <span class="number">4</span></span><br><span class="line">ford.move(<span class="number">4</span>,<span class="number">4</span>)</span><br><span class="line">→ Vehicle moved.</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var ford = new Car()</div><div class="line">ford.position.x = 3</div><div class="line">ford.position.y = 4</div><div class="line">ford.move(4,4)</div><div class="line">→ Vehicle moved.</div></pre></td></tr></table></figure>
 <p>可以调用父类的方法</p>
 <h2 id="一些疑问">一些疑问</h2>
 <h3 id="为什么要car.prototype-object.createvehicle.prototype而不是直接调用car.prototype-vehicle.prototype">1.为什么要<code>Car.prototype = Object.create(Vehicle.prototype);</code>而不是直接调用<code>Car.prototype = Vehicle.prototype;</code>？</h3>
-<p>答： 如果设置<code>Car.prototype = Vehicle.prototype;</code>以后，再设置<code>Car.prototype.constructor = Car;</code>就会同样的修改父类的构造器指向： <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Vehicle.prototype.constructor</span><br><span class="line">→ <span class="keyword">function</span> Car()</span><br></pre></td></tr></table></figure></p>
+<p>答： 如果设置<code>Car.prototype = Vehicle.prototype;</code>以后，再设置<code>Car.prototype.constructor = Car;</code>就会同样的修改父类的构造器指向： <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Vehicle.prototype.constructor</div><div class="line">→ <span class="keyword">function</span> Car()</div></pre></td></tr></table></figure></p>
 <p>这样显然是有问题的。因为在用<code>Car.prototype = Vehicle.prototype;</code>直接赋值的时候，Car和Vehicle的原型引用了同一个对象，所以接下来是修改了同一个原型对象的构造器，从而造成父类构造器的改变。所以需要给子类的原型重新指向一个父类原型的深拷贝对象，这样子类原型对象就会被垃圾回收机制回收。</p>
 <h3 id="如果浏览器不支持object.create方法怎么办">2.如果浏览器不支持<code>Object.create()</code>方法怎么办？</h3>
-<p>用一个只有三行的函数来替代<code>Object.create()</code>: <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createobject</span>(<span class="params">o</span>) </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">F</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line">    F.prototype = o;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> F();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>使用时替换代码的第18行： <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Car.prototype = createobject(Vehicle.prototype);</span><br></pre></td></tr></table></figure></p>
-<p>但是如果用这样的函数的话，就会污染全局变量。根据<a href="http://javascript.crockford.com/prototypal.html" title="crockford的文章" target="_blank" rel="external">crockford的文章</a>提示，做出如下修改： <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Object</span>.prototype.begetObject = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">F</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line">    F.prototype = <span class="keyword">this</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> F();</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">Car.prototype = Vehicle.prototype.begetObject();</span><br></pre></td></tr></table></figure></p>
-<p>如此同样可以达到继承的目的，但是拓展原生对象是很危险的，如果Object.prototype.begetObject被覆盖，则会产生更大的危险。所以再引入下面的改进： <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="built_in">Object</span>.create !== <span class="string">'function'</span>) &#123;</span><br><span class="line">    <span class="built_in">Object</span>.create = <span class="function"><span class="keyword">function</span> (<span class="params">o</span>) </span>&#123;</span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">F</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line">        F.prototype = o;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> F();</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br><span class="line">Car.prototype = <span class="built_in">Object</span>.create(Vehicle.prototype);</span><br></pre></td></tr></table></figure></p>
+<p>用一个只有三行的函数来替代<code>Object.create()</code>: <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">createobject</span>(<span class="params">o</span>) </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">F</span>(<span class="params"></span>) </span>&#123;&#125;</div><div class="line">    F.prototype = o;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">new</span> F();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>使用时替换代码的第18行： <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Car.prototype = createobject(Vehicle.prototype);</div></pre></td></tr></table></figure></p>
+<p>但是如果用这样的函数的话，就会污染全局变量。根据<a href="http://javascript.crockford.com/prototypal.html" title="crockford的文章" target="_blank" rel="external">crockford的文章</a>提示，做出如下修改： <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Object</span>.prototype.begetObject = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">F</span>(<span class="params"></span>) </span>&#123;&#125;</div><div class="line">    F.prototype = <span class="keyword">this</span>;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">new</span> F();</div><div class="line">&#125;;</div><div class="line"></div><div class="line">Car.prototype = Vehicle.prototype.begetObject();</div></pre></td></tr></table></figure></p>
+<p>如此同样可以达到继承的目的，但是拓展原生对象是很危险的，如果Object.prototype.begetObject被覆盖，则会产生更大的危险。所以再引入下面的改进： <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="built_in">Object</span>.create !== <span class="string">'function'</span>) &#123;</div><div class="line">    <span class="built_in">Object</span>.create = <span class="function"><span class="keyword">function</span> (<span class="params">o</span>) </span>&#123;</div><div class="line">        <span class="function"><span class="keyword">function</span> <span class="title">F</span>(<span class="params"></span>) </span>&#123;&#125;</div><div class="line">        F.prototype = o;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> F();</div><div class="line">    &#125;;</div><div class="line">&#125;</div><div class="line">Car.prototype = <span class="built_in">Object</span>.create(Vehicle.prototype);</div></pre></td></tr></table></figure></p>
 <p>这样就类似于MDN上很多的Polyfill，先判断原生是否存在，如果不存在，就补全它。</p>
 <h3 id="为什么需要在子类的函数体中call父类">3.为什么需要在子类的函数体中call父类？</h3>
-<p>如果在子类中没有调用父类构造器 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Vehicle.call(<span class="keyword">this</span>);</span><br></pre></td></tr></table></figure></p>
+<p>如果在子类中没有调用父类构造器 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Vehicle.call(<span class="keyword">this</span>);</div></pre></td></tr></table></figure></p>
 <p>那么调用子类对象的时候，访问父类的变量，将会弹出<code>undefined</code></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var ford = new Car()</span><br><span class="line">ford.wheel</span><br><span class="line">→ undefined</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var ford = new Car()</div><div class="line">ford.wheel</div><div class="line">→ undefined</div></pre></td></tr></table></figure>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -222,6 +221,10 @@
 			
 		
 			
+				<li><a href="/tags/git/" title="git">git<sup>2</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/chromium/" title="chromium">chromium<sup>2</sup></a></li>
 			
 		
@@ -230,27 +233,27 @@
 			
 		
 			
-				<li><a href="/tags/git/" title="git">git<sup>2</sup></a></li>
+				<li><a href="/tags/zsh/" title="zsh">zsh<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/grunt/" title="grunt">grunt<sup>1</sup></a></li>
+				<li><a href="/tags/2014/" title="2014">2014<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/CSS/" title="CSS">CSS<sup>1</sup></a></li>
+				<li><a href="/tags/读书/" title="读书">读书<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/touch/" title="touch">touch<sup>1</sup></a></li>
+				<li><a href="/tags/清单/" title="清单">清单<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/hexo/" title="hexo">hexo<sup>1</sup></a></li>
+				<li><a href="/tags/快捷键/" title="快捷键">快捷键<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/主题/" title="主题">主题<sup>1</sup></a></li>
+				<li><a href="/tags/加密/" title="加密">加密<sup>1</sup></a></li>
 			
 		
 			
@@ -258,7 +261,7 @@
 			
 		
 			
-				<li><a href="/tags/zsh/" title="zsh">zsh<sup>1</sup></a></li>
+				<li><a href="/tags/hexo/" title="hexo">hexo<sup>1</sup></a></li>
 			
 		
 			
@@ -270,15 +273,11 @@
 			
 		
 			
-				<li><a href="/tags/配置/" title="配置">配置<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/加密/" title="加密">加密<sup>1</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/RSA/" title="RSA">RSA<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/主题/" title="主题">主题<sup>1</sup></a></li>
 			
 		
 		</ul>

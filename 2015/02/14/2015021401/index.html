@@ -11,19 +11,18 @@
     
 
     
-    <meta name="description" content="Optimizing the View 优化view
-现在你有了一个精心设计的视图，可以处理相应手势和在不同状态间转场，你需要确保视图运行很快。为了避免UI感觉迟钝或者回放时卡顿，你必须确保你的动画一直保持每秒60帧(ensure that your animations consistently run at 60 frames per second)。">
+    <meta name="description" content="Optimizing the View 优化view 现在你有了一个精心设计的视图，可以处理相应手势和在不同状态间转场，你需要确保视图运行很快。为了避免UI感觉迟钝或者回放时卡顿，你必须确保你的动画一直保持每秒60帧(ensure that your animations consistently run at 60 frames per second)。">
+<meta name="keywords" content="Android,view">
 <meta property="og:type" content="article">
-<meta property="og:title" content="自定义Android视图(04/04)">
+<meta property="og:title" content="自定义Android视图(04&#x2F;04)">
 <meta property="og:url" content="http://yoursite.com/2015/02/14/2015021401/index.html">
 <meta property="og:site_name" content="Taxus">
-<meta property="og:description" content="Optimizing the View 优化view
-现在你有了一个精心设计的视图，可以处理相应手势和在不同状态间转场，你需要确保视图运行很快。为了避免UI感觉迟钝或者回放时卡顿，你必须确保你的动画一直保持每秒60帧(ensure that your animations consistently run at 60 frames per second)。">
+<meta property="og:description" content="Optimizing the View 优化view 现在你有了一个精心设计的视图，可以处理相应手势和在不同状态间转场，你需要确保视图运行很快。为了避免UI感觉迟钝或者回放时卡顿，你必须确保你的动画一直保持每秒60帧(ensure that your animations consistently run at 60 frames per second)。">
+<meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2016-07-12T04:03:21.272Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="自定义Android视图(04/04)">
-<meta name="twitter:description" content="Optimizing the View 优化view
-现在你有了一个精心设计的视图，可以处理相应手势和在不同状态间转场，你需要确保视图运行很快。为了避免UI感觉迟钝或者回放时卡顿，你必须确保你的动画一直保持每秒60帧(ensure that your animations consistently run at 60 frames per second)。">
+<meta name="twitter:title" content="自定义Android视图(04&#x2F;04)">
+<meta name="twitter:description" content="Optimizing the View 优化view 现在你有了一个精心设计的视图，可以处理相应手势和在不同状态间转场，你需要确保视图运行很快。为了避免UI感觉迟钝或者回放时卡顿，你必须确保你的动画一直保持每秒60帧(ensure that your animations consistently run at 60 frames per second)。">
 
     
     <link rel="alternative" href="/atom.xml" title="Taxus" type="application/atom+xml">
@@ -35,7 +34,7 @@
     <link rel="apple-touch-icon" href="/img/jacman.jpg">
     <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
     
-    <link rel="stylesheet" href="/css/style.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    <link rel="stylesheet" href="/css/style.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
   <body>
@@ -90,7 +89,7 @@
 		<a href="/about" title="Taxus" target="_blank" itemprop="author">Taxus</a>
 		
   <p class="article-time">
-    <time datetime="2015-02-14T01:06:37.000Z" itemprop="datePublished"> 发表于 Feb 14 2015</time>
+    <time datetime="2015-02-14T02:06:37.000Z" itemprop="datePublished"> 发表于 Feb 14 2015</time>
     
   </p>
 </header>
@@ -112,7 +111,7 @@
 <p>对Android 3.0来说，Android 2D图形系统可以通过GPU加速。GPU在最新的Android设备中都能找到。GPU硬件加速可以为很多应用带来极大的性能提升，但它不一定适用于任何一个程序。Android框架赋予你可以控制应用中哪些部分使用硬件加速的能力。</p>
 <p>查看<a href="http://developer.android.com/guide/topics/graphics/hardware-accel.html" target="_blank" rel="external">硬件加速章节</a>获取更多信息。注意，除了开发者指导中提到的方面以外，你必须在 <code>AndroidManifest.xml</code>中指明<code>&lt;uses-sdk android:targetSdkVersion=&quot;11&quot;/&gt;</code>来设置程序的目标API高于11级。</p>
 <p>启动了硬件加速后，你有可能看不到性能的提升。移动GPU在特定的任务中是非常高效的，例如绘制直线和曲线。为了获取GPU加速的极致性能，你应该在GPU擅长的地方尽量使用它，在其不擅长的地方尽量避免使用。</p>
-<p>在<code>PieChart</code>例子中，绘制饼图是相对来说耗时的。旋转饼图引起的每次重绘UI都会感觉迟钝。解决办法是放置图标到一个子视图，然后设置视图的布局类型是<code>LAYER_TYPE_HARDWARE</code>，这样GPU就会将其缓存为一个静态图像。该例子定义子视图作为<code>PieChart</code>的内部类，这样可以为实现该方法改动尽量少的代码。 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">PieView</span> <span class="keyword">extends</span> <span class="title">View</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="title">PieView</span><span class="params">(Context context)</span> </span>&#123;</span><br><span class="line">       <span class="keyword">super</span>(context);</span><br><span class="line">       <span class="keyword">if</span> (!isInEditMode()) &#123;</span><br><span class="line">           setLayerType(View.LAYER_TYPE_HARDWARE, <span class="keyword">null</span>);</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br><span class="line">   </span><br><span class="line">   <span class="annotation">@Override</span></span><br><span class="line">   <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDraw</span><span class="params">(Canvas canvas)</span> </span>&#123;</span><br><span class="line">       <span class="keyword">super</span>.onDraw(canvas);</span><br><span class="line"></span><br><span class="line">       <span class="keyword">for</span> (Item it : mData) &#123;</span><br><span class="line">           mPiePaint.setShader(it.mShader);</span><br><span class="line">           canvas.drawArc(mBounds,</span><br><span class="line">                   <span class="number">360</span> - it.mEndAngle,</span><br><span class="line">                   it.mEndAngle - it.mStartAngle,</span><br><span class="line">                   <span class="keyword">true</span>, mPiePaint);</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="annotation">@Override</span></span><br><span class="line">   <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onSizeChanged</span><span class="params">(<span class="keyword">int</span> w, <span class="keyword">int</span> h, <span class="keyword">int</span> oldw, <span class="keyword">int</span> oldh)</span> </span>&#123;</span><br><span class="line">       mBounds = <span class="keyword">new</span> RectF(<span class="number">0</span>, <span class="number">0</span>, w, h);</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   RectF mBounds;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>在<code>PieChart</code>例子中，绘制饼图是相对来说耗时的。旋转饼图引起的每次重绘UI都会感觉迟钝。解决办法是放置图标到一个子视图，然后设置视图的布局类型是<code>LAYER_TYPE_HARDWARE</code>，这样GPU就会将其缓存为一个静态图像。该例子定义子视图作为<code>PieChart</code>的内部类，这样可以为实现该方法改动尽量少的代码。 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">PieView</span> <span class="keyword">extends</span> <span class="title">View</span> </span>&#123;</div><div class="line"></div><div class="line">   <span class="function"><span class="keyword">public</span> <span class="title">PieView</span><span class="params">(Context context)</span> </span>&#123;</div><div class="line">       <span class="keyword">super</span>(context);</div><div class="line">       <span class="keyword">if</span> (!isInEditMode()) &#123;</div><div class="line">           setLayerType(View.LAYER_TYPE_HARDWARE, <span class="keyword">null</span>);</div><div class="line">       &#125;</div><div class="line">   &#125;</div><div class="line">   </div><div class="line">   <span class="meta">@Override</span></div><div class="line">   <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDraw</span><span class="params">(Canvas canvas)</span> </span>&#123;</div><div class="line">       <span class="keyword">super</span>.onDraw(canvas);</div><div class="line"></div><div class="line">       <span class="keyword">for</span> (Item it : mData) &#123;</div><div class="line">           mPiePaint.setShader(it.mShader);</div><div class="line">           canvas.drawArc(mBounds,</div><div class="line">                   <span class="number">360</span> - it.mEndAngle,</div><div class="line">                   it.mEndAngle - it.mStartAngle,</div><div class="line">                   <span class="keyword">true</span>, mPiePaint);</div><div class="line">       &#125;</div><div class="line">   &#125;</div><div class="line"></div><div class="line">   <span class="meta">@Override</span></div><div class="line">   <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onSizeChanged</span><span class="params">(<span class="keyword">int</span> w, <span class="keyword">int</span> h, <span class="keyword">int</span> oldw, <span class="keyword">int</span> oldh)</span> </span>&#123;</div><div class="line">       mBounds = <span class="keyword">new</span> RectF(<span class="number">0</span>, <span class="number">0</span>, w, h);</div><div class="line">   &#125;</div><div class="line"></div><div class="line">   RectF mBounds;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>在代码改变后，<code>PieChart.PieView.onDraw()</code>只会在图形第一次展示的时候调用，在APP余下的生命周期中，图标被缓存为一个图片，由GPU重新绘制它的不同旋转角度。GPU硬件特别擅长这类事，性能马上就会不同。</p>
 <p>这是一个折中方案。将图像在硬件层缓存会消耗图像存储器，而其资源有限。因为这个原因，最终版的<code>PieChart.PieView</code>只是在用户真正旋转的时候才设置它的布局类型为<code>LAYER_TYPE_HARDWARE</code>。在其余时间，它设置布局类型为<code>LAYER_TYPE_NONE</code>，这将使得GPU不再缓存图像。</p>
 <p>最后，不要忘记给代码写概要(profile your code)。一个视图提升性能的技巧可能对另一个视图来说会带来性能下降。</p>
@@ -209,6 +208,10 @@
 			
 		
 			
+				<li><a href="/tags/git/" title="git">git<sup>2</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/chromium/" title="chromium">chromium<sup>2</sup></a></li>
 			
 		
@@ -217,27 +220,27 @@
 			
 		
 			
-				<li><a href="/tags/git/" title="git">git<sup>2</sup></a></li>
+				<li><a href="/tags/zsh/" title="zsh">zsh<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/grunt/" title="grunt">grunt<sup>1</sup></a></li>
+				<li><a href="/tags/2014/" title="2014">2014<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/CSS/" title="CSS">CSS<sup>1</sup></a></li>
+				<li><a href="/tags/读书/" title="读书">读书<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/touch/" title="touch">touch<sup>1</sup></a></li>
+				<li><a href="/tags/清单/" title="清单">清单<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/hexo/" title="hexo">hexo<sup>1</sup></a></li>
+				<li><a href="/tags/快捷键/" title="快捷键">快捷键<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/主题/" title="主题">主题<sup>1</sup></a></li>
+				<li><a href="/tags/加密/" title="加密">加密<sup>1</sup></a></li>
 			
 		
 			
@@ -245,7 +248,7 @@
 			
 		
 			
-				<li><a href="/tags/zsh/" title="zsh">zsh<sup>1</sup></a></li>
+				<li><a href="/tags/hexo/" title="hexo">hexo<sup>1</sup></a></li>
 			
 		
 			
@@ -257,15 +260,11 @@
 			
 		
 			
-				<li><a href="/tags/配置/" title="配置">配置<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/加密/" title="加密">加密<sup>1</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/RSA/" title="RSA">RSA<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/主题/" title="主题">主题<sup>1</sup></a></li>
 			
 		
 		</ul>

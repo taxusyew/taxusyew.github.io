@@ -1,0 +1,719 @@
+
+  
+    <!DOCTYPE HTML>
+<html lang="en">
+    
+    <head>
+        
+        <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>RSA | 读书笔记</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.5.1">
+        
+        
+        <meta name="HandheldFriendly" content="true">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="../gitbook/style.css">
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-highlight/website.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-search/search.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-fontsettings/website.css">
+        
+    
+    
+
+        
+    
+    
+    <link rel="next" href="../06algorithm/base64.html">
+    
+    
+    <link rel="prev" href="../06algorithm/encode.html"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="book" data-level="6.1.1" data-chapter-title="RSA" data-filepath="06algorithm/rsa.md" data-basepath=".." data-revision="Tue Apr 12 2016 17:06:23 GMT+0900 (中国标准时间)">
+    
+
+<div class="book-summary">
+    <nav role="navigation">
+        <ul class="summary">
+            
+            
+            
+            
+
+            
+
+            
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="../index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                        简介
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="01editor/index.html">
+            
+                
+                    <a href="../01editor/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        编辑器
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1" data-path="01editor/vim.html">
+            
+                
+                    <a href="../01editor/vim.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.1.</b>
+                        
+                        Vim
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="01editor/emacs.html">
+            
+                
+                    <a href="../01editor/emacs.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.</b>
+                        
+                        Emacs
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="01editor/sublime.html">
+            
+                
+                    <a href="../01editor/sublime.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.3.</b>
+                        
+                        Sublime
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="01editor/vs.html">
+            
+                
+                    <a href="../01editor/vs.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.4.</b>
+                        
+                        Visio Studio
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="02language/index.html">
+            
+                
+                    <a href="../02language/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        语言
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1" data-path="02language/c.html">
+            
+                
+                    <a href="../02language/c.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.</b>
+                        
+                        C
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="02language/cpp.html">
+            
+                
+                    <a href="../02language/cpp.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.</b>
+                        
+                        C++
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="02language/php.html">
+            
+                
+                    <a href="../02language/php.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.</b>
+                        
+                        PHP
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="02language/javascript.html">
+            
+                
+                    <a href="../02language/javascript.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.</b>
+                        
+                        JavaScript
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="02language/html.html">
+            
+                
+                    <a href="../02language/html.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.5.</b>
+                        
+                        HTML
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" data-path="02language/css.html">
+            
+                
+                    <a href="../02language/css.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.6.</b>
+                        
+                        CSS
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.7" data-path="02language/java.html">
+            
+                
+                    <a href="../02language/java.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.7.</b>
+                        
+                        Java
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.8" data-path="02language/regex.html">
+            
+                
+                    <a href="../02language/regex.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.8.</b>
+                        
+                        正则
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="03backend/index.html">
+            
+                
+                    <a href="../03backend/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        后端
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1" data-path="03backend/mysql.html">
+            
+                
+                    <a href="../03backend/mysql.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.1.</b>
+                        
+                        Mysql
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="04system/index.html">
+            
+                
+                    <a href="../04system/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                        系统
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1" data-path="04system/windows.html">
+            
+                
+                    <a href="../04system/windows.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.1.</b>
+                        
+                        Windows
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="04system/linux.html">
+            
+                
+                    <a href="../04system/linux.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.2.</b>
+                        
+                        Linux
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="05network/index.html">
+            
+                
+                    <a href="../05network/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                        网络
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1" data-path="05network/tcpip.html">
+            
+                
+                    <a href="../05network/tcpip.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.1.</b>
+                        
+                        TCP/IP
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="05network/httpcode.html">
+            
+                
+                    <a href="../05network/httpcode.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.2.</b>
+                        
+                        状态码
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="6" data-path="06algorithm/index.html">
+            
+                
+                    <a href="../06algorithm/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.</b>
+                        
+                        算法
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1" data-path="06algorithm/encode.html">
+            
+                
+                    <a href="../06algorithm/encode.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.1.</b>
+                        
+                        加密
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="6.1.1" data-path="06algorithm/rsa.html">
+            
+                
+                    <a href="../06algorithm/rsa.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.1.1.</b>
+                        
+                        RSA
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.2" data-path="06algorithm/base64.html">
+            
+                
+                    <a href="../06algorithm/base64.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.1.2.</b>
+                        
+                        BASE64
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2" data-path="06algorithm/dp.html">
+            
+                
+                    <a href="../06algorithm/dp.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.2.</b>
+                        
+                        动态规划
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.3">
+            
+            <span><b>6.3.</b> [字符串匹配]</span>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.3.1" data-path="06algorithm/boyerMoore.html">
+            
+                
+                    <a href="../06algorithm/boyerMoore.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.3.1.</b>
+                        
+                        Boyer-Moore
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="7" data-path="07tools/index.html">
+            
+                
+                    <a href="../07tools/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.</b>
+                        
+                        常用软件
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="7.1" data-path="07tools/totalcommand.html">
+            
+                
+                    <a href="../07tools/totalcommand.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.1.</b>
+                        
+                        TotalCommand
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.2" data-path="07tools/everything.html">
+            
+                
+                    <a href="../07tools/everything.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.2.</b>
+                        
+                        Everything
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="8" data-path="08think/index.html">
+            
+                
+                    <a href="../08think/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.</b>
+                        
+                        感悟
+                    </a>
+            
+            
+        </li>
+    
+
+
+            
+            <li class="divider"></li>
+            <li>
+                <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                    Published with GitBook
+                </a>
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header" role="navigation">
+    <!-- Actions Left -->
+    
+    <a href="../GLOSSARY.html" class="btn pull-left" aria-label="Glossary"><i class="fa fa-sort-alpha-asc"></i></a>
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../">读书笔记</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1" role="main">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="rsa"><a href="../GLOSSARY.html#rsa" class="glossary-term" title="&#x652F;&#x6301;&#x53D8;&#x957F;&#x5BC6;&#x94A5;&#x7684;&#x516C;&#x5171;&#x5BC6;&#x94A5;&#x7B97;&#x6CD5;">RSA</a></h1>
+<p>P&#x3001;Q&#x4EFB;&#x610F;&#x4E92;&#x8D28;</p>
+<p>&#x6B63;&#x6574;&#x6570;e&#x3001;d</p>
+<p>d&#x6EE1;&#x8DB3; (ed) mod (P-1)(Q-1) = 1, gcd( d, (P-1)(Q-1)) = 1&#x4E24;&#x4E2A;&#x6761;&#x4EF6;</p>
+<p>&#x4F7F;&#x7528;&#x65B9;&#x6CD5;&#xFF1A;</p>
+<ol>
+<li>&#x627E;&#x5230;e&#x3001;d&#x4E4B;&#x540E;&#xFF0C;sender&#x4ECE;receiver&#x6536;&#x5230;&#x516C;&#x94A5;&#xFF0C;&#x7528;receiver&#x7684;&#x516C;&#x94A5;&#x52A0;&#x5BC6;&#x4FE1;&#x606F;A&#x5F97;&#x5230;C<br><code>A^e mod N = C</code></li>
+<li>receiver&#x6536;&#x5230;C&#x4E4B;&#x540E;&#xFF0C;&#x89E3;&#x5BC6;&#xFF0C;&#x5F97;&#x5230;B&#xFF0C;&#x6700;&#x7EC8;&#x7ED3;&#x679C;A=B<br><code>C^d mod N = B</code></li>
+</ol>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../06algorithm/encode.html" class="navigation navigation-prev " aria-label="Previous page: 加密"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../06algorithm/base64.html" class="navigation navigation-next " aria-label="Next page: BASE64"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="../gitbook/app.js"></script>
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-search/lunr.min.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-search/search.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-sharing/buttons.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-fontsettings/buttons.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"highlight":{},"search":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"livereload":{}};
+    gitbook.start(config);
+});
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+        
+    </body>
+    
+</html>
+
+  

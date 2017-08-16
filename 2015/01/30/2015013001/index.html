@@ -11,21 +11,21 @@
     
 
     
-    <meta name="description" content="一直很好奇git的分支来回切换的时候会有什么用处，是的真正的修改源文件，还是只记录在.git里面，等到需要的时候再做处理
-实验如下： # 第一部分：创建不同branch 123456mkdir branchgit    // 新建文件夹cd branckgit  git init           // 初始化gitvim index.html     // 新建文件index.htmlgit">
+    <meta name="description" content="一直很好奇git的分支来回切换的时候会有什么用处，是的真正的修改源文件，还是只记录在.git里面，等到需要的时候再做处理 实验如下： # 第一部分：创建不同branch 123456mkdir branchgit    // 新建文件夹cd branckgit  git init           // 初始化gitvim index.html     // 新建文件index.htmlgit">
+<meta name="keywords" content="git">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Git的分支管理">
 <meta property="og:url" content="http://yoursite.com/2015/01/30/2015013001/index.html">
 <meta property="og:site_name" content="Taxus">
-<meta property="og:description" content="一直很好奇git的分支来回切换的时候会有什么用处，是的真正的修改源文件，还是只记录在.git里面，等到需要的时候再做处理
-实验如下： # 第一部分：创建不同branch 123456mkdir branchgit    // 新建文件夹cd branckgit  git init           // 初始化gitvim index.html     // 新建文件index.htmlgit">
+<meta property="og:description" content="一直很好奇git的分支来回切换的时候会有什么用处，是的真正的修改源文件，还是只记录在.git里面，等到需要的时候再做处理 实验如下： # 第一部分：创建不同branch 123456mkdir branchgit    // 新建文件夹cd branckgit  git init           // 初始化gitvim index.html     // 新建文件index.htmlgit">
+<meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://i.imgur.com/7h0QBjH.gif">
 <meta property="og:image" content="http://i.imgur.com/eCci1zD.gif">
 <meta property="og:updated_time" content="2016-07-12T04:02:59.531Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git的分支管理">
-<meta name="twitter:description" content="一直很好奇git的分支来回切换的时候会有什么用处，是的真正的修改源文件，还是只记录在.git里面，等到需要的时候再做处理
-实验如下： # 第一部分：创建不同branch 123456mkdir branchgit    // 新建文件夹cd branckgit  git init           // 初始化gitvim index.html     // 新建文件index.htmlgit">
+<meta name="twitter:description" content="一直很好奇git的分支来回切换的时候会有什么用处，是的真正的修改源文件，还是只记录在.git里面，等到需要的时候再做处理 实验如下： # 第一部分：创建不同branch 123456mkdir branchgit    // 新建文件夹cd branckgit  git init           // 初始化gitvim index.html     // 新建文件index.htmlgit">
+<meta name="twitter:image" content="http://i.imgur.com/7h0QBjH.gif">
 
     
     <link rel="alternative" href="/atom.xml" title="Taxus" type="application/atom+xml">
@@ -37,7 +37,7 @@
     <link rel="apple-touch-icon" href="/img/jacman.jpg">
     <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
     
-    <link rel="stylesheet" href="/css/style.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    <link rel="stylesheet" href="/css/style.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
   <body>
@@ -92,7 +92,7 @@
 		<a href="/about" title="Taxus" target="_blank" itemprop="author">Taxus</a>
 		
   <p class="article-time">
-    <time datetime="2015-01-30T11:15:14.000Z" itemprop="datePublished"> 发表于 Jan 30 2015</time>
+    <time datetime="2015-01-30T12:15:14.000Z" itemprop="datePublished"> 发表于 Jan 30 2015</time>
     
   </p>
 </header>
@@ -106,10 +106,10 @@
 		</div>
 		
 		<p>一直很好奇git的分支来回切换的时候会有什么用处，是的真正的修改源文件，还是只记录在.git里面，等到需要的时候再做处理</p>
-<p>实验如下： # 第一部分：创建不同branch <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mkdir branchgit    // 新建文件夹</span><br><span class="line"><span class="built_in">cd</span> branckgit  </span><br><span class="line">git init           // 初始化git</span><br><span class="line">vim index.html     // 新建文件index.html</span><br><span class="line">git add .</span><br><span class="line">git commit</span><br></pre></td></tr></table></figure></p>
+<p>实验如下： # 第一部分：创建不同branch <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">mkdir branchgit    // 新建文件夹</div><div class="line"><span class="built_in">cd</span> branckgit  </div><div class="line">git init           // 初始化git</div><div class="line">vim index.html     // 新建文件index.html</div><div class="line">git add .</div><div class="line">git commit</div></pre></td></tr></table></figure></p>
 <a id="more"></a>
-<p>修改index.html文件，回到shell中保存修改 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git add .          // 已改变的文件和从未添加过的文件是一个级别，都要add一下</span><br><span class="line">git commit</span><br></pre></td></tr></table></figure></p>
-<p>此时完成master分支的修改，创建一个新的branch <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git branch editor</span><br><span class="line">``` </span><br><span class="line">此时还不会自动切换过去，要自己执行下面的命令</span><br><span class="line">```bash</span><br><span class="line">git checkout editor</span><br></pre></td></tr></table></figure></p>
+<p>修改index.html文件，回到shell中保存修改 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git add .          // 已改变的文件和从未添加过的文件是一个级别，都要add一下</div><div class="line">git commit</div></pre></td></tr></table></figure></p>
+<p>此时完成master分支的修改，创建一个新的branch <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">git branch editor</div><div class="line">``` </div><div class="line">此时还不会自动切换过去，要自己执行下面的命令</div><div class="line">```bash</div><div class="line">git checkout editor</div></pre></td></tr></table></figure></p>
 <p>这时就能切过去，shell提示符[]中亮蓝色的就是当前分支</p>
 <p>此时修改文件，添加部分语句后，在editor分支中<code>git add . ; git commit</code></p>
 <p>此时准备工作完成，来回切换branch就是下面的gif所示</p>
@@ -128,7 +128,7 @@
 ======
 &gt;&gt;&gt;&gt;  editor
 </code></pre>
-<p>这三行中间分隔了两个代码块，就是git无法自己确定那个在前的问题，因为我们在两个分支对同一个文件同一行都向前推进了 所以调整一下这两个代码块，同时删除三行提示 保存回到git中 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit <span class="operator">-a</span></span><br></pre></td></tr></table></figure></p>
+<p>这三行中间分隔了两个代码块，就是git无法自己确定那个在前的问题，因为我们在两个分支对同一个文件同一行都向前推进了 所以调整一下这两个代码块，同时删除三行提示 保存回到git中 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git commit -a</div></pre></td></tr></table></figure></p>
 <p>OK，一切搞定 此时我们就把再editor中创建的代码合并到了master中，再切回editor看下，里面的代码没有改变</p>
 <div class="figure">
 <img src="http://i.imgur.com/eCci1zD.gif" alt="git branch merge">
@@ -232,6 +232,10 @@
 			
 		
 			
+				<li><a href="/tags/git/" title="git">git<sup>2</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/chromium/" title="chromium">chromium<sup>2</sup></a></li>
 			
 		
@@ -240,27 +244,27 @@
 			
 		
 			
-				<li><a href="/tags/git/" title="git">git<sup>2</sup></a></li>
+				<li><a href="/tags/zsh/" title="zsh">zsh<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/grunt/" title="grunt">grunt<sup>1</sup></a></li>
+				<li><a href="/tags/2014/" title="2014">2014<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/CSS/" title="CSS">CSS<sup>1</sup></a></li>
+				<li><a href="/tags/读书/" title="读书">读书<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/touch/" title="touch">touch<sup>1</sup></a></li>
+				<li><a href="/tags/清单/" title="清单">清单<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/hexo/" title="hexo">hexo<sup>1</sup></a></li>
+				<li><a href="/tags/快捷键/" title="快捷键">快捷键<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/主题/" title="主题">主题<sup>1</sup></a></li>
+				<li><a href="/tags/加密/" title="加密">加密<sup>1</sup></a></li>
 			
 		
 			
@@ -268,7 +272,7 @@
 			
 		
 			
-				<li><a href="/tags/zsh/" title="zsh">zsh<sup>1</sup></a></li>
+				<li><a href="/tags/hexo/" title="hexo">hexo<sup>1</sup></a></li>
 			
 		
 			
@@ -280,15 +284,11 @@
 			
 		
 			
-				<li><a href="/tags/配置/" title="配置">配置<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/加密/" title="加密">加密<sup>1</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/RSA/" title="RSA">RSA<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/主题/" title="主题">主题<sup>1</sup></a></li>
 			
 		
 		</ul>

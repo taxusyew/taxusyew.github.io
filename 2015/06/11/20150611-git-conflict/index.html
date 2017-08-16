@@ -11,22 +11,14 @@
     
 
     
-    <meta name="description" content="最近多人合作项目中使用git遇到一些问题，记录一下，可能描述不是很清晰
-1. 无法合并
-
-Pull is not possible because you have unmerged files.
-
-解决： git add file.name &amp;amp;&amp;amp; git commit -m &amp;quot;removed merge conflicts&amp;quot;">
+    <meta name="description" content="最近多人合作项目中使用git遇到一些问题，记录一下，可能描述不是很清晰 1. 无法合并  Pull is not possible because you have unmerged files.  解决： git add file.name &amp;amp;&amp;amp; git commit -m &amp;quot;removed merge conflicts&amp;quot;">
+<meta name="keywords" content="git">
 <meta property="og:type" content="article">
 <meta property="og:title" content="遇到git conflict">
 <meta property="og:url" content="http://yoursite.com/2015/06/11/20150611-git-conflict/index.html">
 <meta property="og:site_name" content="Taxus">
-<meta property="og:description" content="最近多人合作项目中使用git遇到一些问题，记录一下，可能描述不是很清晰
-1. 无法合并
-
-Pull is not possible because you have unmerged files.
-
-解决： git add file.name &amp;amp;&amp;amp; git commit -m &amp;quot;removed merge conflicts&amp;quot;">
+<meta property="og:description" content="最近多人合作项目中使用git遇到一些问题，记录一下，可能描述不是很清晰 1. 无法合并  Pull is not possible because you have unmerged files.  解决： git add file.name &amp;amp;&amp;amp; git commit -m &amp;quot;removed merge conflicts&amp;quot;">
+<meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://i.imgur.com/0gOz7UU.png">
 <meta property="og:image" content="http://i.imgur.com/kq1KcWr.png">
 <meta property="og:image" content="http://i.imgur.com/fXbOGoP.png">
@@ -34,12 +26,8 @@ Pull is not possible because you have unmerged files.
 <meta property="og:updated_time" content="2016-07-12T04:01:40.670Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="遇到git conflict">
-<meta name="twitter:description" content="最近多人合作项目中使用git遇到一些问题，记录一下，可能描述不是很清晰
-1. 无法合并
-
-Pull is not possible because you have unmerged files.
-
-解决： git add file.name &amp;amp;&amp;amp; git commit -m &amp;quot;removed merge conflicts&amp;quot;">
+<meta name="twitter:description" content="最近多人合作项目中使用git遇到一些问题，记录一下，可能描述不是很清晰 1. 无法合并  Pull is not possible because you have unmerged files.  解决： git add file.name &amp;amp;&amp;amp; git commit -m &amp;quot;removed merge conflicts&amp;quot;">
+<meta name="twitter:image" content="http://i.imgur.com/0gOz7UU.png">
 
     
     <link rel="alternative" href="/atom.xml" title="Taxus" type="application/atom+xml">
@@ -51,7 +39,7 @@ Pull is not possible because you have unmerged files.
     <link rel="apple-touch-icon" href="/img/jacman.jpg">
     <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
     
-    <link rel="stylesheet" href="/css/style.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    <link rel="stylesheet" href="/css/style.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
   <body>
@@ -106,7 +94,7 @@ Pull is not possible because you have unmerged files.
 		<a href="/about" title="Taxus" target="_blank" itemprop="author">Taxus</a>
 		
   <p class="article-time">
-    <time datetime="2015-06-11T08:12:55.000Z" itemprop="datePublished"> 发表于 Jun 11 2015</time>
+    <time datetime="2015-06-11T09:12:55.000Z" itemprop="datePublished"> 发表于 Jun 11 2015</time>
     
   </p>
 </header>
@@ -127,7 +115,7 @@ Pull is not possible because you have unmerged files.
 <p>解决： <code>git add file.name &amp;&amp; git commit -m &quot;removed merge conflicts&quot;</code> <a id="more"></a> <img src="http://i.imgur.com/0gOz7UU.png" alt="git add"></p>
 <p><code>git add</code>完冲突文件以后，才能<code>commit</code>，此时提示符的红色已经消失</p>
 <h1 id="rebase">2. rebase</h1>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">E:\huirongyun\huinongyun [(91889cb...)|REBASE]&#62; git rebase --continue&#10;Applying: bak&#10;No changes - did you forget to use &#39;git add&#39;?&#10;If there is nothing left to stage, chances are that something else&#10;already introduced the same changes; you might want to skip this patch.&#10;&#10;When you have resolved this problem, run &#34;git rebase --continue&#34;.&#10;If you prefer to skip this patch, run &#34;git rebase --skip&#34; instead.&#10;To check out the original branch and stop rebasing, run &#34;git rebase --abort&#34;.</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">E:\huirongyun\huinongyun [(91889cb...)|REBASE]&gt; git rebase --continue</div><div class="line">Applying: bak</div><div class="line">No changes - did you forget to use &apos;git add&apos;?</div><div class="line">If there is nothing left to stage, chances are that something else</div><div class="line">already introduced the same changes; you might want to skip this patch.</div><div class="line"></div><div class="line">When you have resolved this problem, run &quot;git rebase --continue&quot;.</div><div class="line">If you prefer to skip this patch, run &quot;git rebase --skip&quot; instead.</div><div class="line">To check out the original branch and stop rebasing, run &quot;git rebase --abort&quot;.</div></pre></td></tr></table></figure>
 <p>之前和一个同事的页面冲突了，以他的为准，所以就把我的文件给删除了。但是我的本地分支比他的提前，<code>git pull</code>以后，还是以我的为准，而我又把文件给删除了，所以此时仓库里是没有那些文件的。</p>
 <p>上面的rebase就是我尝试恢复文件的第一个想法，rebase恢复，但是没啥用</p>
 <h2 id="rebase-后的状态">2.1 rebase 后的状态</h2>
@@ -247,6 +235,10 @@ Pull is not possible because you have unmerged files.
 			
 		
 			
+				<li><a href="/tags/git/" title="git">git<sup>2</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/chromium/" title="chromium">chromium<sup>2</sup></a></li>
 			
 		
@@ -255,27 +247,27 @@ Pull is not possible because you have unmerged files.
 			
 		
 			
-				<li><a href="/tags/git/" title="git">git<sup>2</sup></a></li>
+				<li><a href="/tags/zsh/" title="zsh">zsh<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/grunt/" title="grunt">grunt<sup>1</sup></a></li>
+				<li><a href="/tags/2014/" title="2014">2014<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/CSS/" title="CSS">CSS<sup>1</sup></a></li>
+				<li><a href="/tags/读书/" title="读书">读书<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/touch/" title="touch">touch<sup>1</sup></a></li>
+				<li><a href="/tags/清单/" title="清单">清单<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/hexo/" title="hexo">hexo<sup>1</sup></a></li>
+				<li><a href="/tags/快捷键/" title="快捷键">快捷键<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/主题/" title="主题">主题<sup>1</sup></a></li>
+				<li><a href="/tags/加密/" title="加密">加密<sup>1</sup></a></li>
 			
 		
 			
@@ -283,7 +275,7 @@ Pull is not possible because you have unmerged files.
 			
 		
 			
-				<li><a href="/tags/zsh/" title="zsh">zsh<sup>1</sup></a></li>
+				<li><a href="/tags/hexo/" title="hexo">hexo<sup>1</sup></a></li>
 			
 		
 			
@@ -295,15 +287,11 @@ Pull is not possible because you have unmerged files.
 			
 		
 			
-				<li><a href="/tags/配置/" title="配置">配置<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/加密/" title="加密">加密<sup>1</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/RSA/" title="RSA">RSA<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/主题/" title="主题">主题<sup>1</sup></a></li>
 			
 		
 		</ul>

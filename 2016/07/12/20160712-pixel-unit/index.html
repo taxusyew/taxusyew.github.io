@@ -11,28 +11,17 @@
     
 
     
-    <meta name="description" content="像素单位总结
-
-Screen size spx Screen density Resolution ppx
-
-计算一个手机的 ppi，传入参数： x -&amp;gt; 屏幕物理像素宽， y-&amp;gt; 屏幕物理像素高， inch -&amp;gt; 屏幕物理对角线长度（英寸） 123function calcppi(x, y, inch) &amp;#123;	return Math.sqrt(x*x+y*y)/">
+    <meta name="description" content="像素单位总结  Screen size spx Screen density Resolution ppx  计算一个手机的 ppi，传入参数： x -&amp;gt; 屏幕物理像素宽， y-&amp;gt; 屏幕物理像素高， inch -&amp;gt; 屏幕物理对角线长度（英寸） 123function calcppi(x, y, inch) &amp;#123;	return Math.sqrt(x*x+y*y)/">
 <meta property="og:type" content="article">
 <meta property="og:title" content="20160712 pixel unit">
 <meta property="og:url" content="http://yoursite.com/2016/07/12/20160712-pixel-unit/index.html">
 <meta property="og:site_name" content="Taxus">
-<meta property="og:description" content="像素单位总结
-
-Screen size spx Screen density Resolution ppx
-
-计算一个手机的 ppi，传入参数： x -&amp;gt; 屏幕物理像素宽， y-&amp;gt; 屏幕物理像素高， inch -&amp;gt; 屏幕物理对角线长度（英寸） 123function calcppi(x, y, inch) &amp;#123;	return Math.sqrt(x*x+y*y)/">
+<meta property="og:description" content="像素单位总结  Screen size spx Screen density Resolution ppx  计算一个手机的 ppi，传入参数： x -&amp;gt; 屏幕物理像素宽， y-&amp;gt; 屏幕物理像素高， inch -&amp;gt; 屏幕物理对角线长度（英寸） 123function calcppi(x, y, inch) &amp;#123;	return Math.sqrt(x*x+y*y)/">
+<meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2016-07-12T08:16:50.391Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="20160712 pixel unit">
-<meta name="twitter:description" content="像素单位总结
-
-Screen size spx Screen density Resolution ppx
-
-计算一个手机的 ppi，传入参数： x -&amp;gt; 屏幕物理像素宽， y-&amp;gt; 屏幕物理像素高， inch -&amp;gt; 屏幕物理对角线长度（英寸） 123function calcppi(x, y, inch) &amp;#123;	return Math.sqrt(x*x+y*y)/">
+<meta name="twitter:description" content="像素单位总结  Screen size spx Screen density Resolution ppx  计算一个手机的 ppi，传入参数： x -&amp;gt; 屏幕物理像素宽， y-&amp;gt; 屏幕物理像素高， inch -&amp;gt; 屏幕物理对角线长度（英寸） 123function calcppi(x, y, inch) &amp;#123;	return Math.sqrt(x*x+y*y)/">
 
     
     <link rel="alternative" href="/atom.xml" title="Taxus" type="application/atom+xml">
@@ -44,7 +33,7 @@ Screen size spx Screen density Resolution ppx
     <link rel="apple-touch-icon" href="/img/jacman.jpg">
     <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
     
-    <link rel="stylesheet" href="/css/style.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    <link rel="stylesheet" href="/css/style.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
   <body>
@@ -99,7 +88,7 @@ Screen size spx Screen density Resolution ppx
 		<a href="/about" title="Taxus" target="_blank" itemprop="author">Taxus</a>
 		
   <p class="article-time">
-    <time datetime="2016-07-12T07:43:57.000Z" itemprop="datePublished"> 发表于 Jul 12 2016</time>
+    <time datetime="2016-07-12T08:43:57.000Z" itemprop="datePublished"> 发表于 Jul 12 2016</time>
     
   </p>
 </header>
@@ -116,7 +105,7 @@ Screen size spx Screen density Resolution ppx
 <blockquote>
 <p>Screen size spx Screen density Resolution ppx</p>
 </blockquote>
-<p>计算一个手机的 ppi，传入参数： x -&gt; 屏幕物理像素宽， y-&gt; 屏幕物理像素高， inch -&gt; 屏幕物理对角线长度（英寸） <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">calcppi</span>(<span class="params">x, y, inch</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">Math</span>.sqrt(x*x+y*y)/inch</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>计算一个手机的 ppi，传入参数： x -&gt; 屏幕物理像素宽， y-&gt; 屏幕物理像素高， inch -&gt; 屏幕物理对角线长度（英寸） <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">calcppi</span>(<span class="params">x, y, inch</span>) </span>&#123;</div><div class="line">	<span class="keyword">return</span> <span class="built_in">Math</span>.sqrt(x*x+y*y)/inch</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>软件分辨率 = 硬件分辨率 * 分辨率比率</p>
 <p>ppi = sqrt( 软件分辨率宽^2 + 软件分辨率高^2 ) / 屏幕对角线长度</p>
   
@@ -207,6 +196,10 @@ Screen size spx Screen density Resolution ppx
 			
 		
 			
+				<li><a href="/tags/git/" title="git">git<sup>2</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/chromium/" title="chromium">chromium<sup>2</sup></a></li>
 			
 		
@@ -215,27 +208,27 @@ Screen size spx Screen density Resolution ppx
 			
 		
 			
-				<li><a href="/tags/git/" title="git">git<sup>2</sup></a></li>
+				<li><a href="/tags/zsh/" title="zsh">zsh<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/grunt/" title="grunt">grunt<sup>1</sup></a></li>
+				<li><a href="/tags/2014/" title="2014">2014<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/CSS/" title="CSS">CSS<sup>1</sup></a></li>
+				<li><a href="/tags/读书/" title="读书">读书<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/touch/" title="touch">touch<sup>1</sup></a></li>
+				<li><a href="/tags/清单/" title="清单">清单<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/hexo/" title="hexo">hexo<sup>1</sup></a></li>
+				<li><a href="/tags/快捷键/" title="快捷键">快捷键<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/主题/" title="主题">主题<sup>1</sup></a></li>
+				<li><a href="/tags/加密/" title="加密">加密<sup>1</sup></a></li>
 			
 		
 			
@@ -243,7 +236,7 @@ Screen size spx Screen density Resolution ppx
 			
 		
 			
-				<li><a href="/tags/zsh/" title="zsh">zsh<sup>1</sup></a></li>
+				<li><a href="/tags/hexo/" title="hexo">hexo<sup>1</sup></a></li>
 			
 		
 			
@@ -255,15 +248,11 @@ Screen size spx Screen density Resolution ppx
 			
 		
 			
-				<li><a href="/tags/配置/" title="配置">配置<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/加密/" title="加密">加密<sup>1</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/RSA/" title="RSA">RSA<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/主题/" title="主题">主题<sup>1</sup></a></li>
 			
 		
 		</ul>

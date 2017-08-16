@@ -11,29 +11,20 @@
     
 
     
-    <meta name="description" content="分割
-一直以来在emacs中操作窗口都比较麻烦 垂直分割window：C-x 3 水平分割window：C-x 2
-切换
-window-numbering
-切换window时，如果用的是window-numbering插件，直接使用M-{0-9}就行。这样切换在窗口数比较少的时候还是很方便，但是一旦窗口变多，这种只使用数字的方法容易比较乱。">
+    <meta name="description" content="分割 一直以来在emacs中操作窗口都比较麻烦 垂直分割window：C-x 3 水平分割window：C-x 2 切换 window-numbering 切换window时，如果用的是window-numbering插件，直接使用M-{0-9}就行。这样切换在窗口数比较少的时候还是很方便，但是一旦窗口变多，这种只使用数字的方法容易比较乱。">
+<meta name="keywords" content="emacs">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用hydra简化emacs窗口操作">
 <meta property="og:url" content="http://yoursite.com/2015/07/29/20150729-emacs-hydra/index.html">
 <meta property="og:site_name" content="Taxus">
-<meta property="og:description" content="分割
-一直以来在emacs中操作窗口都比较麻烦 垂直分割window：C-x 3 水平分割window：C-x 2
-切换
-window-numbering
-切换window时，如果用的是window-numbering插件，直接使用M-{0-9}就行。这样切换在窗口数比较少的时候还是很方便，但是一旦窗口变多，这种只使用数字的方法容易比较乱。">
+<meta property="og:description" content="分割 一直以来在emacs中操作窗口都比较麻烦 垂直分割window：C-x 3 水平分割window：C-x 2 切换 window-numbering 切换window时，如果用的是window-numbering插件，直接使用M-{0-9}就行。这样切换在窗口数比较少的时候还是很方便，但是一旦窗口变多，这种只使用数字的方法容易比较乱。">
+<meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://i.imgur.com/VGXlSkQ.png">
 <meta property="og:updated_time" content="2016-07-12T04:02:16.228Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用hydra简化emacs窗口操作">
-<meta name="twitter:description" content="分割
-一直以来在emacs中操作窗口都比较麻烦 垂直分割window：C-x 3 水平分割window：C-x 2
-切换
-window-numbering
-切换window时，如果用的是window-numbering插件，直接使用M-{0-9}就行。这样切换在窗口数比较少的时候还是很方便，但是一旦窗口变多，这种只使用数字的方法容易比较乱。">
+<meta name="twitter:description" content="分割 一直以来在emacs中操作窗口都比较麻烦 垂直分割window：C-x 3 水平分割window：C-x 2 切换 window-numbering 切换window时，如果用的是window-numbering插件，直接使用M-{0-9}就行。这样切换在窗口数比较少的时候还是很方便，但是一旦窗口变多，这种只使用数字的方法容易比较乱。">
+<meta name="twitter:image" content="http://i.imgur.com/VGXlSkQ.png">
 
     
     <link rel="alternative" href="/atom.xml" title="Taxus" type="application/atom+xml">
@@ -45,7 +36,7 @@ window-numbering
     <link rel="apple-touch-icon" href="/img/jacman.jpg">
     <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
     
-    <link rel="stylesheet" href="/css/style.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    <link rel="stylesheet" href="/css/style.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
   <body>
@@ -100,7 +91,7 @@ window-numbering
 		<a href="/about" title="Taxus" target="_blank" itemprop="author">Taxus</a>
 		
   <p class="article-time">
-    <time datetime="2015-07-29T06:42:43.000Z" itemprop="datePublished"> 发表于 Jul 29 2015</time>
+    <time datetime="2015-07-29T07:42:43.000Z" itemprop="datePublished"> 发表于 Jul 29 2015</time>
     
   </p>
 </header>
@@ -118,7 +109,7 @@ window-numbering
 <h1 id="切换">切换</h1>
 <h2 id="window-numbering">window-numbering</h2>
 <p>切换window时，如果用的是window-numbering插件，直接使用<kbd>M-{0-9}</kbd>就行。这样切换在窗口数比较少的时候还是很方便，但是一旦窗口变多，这种只使用数字的方法容易比较乱。 <a id="more"></a> ## windmove 所以为了能更直观的切换窗口，可以使用windmove，这是一个库，从emacs 21开始就已经内置 &gt; Windmove is a library built into GnuEmacs starting with version 21 &gt; <a href="http://emacswiki.org/emacs/WindMove" target="_blank" rel="external">emacswiki WindMove</a></p>
-<p>下面的是官方推荐的使用方法，绑定快捷键以后就可以使用，看起来很美，但是如果要快速的移动窗口，<kbd>C-c</kbd>的前缀绝对能手抽筋。 <figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="list">(<span class="keyword">global-set-key</span> <span class="list">(<span class="keyword">kbd</span> <span class="string">"C-c &lt;left&gt;"</span>)</span>  <span class="quoted">'windmove-left</span>)</span></span><br><span class="line"><span class="list">(<span class="keyword">global-set-key</span> <span class="list">(<span class="keyword">kbd</span> <span class="string">"C-c &lt;right&gt;"</span>)</span> <span class="quoted">'windmove-right</span>)</span></span><br><span class="line"><span class="list">(<span class="keyword">global-set-key</span> <span class="list">(<span class="keyword">kbd</span> <span class="string">"C-c &lt;up&gt;"</span>)</span>    <span class="quoted">'windmove-up</span>)</span></span><br><span class="line"><span class="list">(<span class="keyword">global-set-key</span> <span class="list">(<span class="keyword">kbd</span> <span class="string">"C-c &lt;down&gt;"</span>)</span>  <span class="quoted">'windmove-down</span>)</span></span><br></pre></td></tr></table></figure></p>
+<p>下面的是官方推荐的使用方法，绑定快捷键以后就可以使用，看起来很美，但是如果要快速的移动窗口，<kbd>C-c</kbd>的前缀绝对能手抽筋。 <figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">(<span class="name">global-set-key</span> (<span class="name">kbd</span> <span class="string">"C-c &lt;left&gt;"</span>)  'windmove-left)</div><div class="line">(<span class="name">global-set-key</span> (<span class="name">kbd</span> <span class="string">"C-c &lt;right&gt;"</span>) 'windmove-right)</div><div class="line">(<span class="name">global-set-key</span> (<span class="name">kbd</span> <span class="string">"C-c &lt;up&gt;"</span>)    'windmove-up)</div><div class="line">(<span class="name">global-set-key</span> (<span class="name">kbd</span> <span class="string">"C-c &lt;down&gt;"</span>)  'windmove-down)</div></pre></td></tr></table></figure></p>
 <h2 id="ace-window">ace-window</h2>
 <p><a href="https://github.com/abo-abo/ace-window" target="_blank" rel="external">官方github</a> 这个插件是最全面的，功能最强大，可以删除、交换window，但是各种快捷键也是很麻烦，同时也有使用windmove的问题，就是操作是一次性的，每次的前缀都要求很多。</p>
 <ul>
@@ -132,7 +123,7 @@ window-numbering
 </ul>
 <h1 id="hydra">hydra</h1>
 <p><a href="https://github.com/abo-abo/hydra" target="_blank" rel="external">hydra github</a> 在遇到hydra之前，我一直是<code>ace-window</code>和<code>window-numbering</code>混合使用，虽然能解决一些问题，但是仍然没有顺畅的感觉，直到发现了hydra，所有的操作顿时豁然开朗。</p>
-<p>先来看下使用hydra改写以后的键位绑定(以下示例来自youtube视频)： <figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="list">(<span class="keyword">global-set-key</span></span><br><span class="line">     <span class="list">(<span class="keyword">kbd</span> <span class="string">"C-M-w"</span>)</span></span><br><span class="line">     <span class="list">(<span class="keyword">defhydra</span> hydra-window <span class="list">()</span></span><br><span class="line">          <span class="string">"window"</span></span><br><span class="line">          <span class="list">(<span class="string">"h"</span> windmove-left)</span></span><br><span class="line">          <span class="list">(<span class="string">"j"</span> windmove-down)</span></span><br><span class="line">          <span class="list">(<span class="string">"k"</span> windmove-up)</span></span><br><span class="line">          <span class="list">(<span class="string">"l"</span> windmove-right)</span></span><br><span class="line">          <span class="list">(<span class="string">"v"</span> <span class="list">(<span class="keyword">lambda</span> <span class="list">()</span></span><br><span class="line">               <span class="list">(<span class="keyword">interactive</span>)</span></span><br><span class="line">               <span class="list">(<span class="keyword">split-window-right</span>)</span></span><br><span class="line">               <span class="list">(<span class="keyword">windmove-right</span>)</span>)</span></span><br><span class="line">               <span class="string">"vert"</span>)</span></span><br><span class="line">          <span class="list">(<span class="string">"x"</span> <span class="list">(<span class="keyword">lambda</span> <span class="list">()</span></span><br><span class="line">               <span class="list">(<span class="keyword">interactive</span>)</span></span><br><span class="line">               <span class="list">(<span class="keyword">split-window-below</span>)</span></span><br><span class="line">               <span class="list">(<span class="keyword">windmove-down</span>)</span>)</span></span><br><span class="line">               <span class="string">"horz"</span>)</span></span><br><span class="line">          <span class="list">(<span class="string">"t"</span> transpose-frame <span class="string">"'"</span>)</span></span><br><span class="line">          <span class="list">(<span class="string">"o"</span> delete-other-windows <span class="string">"one"</span> <span class="keyword">:color</span> blue)</span></span><br><span class="line">          <span class="list">(<span class="string">"a"</span> ace-window <span class="string">"ace"</span>)</span></span><br><span class="line">          <span class="list">(<span class="string">"s"</span> ace-swap-window <span class="string">"swap"</span>)</span></span><br><span class="line">          <span class="list">(<span class="string">"d"</span> ace-delete-window <span class="string">"del"</span>)</span></span><br><span class="line">          <span class="list">(<span class="string">"i"</span> ace-maximize-window <span class="string">"ace-one"</span> <span class="keyword">:color</span> blue)</span></span><br><span class="line">          <span class="list">(<span class="string">"b"</span> ido-switch-buffer <span class="string">"buf"</span>)</span></span><br><span class="line">          <span class="list">(<span class="string">"q"</span> <span class="literal">nil</span> <span class="string">"cancel"</span>)</span>)</span>)</span></span><br></pre></td></tr></table></figure></p>
+<p>先来看下使用hydra改写以后的键位绑定(以下示例来自youtube视频)： <figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">(<span class="name">global-set-key</span></div><div class="line">     (<span class="name">kbd</span> <span class="string">"C-M-w"</span>)</div><div class="line">     (<span class="name">defhydra</span> hydra-window ()</div><div class="line">          <span class="string">"window"</span></div><div class="line">          (<span class="string">"h"</span> windmove-left)</div><div class="line">          (<span class="string">"j"</span> windmove-down)</div><div class="line">          (<span class="string">"k"</span> windmove-up)</div><div class="line">          (<span class="string">"l"</span> windmove-right)</div><div class="line">          (<span class="string">"v"</span> (<span class="name">lambda</span> ()</div><div class="line">               (<span class="name">interactive</span>)</div><div class="line">               (<span class="name">split-window-right</span>)</div><div class="line">               (<span class="name">windmove-right</span>))</div><div class="line">               <span class="string">"vert"</span>)</div><div class="line">          (<span class="string">"x"</span> (<span class="name">lambda</span> ()</div><div class="line">               (<span class="name">interactive</span>)</div><div class="line">               (<span class="name">split-window-below</span>)</div><div class="line">               (<span class="name">windmove-down</span>))</div><div class="line">               <span class="string">"horz"</span>)</div><div class="line">          (<span class="string">"t"</span> transpose-frame <span class="string">"'"</span>)</div><div class="line">          (<span class="string">"o"</span> delete-other-windows <span class="string">"one"</span> <span class="symbol">:color</span> blue)</div><div class="line">          (<span class="string">"a"</span> ace-window <span class="string">"ace"</span>)</div><div class="line">          (<span class="string">"s"</span> ace-swap-window <span class="string">"swap"</span>)</div><div class="line">          (<span class="string">"d"</span> ace-delete-window <span class="string">"del"</span>)</div><div class="line">          (<span class="string">"i"</span> ace-maximize-window <span class="string">"ace-one"</span> <span class="symbol">:color</span> blue)</div><div class="line">          (<span class="string">"b"</span> ido-switch-buffer <span class="string">"buf"</span>)</div><div class="line">          (<span class="string">"q"</span> <span class="literal">nil</span> <span class="string">"cancel"</span>)))</div></pre></td></tr></table></figure></p>
 <p>可以看到几乎所有的window操作：切换、分割、删除、交换、最大化，都已经包含了进来。</p>
 <p>调用后的界面为 <img src="http://i.imgur.com/VGXlSkQ.png"></p>
 <p>使用hydra最重要的是从此不再需要不停的敲击前缀<kbd>C-M-w</kbd>，前缀敲击一次即可，之后只需要按下双引号里的字母就能执行它对应的命令。</p>
@@ -232,6 +223,10 @@ window-numbering
 			
 		
 			
+				<li><a href="/tags/git/" title="git">git<sup>2</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/chromium/" title="chromium">chromium<sup>2</sup></a></li>
 			
 		
@@ -240,27 +235,27 @@ window-numbering
 			
 		
 			
-				<li><a href="/tags/git/" title="git">git<sup>2</sup></a></li>
+				<li><a href="/tags/zsh/" title="zsh">zsh<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/grunt/" title="grunt">grunt<sup>1</sup></a></li>
+				<li><a href="/tags/2014/" title="2014">2014<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/CSS/" title="CSS">CSS<sup>1</sup></a></li>
+				<li><a href="/tags/读书/" title="读书">读书<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/touch/" title="touch">touch<sup>1</sup></a></li>
+				<li><a href="/tags/清单/" title="清单">清单<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/hexo/" title="hexo">hexo<sup>1</sup></a></li>
+				<li><a href="/tags/快捷键/" title="快捷键">快捷键<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/主题/" title="主题">主题<sup>1</sup></a></li>
+				<li><a href="/tags/加密/" title="加密">加密<sup>1</sup></a></li>
 			
 		
 			
@@ -268,7 +263,7 @@ window-numbering
 			
 		
 			
-				<li><a href="/tags/zsh/" title="zsh">zsh<sup>1</sup></a></li>
+				<li><a href="/tags/hexo/" title="hexo">hexo<sup>1</sup></a></li>
 			
 		
 			
@@ -280,15 +275,11 @@ window-numbering
 			
 		
 			
-				<li><a href="/tags/配置/" title="配置">配置<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/加密/" title="加密">加密<sup>1</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/RSA/" title="RSA">RSA<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/主题/" title="主题">主题<sup>1</sup></a></li>
 			
 		
 		</ul>

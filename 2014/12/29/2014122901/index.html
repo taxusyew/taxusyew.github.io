@@ -11,31 +11,18 @@
     
 
     
-    <meta name="description" content="RSA的使用 虽然原理比较复杂，但是实际用起来还是挺简单，今天就先从最简单、最实用的地方入手 具体原理，等待之后补充
-
-选择两个不相等的质数 \(p\) 和 \(q\)
-计算公钥、私钥的模数（modulus） $ n = pq$
-计算欧拉函数（ totient ） $ s = (n) = (p-1)(q-1)$
-从区间 \((1, s)\) 中选择一个与 \(s\) 互质的数 \(e\)">
+    <meta name="description" content="RSA的使用 虽然原理比较复杂，但是实际用起来还是挺简单，今天就先从最简单、最实用的地方入手 具体原理，等待之后补充  选择两个不相等的质数 \(p\) 和 \(q\) 计算公钥、私钥的模数（modulus） $ n = pq$ 计算欧拉函数（ totient ） $ s = (n) = (p-1)(q-1)$ 从区间 \((1, s)\) 中选择一个与 \(s\) 互质的数 \(e\)">
+<meta name="keywords" content="算法,加密,RSA">
 <meta property="og:type" content="article">
 <meta property="og:title" content="RSA的使用">
 <meta property="og:url" content="http://yoursite.com/2014/12/29/2014122901/index.html">
 <meta property="og:site_name" content="Taxus">
-<meta property="og:description" content="RSA的使用 虽然原理比较复杂，但是实际用起来还是挺简单，今天就先从最简单、最实用的地方入手 具体原理，等待之后补充
-
-选择两个不相等的质数 \(p\) 和 \(q\)
-计算公钥、私钥的模数（modulus） $ n = pq$
-计算欧拉函数（ totient ） $ s = (n) = (p-1)(q-1)$
-从区间 \((1, s)\) 中选择一个与 \(s\) 互质的数 \(e\)">
+<meta property="og:description" content="RSA的使用 虽然原理比较复杂，但是实际用起来还是挺简单，今天就先从最简单、最实用的地方入手 具体原理，等待之后补充  选择两个不相等的质数 \(p\) 和 \(q\) 计算公钥、私钥的模数（modulus） $ n = pq$ 计算欧拉函数（ totient ） $ s = (n) = (p-1)(q-1)$ 从区间 \((1, s)\) 中选择一个与 \(s\) 互质的数 \(e\)">
+<meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2016-09-29T06:00:40.321Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="RSA的使用">
-<meta name="twitter:description" content="RSA的使用 虽然原理比较复杂，但是实际用起来还是挺简单，今天就先从最简单、最实用的地方入手 具体原理，等待之后补充
-
-选择两个不相等的质数 \(p\) 和 \(q\)
-计算公钥、私钥的模数（modulus） $ n = pq$
-计算欧拉函数（ totient ） $ s = (n) = (p-1)(q-1)$
-从区间 \((1, s)\) 中选择一个与 \(s\) 互质的数 \(e\)">
+<meta name="twitter:description" content="RSA的使用 虽然原理比较复杂，但是实际用起来还是挺简单，今天就先从最简单、最实用的地方入手 具体原理，等待之后补充  选择两个不相等的质数 \(p\) 和 \(q\) 计算公钥、私钥的模数（modulus） $ n = pq$ 计算欧拉函数（ totient ） $ s = (n) = (p-1)(q-1)$ 从区间 \((1, s)\) 中选择一个与 \(s\) 互质的数 \(e\)">
 
     
     <link rel="alternative" href="/atom.xml" title="Taxus" type="application/atom+xml">
@@ -47,7 +34,7 @@
     <link rel="apple-touch-icon" href="/img/jacman.jpg">
     <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
     
-    <link rel="stylesheet" href="/css/style.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    <link rel="stylesheet" href="/css/style.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
   <body>
@@ -102,7 +89,7 @@
 		<a href="/about" title="Taxus" target="_blank" itemprop="author">Taxus</a>
 		
   <p class="article-time">
-    <time datetime="2014-12-29T08:46:40.000Z" itemprop="datePublished"> 发表于 Dec 29 2014</time>
+    <time datetime="2014-12-29T09:46:40.000Z" itemprop="datePublished"> 发表于 Dec 29 2014</time>
     
   </p>
 </header>
@@ -134,7 +121,7 @@
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/RSA/">RSA</a><a href="/tags/加密/">加密</a><a href="/tags/算法/">算法</a>
+  <span></span> <a href="/tags/算法/">算法</a><a href="/tags/加密/">加密</a><a href="/tags/RSA/">RSA</a>
   </div>
 
 </div>
@@ -219,6 +206,10 @@
 			
 		
 			
+				<li><a href="/tags/git/" title="git">git<sup>2</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/chromium/" title="chromium">chromium<sup>2</sup></a></li>
 			
 		
@@ -227,27 +218,27 @@
 			
 		
 			
-				<li><a href="/tags/git/" title="git">git<sup>2</sup></a></li>
+				<li><a href="/tags/zsh/" title="zsh">zsh<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/grunt/" title="grunt">grunt<sup>1</sup></a></li>
+				<li><a href="/tags/2014/" title="2014">2014<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/CSS/" title="CSS">CSS<sup>1</sup></a></li>
+				<li><a href="/tags/读书/" title="读书">读书<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/touch/" title="touch">touch<sup>1</sup></a></li>
+				<li><a href="/tags/清单/" title="清单">清单<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/hexo/" title="hexo">hexo<sup>1</sup></a></li>
+				<li><a href="/tags/快捷键/" title="快捷键">快捷键<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/主题/" title="主题">主题<sup>1</sup></a></li>
+				<li><a href="/tags/加密/" title="加密">加密<sup>1</sup></a></li>
 			
 		
 			
@@ -255,7 +246,7 @@
 			
 		
 			
-				<li><a href="/tags/zsh/" title="zsh">zsh<sup>1</sup></a></li>
+				<li><a href="/tags/hexo/" title="hexo">hexo<sup>1</sup></a></li>
 			
 		
 			
@@ -267,15 +258,11 @@
 			
 		
 			
-				<li><a href="/tags/配置/" title="配置">配置<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/加密/" title="加密">加密<sup>1</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/RSA/" title="RSA">RSA<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/主题/" title="主题">主题<sup>1</sup></a></li>
 			
 		
 		</ul>

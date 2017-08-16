@@ -11,27 +11,21 @@
     
 
     
-    <meta name="description" content="学习使用emacs很多年了，但是一直因为更喜欢vim编辑文本时候飞一样的感觉，所以总是没有动力去学习它。
-现在的工作是前端，工作用的编辑器更多的还是sublime 3，但总是没由来的想把emacs用好，so～重新开始折腾吧
-一年以前，看了一个博客：一年变成emacs高手，可惜一年之后还是菜鸟一只…
-废话不多说，因为已经用惯了vim和sublime，而且sublime天生就是可以支持vim键位">
+    <meta name="description" content="学习使用emacs很多年了，但是一直因为更喜欢vim编辑文本时候飞一样的感觉，所以总是没有动力去学习它。 现在的工作是前端，工作用的编辑器更多的还是sublime 3，但总是没由来的想把emacs用好，so～重新开始折腾吧 一年以前，看了一个博客：一年变成emacs高手，可惜一年之后还是菜鸟一只… 废话不多说，因为已经用惯了vim和sublime，而且sublime天生就是可以支持vim键位">
+<meta name="keywords" content="emacs,快捷键,irc">
 <meta property="og:type" content="article">
 <meta property="og:title" content="初级折腾emacs">
 <meta property="og:url" content="http://yoursite.com/2014/12/15/2014121502/index.html">
 <meta property="og:site_name" content="Taxus">
-<meta property="og:description" content="学习使用emacs很多年了，但是一直因为更喜欢vim编辑文本时候飞一样的感觉，所以总是没有动力去学习它。
-现在的工作是前端，工作用的编辑器更多的还是sublime 3，但总是没由来的想把emacs用好，so～重新开始折腾吧
-一年以前，看了一个博客：一年变成emacs高手，可惜一年之后还是菜鸟一只…
-废话不多说，因为已经用惯了vim和sublime，而且sublime天生就是可以支持vim键位">
+<meta property="og:description" content="学习使用emacs很多年了，但是一直因为更喜欢vim编辑文本时候飞一样的感觉，所以总是没有动力去学习它。 现在的工作是前端，工作用的编辑器更多的还是sublime 3，但总是没由来的想把emacs用好，so～重新开始折腾吧 一年以前，看了一个博客：一年变成emacs高手，可惜一年之后还是菜鸟一只… 废话不多说，因为已经用惯了vim和sublime，而且sublime天生就是可以支持vim键位">
+<meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://i.imgur.com/gs66wa9.png">
 <meta property="og:image" content="http://i.imgur.com/kl95Z3g.png">
 <meta property="og:updated_time" content="2016-07-12T04:02:32.419Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="初级折腾emacs">
-<meta name="twitter:description" content="学习使用emacs很多年了，但是一直因为更喜欢vim编辑文本时候飞一样的感觉，所以总是没有动力去学习它。
-现在的工作是前端，工作用的编辑器更多的还是sublime 3，但总是没由来的想把emacs用好，so～重新开始折腾吧
-一年以前，看了一个博客：一年变成emacs高手，可惜一年之后还是菜鸟一只…
-废话不多说，因为已经用惯了vim和sublime，而且sublime天生就是可以支持vim键位">
+<meta name="twitter:description" content="学习使用emacs很多年了，但是一直因为更喜欢vim编辑文本时候飞一样的感觉，所以总是没有动力去学习它。 现在的工作是前端，工作用的编辑器更多的还是sublime 3，但总是没由来的想把emacs用好，so～重新开始折腾吧 一年以前，看了一个博客：一年变成emacs高手，可惜一年之后还是菜鸟一只… 废话不多说，因为已经用惯了vim和sublime，而且sublime天生就是可以支持vim键位">
+<meta name="twitter:image" content="http://i.imgur.com/gs66wa9.png">
 
     
     <link rel="alternative" href="/atom.xml" title="Taxus" type="application/atom+xml">
@@ -43,7 +37,7 @@
     <link rel="apple-touch-icon" href="/img/jacman.jpg">
     <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
     
-    <link rel="stylesheet" href="/css/style.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    <link rel="stylesheet" href="/css/style.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
   <body>
@@ -98,7 +92,7 @@
 		<a href="/about" title="Taxus" target="_blank" itemprop="author">Taxus</a>
 		
   <p class="article-time">
-    <time datetime="2014-12-15T08:34:39.000Z" itemprop="datePublished"> 发表于 Dec 15 2014</time>
+    <time datetime="2014-12-15T09:34:39.000Z" itemprop="datePublished"> 发表于 Dec 15 2014</time>
     
   </p>
 </header>
@@ -292,7 +286,7 @@
 <ol style="list-style-type: decimal">
 <li>下载颜色的源码 <a href="http://melpa.org/#/zonokai-theme" title="melpa官方地址" target="_blank" rel="external">melpa官方地址</a></li>
 <li>之后把文件夹拷贝到C:.emacs.d-lisp</li>
-<li>之后在init.el中添加 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(require &#39;zonokai-theme)&#10;(zonokai-blue-theme)</span><br></pre></td></tr></table></figure></li>
+<li>之后在init.el中添加 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">(require &apos;zonokai-theme)</div><div class="line">(zonokai-blue-theme)</div></pre></td></tr></table></figure></li>
 </ol>
 <p>即可成功启动</p>
 <p>但还是有问题，返回<code>Invalid face:dropdown-list</code></p>
@@ -300,7 +294,7 @@
 <ol style="list-style-type: decimal">
 <li>在上<a href="https://raw.githubusercontent.com/jbw/color-theme-mac-classic/master/color-theme-mac-classic.el" target="_blank" rel="external">github</a>下载源码</li>
 <li>在目录中新建文件夹color-theme-mac-classic，将el文件放入其中</li>
-<li>在(require ’color-theme)之后添加 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(color-theme-initialize)&#10;(load-file &#34;~/.emacs.d/site-lisp/color-theme-mac-classic/color-theme-mac-classic.el&#34;)&#10;;; &#10;;; And then to to activate:&#10;(color-theme-mac-classic)</span><br></pre></td></tr></table></figure></li>
+<li>在(require ’color-theme)之后添加 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">(color-theme-initialize)</div><div class="line">(load-file &quot;~/.emacs.d/site-lisp/color-theme-mac-classic/color-theme-mac-classic.el&quot;)</div><div class="line">;; </div><div class="line">;; And then to to activate:</div><div class="line">(color-theme-mac-classic)</div></pre></td></tr></table></figure></li>
 </ol>
 <p>https://github.com/sellout/emacs-color-theme-solarized</p>
 <h1 id="文件管理">4.文件管理</h1>
@@ -312,7 +306,7 @@
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/emacs/">emacs</a><a href="/tags/irc/">irc</a><a href="/tags/快捷键/">快捷键</a>
+  <span></span> <a href="/tags/emacs/">emacs</a><a href="/tags/快捷键/">快捷键</a><a href="/tags/irc/">irc</a>
   </div>
 
 </div>
@@ -397,6 +391,10 @@
 			
 		
 			
+				<li><a href="/tags/git/" title="git">git<sup>2</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/chromium/" title="chromium">chromium<sup>2</sup></a></li>
 			
 		
@@ -405,27 +403,27 @@
 			
 		
 			
-				<li><a href="/tags/git/" title="git">git<sup>2</sup></a></li>
+				<li><a href="/tags/zsh/" title="zsh">zsh<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/grunt/" title="grunt">grunt<sup>1</sup></a></li>
+				<li><a href="/tags/2014/" title="2014">2014<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/CSS/" title="CSS">CSS<sup>1</sup></a></li>
+				<li><a href="/tags/读书/" title="读书">读书<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/touch/" title="touch">touch<sup>1</sup></a></li>
+				<li><a href="/tags/清单/" title="清单">清单<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/hexo/" title="hexo">hexo<sup>1</sup></a></li>
+				<li><a href="/tags/快捷键/" title="快捷键">快捷键<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/主题/" title="主题">主题<sup>1</sup></a></li>
+				<li><a href="/tags/加密/" title="加密">加密<sup>1</sup></a></li>
 			
 		
 			
@@ -433,7 +431,7 @@
 			
 		
 			
-				<li><a href="/tags/zsh/" title="zsh">zsh<sup>1</sup></a></li>
+				<li><a href="/tags/hexo/" title="hexo">hexo<sup>1</sup></a></li>
 			
 		
 			
@@ -445,15 +443,11 @@
 			
 		
 			
-				<li><a href="/tags/配置/" title="配置">配置<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/加密/" title="加密">加密<sup>1</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/RSA/" title="RSA">RSA<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/主题/" title="主题">主题<sup>1</sup></a></li>
 			
 		
 		</ul>

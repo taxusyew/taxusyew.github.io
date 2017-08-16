@@ -11,25 +11,18 @@
     
 
     
-    <meta name="description" content="visibility:hidden和display:none
-例子来源 stackoverflow
-visibility:hidden隐藏以后元素占据空间并没有消失
-display:none之后，整个元素的空间消失">
+    <meta name="description" content="visibility:hidden和display:none 例子来源 stackoverflow visibility:hidden隐藏以后元素占据空间并没有消失 display:none之后，整个元素的空间消失">
+<meta name="keywords" content="CSS">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CSS 小实验">
 <meta property="og:url" content="http://yoursite.com/2015/07/07/20150707-css-experiment/index.html">
 <meta property="og:site_name" content="Taxus">
-<meta property="og:description" content="visibility:hidden和display:none
-例子来源 stackoverflow
-visibility:hidden隐藏以后元素占据空间并没有消失
-display:none之后，整个元素的空间消失">
+<meta property="og:description" content="visibility:hidden和display:none 例子来源 stackoverflow visibility:hidden隐藏以后元素占据空间并没有消失 display:none之后，整个元素的空间消失">
+<meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2016-07-12T04:02:01.213Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSS 小实验">
-<meta name="twitter:description" content="visibility:hidden和display:none
-例子来源 stackoverflow
-visibility:hidden隐藏以后元素占据空间并没有消失
-display:none之后，整个元素的空间消失">
+<meta name="twitter:description" content="visibility:hidden和display:none 例子来源 stackoverflow visibility:hidden隐藏以后元素占据空间并没有消失 display:none之后，整个元素的空间消失">
 
     
     <link rel="alternative" href="/atom.xml" title="Taxus" type="application/atom+xml">
@@ -41,7 +34,7 @@ display:none之后，整个元素的空间消失">
     <link rel="apple-touch-icon" href="/img/jacman.jpg">
     <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
     
-    <link rel="stylesheet" href="/css/style.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    <link rel="stylesheet" href="/css/style.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
   <body>
@@ -96,7 +89,7 @@ display:none之后，整个元素的空间消失">
 		<a href="/about" title="Taxus" target="_blank" itemprop="author">Taxus</a>
 		
   <p class="article-time">
-    <time datetime="2015-07-07T01:18:34.000Z" itemprop="datePublished"> 发表于 Jul 7 2015</time>
+    <time datetime="2015-07-07T02:18:34.000Z" itemprop="datePublished"> 发表于 Jul 7 2015</time>
     
   </p>
 </header>
@@ -112,9 +105,9 @@ display:none之后，整个元素的空间消失">
 		<h1 id="visibilityhidden和displaynone">visibility:hidden和display:none</h1>
 <p>例子来源 <a href="http://stackoverflow.com/questions/133051/what-is-the-difference-between-visibilityhidden-and-displaynone" target="_blank" rel="external">stackoverflow</a></p>
 <p>visibility:hidden隐藏以后元素占据空间并没有消失</p>
-<p>display:none之后，整个元素的空间消失 <a id="more"></a> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">test</span> | &lt;span style=<span class="string">"visibility:hidden"</span>&gt;Appropriate style <span class="keyword">in</span> this tag&lt;/span&gt; | <span class="built_in">test</span></span><br><span class="line">→ <span class="built_in">test</span> |              | <span class="built_in">test</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">test</span> | &lt;span style=<span class="string">"display:none"</span>&gt;Appropriate style <span class="keyword">in</span> this tag&lt;/span&gt; | <span class="built_in">test</span></span><br><span class="line">→ <span class="built_in">test</span> | | <span class="built_in">test</span></span><br></pre></td></tr></table></figure></p>
+<p>display:none之后，整个元素的空间消失 <a id="more"></a> <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">test</span> | &lt;span style=<span class="string">"visibility:hidden"</span>&gt;Appropriate style <span class="keyword">in</span> this tag&lt;/span&gt; | <span class="built_in">test</span></div><div class="line">→ <span class="built_in">test</span> |              | <span class="built_in">test</span></div><div class="line"></div><div class="line"><span class="built_in">test</span> | &lt;span style=<span class="string">"display:none"</span>&gt;Appropriate style <span class="keyword">in</span> this tag&lt;/span&gt; | <span class="built_in">test</span></div><div class="line">→ <span class="built_in">test</span> | | <span class="built_in">test</span></div></pre></td></tr></table></figure></p>
 <h1 id="居中absolute元素">居中absolute元素</h1>
-<p>由<a href="http://stackoverflow.com/questions/1776915/how-to-center-absolute-element-in-div?rq=1" target="_blank" rel="external">bobince的回答</a>而来 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;div style=<span class="string">"position: absolute; left: 50%;"</span>&gt;</span><br><span class="line">    <span class="xml"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">style</span>=<span class="value">"position: relative; left: -50%; border: dotted red 1px;"</span>&gt;</span></span><br><span class="line">        这是一个水平居中元素 <span class="tag">&lt;<span class="title">br</span> /&gt;</span></span><br><span class="line">        可以在IE6,7,8,chrome,ff中使用</span><br><span class="line">    <span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span></span><br></pre></td></tr></table></figure></p>
+<p>由<a href="http://stackoverflow.com/questions/1776915/how-to-center-absolute-element-in-div?rq=1" target="_blank" rel="external">bobince的回答</a>而来 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;div style=<span class="string">"position: absolute; left: 50%;"</span>&gt;</div><div class="line">    &lt;div style=<span class="string">"position: relative; left: -50%; border: dotted red 1px;"</span>&gt;</div><div class="line">        这是一个水平居中元素 &lt;br /&gt;</div><div class="line">        可以在IE6,<span class="number">7</span>,<span class="number">8</span>,chrome,ff中使用</div><div class="line">    &lt;<span class="regexp">/div&gt;</span></div><div class="line"><span class="regexp">&lt;/</span>div&gt;</div></pre></td></tr></table></figure></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -208,6 +201,10 @@ display:none之后，整个元素的空间消失">
 			
 		
 			
+				<li><a href="/tags/git/" title="git">git<sup>2</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/chromium/" title="chromium">chromium<sup>2</sup></a></li>
 			
 		
@@ -216,27 +213,27 @@ display:none之后，整个元素的空间消失">
 			
 		
 			
-				<li><a href="/tags/git/" title="git">git<sup>2</sup></a></li>
+				<li><a href="/tags/zsh/" title="zsh">zsh<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/grunt/" title="grunt">grunt<sup>1</sup></a></li>
+				<li><a href="/tags/2014/" title="2014">2014<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/CSS/" title="CSS">CSS<sup>1</sup></a></li>
+				<li><a href="/tags/读书/" title="读书">读书<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/touch/" title="touch">touch<sup>1</sup></a></li>
+				<li><a href="/tags/清单/" title="清单">清单<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/hexo/" title="hexo">hexo<sup>1</sup></a></li>
+				<li><a href="/tags/快捷键/" title="快捷键">快捷键<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/主题/" title="主题">主题<sup>1</sup></a></li>
+				<li><a href="/tags/加密/" title="加密">加密<sup>1</sup></a></li>
 			
 		
 			
@@ -244,7 +241,7 @@ display:none之后，整个元素的空间消失">
 			
 		
 			
-				<li><a href="/tags/zsh/" title="zsh">zsh<sup>1</sup></a></li>
+				<li><a href="/tags/hexo/" title="hexo">hexo<sup>1</sup></a></li>
 			
 		
 			
@@ -256,15 +253,11 @@ display:none之后，整个元素的空间消失">
 			
 		
 			
-				<li><a href="/tags/配置/" title="配置">配置<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/加密/" title="加密">加密<sup>1</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/RSA/" title="RSA">RSA<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/主题/" title="主题">主题<sup>1</sup></a></li>
 			
 		
 		</ul>

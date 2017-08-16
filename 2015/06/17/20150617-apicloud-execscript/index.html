@@ -11,25 +11,18 @@
     
 
     
-    <meta name="description" content="传递对象
-正确方式：先转义再传递，并且用单引号包裹
-1234api.execScript(&amp;#123;    name:&apos;win_withdraw&apos;,    script:&apos;switchCard(\&apos;&apos;+JSON.stringify(gBankList[_index])+&apos;\&apos;);&apos;&amp;#125;);
-接收方 1234function switchCard (_str) &amp;#123;    v">
+    <meta name="description" content="传递对象 正确方式：先转义再传递，并且用单引号包裹 1234api.execScript(&amp;#123;    name:&apos;win_withdraw&apos;,    script:&apos;switchCard(\&apos;&apos;+JSON.stringify(gBankList[_index])+&apos;\&apos;);&apos;&amp;#125;); 接收方 1234function switchCard (_str) &amp;#123;    v">
+<meta name="keywords" content="JS,APICloud">
 <meta property="og:type" content="article">
 <meta property="og:title" content="execScript传递参数详解">
 <meta property="og:url" content="http://yoursite.com/2015/06/17/20150617-apicloud-execscript/index.html">
 <meta property="og:site_name" content="Taxus">
-<meta property="og:description" content="传递对象
-正确方式：先转义再传递，并且用单引号包裹
-1234api.execScript(&amp;#123;    name:&apos;win_withdraw&apos;,    script:&apos;switchCard(\&apos;&apos;+JSON.stringify(gBankList[_index])+&apos;\&apos;);&apos;&amp;#125;);
-接收方 1234function switchCard (_str) &amp;#123;    v">
+<meta property="og:description" content="传递对象 正确方式：先转义再传递，并且用单引号包裹 1234api.execScript(&amp;#123;    name:&apos;win_withdraw&apos;,    script:&apos;switchCard(\&apos;&apos;+JSON.stringify(gBankList[_index])+&apos;\&apos;);&apos;&amp;#125;); 接收方 1234function switchCard (_str) &amp;#123;    v">
+<meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2016-07-12T04:01:47.598Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="execScript传递参数详解">
-<meta name="twitter:description" content="传递对象
-正确方式：先转义再传递，并且用单引号包裹
-1234api.execScript(&amp;#123;    name:&apos;win_withdraw&apos;,    script:&apos;switchCard(\&apos;&apos;+JSON.stringify(gBankList[_index])+&apos;\&apos;);&apos;&amp;#125;);
-接收方 1234function switchCard (_str) &amp;#123;    v">
+<meta name="twitter:description" content="传递对象 正确方式：先转义再传递，并且用单引号包裹 1234api.execScript(&amp;#123;    name:&apos;win_withdraw&apos;,    script:&apos;switchCard(\&apos;&apos;+JSON.stringify(gBankList[_index])+&apos;\&apos;);&apos;&amp;#125;); 接收方 1234function switchCard (_str) &amp;#123;    v">
 
     
     <link rel="alternative" href="/atom.xml" title="Taxus" type="application/atom+xml">
@@ -41,7 +34,7 @@
     <link rel="apple-touch-icon" href="/img/jacman.jpg">
     <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
     
-    <link rel="stylesheet" href="/css/style.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    <link rel="stylesheet" href="/css/style.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
   <body>
@@ -96,7 +89,7 @@
 		<a href="/about" title="Taxus" target="_blank" itemprop="author">Taxus</a>
 		
   <p class="article-time">
-    <time datetime="2015-06-17T07:08:33.000Z" itemprop="datePublished"> 发表于 Jun 17 2015</time>
+    <time datetime="2015-06-17T08:08:33.000Z" itemprop="datePublished"> 发表于 Jun 17 2015</time>
     
   </p>
 </header>
@@ -111,21 +104,21 @@
 		
 		<h1 id="传递对象">传递对象</h1>
 <h2 id="正确方式先转义再传递并且用单引号包裹">正确方式：先转义再传递，并且用单引号包裹</h2>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">api.execScript(&#123;</span><br><span class="line">    name:<span class="string">'win_withdraw'</span>,</span><br><span class="line">    script:<span class="string">'switchCard(\''</span>+<span class="built_in">JSON</span>.stringify(gBankList[_index])+<span class="string">'\');'</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>接收方 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">switchCard</span> (<span class="params">_str</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> _obj = <span class="built_in">JSON</span>.parse(_str);</span><br><span class="line">	<span class="comment">// Do something</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">api.execScript(&#123;</div><div class="line">    name:<span class="string">'win_withdraw'</span>,</div><div class="line">    script:<span class="string">'switchCard(\''</span>+<span class="built_in">JSON</span>.stringify(gBankList[_index])+<span class="string">'\');'</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>接收方 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">switchCard</span> (<span class="params">_str</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> _obj = <span class="built_in">JSON</span>.parse(_str);</div><div class="line">	<span class="comment">// Do something</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <a id="more"></a>
 <p>错误↓ <code>script:'switchCard('+JSON.stringify(gBankList[_index])+');'</code> 如果不加单引号，在接收方<code>JSON.parse(_str)</code>的时候会报错</p>
 <h2 id="直接传递对象">直接传递对象</h2>
 <p><code>script:'switchCard('+gBankList[_index]+');'</code> 此时会报<strong>运行时</strong>错误 <code>Uncaught ReferenceError: XXX is not defined at JsRuntime: 1</code></p>
 <h1 id="传递字符串">传递字符串</h1>
-<p>正确↓ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var str = &#34;foo&#34;;&#10;api.execScript(&#123;&#10;    name:&#39;win_withdraw&#39;,&#10;    script:&#39;switchCard(&#34;&#39;+str+&#39;&#34;);&#39;&#10;&#125;);</span><br></pre></td></tr></table></figure></p>
-<p>正确↓ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var str = &#34;foo&#34;;&#10;api.execScript(&#123;&#10;    name:&#39;win_withdraw&#39;,&#10;    script:&#39;switchCard(\&#39;&#39;+str+&#39;\&#39;);&#39;&#10;&#125;);</span><br></pre></td></tr></table></figure></p>
-<p>错误↓ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var str = &#34;foo&#34;;&#10;api.execScript(&#123;&#10;    name:&#39;win_withdraw&#39;,&#10;    script:&#39;switchCard(&#39;+str+&#39;);&#39;&#10;&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>正确↓ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var str = &quot;foo&quot;;</div><div class="line">api.execScript(&#123;</div><div class="line">    name:&apos;win_withdraw&apos;,</div><div class="line">    script:&apos;switchCard(&quot;&apos;+str+&apos;&quot;);&apos;</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>正确↓ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var str = &quot;foo&quot;;</div><div class="line">api.execScript(&#123;</div><div class="line">    name:&apos;win_withdraw&apos;,</div><div class="line">    script:&apos;switchCard(\&apos;&apos;+str+&apos;\&apos;);&apos;</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>错误↓ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var str = &quot;foo&quot;;</div><div class="line">api.execScript(&#123;</div><div class="line">    name:&apos;win_withdraw&apos;,</div><div class="line">    script:&apos;switchCard(&apos;+str+&apos;);&apos;</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
 <blockquote>
 <p>以上情况 var str = “foo” 与 var str = ‘foo’ 等价</p>
 </blockquote>
 <h1 id="传递数字">传递数字</h1>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var num = 123;&#10;api.execScript(&#123;&#10;    name:&#39;win_withdraw&#39;,&#10;    script:&#39;switchCard(&#39;+num+&#39;);&#39;&#10;&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var num = 123;</div><div class="line">api.execScript(&#123;</div><div class="line">    name:&apos;win_withdraw&apos;,</div><div class="line">    script:&apos;switchCard(&apos;+num+&apos;);&apos;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -134,7 +127,7 @@
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/APICloud/">APICloud</a><a href="/tags/JS/">JS</a>
+  <span></span> <a href="/tags/JS/">JS</a><a href="/tags/APICloud/">APICloud</a>
   </div>
 
 </div>
@@ -219,6 +212,10 @@
 			
 		
 			
+				<li><a href="/tags/git/" title="git">git<sup>2</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/chromium/" title="chromium">chromium<sup>2</sup></a></li>
 			
 		
@@ -227,27 +224,27 @@
 			
 		
 			
-				<li><a href="/tags/git/" title="git">git<sup>2</sup></a></li>
+				<li><a href="/tags/zsh/" title="zsh">zsh<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/grunt/" title="grunt">grunt<sup>1</sup></a></li>
+				<li><a href="/tags/2014/" title="2014">2014<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/CSS/" title="CSS">CSS<sup>1</sup></a></li>
+				<li><a href="/tags/读书/" title="读书">读书<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/touch/" title="touch">touch<sup>1</sup></a></li>
+				<li><a href="/tags/清单/" title="清单">清单<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/hexo/" title="hexo">hexo<sup>1</sup></a></li>
+				<li><a href="/tags/快捷键/" title="快捷键">快捷键<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/主题/" title="主题">主题<sup>1</sup></a></li>
+				<li><a href="/tags/加密/" title="加密">加密<sup>1</sup></a></li>
 			
 		
 			
@@ -255,7 +252,7 @@
 			
 		
 			
-				<li><a href="/tags/zsh/" title="zsh">zsh<sup>1</sup></a></li>
+				<li><a href="/tags/hexo/" title="hexo">hexo<sup>1</sup></a></li>
 			
 		
 			
@@ -267,15 +264,11 @@
 			
 		
 			
-				<li><a href="/tags/配置/" title="配置">配置<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/加密/" title="加密">加密<sup>1</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/RSA/" title="RSA">RSA<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/主题/" title="主题">主题<sup>1</sup></a></li>
 			
 		
 		</ul>

@@ -11,20 +11,20 @@
     
 
     
-    <meta name="description" content="回调函数
-123456789101112131415161718192021// 测试类function Caller () &amp;#123;      	return &amp;#123;		caller : function (_callback) &amp;#123;			_callback();		&amp;#125;	&amp;#125;   &amp;#125;    // 回调函数function JobCallback (">
+    <meta name="description" content="回调函数 123456789101112131415161718192021// 测试类function Caller () &amp;#123;      	return &amp;#123;		caller : function (_callback) &amp;#123;			_callback();		&amp;#125;	&amp;#125;   &amp;#125;    // 回调函数function JobCallback (">
+<meta name="keywords" content="JS">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Javascript 小实验">
 <meta property="og:url" content="http://yoursite.com/2015/05/14/20150514-experiment/index.html">
 <meta property="og:site_name" content="Taxus">
-<meta property="og:description" content="回调函数
-123456789101112131415161718192021// 测试类function Caller () &amp;#123;      	return &amp;#123;		caller : function (_callback) &amp;#123;			_callback();		&amp;#125;	&amp;#125;   &amp;#125;    // 回调函数function JobCallback (">
+<meta property="og:description" content="回调函数 123456789101112131415161718192021// 测试类function Caller () &amp;#123;      	return &amp;#123;		caller : function (_callback) &amp;#123;			_callback();		&amp;#125;	&amp;#125;   &amp;#125;    // 回调函数function JobCallback (">
+<meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://i.imgur.com/y9UiJ19.png">
 <meta property="og:updated_time" content="2016-07-12T04:01:33.144Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Javascript 小实验">
-<meta name="twitter:description" content="回调函数
-123456789101112131415161718192021// 测试类function Caller () &amp;#123;      	return &amp;#123;		caller : function (_callback) &amp;#123;			_callback();		&amp;#125;	&amp;#125;   &amp;#125;    // 回调函数function JobCallback (">
+<meta name="twitter:description" content="回调函数 123456789101112131415161718192021// 测试类function Caller () &amp;#123;      	return &amp;#123;		caller : function (_callback) &amp;#123;			_callback();		&amp;#125;	&amp;#125;   &amp;#125;    // 回调函数function JobCallback (">
+<meta name="twitter:image" content="http://i.imgur.com/y9UiJ19.png">
 
     
     <link rel="alternative" href="/atom.xml" title="Taxus" type="application/atom+xml">
@@ -36,7 +36,7 @@
     <link rel="apple-touch-icon" href="/img/jacman.jpg">
     <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
     
-    <link rel="stylesheet" href="/css/style.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    <link rel="stylesheet" href="/css/style.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
   <body>
@@ -91,7 +91,7 @@
 		<a href="/about" title="Taxus" target="_blank" itemprop="author">Taxus</a>
 		
   <p class="article-time">
-    <time datetime="2015-05-14T06:06:38.000Z" itemprop="datePublished"> 发表于 May 14 2015</time>
+    <time datetime="2015-05-14T07:06:38.000Z" itemprop="datePublished"> 发表于 May 14 2015</time>
     
   </p>
 </header>
@@ -105,27 +105,27 @@
 		</div>
 		
 		<h1 id="回调函数">回调函数</h1>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 测试类</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Caller</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      </span><br><span class="line">	<span class="keyword">return</span> &#123;</span><br><span class="line">		caller : <span class="function"><span class="keyword">function</span> (<span class="params">_callback</span>) </span>&#123;</span><br><span class="line">			_callback();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">   &#125;    </span><br><span class="line"></span><br><span class="line"><span class="comment">// 回调函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">JobCallback</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">       <span class="built_in">console</span>.log(<span class="string">'call'</span>);</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建对象</span></span><br><span class="line"><span class="keyword">var</span> CALLER = <span class="keyword">new</span> Caller();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 调用对象方法并添加回调</span></span><br><span class="line">CALLER.caller(JobCallback());  <span class="comment">// 会立即执行回调</span></span><br><span class="line">CALLER.caller(JobCallback);    <span class="comment">// 正确，会等到回调运行</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 测试类</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Caller</span> (<span class="params"></span>) </span>&#123;</div><div class="line">      </div><div class="line">	<span class="keyword">return</span> &#123;</div><div class="line">		caller : <span class="function"><span class="keyword">function</span> (<span class="params">_callback</span>) </span>&#123;</div><div class="line">			_callback();</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">   &#125;    </div><div class="line"></div><div class="line"><span class="comment">// 回调函数</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">JobCallback</span> (<span class="params"></span>) </span>&#123;</div><div class="line">       <span class="built_in">console</span>.log(<span class="string">'call'</span>);</div><div class="line">   &#125;</div><div class="line"></div><div class="line"><span class="comment">// 创建对象</span></div><div class="line"><span class="keyword">var</span> CALLER = <span class="keyword">new</span> Caller();</div><div class="line"></div><div class="line"><span class="comment">// 调用对象方法并添加回调</span></div><div class="line">CALLER.caller(JobCallback());  <span class="comment">// 会立即执行回调</span></div><div class="line">CALLER.caller(JobCallback);    <span class="comment">// 正确，会等到回调运行</span></div></pre></td></tr></table></figure>
 <a id="more"></a>
 <h1 id="this">this</h1>
 <h2 id="直接调用函数this绑定global">直接调用函数，this绑定global</h2>
 <p>例子改自《JavaScript精髓》 可以看到即使在对象方法的中调用了内部函数，该内部函数this依旧会绑定到global</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">var</span> calc = &#123;&#125;;</span><br><span class="line"></span><br><span class="line">calc.double = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> that = <span class="keyword">this</span>;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'double this -&gt;'</span>+<span class="keyword">this</span>);  <span class="comment">// double this -&gt;[object Object]</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> helper = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'helper this -&gt;'</span>+<span class="keyword">this</span>);  helper <span class="keyword">this</span> -&gt;[object Window]</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    helper();</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">calc.double()</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">var</span> calc = &#123;&#125;;</div><div class="line"></div><div class="line">calc.double = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> that = <span class="keyword">this</span>;</div><div class="line"></div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'double this -&gt;'</span>+<span class="keyword">this</span>);  <span class="comment">// double this -&gt;[object Object]</span></div><div class="line"></div><div class="line">    <span class="keyword">var</span> helper = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">'helper this -&gt;'</span>+<span class="keyword">this</span>);  helper <span class="keyword">this</span> -&gt;[object Window]</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    helper();</div><div class="line">&#125;;</div><div class="line"></div><div class="line">calc.double()</div></pre></td></tr></table></figure>
 <p>在IIFE里，也依旧不会改变</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">innertestThis</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> _test = <span class="string">'ha'</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> &#123;</span><br><span class="line">            apple : <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="keyword">this</span>);</span><br><span class="line">            &#125;,</span><br><span class="line">            orange : <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                <span class="function"><span class="keyword">function</span> <span class="title">helper</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">                    <span class="built_in">console</span>.log(<span class="keyword">this</span>);</span><br><span class="line">                &#125;</span><br><span class="line">                helper();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> _inner = innertestThis();</span><br><span class="line">    _inner.apple();    <span class="comment">// Object &#123;&#125;</span></span><br><span class="line">    _inner.orange();   <span class="comment">// Window &#123;top: Window, location: Location, document: document, window: Window, external: Object…&#125;</span></span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">innertestThis</span> (<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> _test = <span class="string">'ha'</span>;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> &#123;</div><div class="line">            apple : <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">                <span class="built_in">console</span>.log(<span class="keyword">this</span>);</div><div class="line">            &#125;,</div><div class="line">            orange : <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">                <span class="function"><span class="keyword">function</span> <span class="title">helper</span>(<span class="params"></span>) </span>&#123;</div><div class="line">                    <span class="built_in">console</span>.log(<span class="keyword">this</span>);</div><div class="line">                &#125;</div><div class="line">                helper();</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">var</span> _inner = innertestThis();</div><div class="line">    _inner.apple();    <span class="comment">// Object &#123;&#125;</span></div><div class="line">    _inner.orange();   <span class="comment">// Window &#123;top: Window, location: Location, document: document, window: Window, external: Object…&#125;</span></div><div class="line">&#125;)()</div></pre></td></tr></table></figure>
 <h1 id="绑定事件">绑定事件</h1>
 <p>测试对同一个元素绑定事件 <img src="http://i.imgur.com/y9UiJ19.png" alt="capture_bubble"></p>
 <p>HTML</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"out"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"in"</span> <span class="attribute">class</span>=<span class="value">"b a"</span>&gt;</span></span><br><span class="line">        Click This!!</span><br><span class="line">    <span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>JS <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">document.getElementById(&#39;out&#39;).addEventListener(&#39;click&#39;, function(e)&#123;&#10;    alert(e.eventPhase + &#34; : &#34; + e.target.id + &#39;4 bubble out&#39;);&#10;&#125;, false);&#10;document.getElementById(&#39;in&#39;).addEventListener(&#39;click&#39;, function(e)&#123;&#10;    alert(e.eventPhase + &#34; : &#34; + e.target.id + &#39;3 bubble in&#39;);&#10;&#125;, false);&#10;document.getElementById(&#39;out&#39;).addEventListener(&#39;click&#39;, function(e)&#123;&#10;    alert(e.eventPhase + &#34; : &#34; + e.target.id + &#39;1 capture out&#39;);&#10;&#125;, true);&#10;document.getElementById(&#39;in&#39;).addEventListener(&#39;click&#39;, function(e)&#123;&#10;    alert(e.eventPhase + &#34; : &#34; + e.target.id + &#39;2 capture in&#39;);&#10;&#125;, true);</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"out"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"in"</span> <span class="attr">class</span>=<span class="string">"b a"</span>&gt;</span></div><div class="line">        Click This!!</div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>JS <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">document.getElementById(&apos;out&apos;).addEventListener(&apos;click&apos;, function(e)&#123;</div><div class="line">    alert(e.eventPhase + &quot; : &quot; + e.target.id + &apos;4 bubble out&apos;);</div><div class="line">&#125;, false);</div><div class="line">document.getElementById(&apos;in&apos;).addEventListener(&apos;click&apos;, function(e)&#123;</div><div class="line">    alert(e.eventPhase + &quot; : &quot; + e.target.id + &apos;3 bubble in&apos;);</div><div class="line">&#125;, false);</div><div class="line">document.getElementById(&apos;out&apos;).addEventListener(&apos;click&apos;, function(e)&#123;</div><div class="line">    alert(e.eventPhase + &quot; : &quot; + e.target.id + &apos;1 capture out&apos;);</div><div class="line">&#125;, true);</div><div class="line">document.getElementById(&apos;in&apos;).addEventListener(&apos;click&apos;, function(e)&#123;</div><div class="line">    alert(e.eventPhase + &quot; : &quot; + e.target.id + &apos;2 capture in&apos;);</div><div class="line">&#125;, true);</div></pre></td></tr></table></figure></p>
 <p>注册顺序为 4 3 1 2 弹出顺序为 1 3 2 4</p>
 <p>注册顺序为 1 2 3 4 弹出顺序为 1 2 3 4</p>
 <p>因为2，3为同一个元素的同一个eventPhase，所以会按照注册顺序触发，但是整体大的方向是先捕获再冒泡，所以1和4的顺序从来没有颠倒过</p>
 <h1 id="prototype">prototype</h1>
 <h2 id="先对比object和function的proto属性chrome">先对比Object和Function的proto属性[chrome]</h2>
 <p>参考 <a href="http://stackoverflow.com/questions/26333923/different-between-object-tostring-and-object-prototype-tostring" target="_blank" rel="external">stackoverflow object tostring</a></p>
-<p>原本的Object是一个函数 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Object&#10;&#8594; function Object()</span><br></pre></td></tr></table></figure></p>
-<p>Object.prototype才是一个Object对象字面量 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Object.prototype&#10;&#8594; Object &#123;&#125;</span><br></pre></td></tr></table></figure></p>
+<p>原本的Object是一个函数 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Object</div><div class="line">→ function Object()</div></pre></td></tr></table></figure></p>
+<p>Object.prototype才是一个Object对象字面量 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Object.prototype</div><div class="line">→ Object &#123;&#125;</div></pre></td></tr></table></figure></p>
 <p>对比一下<strong>Object</strong>和<strong>Function</strong>与prototype相关的全部属性</p>
 <table>
 <thead>
@@ -157,31 +157,31 @@
 </tr>
 </tbody>
 </table>
-<p>可以明确看到, <code>Object.__proto__</code>并没有指向<code>Object.prototype</code> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Object.__proto__ === Object.prototype&#10;&#8594; false</span><br></pre></td></tr></table></figure></p>
-<p>再来对比一下 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Object.prototype === Function.prototype&#10;&#8594; false&#10;&#10;Function.prototype.__proto__ === Object.prototype&#10;&#8594; true</span><br></pre></td></tr></table></figure></p>
+<p>可以明确看到, <code>Object.__proto__</code>并没有指向<code>Object.prototype</code> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Object.__proto__ === Object.prototype</div><div class="line">→ false</div></pre></td></tr></table></figure></p>
+<p>再来对比一下 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Object.prototype === Function.prototype</div><div class="line">→ false</div><div class="line"></div><div class="line">Function.prototype.__proto__ === Object.prototype</div><div class="line">→ true</div></pre></td></tr></table></figure></p>
 <h1 id="奇特的相等">奇特的相等 ==</h1>
-<p>参考该文章 <a href="http://blog.mgechev.com/2013/02/22/javascript-the-weird-parts/" target="_blank" rel="external">javascript-the-weird-parts</a> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[1,2,3] == [1,2,3];&#10;&#8594; false&#10;&#10;[1,2,3] === [1,2,3];&#10;&#8594; false&#10;&#10;[1,2,3] == &#34;1,2,3&#34;&#10;&#8594; true</span><br></pre></td></tr></table></figure></p>
+<p>参考该文章 <a href="http://blog.mgechev.com/2013/02/22/javascript-the-weird-parts/" target="_blank" rel="external">javascript-the-weird-parts</a> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">[1,2,3] == [1,2,3];</div><div class="line">→ false</div><div class="line"></div><div class="line">[1,2,3] === [1,2,3];</div><div class="line">→ false</div><div class="line"></div><div class="line">[1,2,3] == &quot;1,2,3&quot;</div><div class="line">→ true</div></pre></td></tr></table></figure></p>
 <p>上面的情况容易解释，两个<code>[1,2,3]</code>的引用不同，所以判断的时候返回false</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[1,2,3] == &#34;1,2,3&#34;&#10;&#8594; true&#10;&#10;[1,2,3] === &#34;1,2,3&#34;&#10;&#8594; true</span><br></pre></td></tr></table></figure>
-<p>这个情况就比较奇特了，一个数组和一个字符串相等了，还有更奇特的 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">new Array(3) == &#34;,,&#34;;&#10;&#8594; true</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[1,2,3] == &quot;1,2,3&quot;</div><div class="line">→ true</div><div class="line"></div><div class="line">[1,2,3] === &quot;1,2,3&quot;</div><div class="line">→ true</div></pre></td></tr></table></figure>
+<p>这个情况就比较奇特了，一个数组和一个字符串相等了，还有更奇特的 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">new Array(3) == &quot;,,&quot;;</div><div class="line">→ true</div></pre></td></tr></table></figure></p>
 <p>上面两种情况，都是因为类型转换的时候用了<code>toString()</code>，可以看下对数组使用<code>toString()</code>之后的效果</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[1,2,3].toString();&#10;&#8594; &#34;1,2,3&#34;&#10;&#10;new Array(3).toString(); &#10;&#8594; &#34;,,&#34;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[1,2,3].toString();</div><div class="line">→ &quot;1,2,3&quot;</div><div class="line"></div><div class="line">new Array(3).toString(); </div><div class="line">→ &quot;,,&quot;</div></pre></td></tr></table></figure>
 <p>这就能理解为什么会出现<strong>数组等于字符串</strong>的情况</p>
 <h1 id="和">({}+[])和([]+[])</h1>
 <p>参考该文章 <a href="http://blog.mgechev.com/2013/02/22/javascript-the-weird-parts/" target="_blank" rel="external">javascript-the-weird-parts</a></p>
 <p>参考该文章 <a href="https://github.com/dherman/siggoscript" target="_blank" rel="external">github siggoscript</a></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(&#123;&#125;+[])[!+[]+!+[]+!+[]]+(![]+[])[!+[]+!+[]+!+[]]</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">(&#123;&#125;+[])[!+[]+!+[]+!+[]]+(![]+[])[!+[]+!+[]+!+[]]</div></pre></td></tr></table></figure>
 <p>可以先在浏览器看下会输出什么:smile: 首先拆分来看，这是两个字符<code>({}+[])[!+[]+!+[]+!+[]]</code>和<code>(![]+[])[!+[]+!+[]+!+[]]</code> 前面一个代表“j”，后面代表“s” 再来拆分: <code>({}+[])[!+[]+!+[]+!+[]] = ({}+[])  + [!+[]+!+[]+!+[]]</code> <code>({}+[])</code>输出的是<code>&quot;[object Object]&quot;</code> <code>[!+[]+!+[]+!+[]]</code>就是把上面的字符串当做数组来取数字，下标为<code>!+[]+!+[]+!+[] = 3</code> 整合起来就是取<code>&quot;[object Object]&quot;</code>下标为3的字符-&gt;“j”</p>
 <p>同理后面的<code>(![]+[])[!+[]+!+[]+!+[]]</code>就是从<code>&quot;false&quot;</code>中取出下标为3的字符 -&gt; “s”</p>
-<p>解释下面的问题 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">+!+[]</span><br></pre></td></tr></table></figure></p>
+<p>解释下面的问题 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">+!+[]</div></pre></td></tr></table></figure></p>
 <blockquote>
 <p>undefined, ``, ’’ are all false in JavaScript. So now the explanation… As we saw [] + [] is “”, so we might think for [] as for “”. As I mentioned “” is false so !“” is true. The prefix plus converts the boolean value to numer, so +true === 1.</p>
 </blockquote>
 <p>翻译一下： - javascript 中 undefined, ``, ’’ 都是 false - [] + [] = “” 即 [] = false - !false = true 即 [] = true - <code>+</code> 前缀把布尔值转换为数字，所以 +true === 1</p>
 <h1 id="构造函数">构造函数</h1>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var F = function()&#123;&#125;;&#10;Object.prototype.a = function()&#123;&#125;;&#10;Function.prototype.b = function()&#123;&#125;;&#10;var f = new F();</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var F = function()&#123;&#125;;</div><div class="line">Object.prototype.a = function()&#123;&#125;;</div><div class="line">Function.prototype.b = function()&#123;&#125;;</div><div class="line">var f = new F();</div></pre></td></tr></table></figure>
 <p>问：f 能不能拿到 a 方法和 b 方法 答：可以通过<code>f.constructor</code>拿到a,b，如果通过 f ，就只能拿到 a</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">f instanceof F&#10;&#8594; true&#10;&#10;f instanceof Function&#10;&#8594; false&#10;&#10;f instanceof Object&#10;&#8594; true</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">f instanceof F</div><div class="line">→ true</div><div class="line"></div><div class="line">f instanceof Function</div><div class="line">→ false</div><div class="line"></div><div class="line">f instanceof Object</div><div class="line">→ true</div></pre></td></tr></table></figure>
 <p>所以，为什么通过f拿不到b，因为f就不是Function的实例啊，类似的还有 Function.prototype.toString()和Object.prototype.toString()</p>
   
 	</div>
@@ -276,6 +276,10 @@
 			
 		
 			
+				<li><a href="/tags/git/" title="git">git<sup>2</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/chromium/" title="chromium">chromium<sup>2</sup></a></li>
 			
 		
@@ -284,27 +288,27 @@
 			
 		
 			
-				<li><a href="/tags/git/" title="git">git<sup>2</sup></a></li>
+				<li><a href="/tags/zsh/" title="zsh">zsh<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/grunt/" title="grunt">grunt<sup>1</sup></a></li>
+				<li><a href="/tags/2014/" title="2014">2014<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/CSS/" title="CSS">CSS<sup>1</sup></a></li>
+				<li><a href="/tags/读书/" title="读书">读书<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/touch/" title="touch">touch<sup>1</sup></a></li>
+				<li><a href="/tags/清单/" title="清单">清单<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/hexo/" title="hexo">hexo<sup>1</sup></a></li>
+				<li><a href="/tags/快捷键/" title="快捷键">快捷键<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/主题/" title="主题">主题<sup>1</sup></a></li>
+				<li><a href="/tags/加密/" title="加密">加密<sup>1</sup></a></li>
 			
 		
 			
@@ -312,7 +316,7 @@
 			
 		
 			
-				<li><a href="/tags/zsh/" title="zsh">zsh<sup>1</sup></a></li>
+				<li><a href="/tags/hexo/" title="hexo">hexo<sup>1</sup></a></li>
 			
 		
 			
@@ -324,15 +328,11 @@
 			
 		
 			
-				<li><a href="/tags/配置/" title="配置">配置<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/加密/" title="加密">加密<sup>1</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/RSA/" title="RSA">RSA<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/主题/" title="主题">主题<sup>1</sup></a></li>
 			
 		
 		</ul>

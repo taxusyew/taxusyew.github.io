@@ -11,29 +11,20 @@
     
 
     
-    <meta name="description" content="Multi-process Architecture
-这篇文档描述了 Chromium 的高层次架构。
-问题
-建造一个从不崩溃或宕机的渲染引擎几乎是不可能的。同样建造一个有着完美安全性的渲染引擎也几乎是不可能的。
-从某些方式上来看，当前浏览器的状况和从协作单用户（ single-user, co-operatively）、多任务操作系统很类似。这种操作系统上的应用一个失误（misbehav">
+    <meta name="description" content="Multi-process Architecture 这篇文档描述了 Chromium 的高层次架构。 问题 建造一个从不崩溃或宕机的渲染引擎几乎是不可能的。同样建造一个有着完美安全性的渲染引擎也几乎是不可能的。 从某些方式上来看，当前浏览器的状况和从协作单用户（ single-user, co-operatively）、多任务操作系统很类似。这种操作系统上的应用一个失误（misbehav">
+<meta name="keywords" content="chromium">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Chromium多进程框架">
 <meta property="og:url" content="http://yoursite.com/2015/08/14/20150814-Chromium-Multi-process/index.html">
 <meta property="og:site_name" content="Taxus">
-<meta property="og:description" content="Multi-process Architecture
-这篇文档描述了 Chromium 的高层次架构。
-问题
-建造一个从不崩溃或宕机的渲染引擎几乎是不可能的。同样建造一个有着完美安全性的渲染引擎也几乎是不可能的。
-从某些方式上来看，当前浏览器的状况和从协作单用户（ single-user, co-operatively）、多任务操作系统很类似。这种操作系统上的应用一个失误（misbehav">
+<meta property="og:description" content="Multi-process Architecture 这篇文档描述了 Chromium 的高层次架构。 问题 建造一个从不崩溃或宕机的渲染引擎几乎是不可能的。同样建造一个有着完美安全性的渲染引擎也几乎是不可能的。 从某些方式上来看，当前浏览器的状况和从协作单用户（ single-user, co-operatively）、多任务操作系统很类似。这种操作系统上的应用一个失误（misbehav">
+<meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://i.imgur.com/UlvuMWw.png">
 <meta property="og:updated_time" content="2016-07-12T04:25:07.828Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Chromium多进程框架">
-<meta name="twitter:description" content="Multi-process Architecture
-这篇文档描述了 Chromium 的高层次架构。
-问题
-建造一个从不崩溃或宕机的渲染引擎几乎是不可能的。同样建造一个有着完美安全性的渲染引擎也几乎是不可能的。
-从某些方式上来看，当前浏览器的状况和从协作单用户（ single-user, co-operatively）、多任务操作系统很类似。这种操作系统上的应用一个失误（misbehav">
+<meta name="twitter:description" content="Multi-process Architecture 这篇文档描述了 Chromium 的高层次架构。 问题 建造一个从不崩溃或宕机的渲染引擎几乎是不可能的。同样建造一个有着完美安全性的渲染引擎也几乎是不可能的。 从某些方式上来看，当前浏览器的状况和从协作单用户（ single-user, co-operatively）、多任务操作系统很类似。这种操作系统上的应用一个失误（misbehav">
+<meta name="twitter:image" content="http://i.imgur.com/UlvuMWw.png">
 
     
     <link rel="alternative" href="/atom.xml" title="Taxus" type="application/atom+xml">
@@ -45,7 +36,7 @@
     <link rel="apple-touch-icon" href="/img/jacman.jpg">
     <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
     
-    <link rel="stylesheet" href="/css/style.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    <link rel="stylesheet" href="/css/style.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
   <body>
@@ -100,7 +91,7 @@
 		<a href="/about" title="Taxus" target="_blank" itemprop="author">Taxus</a>
 		
   <p class="article-time">
-    <time datetime="2015-08-14T00:34:26.000Z" itemprop="datePublished"> 发表于 Aug 14 2015</time>
+    <time datetime="2015-08-14T01:34:26.000Z" itemprop="datePublished"> 发表于 Aug 14 2015</time>
     
   </p>
 </header>
@@ -240,6 +231,10 @@
 			
 		
 			
+				<li><a href="/tags/git/" title="git">git<sup>2</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/chromium/" title="chromium">chromium<sup>2</sup></a></li>
 			
 		
@@ -248,27 +243,27 @@
 			
 		
 			
-				<li><a href="/tags/git/" title="git">git<sup>2</sup></a></li>
+				<li><a href="/tags/zsh/" title="zsh">zsh<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/grunt/" title="grunt">grunt<sup>1</sup></a></li>
+				<li><a href="/tags/2014/" title="2014">2014<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/CSS/" title="CSS">CSS<sup>1</sup></a></li>
+				<li><a href="/tags/读书/" title="读书">读书<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/touch/" title="touch">touch<sup>1</sup></a></li>
+				<li><a href="/tags/清单/" title="清单">清单<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/hexo/" title="hexo">hexo<sup>1</sup></a></li>
+				<li><a href="/tags/快捷键/" title="快捷键">快捷键<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/主题/" title="主题">主题<sup>1</sup></a></li>
+				<li><a href="/tags/加密/" title="加密">加密<sup>1</sup></a></li>
 			
 		
 			
@@ -276,7 +271,7 @@
 			
 		
 			
-				<li><a href="/tags/zsh/" title="zsh">zsh<sup>1</sup></a></li>
+				<li><a href="/tags/hexo/" title="hexo">hexo<sup>1</sup></a></li>
 			
 		
 			
@@ -288,15 +283,11 @@
 			
 		
 			
-				<li><a href="/tags/配置/" title="配置">配置<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/加密/" title="加密">加密<sup>1</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/RSA/" title="RSA">RSA<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/主题/" title="主题">主题<sup>1</sup></a></li>
 			
 		
 		</ul>
